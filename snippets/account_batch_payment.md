@@ -23,7 +23,6 @@ Inherit ID: `account_batch_payment.print_batch_payment`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml)\
 Source: [snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml](https://odoo.build/snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml)
 
@@ -35,9 +34,9 @@ Inherit ID: `account_batch_payment.print_batch_payment`
 ```xml
 <data priority="50">
     <xpath expr=" //tr[@t-as='payment']" position="replace">
-
+      
       <t t-set="sorted_payments" t-value="sorted(o.payment_ids, key=lambda p: (p.partner_id.name or ''))"/>
-
+      
         <tr t-foreach="sorted_payments" t-as="payment">
             <td class="text-start">
                 <t t-esc="payment.partner_id.name"/>
@@ -52,11 +51,10 @@ Inherit ID: `account_batch_payment.print_batch_payment`
                 <t t-esc="payment.amount" t-options="{'widget': 'monetary', 'display_currency': payment.currency_id}"/>
             </td>
         </tr>
-
+       
     </xpath>
 </data>
 ```
-
 Edit: [snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml)\
 Source: [snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml](https://odoo.build/snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml)
 
@@ -75,6 +73,6 @@ Inherit ID: `account_batch_payment.view_batch_payment_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml)\
 Source: [snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://odoo.build/snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml)
+

@@ -15,7 +15,6 @@ Inherit ID: `business_requirement.view_business_requirement_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.business_requirement.view_business_requirement_form.clickable_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.business_requirement.view_business_requirement_form.clickable_state.xml)\
 Source: [snippets/mint_system.business_requirement.view_business_requirement_form.clickable_state.xml](https://odoo.build/snippets/mint_system.business_requirement.view_business_requirement_form.clickable_state.xml)
 
@@ -30,7 +29,6 @@ Inherit ID: `business_requirement.view_business_requirement_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.business_requirement.view_business_requirement_form.hide_scenario.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.business_requirement.view_business_requirement_form.hide_scenario.xml)\
 Source: [snippets/mint_system.business_requirement.view_business_requirement_form.hide_scenario.xml](https://odoo.build/snippets/mint_system.business_requirement.view_business_requirement_form.hide_scenario.xml)
 
@@ -45,7 +43,6 @@ Inherit ID: `business_requirement.view_business_requirement_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.business_requirement.view_business_requirement_form.hide_terms_and_conditions.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.business_requirement.view_business_requirement_form.hide_terms_and_conditions.xml)\
 Source: [snippets/mint_system.business_requirement.view_business_requirement_form.hide_terms_and_conditions.xml](https://odoo.build/snippets/mint_system.business_requirement.view_business_requirement_form.hide_terms_and_conditions.xml)
 
@@ -60,7 +57,6 @@ Inherit ID: `business_requirement.view_business_requirement_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.business_requirement.view_business_requirement_form.hide_test_case.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.business_requirement.view_business_requirement_form.hide_test_case.xml)\
 Source: [snippets/mint_system.business_requirement.view_business_requirement_form.hide_test_case.xml](https://odoo.build/snippets/mint_system.business_requirement.view_business_requirement_form.hide_test_case.xml)
 
@@ -78,7 +74,6 @@ Inherit ID: `business_requirement.view_business_requirement_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.business_requirement.view_business_requirement_form.x_planned_hours_x_estimated_cost.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.business_requirement.view_business_requirement_form.x_planned_hours_x_estimated_cost.xml)\
 Source: [snippets/mint_system.business_requirement.view_business_requirement_form.x_planned_hours_x_estimated_cost.xml](https://odoo.build/snippets/mint_system.business_requirement.view_business_requirement_form.x_planned_hours_x_estimated_cost.xml)
 
@@ -95,7 +90,6 @@ Inherit ID: `business_requirement.view_business_requirement_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.business_requirement.view_business_requirement_form.x_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.business_requirement.view_business_requirement_form.x_project_id.xml)\
 Source: [snippets/mint_system.business_requirement.view_business_requirement_form.x_project_id.xml](https://odoo.build/snippets/mint_system.business_requirement.view_business_requirement_form.x_project_id.xml)
 
@@ -112,7 +106,6 @@ Inherit ID: `business_requirement.view_business_requirement_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.business_requirement.view_business_requirement_form.x_task_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.business_requirement.view_business_requirement_form.x_task_id.xml)\
 Source: [snippets/mint_system.business_requirement.view_business_requirement_form.x_task_id.xml](https://odoo.build/snippets/mint_system.business_requirement.view_business_requirement_form.x_task_id.xml)
 
@@ -131,7 +124,6 @@ Inherit ID: `business_requirement.view_business_requirement_search`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.business_requirement.view_business_requirement_search.x_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.business_requirement.view_business_requirement_search.x_project_id.xml)\
 Source: [snippets/mint_system.business_requirement.view_business_requirement_search.x_project_id.xml](https://odoo.build/snippets/mint_system.business_requirement.view_business_requirement_search.x_project_id.xml)
 
@@ -148,7 +140,6 @@ Inherit ID: `business_requirement.view_business_requirement_tree`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.business_requirement.view_business_requirement_tree.hide_category_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.business_requirement.view_business_requirement_tree.hide_category_ids.xml)\
 Source: [snippets/mint_system.business_requirement.view_business_requirement_tree.hide_category_ids.xml](https://odoo.build/snippets/mint_system.business_requirement.view_business_requirement_tree.hide_category_ids.xml)
 
@@ -165,7 +156,6 @@ Inherit ID: `business_requirement.view_business_requirement_tree`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.business_requirement.view_business_requirement_tree.x_planned_hours.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.business_requirement.view_business_requirement_tree.x_planned_hours.xml)\
 Source: [snippets/mint_system.business_requirement.view_business_requirement_tree.x_planned_hours.xml](https://odoo.build/snippets/mint_system.business_requirement.view_business_requirement_tree.x_planned_hours.xml)
 
@@ -182,6 +172,6 @@ Inherit ID: `business_requirement.view_business_requirement_tree`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.business_requirement.view_business_requirement_tree.x_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.business_requirement.view_business_requirement_tree.x_project_id.xml)\
 Source: [snippets/mint_system.business_requirement.view_business_requirement_tree.x_project_id.xml](https://odoo.build/snippets/mint_system.business_requirement.view_business_requirement_tree.x_project_id.xml)
+

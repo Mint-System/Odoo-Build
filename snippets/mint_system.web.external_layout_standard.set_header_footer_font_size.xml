@@ -1,12 +1,4 @@
 <data priority="50">
-    <!-- <xpath expr="/t/div[1]" position="before">
-    <style>
-      div.footer,
-      div.header {
-      font-size: 0.8rem;
-      }
-    </style>
-  </xpath> -->
     <xpath expr="//div[@t-field='company.report_footer']" position="replace">
         <div style="font-size: 0.8rem;" class="mt-1" t-field="company.report_footer"/>
     </xpath>

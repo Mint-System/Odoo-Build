@@ -15,7 +15,6 @@ Inherit ID: `stock_account.stock_valuation_layer_tree`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.stock_account.stock_valuation_layer_tree.add_stock_move_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_account.stock_valuation_layer_tree.add_stock_move_id.xml)\
 Source: [snippets/mint_system.stock_account.stock_valuation_layer_tree.add_stock_move_id.xml](https://odoo.build/snippets/mint_system.stock_account.stock_valuation_layer_tree.add_stock_move_id.xml)
 
@@ -32,7 +31,6 @@ Inherit ID: `stock_account.stock_valuation_layer_tree`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.stock_account.stock_valuation_layer_tree.add_x_quant_location_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_account.stock_valuation_layer_tree.add_x_quant_location_id.xml)\
 Source: [snippets/mint_system.stock_account.stock_valuation_layer_tree.add_x_quant_location_id.xml](https://odoo.build/snippets/mint_system.stock_account.stock_valuation_layer_tree.add_x_quant_location_id.xml)
 
@@ -51,6 +49,6 @@ Inherit ID: `stock_account.view_inventory_valuation_search`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.stock_account.view_inventory_valuation_search.group_by_x_quant_location_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_account.view_inventory_valuation_search.group_by_x_quant_location_id.xml)\
 Source: [snippets/mint_system.stock_account.view_inventory_valuation_search.group_by_x_quant_location_id.xml](https://odoo.build/snippets/mint_system.stock_account.view_inventory_valuation_search.group_by_x_quant_location_id.xml)
+

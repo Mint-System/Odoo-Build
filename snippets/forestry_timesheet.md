@@ -19,6 +19,6 @@ Inherit ID: `forestry_timesheet.report_project_task_deliveryslip`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.forestry_timesheet.report_project_task_deliveryslip.show_has_trailer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.forestry_timesheet.report_project_task_deliveryslip.show_has_trailer.xml)\
 Source: [snippets/mint_system.forestry_timesheet.report_project_task_deliveryslip.show_has_trailer.xml](https://odoo.build/snippets/mint_system.forestry_timesheet.report_project_task_deliveryslip.show_has_trailer.xml)
+

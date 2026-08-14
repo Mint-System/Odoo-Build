@@ -21,7 +21,6 @@ Inherit ID: `hr_payroll.hr_payslip_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.hr_payroll.hr_payslip_line.view_pivot.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_payroll.hr_payslip_line.view_pivot.xml)\
 Source: [snippets/mint_system.hr_payroll.hr_payslip_line.view_pivot.xml](https://odoo.build/snippets/mint_system.hr_payroll.hr_payslip_line.view_pivot.xml)
 
@@ -41,7 +40,6 @@ Inherit ID: `hr_payroll.hr_payslip_line_view_search_register`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.hr_payroll.hr_payslip_line_view_search_register.filter_date_from.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_payroll.hr_payslip_line_view_search_register.filter_date_from.xml)\
 Source: [snippets/mint_system.hr_payroll.hr_payslip_line_view_search_register.filter_date_from.xml](https://odoo.build/snippets/mint_system.hr_payroll.hr_payslip_line_view_search_register.filter_date_from.xml)
 
@@ -60,7 +58,6 @@ Inherit ID: `hr_payroll.hr_salary_rule_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.hr_payroll.hr_salary_rule_form.switch_account.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_payroll.hr_salary_rule_form.switch_account.xml)\
 Source: [snippets/mint_system.hr_payroll.hr_salary_rule_form.switch_account.xml](https://odoo.build/snippets/mint_system.hr_payroll.hr_salary_rule_form.switch_account.xml)
 
@@ -267,7 +264,6 @@ Inherit ID: `hr_payroll.report_payslip`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.hr_payroll.report_payslip.gio_custom_payroll.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_payroll.report_payslip.gio_custom_payroll.xml)\
 Source: [snippets/mint_system.hr_payroll.report_payslip.gio_custom_payroll.xml](https://odoo.build/snippets/mint_system.hr_payroll.report_payslip.gio_custom_payroll.xml)
 
@@ -478,7 +474,6 @@ Inherit ID: `hr_payroll.report_payslip`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.hr_payroll.report_payslip.gio_payroll_report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_payroll.report_payslip.gio_payroll_report.xml)\
 Source: [snippets/mint_system.hr_payroll.report_payslip.gio_payroll_report.xml](https://odoo.build/snippets/mint_system.hr_payroll.report_payslip.gio_payroll_report.xml)
 
@@ -497,7 +492,6 @@ Inherit ID: `hr_payroll.view_hr_payslip_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount.xml)\
 Source: [snippets/mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount.xml](https://odoo.build/snippets/mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount.xml)
 
@@ -514,7 +508,6 @@ Inherit ID: `hr_payroll.view_hr_payslip_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.hr_payroll.view_hr_payslip_form.show_queued_for_pdf.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_payroll.view_hr_payslip_form.show_queued_for_pdf.xml)\
 Source: [snippets/mint_system.hr_payroll.view_hr_payslip_form.show_queued_for_pdf.xml](https://odoo.build/snippets/mint_system.hr_payroll.view_hr_payslip_form.show_queued_for_pdf.xml)
 
@@ -533,6 +526,6 @@ Inherit ID: `hr_payroll.view_hr_payslip_line_tree`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.hr_payroll.view_hr_payslip_line_tree.slip_show_optional.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_payroll.view_hr_payslip_line_tree.slip_show_optional.xml)\
 Source: [snippets/mint_system.hr_payroll.view_hr_payslip_line_tree.slip_show_optional.xml](https://odoo.build/snippets/mint_system.hr_payroll.view_hr_payslip_line_tree.slip_show_optional.xml)
+

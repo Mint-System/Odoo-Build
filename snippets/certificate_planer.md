@@ -15,7 +15,6 @@ Inherit ID: `certificate_planer.document_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.certificate_planer.document_form.hide_view_report_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.certificate_planer.document_form.hide_view_report_button.xml)\
 Source: [snippets/mint_system.certificate_planer.document_form.hide_view_report_button.xml](https://odoo.build/snippets/mint_system.certificate_planer.document_form.hide_view_report_button.xml)
 
@@ -35,6 +34,6 @@ Inherit ID: `certificate_planer.mcr_report_view`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.certificate_planer.mcr_report_view.hide_mcr_planning_columns.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.certificate_planer.mcr_report_view.hide_mcr_planning_columns.xml)\
 Source: [snippets/mint_system.certificate_planer.mcr_report_view.hide_mcr_planning_columns.xml](https://odoo.build/snippets/mint_system.certificate_planer.mcr_report_view.hide_mcr_planning_columns.xml)
+

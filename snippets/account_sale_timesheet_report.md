@@ -15,7 +15,6 @@ Inherit ID: `account_sale_timesheet_report.report_invoice_document`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_linebreak.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_linebreak.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_linebreak.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_linebreak.xml)
 
@@ -34,7 +33,6 @@ Inherit ID: `account_sale_timesheet_report.report_invoice_document`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml)
 
@@ -53,7 +51,6 @@ Inherit ID: `account_sale_timesheet_report.report_invoice_with_timesheets`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml)
 
@@ -76,7 +73,6 @@ Inherit ID: `account_sale_timesheet_report.report_sale`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.report_sale.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.report_sale.set_page_font_size.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.report_sale.set_page_font_size.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.report_sale.set_page_font_size.xml)
 
@@ -97,7 +93,6 @@ Inherit ID: `account_sale_timesheet_report.report_sale`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.report_sale.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.report_sale.set_title_font_size.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.report_sale.set_title_font_size.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.report_sale.set_title_font_size.xml)
 
@@ -116,7 +111,6 @@ Inherit ID: `account_sale_timesheet_report.timesheet_report`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.add_title_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_report.add_title_space.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.add_title_space.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_report.add_title_space.xml)
 
@@ -137,7 +131,6 @@ Inherit ID: `account_sale_timesheet_report.timesheet_report`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size.xml)
 
@@ -158,7 +151,6 @@ Inherit ID: `account_sale_timesheet_report.timesheet_report`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size.xml)
 
@@ -188,7 +180,6 @@ Inherit ID: `account_sale_timesheet_report.timesheet_table`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml)
 
@@ -267,7 +258,6 @@ Inherit ID: `account_sale_timesheet_report.timesheet_table`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml)
 
@@ -288,7 +278,6 @@ Inherit ID: `account_sale_timesheet_report.timesheet_table`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size.xml)
 
@@ -305,7 +294,6 @@ Inherit ID: `account_sale_timesheet_report.timesheet_table`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times.xml)
 
@@ -325,7 +313,6 @@ Inherit ID: `account_sale_timesheet_report.timesheet_table_lines`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml)
 
@@ -343,6 +330,6 @@ Inherit ID: `account_sale_timesheet_report.timesheet_table_lines`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml)\
 Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml)
+

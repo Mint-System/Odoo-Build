@@ -15,6 +15,6 @@ Inherit ID: `account_budget.view_crossovered_budget_line_tree`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_budget.view_crossovered_budget_line_tree.show_budget.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_budget.view_crossovered_budget_line_tree.show_budget.xml)\
 Source: [snippets/mint_system.account_budget.view_crossovered_budget_line_tree.show_budget.xml](https://odoo.build/snippets/mint_system.account_budget.view_crossovered_budget_line_tree.show_budget.xml)
+

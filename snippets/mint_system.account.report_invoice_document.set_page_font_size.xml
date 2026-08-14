@@ -2,7 +2,7 @@
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
             body {
-                font-size: 0.9rem;
+                font-size: 0.875rem;
             }
         </style>
     </xpath>

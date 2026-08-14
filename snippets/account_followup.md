@@ -13,7 +13,6 @@ Inherit ID: `account_followup.customer_statements_form_view`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml)\
 Source: [snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml](https://odoo.build/snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml)
 
@@ -40,7 +39,6 @@ Inherit ID: `account_followup.report_followup_print_all`
     </t>
 </data>
 ```
-
 Edit: [snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml)\
 Source: [snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml](https://odoo.build/snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml)
 
@@ -63,7 +61,6 @@ Inherit ID: `account_followup.template_followup_report`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_followup.template_followup_report.format_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.format_table.xml)\
 Source: [snippets/mint_system.account_followup.template_followup_report.format_table.xml](https://odoo.build/snippets/mint_system.account_followup.template_followup_report.format_table.xml)
 
@@ -93,7 +90,6 @@ Inherit ID: `account_followup.template_followup_report`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_followup.template_followup_report.get_header_from_email_subject.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.get_header_from_email_subject.xml)\
 Source: [snippets/mint_system.account_followup.template_followup_report.get_header_from_email_subject.xml](https://odoo.build/snippets/mint_system.account_followup.template_followup_report.get_header_from_email_subject.xml)
 
@@ -110,7 +106,6 @@ Inherit ID: `account_followup.template_followup_report`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml)\
 Source: [snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml](https://odoo.build/snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml)
 
@@ -125,6 +120,6 @@ Inherit ID: `account_followup.template_followup_report`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml)\
 Source: [snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml](https://odoo.build/snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml)
+
