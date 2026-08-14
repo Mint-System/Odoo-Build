@@ -21,7 +21,7 @@ state_labels = {
     'invoicing_legacy': 'Altes Abrechnungssystem',
 }
 for rec in self:
-    if not rec.sale_line_id and self.backorder_id:
+    if not rec.sale_line_id and self.picking_id.backorder_id:
       rec['x_payment_state'] = 'Nicht definiert (Lieferrückstand)'
     elif rec.sale_line_id and not rec.sale_line_id.invoice_lines:
       rec['x_payment_state'] = 'Nicht bezahlt'
