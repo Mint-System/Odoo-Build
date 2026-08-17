@@ -1,0 +1,11 @@
+<data priority="50">
+  <xpath expr="(//address[@t-field='o.partner_id'])[1]" position="before">  
+     <strong class="d-block mt-3">Billing address</strong>
+  </xpath>
+  <xpath expr="(//address[@t-field='o.partner_id'])[2]" position="before">  
+     <strong class="d-block mt-3">Billing address</strong>
+  </xpath>
+  <xpath expr="(//address[@t-field='o.partner_id'])[3]" position="before">  
+     <strong class="d-block mt-3">Billing address</strong>
+  </xpath>
+</data>
