@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -e
+
+odoo_openupgrade_path="${ODOO_OPENUPGRADE_PATH:="/var/lib/odoo/openupgrade"}"
+odoo_openupgrade_path="$odoo_openupgrade_path/$ODOO_VERSION"
+ref_file="$odoo_openupgrade_path/.last_ref"
+
+mkdir -p "$odoo_openupgrade_path"
+last_ref=""
+if [[ -f "$ref_file" ]]; then
+    last_ref="$(cat "$ref_file")"
+fi
+
+current_ref="$(git ls-remote "https://github.com/OCA/OpenUpgrade.git" "refs/heads/${ODOO_VERSION}" 2>/dev/null | cut -f1 || true)"
+
+if ! [[ "$current_ref" =~ ^[0-9a-f]{40}$ ]]; then
+    log-entrypoint "Could not resolve current ref for OpenUpgrade $ODOO_VERSION, skipping update check."
+elif [[ "$current_ref" != "$last_ref" ]]; then
+    log-entrypoint "Downloading Odoo OpenUpgrade $ODOO_VERSION to ${odoo_openupgrade_path}..."
+    curl -L -o "$odoo_openupgrade_path/archive.tar.gz" \
+        "https://github.com/OCA/OpenUpgrade/archive/refs/heads/${ODOO_VERSION}.tar.gz"
+    tar -xzf "$odoo_openupgrade_path/archive.tar.gz" --strip-components=1 -C "$odoo_openupgrade_path"
+    rm "$odoo_openupgrade_path/archive.tar.gz"
+
+    echo "$current_ref" > "$ref_file"
+else
+    log-entrypoint "Odoo OpenUpgrade $ODOO_VERSION already up-to-date. Skipping download."
+fi

@@ -182,6 +182,7 @@ help-table() {
     rows+=("prepare-migration-brach|[path][module][version]|Create migration branch for a module.")
     rows+=("migrate-module|[path]|Migrate module code to target Odoo version.")
     rows+=("backport-module|[path]|Backport module code to target Odoo version.")
+    rows+=("run-openupgrade|[db]|Run Odoo OpenUpgrade scripts for target database.")
     rows+=("===JUPYTER===| | ")
     rows+=("init-odoo-jupyter|[path]|Init jypyter lab directory.")
     rows+=("start-odoo-jupyter|[path][db]|Start juypter lab in directory.")
@@ -2602,7 +2603,7 @@ prepare-migration-brach() {
 
 migrate-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     local module_path="$1"
@@ -2616,7 +2617,7 @@ migrate-module() {
 
 backport-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     local module_path="$1"
@@ -2627,6 +2628,17 @@ backport-module() {
     sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$module_path/__manifest__.py"
 }
 
+run-openupgrade() {
+    if [[ -z "$1" ]]; then
+        echo '$1/database is empty.'
+        exit
+    fi
+    database="$1"
+
+    echo "Run OpenUpgrade for database '$database'..."
+    template-odoo-rc
+    odoo --database="$database" --config="$ODOO_RC" --addons-path="oca/openupgrade" --update all --stop-after-init --load=base,web,openupgrade_framework
+}
 
 # Snippet commands
 

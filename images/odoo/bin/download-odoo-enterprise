@@ -16,8 +16,7 @@ if [[ -f "$ref_file" ]]; then
 fi
 
 if [[ -z "$last_ref" ]] || [[ "$last_ref" != "$ODOO_ENTERPRISE_REF" ]]; then
-    log-entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to $odoo_enterprise_path."
-    find "$odoo_enterprise_path" -mindepth 1 -maxdepth 1 ! -name '.last_ref' -exec rm -rf {} +
+    log-entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to ${odoo_enterprise_path}..."
     curl -L -o "$odoo_enterprise_path/archive.tar.gz" \
         "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/odoo/enterprise/archive/$ODOO_ENTERPRISE_REF.tar.gz"
     tar -xzf "$odoo_enterprise_path/archive.tar.gz" --strip-components=1 -C "$odoo_enterprise_path"
