@@ -2832,13 +2832,13 @@ checkout() {
     # Set .env
     load-revision "$ODOO_VERSION"
 
-    # Clone the addons
+    echo "Run clone-git-folder"
     clone-git-folder .
 
-    # Checkout commit ref
+    echo "Run checkout-git-folder"
     checkout-git-folder "$ODOO_VERSION" .
 
-    # Update branch
+    echo "Run switch-git-folder"
     switch-git-folder "$ODOO_VERSION" .
 
     # List git folders
