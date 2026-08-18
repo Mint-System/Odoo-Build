@@ -2636,8 +2636,9 @@ run-openupgrade() {
     database="$1"
 
     echo "Run OpenUpgrade for database '$database'..."
+    set-addons-path
     template-odoo-rc
-    odoo --database="$database" --config="$ODOO_RC" --addons-path="oca/openupgrade" --update all --stop-after-init --load=base,web,openupgrade_framework
+    odoo --database="$database" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --update all --stop-after-init --load=base,web,openupgrade_framework
 }
 
 # Snippet commands
