@@ -700,9 +700,6 @@ template-compose() {
     if [[ -d "./themes" ]]; then
         VOLUME_MOUNTS="${VOLUME_MOUNTS}      - ./themes:/mnt/themes"$'\n'
     fi
-    # if [[ -n "$ODOO_ADDONS_PATH" ]] && [[ -d "$ODOO_ADDONS_PATH" ]]; then
-    #     VOLUME_MOUNTS="${VOLUME_MOUNTS}      - ./$ODOO_ADDONS_PATH:/mnt/extra-addons"$'\n'
-    # fi
     VOLUME_MOUNTS="${VOLUME_MOUNTS%$'\n'}"
     export VOLUME_MOUNTS
 
@@ -1192,15 +1189,19 @@ install() {
 
 start() {
     set-addons-path
+
     if [[ "$POSTGRES_SSL" == "on" ]]; then
         generate-pg-ssl-keys
     fi
+
     ODOO_COMMAND="odoo --dev=all"
     if [[ "$1" =~ "odoo-nginx" ]]; then
         ODOO_COMMAND="odoo-nginx --dev=all"
     fi
     export ODOO_COMMAND
+
     if [[ "$1" =~ "odoo" && -a ".env.odoo" ]]; then
+        echo "Source .env.odoo"
         source .env.odoo
     fi
 
