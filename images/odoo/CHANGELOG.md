@@ -2,8 +2,7 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-
-## Undefined
+## [Unreleased]
 
 ### Added
 
@@ -12,6 +11,8 @@ All notable changes to this project will be documented in this file. The format 
 ### Changed
 
 - Renamed `download-git-archive` to `download-odoo-enterprise`.
+- Modified `entrypoint.sh` to skip `wait-for-pg` if the database hostname cannot be resolved, logging a warning instead.
+- Removed explicit `wait-for-pg` calls from `odoo`, `odoo-nginx`, and default command paths in `entrypoint.sh` as the check is now handled conditionally.
 
 ## 2026-05-20
 

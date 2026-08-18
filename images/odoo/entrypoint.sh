@@ -52,8 +52,11 @@ check_config "db_password" "$PGPASSWORD"
 check_config "db_sslmode" "$PGSSLMODE"
 
 log-entrypoint "Resolve database hostname: $PGHOST"
-getent hosts "$PGHOST"
-wait-for-pg
+if getent hosts "$PGHOST"; then
+    wait-for-pg
+else
+    log-entrypoint "Warning: could not resolve $PGHOST, skipping wait-for-pg"
+fi
 
 AUTO_UPDATE_MODULES_LIST="${AUTO_UPDATE_MODULES_LIST:=False}"
 if [[ "$AUTO_UPDATE_MODULES_LIST" = "True" ]]; then
@@ -71,20 +74,17 @@ case "$1" in
         if [[ "$1" == "scaffold" ]] ; then
             exec odoo "$@"
         else
-            wait-for-pg
-            exec odoo "$@" "${DB_ARGS[@]}"
+            exec odoo "${DB_ARGS[@]}" "$@"
         fi
         ;;
     -- | odoo-nginx)
         shift
         log-entrypoint 'Start Odoo with nginx.'
-        wait-for-pg
         nginx -c /etc/nginx/nginx.conf &
-        exec odoo "$@" "${DB_ARGS[@]}"
+        exec odoo "${DB_ARGS[@]}" "$@"
         ;;
     -*)
-        wait-for-pg
-        exec odoo "$@" "${DB_ARGS[@]}"
+        exec odoo "${DB_ARGS[@]}" "$@"
         ;;
     *)
         exec "$@"
