@@ -1,0 +1,8 @@
+<data priority="50">
+    <xpath expr="//field[@name='name']" position="after">
+        <separator/>
+        <field string="PLZ" name="zip"/>
+        <field string="Bankleitzahl" name="bic"/>        
+        <field string="Stadt" name="city"/>
+    </xpath>
+</data>

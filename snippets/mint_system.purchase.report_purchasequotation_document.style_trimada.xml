@@ -37,36 +37,22 @@
         <attribute name="class" separator=" " add="text-start"/>
     </xpath>
 
-    <!-- header: date_planned -->
-    <xpath expr="//th[@name='th_date_req']" position="attributes">
-        <attribute name="class" separator=" " add="text-start" remove="text-center"/>
-    </xpath>
-
-    <!-- header: qty -->
-    <xpath expr="//table[2]/thead/tr/th[5]" position="attributes">
-        <attribute name="style">text-align: right; padding-right: 5px</attribute>"/&gt;
-    </xpath>
-
     <!-- position -->
-    <xpath expr="//table[2]/tbody/t[2]/tr/t[1]/td[1]" position="attributes">
+    <xpath expr="//table[2]/tbody/t/tr/t[1]/td[1]" position="attributes">
         <attribute name="style">text-align: right</attribute>/&gt;
     </xpath>
 
     <!-- default code -->
-    <xpath expr="//table[2]/tbody/t[2]/tr/t[1]/td[2]" position="attributes">
+    <xpath expr="//table[2]/tbody/t/tr/t[1]/td[2]" position="attributes">
         <attribute name="style">text-align: right; padding-right: 10px;</attribute>/&gt;
     </xpath>
-
-    <xpath expr="//table[2]/tbody/t[2]/tr[1]/t[1]/td[4]" position="attributes">
-        <attribute name="class" separator=" " add="text-left" remove="text-center"/>
-        <attribute name="t-options-widget">"date"</attribute>
-    </xpath>
-
+    
     <!-- qty-->
-    <xpath expr="/t[1]/t[1]/div[1]/table[2]/tbody[1]/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
+    <xpath expr="//table[2]/tbody[1]/t/tr/t/td[4]/span[1]" position="attributes">
         <attribute name="t-options-widget">"integer"</attribute>
     </xpath>
-    <xpath expr="/t/t/div/table[2]/tbody/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
+  
+    <xpath expr="//table[2]/tbody[1]/t/tr/t/td[4]/span[1]" position="attributes">
         <attribute name="class" separator=" " add="o_bold"/>
     </xpath>
 

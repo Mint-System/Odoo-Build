@@ -52,11 +52,11 @@
                         <t t-foreach="doc.tax_totals['groups_by_subtotal'].values()" t-as="groups">
                             <t t-foreach="groups" t-as="tax_group">
                                 <tr>
-                                    <td name="td_amount_by_group_label">
+                                    <td style="width:11%; padding-right: 3px; text-align:left" name="td_amount_by_group_label">
                                         <span t-esc="tax_group['tax_group_name']"/>
                                     </td>
 
-                                    <td name="td_amount_by_group" class="text-end o_price_total">
+                                    <td style="width:18%; text-align:left !important" name="td_amount_by_group" class="text-end o_price_total">
                                         <span t-esc="tax_group['tax_group_amount']" t-options="{                                           'widget': 'monetary',                                           'display_currency': doc.currency_id                                       }"/>
                                     </td>
                                 </tr>

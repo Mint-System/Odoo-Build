@@ -1,6 +1,6 @@
 <data priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
 			.o_company_1_layout {
 				font-family: arial;
 			}
@@ -66,17 +66,21 @@
 				font-family: arial;
 			}
 		</style>
-    </xpath>
-    <xpath expr="//h2" position="attributes">
-        <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
-    </xpath>
-    <xpath expr="//th[@name='th_description']/../../.." position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </xpath>
-    <xpath expr="//table/thead//tr[1]//th[3]" position="attributes">
-        <attribute name="class">text-start</attribute>
-    </xpath>
-    <xpath expr="//table/tbody//tr[1]//td[3]" position="attributes">
-        <attribute name="class">text-end</attribute>
-    </xpath>
+	</xpath>
+
+	<xpath expr="//th[@id='commitment_date']" position="attributes">
+		<attribute name="class">text-end</attribute>	</xpath>
+
+	<xpath expr="//h2" position="attributes">
+		<attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+	</xpath>
+	<xpath expr="//th[@name='th_description']/../../.." position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</xpath>
+	<xpath expr="//table/thead//tr[1]//th[3]" position="attributes">
+		<attribute name="class">text-start</attribute>
+	</xpath>
+	<xpath expr="//table/tbody//tr[1]//td[3]" position="attributes">
+		<attribute name="class">text-end</attribute>
+	</xpath>
 </data>

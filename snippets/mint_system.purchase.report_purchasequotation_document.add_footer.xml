@@ -13,11 +13,11 @@
         </style>
         <table id="footer">
             <tr>
-                <td width="40%" t-if="o.payment_term_id">
+                <td width="50%" t-if="o.payment_term_id">
                     <span>Zahlungsbedingungen</span>
                     <span t-field="o.payment_term_id"/>
                 </td>
-                <td width="60%">
+                <td width="50%">
                     <span>Lieferung gemäss unseren allgemeinen Einkaufsbedingungen</span>
                 </td>
             </tr>

@@ -62,13 +62,13 @@
             </div>
         </div>
         <div class="row table td">
-            <div class="col-6">
-                <strong>
-                    <span t-field="o.product_qty"/>
-                </strong>
-                <strong>
-                    <span t-field="o.product_uom_id.name" groups="uom.group_uom"/>
-                </strong>
+            <div class="col-6 text-start">
+                <td>
+                    <strong>
+                        <span style="padding: 0;" t-field="o.product_qty"/>
+                        <span t-field="o.product_uom_id" groups="uom.group_uom"/>
+                    </strong>
+                </td>
             </div>
             <div class="col-3">
         Start: <span t-field="o.date_start" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>

@@ -1,4 +1,4 @@
-<data priority="60">
+<data priority="49">
     <xpath expr="//span[@t-field='move.product_uom_qty']" position="replace">
         <span t-field="move.quantity"/>
     </xpath>

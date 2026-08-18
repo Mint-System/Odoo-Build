@@ -1,6 +1,6 @@
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
-  <xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']" position="after">
+  <xpath expr="//table[@class='table table-borderless table-sm']" position="after">
     <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
       <span class="note" t-field="o.note_footer"/>
     </t>
@@ -35,7 +35,5 @@
 
     </table>
   </xpath>
-
-  <xpath expr="//div[@id='total']" position="replace"/>
 
 </data>

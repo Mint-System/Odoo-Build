@@ -68,12 +68,12 @@
           Typ:
           <span t-field="o.picking_type_id.code"/>
         </td>
-        <t t-if="o.carrier_id">
-          <td>
+        <td>
+          <t t-if="o.carrier_id">
             Auslieferungsmethode:
             <span t-field="o.carrier_id"/>
-          </td>
-        </t>
+          </t>
+        </td>
       </tr>
     </table>
 

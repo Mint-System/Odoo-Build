@@ -15,11 +15,11 @@
     </style>
         <table id="footer">
             <tr>
-                <td width="50%" t-if="doc.payment_term_id">
+                <td width="50%" t-if="o.payment_term_id">
                     <span>Zahlungsbedingungen </span>
-                    <span t-field="doc.payment_term_id"/>
+                    <span t-field="o.payment_term_id"/>
                 </td>
-                <td width="50%" t-if="not doc.payment_term_id">
+                <td width="50%" t-if="not o.payment_term_id">
         </td>
                 <td width="50%">
           Lieferung gemäss unseren allgemeinen Lieferbedingungen
@@ -28,7 +28,7 @@
             <tr>
                 <td>
                     <span>MWST-Nr: </span>
-                    <span t-field="doc.company_id.vat"/>
+                    <span t-field="o.company_id.vat"/>
                 </td>
                 <td>
                     <table width="100%">
