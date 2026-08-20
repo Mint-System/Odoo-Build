@@ -257,6 +257,6 @@
 	commit = 3dc896ff2bc18d2901207cd5ece97e8afedf44bf
 [submodule "addons/project"]
 	path = addons/project
-	url = 18.0
-	branch = git@github.com:Mint-System/Odoo-Apps-project.git
+	branch = 18.0
+	url = git@github.com:Mint-System/Odoo-Apps-Project.git
 	commit = 7bb669b2f2b695708e5312cf23c728551da1d6a1
