@@ -1,0 +1,8 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//t[@t-set='information_block']/div" position="replace">
+    <div style="font-size:8pt; line-height: 1.2; font-weight:bold">Shipping Address:</div>
+    <div style="font-size:10pt; line-height: 1.2" t-field="o.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+  </xpath>
+
+</data>

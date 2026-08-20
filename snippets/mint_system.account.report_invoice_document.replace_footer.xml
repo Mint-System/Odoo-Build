@@ -1,10 +1,7 @@
 <data inherit_id="account.report_invoice_document" priority="50">
 
  
-  <xpath expr="//p[@name='payment_communication']" position="replace">
-  </xpath>
-  
-  <xpath expr="//span[@id='payment_terms_note_id']" position="replace">
+  <xpath expr="//table[@id='summary']" position="after">
     <style>
       table#footer {
         width: 100%;

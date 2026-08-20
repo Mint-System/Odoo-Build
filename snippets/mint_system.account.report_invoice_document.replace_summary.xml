@@ -49,7 +49,7 @@
 			}
         </style>
 
-        <table class="table table-borderless table-sm trimada trimada_summary">
+        <table id="summary" class="table table-borderless table-sm trimada trimada_summary">
 
             <t t-set="tax_totals" t-value="o.tax_totals or {}"/>
             <t t-foreach="tax_totals.get('subtotals')" t-as="subtotal">
