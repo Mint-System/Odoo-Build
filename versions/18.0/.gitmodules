@@ -3,13 +3,13 @@
 	url = git@github.com:odoo/odoo.git
 	branch = 18.0
 	shallow = true
-	commit = 585cc4af6f1ad0b84f038cf61a82e25c85b94941
+	commit = f962f1eccecfdbc95375f795174c8f687459b521
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
 	branch = 18.0
 	shallow = true
-	commit = 2027db92c8b2b2c90983fc663b2e4c5c4ca1e83f
+	commit = 6d16f16d58353f9900df9a63508ef21876ea37f7
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
@@ -154,7 +154,7 @@
 	path = addons/vertical_saas
 	url = git@github.com:Mint-System/Odoo-Apps-Vertical-SaaS.git
 	branch = 18.0
-	commit = 827386a1a68f6e1ad10240e602536417a28ed994
+	commit = 67284fe8eda91f9edf9e92a9cb06d0a9e858de04
 [submodule "oca/hr-holidays"]
 	path = oca/hr-holidays
 	url = git@github.com:OCA/hr-holidays.git
@@ -224,7 +224,7 @@
 	path = addons/kubernetes
 	url = git@github.com:Mint-System/Odoo-Apps-Kubernetes.git
 	branch = 18.0
-	commit = 7cfebbd7812a03036a0414e387625ddf9c038156
+	commit = 02ccc00ec473a82046c84e8511264549f0f394f9
 [submodule "oca/repair"]
 	path = oca/repair
 	url = git@github.com:OCA/repair.git
@@ -260,3 +260,7 @@
 	branch = 18.0
 	url = git@github.com:Mint-System/Odoo-Apps-Project.git
 	commit = 7bb669b2f2b695708e5312cf23c728551da1d6a1
+[submodule "oca/reporting-print-send"]
+	path = oca/reporting-print-send
+	url = git@github.com:OCA/report-print-send.git
+	branch = 18.0
