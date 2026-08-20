@@ -3,13 +3,13 @@
 	url = git@github.com:odoo/odoo.git
 	branch = 19.0
 	shallow = true
-	commit = 9701e3066a9630b4678ee3e75c84dbc1f46fcc77
+	commit = 0d44f26d9b0fb1c1a5db463cf1f8dd0d3c72ba26
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
 	branch = 19.0
 	shallow = true
-	commit = 314a79b774f30dc9377b2971492576c4b84483e1
+	commit = 7b309f2e74f9fa37b109375de6387db3241c2bcb
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
@@ -34,7 +34,7 @@
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 19.0
-	commit = 1c5326fd0a061604d664364afe972560b8b54f34
+	commit = 88218b68df56e8e113e623b43a9d0b1801d5b7c9
 [submodule "addons/account_invoicing"]
 	path = addons/account_invoicing
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Invoicing.git
@@ -109,4 +109,8 @@
 	path = oca/openupgrade
 	url = git@github.com:OCA/OpenUpgrade.git
 	branch = 19.0
-	commit = c8f348669c109724961c865d96621bb42e73f44d
+	commit = 949862ae628b38bc6b208deb6d13aad9093166e7
+[submodule "oca/reporting-print-send"]
+	path = oca/reporting-print-send
+	url = git@github.com:OCA/report-print-send.git
+	branch = 19.0
