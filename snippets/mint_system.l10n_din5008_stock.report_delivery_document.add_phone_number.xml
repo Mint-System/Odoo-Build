@@ -2,7 +2,7 @@
     <xpath expr="//div[@t-if='o.partner_id.vat']" position="after">
         <t t-set="display_phone" t-value="o.sale_id.x_studio_customer_phone or o.partner_id.commercial_partner_id.phone"/>
         <div t-if="display_phone">
-            <span>Fon</span> <span t-esc="display_phone"/>
+            <span>Tel.</span> <span t-esc="display_phone"/>
         </div>
     </xpath>
 </data>
