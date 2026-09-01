@@ -1,0 +1,3 @@
+<data priority="50">
+    <xpath expr="//p[@name='payment_communication']/.." position="replace"/>
+</data>
