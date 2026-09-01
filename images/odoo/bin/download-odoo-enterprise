@@ -1,13 +1,62 @@
 #!/usr/bin/env bash
 set -e
 
-if [[ -z "$GITHUB_PAT" ]] || [[ -z "$GITHUB_USERNAME" ]]; then
-    log-entrypoint 'Error: GitHub personal access token or username is not set.'
-    exit 1
-fi
-
 odoo_enterprise_path="${ODOO_ENTERPRISE_PATH:="/var/lib/odoo/enterprise"}"
 ref_file="$odoo_enterprise_path/.last_ref"
+
+odoo_enterprise_transport="${ODOO_ENTERPRISE_TRANSPORT:=}"
+if [[ -z "$odoo_enterprise_transport" ]]; then
+    if [[ -n "$GITHUB_PAT" ]] && [[ -n "$GITHUB_USERNAME" ]]; then
+        odoo_enterprise_transport='https'
+    else
+        odoo_enterprise_transport='ssh'
+    fi
+fi
+
+case "$odoo_enterprise_transport" in
+    https)
+        if [[ -z "$GITHUB_PAT" ]] || [[ -z "$GITHUB_USERNAME" ]]; then
+            log-entrypoint 'Error: GitHub personal access token or username is not set.'
+            exit 1
+        fi
+        ;;
+    ssh)
+        ;;
+    *)
+        log-entrypoint "Error: unsupported ODOO_ENTERPRISE_TRANSPORT '$odoo_enterprise_transport' (expected 'https' or 'ssh')."
+        exit 1
+        ;;
+esac
+
+download_https() {
+    curl -fL -o "$odoo_enterprise_path/archive.tar.gz" \
+        "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/odoo/enterprise/archive/$ODOO_ENTERPRISE_REF.tar.gz"
+    tar -xzf "$odoo_enterprise_path/archive.tar.gz" --strip-components=1 -C "$odoo_enterprise_path"
+    rm "$odoo_enterprise_path/archive.tar.gz"
+}
+
+download_ssh() {
+    git_hostname='github.com'
+    git_url="git@${git_hostname}:odoo/enterprise.git"
+
+    mkdir -p "$HOME/.ssh"
+    chmod 700 "$HOME/.ssh"
+    add-ssh-key
+    ssh-keyscan -t rsa,ed25519 "$git_hostname" > "$HOME/.ssh/known_hosts" 2>/dev/null
+
+    if [[ ! -d "$odoo_enterprise_path/.git" ]]; then
+        find "$odoo_enterprise_path" -mindepth 1 -maxdepth 1 ! -name '.last_ref' -exec rm -rf {} +
+
+        log-entrypoint "Init git repo ${git_url} in $odoo_enterprise_path."
+        git -C "$odoo_enterprise_path" init -q
+        git -C "$odoo_enterprise_path" remote add origin "$git_url"
+    fi
+
+    git -C "$odoo_enterprise_path" fetch -q --depth 1 origin "$ODOO_ENTERPRISE_REF"
+    git -C "$odoo_enterprise_path" checkout -q -f FETCH_HEAD
+
+    remove-ssh-key
+}
 
 mkdir -p "$odoo_enterprise_path"
 last_ref=""
@@ -16,11 +65,8 @@ if [[ -f "$ref_file" ]]; then
 fi
 
 if [[ -z "$last_ref" ]] || [[ "$last_ref" != "$ODOO_ENTERPRISE_REF" ]]; then
-    log-entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to ${odoo_enterprise_path}..."
-    curl -L -o "$odoo_enterprise_path/archive.tar.gz" \
-        "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/odoo/enterprise/archive/$ODOO_ENTERPRISE_REF.tar.gz"
-    tar -xzf "$odoo_enterprise_path/archive.tar.gz" --strip-components=1 -C "$odoo_enterprise_path"
-    rm "$odoo_enterprise_path/archive.tar.gz"
+    log-entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to ${odoo_enterprise_path} over ${odoo_enterprise_transport}..."
+    "download_$odoo_enterprise_transport"
     echo "$ODOO_ENTERPRISE_REF" > "$ref_file"
 else
     log-entrypoint "Odoo Enterprise $ODOO_ENTERPRISE_REF already downloaded. Skipping download."

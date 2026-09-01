@@ -252,7 +252,7 @@ Run the `download-odoo-enterprise` script to download the [Odoo Enterprise modul
 docker compose exec odoo download-odoo-enterprise
 ```
 
-This script requires `GITHUB_USERNAME` and `GITHUB_PAT`. The image has a pre-defined `ODOO_ENTERPRISE_REF` and `ODOO_ENTERPRISE_PATH`.
+This script downloads a tarball with `GITHUB_USERNAME` and `GITHUB_PAT`, or checks out a shallow git repo with `GIT_SSH_PRIVATE_KEY`. Set the transport with `ODOO_ENTERPRISE_TRANSPORT`, it defaults to `https` when a PAT is set and to `ssh` otherwise. The image has a pre-defined `ODOO_ENTERPRISE_REF` and `ODOO_ENTERPRISE_PATH`.
 
 ### Init database
 
@@ -406,6 +406,7 @@ The image can clone git repositories.
 - `FORGEJO_PAT`: Forgejo access token for https git clone and archive download.
 - `ADDONS_GIT_REPOS`: Comma or line-break seperated list of git clone urls appended with `#` and branch name.
 - `ODOO_ENTERPRISE_REF`: Commit ref of Odoo Enterprise repo. Default is based on the image revision date.
+- `ODOO_ENTERPRISE_TRANSPORT`: Transport for the Odoo Enterprise download: `https` or `ssh`. Default is `https` when a GitHub PAT is set, else `ssh`.
 
 You can use https and git urls for `ADDONS_GIT_REPOS`:
 
