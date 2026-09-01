@@ -1,0 +1,3 @@
+    <field name="name" position="after">
+        <field name="ref" string="Referenz" filter_domain="[('ref', 'ilike', self)]"/>
+    </field>
