@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -e
 
-if [[ -z "$GITHUB_PAT" ]] || [[ -z "$GITHUB_USERNAME" ]]; then
-    log-entrypoint 'Error: GitHub personal access token or username is not set.'
-    exit 1
-fi
-
 odoo_enterprise_path="${ODOO_ENTERPRISE_PATH:="/var/lib/odoo/enterprise"}"
+odoo_enterprise_url="${ODOO_ENTERPRISE_URL:="https://github.com/odoo/enterprise"}"
 ref_file="$odoo_enterprise_path/.last_ref"
+
+git_proto=$(parse-url "$odoo_enterprise_url" proto)
+git_hostname=$(parse-url "$odoo_enterprise_url" hostname)
+git_path=$(parse-url "$odoo_enterprise_url" path | sed 's/.git//g')
 
 mkdir -p "$odoo_enterprise_path"
 last_ref=""
@@ -17,10 +17,48 @@ fi
 
 if [[ -z "$last_ref" ]] || [[ "$last_ref" != "$ODOO_ENTERPRISE_REF" ]]; then
     log-entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to ${odoo_enterprise_path}..."
-    curl -L -o "$odoo_enterprise_path/archive.tar.gz" \
-        "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/odoo/enterprise/archive/$ODOO_ENTERPRISE_REF.tar.gz"
-    tar -xzf "$odoo_enterprise_path/archive.tar.gz" --strip-components=1 -C "$odoo_enterprise_path"
-    rm "$odoo_enterprise_path/archive.tar.gz"
+
+    if [[ "$git_proto" = "https://" ]]; then
+
+        if [[ -z "$GITHUB_PAT" ]] || [[ -z "$GITHUB_USERNAME" ]]; then
+            log-entrypoint 'Error: GitHub personal access token or username is not set.'
+            exit 1
+        fi
+
+        curl -fL -o "$odoo_enterprise_path/archive.tar.gz" \
+            "${git_proto}${GITHUB_USERNAME}:${GITHUB_PAT}@${git_hostname}/${git_path}/archive/$ODOO_ENTERPRISE_REF.tar.gz"
+        tar -xzf "$odoo_enterprise_path/archive.tar.gz" --strip-components=1 -C "$odoo_enterprise_path"
+        rm "$odoo_enterprise_path/archive.tar.gz"
+
+    elif [[ "$git_proto" = "ssh://" ]]; then
+
+        mkdir -p "$HOME/.ssh"
+        chmod 700 "$HOME/.ssh"
+        add-ssh-key
+        ssh-keyscan -t rsa,ed25519 "$git_hostname" >> "$HOME/.ssh/known_hosts" 2>/dev/null
+
+        if [[ ! -d "$odoo_enterprise_path/.git" ]]; then
+
+            find "$odoo_enterprise_path" -mindepth 1 -maxdepth 1 ! -name '.last_ref' -exec rm -rf {} +
+
+            log-entrypoint "Init ${odoo_enterprise_url} in $odoo_enterprise_path."
+            git -C "$odoo_enterprise_path" init -q
+            git -C "$odoo_enterprise_path" remote add origin "$odoo_enterprise_url"
+        fi
+
+        log-entrypoint "Fetch $ODOO_ENTERPRISE_REF commit in $odoo_enterprise_path."
+        git -C "$odoo_enterprise_path" fetch --depth 1 origin "$ODOO_ENTERPRISE_REF"
+
+        log-entrypoint "Checkout $ODOO_ENTERPRISE_REF commit in $odoo_enterprise_path."
+        git -C "$odoo_enterprise_path" checkout -q -f "$ODOO_ENTERPRISE_REF"
+
+        remove-ssh-key
+
+    else
+        log-entrypoint "Error: unsupported protocol '${git_proto}' in ODOO_ENTERPRISE_URL."
+        exit 1
+    fi
+
     echo "$ODOO_ENTERPRISE_REF" > "$ref_file"
 else
     log-entrypoint "Odoo Enterprise $ODOO_ENTERPRISE_REF already downloaded. Skipping download."
