@@ -34,7 +34,7 @@ if [[ -z "$last_ref" ]] || [[ "$last_ref" != "$ODOO_ENTERPRISE_REF" ]]; then
 
         add-ssh-key
         ssh-keyscan -t rsa,ed25519 "$git_hostname" >> "$HOME/.ssh/known_hosts" 2>/dev/null
-        rm "$ref_file"
+        rm -f "$ref_file"
 
         if [[ ! -d "$odoo_enterprise_path/.git" ]]; then
             log-entrypoint "Init ${odoo_enterprise_url} in $odoo_enterprise_path."
