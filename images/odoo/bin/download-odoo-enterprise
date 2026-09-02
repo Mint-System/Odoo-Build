@@ -32,15 +32,11 @@ if [[ -z "$last_ref" ]] || [[ "$last_ref" != "$ODOO_ENTERPRISE_REF" ]]; then
 
     elif [[ "$git_proto" = "ssh://" ]]; then
 
-        mkdir -p "$HOME/.ssh"
-        chmod 700 "$HOME/.ssh"
         add-ssh-key
         ssh-keyscan -t rsa,ed25519 "$git_hostname" >> "$HOME/.ssh/known_hosts" 2>/dev/null
+        rm "$ref_file"
 
         if [[ ! -d "$odoo_enterprise_path/.git" ]]; then
-
-            find "$odoo_enterprise_path" -mindepth 1 -maxdepth 1 ! -name '.last_ref' -exec rm -rf {} +
-
             log-entrypoint "Init ${odoo_enterprise_url} in $odoo_enterprise_path."
             git -C "$odoo_enterprise_path" init -q
             git -C "$odoo_enterprise_path" remote add origin "$odoo_enterprise_url"
