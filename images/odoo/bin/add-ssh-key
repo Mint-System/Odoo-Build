@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
+mkdir -p "$HOME/.ssh"
+chmod 700 "$HOME/.ssh"
+
 if [[ -n "$GIT_SSH_PRIVATE_KEY" ]]; then
     key_filename="${SSH_ID_ALGORITHM:=id_ed25519}"
-    mkdir -p "$HOME/.ssh"
-    chmod 700 "$HOME/.ssh"
     log-entrypoint 'Add SSH key from env var.'
     decoded_git_ssh_private_key=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -d)
     echo "$decoded_git_ssh_private_key" > "$HOME/.ssh/$key_filename"
