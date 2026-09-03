@@ -2139,7 +2139,7 @@ create-module() {
         read -p "Data? (y/n): " DATA_RESPONSE
         if [[ "$DATA_RESPONSE" == "y" ]]; then
             export MODULE_DATA_KEY='"data": ["data/data.xml"],'
-            mkdir -p "$module_path/demo"
+            mkdir -p "$module_path/data"
             cp templates/data.xml "$module_path/data/data.xml"
             break
         elif [[ "$DATA_RESPONSE" == "n" ]]; then
