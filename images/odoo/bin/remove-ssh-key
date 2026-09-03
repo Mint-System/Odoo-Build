@@ -11,3 +11,8 @@ if [[ -n "$GIT_SSH_PRIVATE_KEY" ]]; then
     fi
     rm -f "$HOME/.ssh/$key_filename"
 fi
+
+if [[ -n "$GIT_SSH_CONFIG" ]]; then
+    log-entrypoint 'Remove SSH config from env var.'
+    rm -f "$HOME/.ssh/config"
+fi

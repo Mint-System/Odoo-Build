@@ -4,6 +4,12 @@ set -e
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
 
+if [[ -n "$GIT_SSH_CONFIG" ]]; then
+    log-entrypoint 'Add SSH config from env var.'
+    echo -e "$GIT_SSH_CONFIG" > "$HOME/.ssh/config"
+    chmod 600 "$HOME/.ssh/config"
+fi
+
 if [[ -n "$GIT_SSH_PRIVATE_KEY" ]]; then
     key_filename="${SSH_ID_ALGORITHM:=id_ed25519}"
     log-entrypoint 'Add SSH key from env var.'
