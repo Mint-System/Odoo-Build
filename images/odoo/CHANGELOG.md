@@ -6,10 +6,12 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Added
 
+- `GIT_SSH_CONFIG` env var to write a custom `~/.ssh/config`, so git hosts can be reached on a port other than `22`.
 - Added deprecation message to `download-git-archive`
 
 ### Changed
 
+- `download-odoo-enterprise` and `clone-git-addons` now resolve the effective hostname and port with `ssh -G` before running `ssh-keyscan`, so `known_hosts` matches a host rewritten by `GIT_SSH_CONFIG`. `clone-git-addons` no longer scans for the removed `dsa` key type.
 - Renamed `download-git-archive` to `download-odoo-enterprise`.
 - Modified `entrypoint.sh` to skip `wait-for-pg` if the database hostname cannot be resolved, logging a warning instead.
 - Removed explicit `wait-for-pg` calls from `odoo`, `odoo-nginx`, and default command paths in `entrypoint.sh` as the check is now handled conditionally.
