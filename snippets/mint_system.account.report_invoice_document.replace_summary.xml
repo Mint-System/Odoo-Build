@@ -1,8 +1,8 @@
 <data inherit_id="account.report_invoice_document" priority="50">
 
-    <xpath expr="//table[@name='invoice_line_table']" position="after">
+	<xpath expr="//table[@name='invoice_line_table']" position="after">
 
-        <style>
+		<style>
 			table.trimada_summary tr {
 				border-top: solid 1px !important;
 				border-bottom: solid 1px;
@@ -47,46 +47,77 @@
 				width: 18%;
 				text-align: right;
 			}
-        </style>
+		</style>
 
-        <table id="summary" class="table table-borderless table-sm trimada trimada_summary">
+		<table id="summary" class="table table-borderless table-sm trimada trimada_summary">
 
-            <t t-set="tax_totals" t-value="o.tax_totals or {}"/>
-            <t t-foreach="tax_totals.get('subtotals')" t-as="subtotal">
+			<t t-set="tax_totals" t-value="o.tax_totals or {}"/>
+			<t t-foreach="tax_totals.get('subtotals')" t-as="subtotal">
 
-                <td id="amount_untaxed_label">
-                    <Strong>Warenwert</Strong>
-                </td>
+				<td id="amount_untaxed_label">
+					<Strong>Warenwert</Strong>
+				</td>
 
-                <td id="amount_by_group4" class="text-end">
-                    <span t-att-class="oe_subtotal_footer_separator" t-out="subtotal['formatted_amount']">27.00</span>
-                </td>
+				<td id="amount_by_group4" class="text-end">
+					<span t-att-class="oe_subtotal_footer_separator" t-out="subtotal['formatted_amount']">27.00</span>
+				</td>
 
-            </t>
+			</t>
 
-            <t t-set="subtotal_to_show" t-value="subtotal['name']"/>
-            <t t-foreach="tax_totals['groups_by_subtotal'][subtotal_to_show]" t-as="amount_by_group">
-                <t t-set="display_tax_base" t-value="tax_totals['display_tax_base']"/>
-                <td id="amount_by_group0">
-                    <span t-out="amount_by_group['tax_group_name']">Tax 15%</span>
-                </td>
-                <td id="amount_by_group3" class="text-end o_price_total">
-                    <span class="text-nowrap" t-out="amount_by_group['formatted_tax_group_amount']">4.05</span>
-                </td>
-            </t>
+			<t t-set="subtotal_to_show" t-value="subtotal['name']"/>
+			<t t-foreach="tax_totals['groups_by_subtotal'][subtotal_to_show]" t-as="amount_by_group">
+				<t t-set="display_tax_base" t-value="tax_totals['display_tax_base']"/>
+				<td id="amount_by_group0">
+					<span t-out="amount_by_group['tax_group_name']">Tax 15%</span>
+				</td>
+				<td id="amount_by_group3" class="text-end o_price_total">
+					<span class="text-nowrap" t-out="amount_by_group['formatted_tax_group_amount']">4.05</span>
+				</td>
+			</t>
 
-            <td id="amount_total_label">
-                <strong>Total</strong>
-            </td>
-            <td id="amount_total" class="text-end">
-                <span t-out="tax_totals.get('formatted_amount_total')">31.05</span>
-            </td>
+			<td id="amount_total_label">
+				<strong>Total</strong>
+			</td>
+			<td id="amount_total" class="text-end">
+				<span t-out="tax_totals.get('formatted_amount_total')">31.05</span>
 
-        </table>
 
-    </xpath>
+			</td>
+			<!--Payments-->
+			<table id="payments" style="width: 250px; margin-left: auto; text-align: right; font-size: 9pt; font-family: arial;">
+				<tr>
+					<t t-if="print_with_payments">
+						<t t-if="o.payment_state != 'invoicing_legacy'">
+							<t t-set="payments_vals" t-value="o.sudo().invoice_payments_widget and o.sudo().invoice_payments_widget['content'] or []"/>
+							<t t-foreach="payments_vals" t-as="payment_vals">
+								<tr style="width: 150px" t-if="payment_vals['is_exchange'] == 0">
+									<td>
+										<span>Paid on <t t-out="payment_vals['date']" t-options="{&quot;widget&quot;: &quot;date&quot;}">2021-09-19</t>
+										</span>
+									</td>
+									<td class="text-end">
+										<span t-out="payment_vals['amount']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}">20.00</span>
+									</td>
+								</tr>
+							</t>
+							<t t-if="len(payments_vals) &gt; 0">
+								<tr class="border-black fw-bold">
+									<td>Amount Due</td>
+									<td class="text-end">
+										<span t-field="o.amount_residual">11.05</span>
+									</td>
+								</tr>
+							</t>
+						</t>
+					</t>
+				</tr>
+			</table>
 
-    <xpath expr="//div[@id='total']" position="replace">
-    </xpath>
+		</table>
+
+	</xpath>
+
+	<xpath expr="//div[@id='total']" position="replace">
+	</xpath>
 
 </data>

@@ -15,6 +15,7 @@
 			h2 {
 				font-size: 13pt;
 				font-weight: bold;
+				color: black !important;
 			}
 			table.trimada thead tr {
 				border-top:solid 1px;
