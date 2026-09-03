@@ -7,7 +7,7 @@
         <input type="hidden" name="street2" class="js_street2_hidden"/>
     </xpath>
     
-    <xpath expr="//t[@name='b2b_fields']/div" position="after">
+   <div id="div_name" position="before">
         <div id="company_type" class="col-lg-12 mb-2">
             <div>
                 <t t-foreach="['person', 'company']" t-as="ct">
@@ -21,7 +21,7 @@
                 </t>
             </div>
         </div>
-    </xpath>
+    </div>
     
      <xpath expr="//input[@name='required_fields']" position="after">
        <script type="text/javascript">

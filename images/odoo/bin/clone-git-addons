@@ -18,10 +18,7 @@ if [[ -n "$ADDONS_GIT_REPOS" ]]; then
     [[ "$forgejo_url" =~ ^[a-zA-Z]+:// ]] || forgejo_url="https://${gitlab_url}"
 
     # Setup git SSH key
-    mkdir -p "$HOME/.ssh"
-    chmod 700 "$HOME/.ssh"
     add-ssh-key
-
 
     # Make every git directory a safe directory
     git config --global --add safe.directory '*'
@@ -91,6 +88,5 @@ if [[ -n "$ADDONS_GIT_REPOS" ]]; then
         fi
     done
 
-    # Remove git SSH key
     remove-ssh-key
 fi
