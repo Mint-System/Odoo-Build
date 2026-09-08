@@ -25,7 +25,7 @@ I want you to create a new Docker image `images/odoo-papermill` "Mint System Odo
 
 This is a base image that can be used to run Jupyter Notebooks. It provides a FastAPI endpoint that Odoo can call.
 
-Create the files `README.md`, `LICENSE,` `Dockerfile`, `entproint.sh` and `odoo-papermill.py` similar to `images/odoo-mailgate`.
+Create the files `README.md`, `LICENSE,` `Dockerfile`, `entproint.sh` `pyproject.toml` and `fastapi.py` similar to `images/odoo-mailgate`.
 
 The images supports these env vars:
 
@@ -42,13 +42,13 @@ The `entrypoint.sh` creates the virutal env at `VENV_PATH` and install python pa
 
 If `START_JUPYTER` is true, the image will also start `jupyter lab` and expose it via FastAPI proxy. If `JUPYTER_TOKEN` is not set, a value will be generated.
 
-The Dockerfile is based on `debian:stable-slim` and installs uv and git.
+The Dockerfile is based on `debian:stable-slim` and installs `uv` and `git`.
 
-The `odoo-papermaill.py` is a FastAPI server with shebang `#!/usr/bin/env python3`.
+The `fastapi.py` is a FastAPI server with shebang `#!/usr/bin/env python3`. The FastAPI packages are installed with `pyproject.toml`.
 
-It provides and post endpoint `/exec/{path/to/notebook.ipynb}?param=value`. It then uses <https://papermill.readthedocs.io/> to run the notebook. The https response waits for papermill to finish an then returns either an 200 ok, 504 timeout or 500 exception with details. In any case the response contains the command line output of papermill.
+It provides and post endpoint `/exec/{path/to/notebook.ipynb}?param=value`. It then uses <https://papermill.readthedocs.io/> to run the notebook. Papermill command runs with `--execution-timeout=$EXECUTION_TIMEOUT`. The https response waits for papermill to finish an then returns either an 200 ok, 504 timeout or 500 exception with details. In any case the response contains the command line output of papermill.
 
-Another enpoint is `/list`. This method simply traverses the `/app/main` dir and search `Jupyter notebooks`. It then returns the a simple list with the paths to the notebook.
+Another endpoint is `/list`. This method simply traverses the `/app/main` dir and search `Jupyter notebooks`. It then returns the a simple list with the paths to the notebook.
 
 All requests must be authenticated with the `API_TOKEN` in a bearer auth header.
 
@@ -65,6 +65,8 @@ For testing I will use `task init-odoo-jupyter tmp` and then `task start-odoo-pa
 Just for context: In another step I will create an Odoo module `papermill_job`. This module is based on OCA `queue_job` and provides a job template to make requests to the odoo-papermill service. It allows setting parameters `param=value` that are forwarded to the papermill notebook call. The module will store the response and supports re-running of failed notebook jobs. The url and api token of the odoo-papermail service can be set on the settings page of Odoo. When defining a papermill job it allows selecting a notebook path generated from the `/list` endpoint.
 
 In the `README.md` make reference to the Odoo Module <https://odoo-wiki.org/papermill-job.html> (does not exist yet). Other parts of the readme follow the same structure as `odoo-mailgate/README.md`. However, the usage section also gives an example of an Dockerfile that copies a notebook file to the `/app/mail` folder.
+
+Include the `images/odoo-papermill/README.md` in the `bin/update-docker-hub-readme` script.
 
 ## Worklog
 
