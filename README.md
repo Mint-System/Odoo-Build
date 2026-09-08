@@ -8,7 +8,7 @@ This is the [Mint System](https://www.mint-system.ch/) Odoo development environm
 This projects provides a highly opinionated way to manage and develop Odoo. It features:
 
 - 🔍 **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.
-- 🐳 **Container Compose**: Spin up an Odoo, Postgres, and pgAdmin container and experiment locally.
+- 🐳 **Container Compose**: Spin up an Odoo, Postgres, and Mailgate container and experiment locally.
 - 💻 **Native**: Start an Odoo server directly from the source.
 - 🔄 **Multiple Versions**: With Odoo Build, you can switch between Odoo versions starting from 13.0 up to 19.0.
 - 🛠️ **Develop Modules**: Generate new modules, develop new Odoo features locally.
@@ -17,9 +17,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 - ✂️ **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
 - 🕰️ **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
 - 📦 **Container Image**: Build and publish custom Odoo images. See [README](./images/README.md) for details.
-- 🔑 **Credentials**: Manage login credentials for Odoo and other applications.
-- ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo [upgrade](./upgrade.md) process.
-- 🚀 **And More**: See [task help](./task.md).
+- 📓 **Jupyter Notebooks**: Initialize and run Jupyter Lab integrated with Odoo, and execute notebooks with Papermill.
 
 ## Requirements
 
@@ -35,7 +33,7 @@ bash/zsh `alias task='./task'` with [completion](https://taskfile.build/usage/#c
 
 ## Usage
 
-The usage section is a set of workflows. See `task help` or [task](./task.md) for details about the project commands.
+The usage section is a set of workflows. See `task help` for details about the project commands.
 
 Clone this repository.
 

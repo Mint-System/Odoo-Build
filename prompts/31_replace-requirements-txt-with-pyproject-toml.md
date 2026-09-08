@@ -1,6 +1,6 @@
 ---
 title: "Replace requirements.txt with pyproject.toml"
-state: draft
+state: cancelled
 model: 
 input_tokens: 
 ---
@@ -31,6 +31,8 @@ Do not make this change for `odoo/requirements.txt`
 
 ## Worklog
 
-@Clanker Add a summary here once the task has been completed.
-
-@Clanker Set frontmatter state to completed and update info about model and token usage.
+- Reverted the change. The `.python-version` file is dynamic (changes per checked-out Odoo version), making `requires-python` in `pyproject.toml` impractical.
+- Recreated the root `requirements.txt` with all project dependencies.
+- Removed `pyproject.toml`.
+- Reverted the `install` command in `task` back to `uv pip install -r requirements.txt`.
+- Left `odoo/requirements.txt` and image-level `requirements.txt` references untouched.

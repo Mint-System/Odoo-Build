@@ -86,21 +86,6 @@ services:
 ${VOLUME_MOUNTS}
     networks:
       - default
-  admin:
-    container_name: admin
-    image: docker.io/dpage/pgadmin4:6
-    depends_on:
-      - db
-    ports:
-      - "8000:80"
-    environment:
-      PGADMIN_DEFAULT_EMAIL: admin@example.com
-      PGADMIN_DEFAULT_PASSWORD: admin
-    volumes:
-      - admin-data:/var/lib/pgadmin
-      - ./servers.json:/pgadmin4/servers.json
-    networks:
-      - default
   db:
     container_name: db
     image: ${POSTGRES_IMAGE}
@@ -155,7 +140,6 @@ ${VOLUME_MOUNTS}
 volumes:
   odoo-data:
   db-data:
-  admin-data:
   mail-data:
 networks:
   default:

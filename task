@@ -1226,20 +1226,12 @@ start() {
 
     if [[ "$1" = "list" ]]; then
         echo "Options:"
-        echo "admin"
         echo "db"
         echo "mailgate"
         echo "mailpit"
-        echo "source"
-        echo "hatch"
         echo "odoo"
         echo "odoo-nginx"
-        echo "jupyter"
-    fi
-
-    if [[ "$1" =~ "admin" ]]; then
-        echo 'Open http://localhost:8000 url in your browser.'
-        open-url-with-delay "http://localhost:8000" 2 & $COMPOSE_COMMAND up -d admin
+        echo "source"
     fi
 
     if [[ "$1" =~ "db" ]]; then
@@ -1270,22 +1262,6 @@ start() {
         open-url-with-delay "http://localhost:$port/web?debug=1&db=$database" 2 &
         odoo --database="$database" --config="$ODOO_RC" \
             --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
-    fi
-
-    if [[ "$1" =~ "hatch" ]]; then
-        template-odoo-rc
-        local port=8069
-        while [[ $port -le 8079 ]]; do
-            if ! lsof -i:$port >/dev/null 2>&1; then
-                break
-            fi
-            port=$((port + 1))
-        done
-
-        echo "Open http://localhost:$port url in your browser."
-        open-url-with-delay "http://localhost:$port/web?debug=1&db=$database" 2 &
-        odoo --database="$database" --config="$ODOO_RC" \
-            --http-port="$port" --dev=all --log-level="$LOG_LEVEL"
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
@@ -1443,10 +1419,6 @@ remove() {
 
     if [[ "$1" =~ "db" ]]; then
         $COMPOSE_COMMAND rm -f -s -v db
-    fi
-
-    if [[ "$1" =~ "admin" ]]; then
-        $COMPOSE_COMMAND rm -f -s -v admin
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
@@ -3084,7 +3056,7 @@ import-website-data() {
 
 install-vuepress() {
     echo 'Install Node.'
-    pnpm env use --global lts
+    pnpm runtime set node lts -g
 
     echo 'Install npm packages.'
     pnpm install

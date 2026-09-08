@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## Unreleased
+
+### Changed
+
+- Replaced `pgadmin4` container with `mailgate` in Docker Compose setup.
+- Removed `pgadmin4` service and related configuration from `compose.yml.template`.
+- Removed `servers.json` configuration file.
+- Reverted `requirements.txt` changes: Removed `pyproject.toml`, restored root `requirements.txt`, and reverted `install` command to use `uv pip install -r requirements.txt`.
+- Updated `task` command `start` to remove `admin`, `hatch`, and `jupyter` options.
+- Updated `task` command `remove` to remove `admin` option.
+- Updated `install-vuepress` to use `pnpm runtime set node lts -g` instead of `pnpm env use --global lts`.
+- Removed `package-lock.json`.
+- Added `pnpm-workspace.yaml`.
+
+### Removed
+
+- Removed `admin` service from Docker Compose setup.
+- Removed `hatch` and `jupyter` start options from `task` command.
+- Removed `servers.json`.
+- Removed `pyproject.toml`.
+- Removed `package-lock.json`.
+
 ## Undefined
 
 ### Fixed
@@ -97,7 +119,6 @@ All notable changes to this project will be documented in this file. The format 
 
 - Removed `ls-modules` and updated `list-modules`.
 - Make task script grep `-P` free.
-
 ## 2025-08-22
 
 ### Added
