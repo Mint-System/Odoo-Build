@@ -3055,10 +3055,6 @@ import-website-data() {
 # Vuepress commands
 
 install-vuepress() {
-    echo 'Install Node.'
-    pnpm runtime set node lts -g
-
-    echo 'Install npm packages.'
     pnpm install
 }
 
