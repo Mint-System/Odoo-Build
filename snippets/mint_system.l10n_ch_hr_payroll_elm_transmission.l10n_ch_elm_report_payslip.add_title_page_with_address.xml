@@ -1,0 +1,20 @@
+<data>
+    <xpath expr="//div[@class='page'][h2[@id='payslip_name']]" position="before">
+        <div style="page-break-after: always;">
+            <div class="oe_structure"/>
+            <div class="row" style="margin-top: 100px;">
+                <div class="col-6">
+                    <address>
+                        <strong t-field="o.employee_id.name"/><br/>
+                        <span t-field="o.employee_id.private_street"/><br/>
+                        <t t-if="o.employee_id.private_street2">
+                            <span t-field="o.employee_id.private_street2"/><br/>
+                        </t>                        
+                        <span t-field="o.employee_id.private_zip"/> <span t-field="o.employee_id.private_city"/><br/>
+                        <span t-field="o.employee_id.private_country_id.name"/>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </xpath>
+</data>
