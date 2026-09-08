@@ -1,0 +1,5 @@
+<data priority="50">
+    <page name="contact_addresses" position="before">
+       <page name="internal_notes" position="move" />
+    </page>
+</data>
