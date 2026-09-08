@@ -1,0 +1,95 @@
+#!/usr/bin/env python3
+"""Update Docker Hub repository README content from local markdown files."""
+
+import base64
+import json
+import os
+import sys
+
+import requests
+
+DOCKER_HUB_API = "https://hub.docker.com/v2"
+
+REPOSITORIES = [
+    ("images/odoo/README.md", "mintsystem", "odoo"),
+    ("images/odoo-cli/README.md", "mintsystem", "odoo-cli"),
+    ("images/odoo-mailgate/README.md", "mintsystem", "odoo-mailgate"),
+    ("images/odoo-upgrade/README.md", "mintsystem", "odoo-upgrade"),
+]
+
+
+def get_docker_credentials():
+    """Extract Docker Hub credentials from docker config.json."""
+    docker_config_dir = os.environ.get("DOCKER_CONFIG", os.path.expanduser("~/.docker"))
+    docker_config_path = os.path.join(docker_config_dir, "config.json")
+
+    if not os.path.exists(docker_config_path):
+        print(f"Docker config not found: {docker_config_path}")
+        return None, None
+
+    with open(docker_config_path) as f:
+        config = json.load(f)
+
+    auths = config.get("auths", {})
+
+    for key in ("https://index.docker.io/v1/", "https://index.docker.io/v1/access-token"):
+        if key in auths and "auth" in auths[key]:
+            decoded = base64.b64decode(auths[key]["auth"]).decode("utf-8")
+            if ":" in decoded:
+                username, password = decoded.split(":", 1)
+                return username, password
+
+    return None, None
+
+
+def login_docker_hub(username, password):
+    """Authenticate with Docker Hub and return JWT token."""
+    response = requests.post(
+        f"{DOCKER_HUB_API}/users/login/",
+        json={"username": username, "password": password},
+        timeout=30,
+    )
+    response.raise_for_status()
+    return response.json()["token"]
+
+
+def update_repository(token, namespace, repo, description):
+    """Update the full_description field of a Docker Hub repository."""
+    response = requests.patch(
+        f"{DOCKER_HUB_API}/repositories/{namespace}/{repo}/",
+        headers={"Authorization": f"JWT {token}", "Content-Type": "application/json"},
+        json={"full_description": description},
+        timeout=30,
+    )
+    response.raise_for_status()
+    return response
+
+
+def main():
+    username, password = get_docker_credentials()
+    if not username:
+        print("Could not find Docker Hub credentials.")
+        print("Run 'task login-docker <user> <token>' first.")
+        sys.exit(1)
+
+    print(f"Authenticating with Docker Hub as '{username}'...")
+    token = login_docker_hub(username, password)
+    print("Authentication successful.")
+
+    for readme_path, namespace, repo in REPOSITORIES:
+        if not os.path.exists(readme_path):
+            print(f"Skipping {namespace}/{repo}: {readme_path} not found.")
+            continue
+
+        with open(readme_path) as f:
+            content = f.read()
+
+        print(f"Updating {namespace}/{repo}...")
+        update_repository(token, namespace, repo, content)
+        print(f"Updated {namespace}/{repo} successfully.")
+
+    print("Done.")
+
+
+if __name__ == "__main__":
+    main()

@@ -26,12 +26,12 @@ First I want you to update the `bin/update-modules-doc` script. It should also p
 The file looks like this:
 
 ```csv
-forge, organisation, repo, module, versions
-github.com, Mint-System, odoo-apps-account-financial-reporting, account_financial_report_contra_accounts, 14.0,15.0;16.0
+forge,organisation,repo,module,versions
+github.com,Mint-System,odoo-apps-account-financial-reporting,account_financial_report_contra_accounts,14.0;15.0;16.0
 ...
 ```
 
-Note that command `task update-modules-doc` that is executing this script will take a long time. For every Odoo version all submodules are checked out synced:
+Note that command `task update-modules-doc` that is executing this script will take a long time. For every Odoo version all submodules are checked out and synced:
 
 ```python
 
@@ -47,7 +47,7 @@ submodules = read_gitmodules(".gitmodules")
 
 Do not execute the script. I will do it myself.
 
-Then I would like to have a command `check-module-versions` that takes a list as input:
+Then I would like to have a command `check-module-version <version> <stdin>` that takes a list as input:
 
 ```
 account_financial_report
@@ -78,10 +78,12 @@ web_responsive
 
 And then looks up every module in `modules.csv` and returns a table with available versions:
 
-```
-| name                  | versions   |
-|-----------------------|------------|
-| account_reconcile_oca | 14.0, 16.0 |
+```bash
+cat list.txt | task check-module-version 18.0
+| name                     | version |
+|--------------------------|---------|
+| account_financial_report |    18.0 |
+| account_reconcile_oca    |    17.0 |
 ...
 ```
 

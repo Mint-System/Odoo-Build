@@ -50,6 +50,7 @@ help-table() {
     rows+=("build-odoo-cli|[output]|Build Odoo CLI Docker image.")
     rows+=("login-docker|[user][token]|Setup Docker Hub login credentials.")
     rows+=("login-podman|[user][token]|Login into registry with podman.")
+    rows+=("update-docker-hub-readme||Update Docker Hub repository READMEs from image folders.")
     rows+=("container-ps||List container processes.")
     rows+=("remove|[name]|Remove containers and volumes.")
     rows+=("test-image-script|[folder]|Test scripts of target Docker image folder.")
@@ -186,7 +187,7 @@ help-table() {
     rows+=("===JUPYTER===| | ")
     rows+=("init-odoo-jupyter|[path]|Init jypyter lab directory.")
     rows+=("start-odoo-jupyter|[path][db]|Start juypter lab in directory.")
-    rows+=("run-jupyter-notebook|[path][db]|Run juypter notebook with papermill.")
+    rows+=("exec-odoo-jupyter|[path][db]|Run juypter notebook with papermill.")
     
     for row in "${rows[@]}"; do
         IFS='|' read -r cmd opt desc <<< "$row"
@@ -911,6 +912,10 @@ login-podman() {
     podman login --username "$CONTAINER_REGISTRY_USERNAME" --password "$CONTAINER_REGISTRY_PASSWORD" docker.io
 }
 
+update-docker-hub-readme() {
+    bin/update-docker-hub-readme
+}
+
 test-odoo-version-regex() {
 
         # If ODOO_VERSION=19.0 then
@@ -1359,7 +1364,7 @@ start-odoo-jupyter() {
     ./bin/start-odoo-jupyter "$1" "$database" "$token"
 }
 
-run-jupyter-notebook() {
+exec-odoo-jupyter() {
     if [[ -z "$1" ]]; then
         echo '$1/path is empty.'
         exit
@@ -1369,7 +1374,7 @@ run-jupyter-notebook() {
         database="$DB_NAME"
     fi
     
-    ./bin/run-jupyter-notebook "$1" "$database"
+    ./bin/exec-odoo-jupyter "$1" "$database"
 }
 
 exec() {

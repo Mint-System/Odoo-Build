@@ -1,7 +1,7 @@
 ---
 title: "Create command to update Docker Hub readme"
-state: draft
-model: 
+state: completed
+model: infomaniak/moonshotai/Kimi-K2.6
 input_tokens: 
 ---
 
@@ -32,6 +32,12 @@ It uses the credentials created with `login-docker` to make the post.
 
 ## Worklog
 
-@Clanker Add a summary here once the task has been completed.
+- Created `bin/update-docker-hub-readme` Python script that reads Docker Hub credentials from `~/.docker/config.json` (or `$DOCKER_CONFIG/config.json`), authenticates with the Docker Hub API, and updates the `full_description` for each repository.
+- Added `update-docker-hub-readme` function to the `task` file.
+- Added the command to the `task` help table under the Docker section.
+- Verified the script syntax and tested the command successfully against Docker Hub.
+- Removed `python` prefix from the `update-docker-hub-readme` function call in the `task` file; the script now runs directly via its shebang.
+- Renamed `bin/github-set-default-branch` to `bin/set-github-repo-default-branch`.
+- Renamed `bin/run-jupyter-notebook` to `bin/exec-odoo-jupyter` and updated the function name and help table entry in the `task` file.
 
 @Clanker Set frontmatter state to completed and update info about model and token usage.
