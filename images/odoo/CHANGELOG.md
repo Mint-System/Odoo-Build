@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. The format 
 - Renamed `download-git-archive` to `download-odoo-enterprise`.
 - Modified `entrypoint.sh` to skip `wait-for-pg` if the database hostname cannot be resolved, logging a warning instead.
 - Removed explicit `wait-for-pg` calls from `odoo`, `odoo-nginx`, and default command paths in `entrypoint.sh` as the check is now handled conditionally.
+- Updated the entrypoint banner ASCII art in `entrypoint.sh`.
 
 ## 2026-05-20
 
