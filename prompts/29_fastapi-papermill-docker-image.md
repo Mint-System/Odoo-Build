@@ -1,5 +1,5 @@
 ---
-title: "Odoo Papermill Docker image"
+title: "FastAPI Papermill Docker image"
 state: draft
 model: 
 input_tokens: 
@@ -21,7 +21,7 @@ Note: @Clanker refers to the "ai agent" (you) who is working on this task.
 
 ## Task
 
-I want you to create a new Docker image `images/odoo-papermill` "Mint System Odoo Papermill".
+I want you to create a new Docker image `images/fastapi-papermill` "Mint System FastAPI Papermill".
 
 This is a base image that can be used to run Jupyter Notebooks. It provides a FastAPI endpoint that Odoo can call.
 
@@ -52,21 +52,21 @@ Another endpoint is `/list`. This method simply traverses the `/app/main` dir an
 
 All requests must be authenticated with the `API_TOKEN` in a bearer auth header.
 
-Update the `compose.yml.template` with a new service `odoo-paperill`. The FastAPI server must be accessable on `localhost:8080`.
+Update the `compose.yml.template` with a new service `fastapi-paperill`. The FastAPI server must be accessable on `localhost:8080`.
 
-Add a new task command `build-odoo-papermill` similar to `build-odoo-mailgate`. This commands build and publishes the image.
+Add a new task command `build-fastapi-papermill` similar to `build-odoo-mailgate`. This commands build and publishes the image.
 
-Then add another task command `start-odoo-papermill <path>`. This command starts the `odoo-paperill` service and mounts `<paths>` to `/app/main`. After starting the service it will run a curl command that returns the `/list` content with instructions. The `JUPYTER_TOKEN` is predefined and the url including the token is opened.
+Then add another task command `start-fastapi-papermill <path>`. This command starts the `fastapi-paperill` service and mounts `<paths>` to `/app/main`. After starting the service it will run a curl command that returns the `/list` content with instructions. The `JUPYTER_TOKEN` is predefined and the url including the token is opened.
 
 Add a help entry for both commands.
 
-For testing I will use `task init-odoo-jupyter tmp` and then `task start-odoo-papermill tmp`.
+For testing I will use `task init-odoo-jupyter tmp` (creates a notebook) and then `task start-fastapi-papermill tmp`.
 
-Just for context: In another step I will create an Odoo module `papermill_job`. This module is based on OCA `queue_job` and provides a job template to make requests to the odoo-papermill service. It allows setting parameters `param=value` that are forwarded to the papermill notebook call. The module will store the response and supports re-running of failed notebook jobs. The url and api token of the odoo-papermail service can be set on the settings page of Odoo. When defining a papermill job it allows selecting a notebook path generated from the `/list` endpoint.
+Just for context: In another step I will create an Odoo module `papermill_job`. This module is based on OCA `queue_job` and provides a job template to make requests to the fastapi-papermill service. It allows setting parameters `param=value` that are forwarded to the papermill notebook call. The module will store the response and supports re-running of failed notebook jobs. The url and api token of the odoo-papermail service can be set on the settings page of Odoo. When defining a papermill job it allows selecting a notebook path generated from the `/list` endpoint.
 
 In the `README.md` make reference to the Odoo Module <https://odoo-wiki.org/papermill-job.html> (does not exist yet). Other parts of the readme follow the same structure as `odoo-mailgate/README.md`. However, the usage section also gives an example of an Dockerfile that copies a notebook file to the `/app/mail` folder.
 
-Include the `images/odoo-papermill/README.md` in the `bin/update-docker-hub-readme` script.
+Include the `images/fastapi-papermill/README.md` in the `bin/update-docker-hub-readme` script.
 
 ## Worklog
 
