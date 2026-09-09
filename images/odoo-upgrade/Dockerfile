@@ -32,4 +32,6 @@ RUN apt-get update && apt-get install -y \
 COPY ./images/odoo-upgrade/bin/* /usr/local/bin/
 RUN chmod +x /usr/local/bin/upgrade
 
-ENTRYPOINT ["upgrade"]
+COPY ./images/odoo-upgrade/entrypoint.sh /
+
+ENTRYPOINT ["/entrypoint.sh"]

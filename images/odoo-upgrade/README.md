@@ -42,8 +42,8 @@ docker run -it \
 Show help of upgrade command and arguments:
 
 ```bash
-docker run -it mintsystem/odoo-upgrade --help
-docker run -it mintsystem/odoo-upgrade test --help
+docker run mintsystem/odoo-upgrade --help
+docker run mintsystem/odoo-upgrade test --help
 ```
 
 ## Development

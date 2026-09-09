@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y \
   && rm -rf /var/lib/apt/lists/*
 
 # Copy the odoo-mailgate script into the container
-COPY ./images/odoo-mailgate/odoo-mailgate.py /usr/local/bin/
+COPY ./images/odoo-mailgate/bin/odoo-mailgate.py /usr/local/bin/
 
 # Copy the entrypoint script into the container
 COPY ./images/odoo-mailgate/entrypoint.sh /

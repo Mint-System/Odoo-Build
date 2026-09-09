@@ -355,8 +355,9 @@ def upload_dump(dump_path, server, port, ssh_key, dest_dump_name=None):
     # windows: rsync would interpret a full path (C:\...) as a remote path, because it contains ':'
     dump_path = os.path.relpath(dump_path)
     # if the --dump dir is passed, then transfer only the content of the dir, and not the directory itself
-    if os.path.isdir(dump_path) and not dump_path.endswith(os.sep):
-        dump_path += os.sep
+    # cannot use os.sep: in Windows cwRsync uses `/`
+    if os.path.isdir(dump_path) and not dump_path.endswith("/"):
+        dump_path += "/"
 
     logging.info("Upload the database dump.")
     try:
@@ -395,10 +396,11 @@ def download_dump(server, port, dump_name, ssh_key, dump_dest_path="."):
         ssh_key,
     )
     server = "{}@{}:{}".format(DATA_SERVER_USER, server, DATA_SERVER_PATH)
-    server_dump_path = os.path.join(server, dump_name)
-    server_fs_path = os.path.join(server, FILESTORE_NAME)
-    reports_path = os.path.join(server, "upgrade-report.html")
-    logs_path = os.path.join(server, "upgrade.log")
+    server_dump_path = "{}/{}".format(server, dump_name)
+    server_fs_path = "{}/{}".format(server, FILESTORE_NAME)
+    reports_path = "{}/{}".format(server, "upgrade-report.html")
+    logs_path = "{}/{}".format(server, "upgrade.log")
+    dest_path = os.path.relpath(dump_dest_path)
 
     logging.info(
         "Downloading the database dump and its filestore from %s.",
@@ -416,7 +418,7 @@ def download_dump(server, port, dump_name, ssh_key, dump_dest_path="."):
                 server_fs_path,
                 reports_path,
                 logs_path,
-                dump_dest_path,
+                dest_path,
             ],
             stream_output=True,
         )
@@ -487,6 +489,7 @@ def restore_database(db_name, dump_name, core_count):
             [
                 "pg_restore",
                 "--no-owner",
+                "--exit-on-error",
                 "--format",
                 "d",
                 dump_name,
@@ -901,6 +904,15 @@ def parse_command_line():
     """
 
     def add_upgrade_arguments(subparser):
+        def validate_target(target):
+            if target[0] == "v":
+                target = target[1:]
+
+            if target.encode(errors="replace").isdigit():
+                target = target + ".0"
+
+            return target
+
         dbname_or_dump = subparser.add_mutually_exclusive_group(required=True)
         dbname_or_dump.add_argument(
             "-d",
@@ -925,7 +937,9 @@ def parse_command_line():
             "--contract",
             help="The contract number associated to the database (by default taken from the DB if it already has one, mandatory when sending a dump file with --dump)",
         )
-        subparser.add_argument("-t", "--target", required=True, help="The upgraded database version")
+        subparser.add_argument(
+            "-t", "--target", required=True, help="The upgraded database version", type=validate_target
+        )
         subparser.add_argument(
             "-e",
             "--env",
@@ -1080,7 +1094,7 @@ def get_env_vars(env_vars, env_file):
         env_vars.extend(line.strip() for line in env_file if line and line[0] != "#")
     # Check that args are correctly formatted in the form VAR=VAL
     for var in env_vars:
-        if not re.match(r"^\w+=", var):
+        if not re.match(r"^\w+=", var, 0 if sys.version_info[0] == 2 else re.ASCII):
             raise ValueError("The following environment variable option is badly formatted: " + var)
     return env_vars
 
