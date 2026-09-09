@@ -146,7 +146,8 @@ help-table() {
     rows+=("load-ssh-key||Load SSH private key from env var.")
     rows+=("update-module-license|[grep]|Update LICENSE file for each matching module.")
     rows+=("===RUN===| | ")
-    rows+=("debug|[name]|Debugg application.")
+    rows+=("list-services||List available services.")
+    rows+=("debug|[name]|Debug application.")
     rows+=("exec|[name][cmd]|Run command in container.")
     rows+=("logs|[name]|Tail container logs. Default is '\''odoo'\''.")
     rows+=("manifestoo|[param]|Execute manifestoo cli.")
@@ -157,7 +158,7 @@ help-table() {
     rows+=("run|[name][cmd]|Run container with command.")
     rows+=("shell|[db][code]|Start interactive odoo shell or run code.")
     rows+=("source||Source the Python virtual env.")
-    rows+=("start|[name][db]|Start service. Use list to show services.")
+    rows+=("start|[name][db]|Start service.")
     rows+=("stop|[name]|Stop containers.")
     rows+=("test-xmlrpc|[env]|Test xml rpc connection.")
     rows+=("test-json-2|[env]|Test JSON API connection.")
@@ -1192,6 +1193,15 @@ install() {
 
 # Process commands
 
+list-services() {
+    echo "db"
+    echo "mailgate"
+    echo "mailpit"
+    echo "odoo"
+    echo "odoo-nginx"
+    echo "source"
+}
+
 start() {
     set-addons-path
 
@@ -1222,16 +1232,6 @@ start() {
         echo "Start all container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
         echo 'Open http://localhost:8069 url in your browser.'
         $COMPOSE_COMMAND up -d
-    fi
-
-    if [[ "$1" = "list" ]]; then
-        echo "Options:"
-        echo "db"
-        echo "mailgate"
-        echo "mailpit"
-        echo "odoo"
-        echo "odoo-nginx"
-        echo "source"
     fi
 
     if [[ "$1" =~ "db" ]]; then
