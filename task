@@ -13,35 +13,35 @@ help-table() {
 
     rows+=("Command|Option|Description")
     rows+=("===ENV===| | ")
-    rows+=("copy-dotenv|[env][env]|Copy .env file.")
-    rows+=("create-dotenv|[env][type]|Create .env file of type nextcloud, odoo, upgrade.")
-    rows+=("edit-dotenv|[env]|Open .env file in default editor.")
+    rows+=("copy-dotenv|<env><env>|Copy .env file.")
+    rows+=("create-dotenv|<env><type>|Create .env file of type nextcloud, odoo, upgrade.")
+    rows+=("edit-dotenv|<env>|Open .env file in default editor.")
     rows+=("list-dotenv||List .env files.")
-    rows+=("load-dotenv|[env]|Load and export .env file.")
-    rows+=("remove-dotenv|[env]|Remove environment config.")
-    rows+=("rename-dotenv|[env][env]|Rename .env file.")
-    rows+=("restore-dotenv-files|[path]|Extract and copy .env files from backup file.")
-    rows+=("show-dotenv|[env]|Output content of the .env file.")
+    rows+=("load-dotenv|<env>|Load and export .env file.")
+    rows+=("remove-dotenv|<env>|Remove environment config.")
+    rows+=("rename-dotenv|<env><env>|Rename .env file.")
+    rows+=("restore-dotenv-files|<path>|Extract and copy .env files from backup file.")
+    rows+=("show-dotenv|<env>|Output content of the .env file.")
     rows+=("===GIT===| | ")
-    rows+=("aggregate-git-folders|[path]|Run gitaggregate for the repos.yaml.")
-    rows+=("add-git-folder|[branch][url][path]|Add git folder to .gitmodules.")
-    rows+=("checkout|[version]|Checkout Odoo version.")
-    rows+=("checkout-git-folder|[branch][path]|Checkout git commit from .gitmodules.")
-    rows+=("commit-git-folder|[message][path]|Commit all changes in path.")
-    rows+=("clean-git-folder|[path]|Clean git folder.")
-    rows+=("clone-git-folder|[branch][path][version]|Clone git folder listed in the .gitmodules file.")
-    rows+=("download-git-folder|[grep]|Download git folder listed in the .gitmodules file.")
-    rows+=("status-git-folder|[path]|Show status for git folder in path.")
-    rows+=("list-git-folder|[path]|List path and url of git folders.")
-    rows+=("pull-git-folder|[branch][path]|Pull all git folders listed in the .gitmodules file.")
-    rows+=("push-git-folder||Push all git folders in path.")
-    rows+=("remove-git-folder|[path]|Remove git folders in path.")
-    rows+=("ls-git-folder|[grep]|List git folders path space separated.")
-    rows+=("reset-git-folder|[path]|Abort rebase and reset git folder.")
-    rows+=("stage-git-folder|[path]|Stage all files in git folders in path.")
-    rows+=("switch-git-folder|[branch][path]|Switch branch for all git folders from the .gitmodules file.")
-    rows+=("sync-git-folder|[branch][path]|Switch, stash and pull all git folders.")
-    rows+=("run-pre-commit|[path]|Run pre-commit in path.")
+    rows+=("aggregate-git-folders|<path>|Run gitaggregate for the repos.yaml.")
+    rows+=("add-git-folder|<branch><url><path>|Add git folder to .gitmodules.")
+    rows+=("checkout|<version>|Checkout Odoo version.")
+    rows+=("checkout-git-folder|<branch><path>|Checkout git commit from .gitmodules.")
+    rows+=("commit-git-folder|<message><path>|Commit all changes in path.")
+    rows+=("clean-git-folder|<path>|Clean git folder.")
+    rows+=("clone-git-folder|<branch>|Clone git folder listed in the .gitmodules file.")
+    rows+=("download-git-folder|<grep>|Download git folder listed in the .gitmodules file.")
+    rows+=("status-git-folder|<path>|Show status for git folder in path.")
+    rows+=("list-git-folder|<path>|List path and url of git folders.")
+    rows+=("pull-git-folder|<branch><path>|Pull all git folders listed in the .gitmodules file.")
+    rows+=("push-git-folder|<path>|Push all git folders in path.")
+    rows+=("remove-git-folder|<path>|Remove git folders in path.")
+    rows+=("ls-git-folder|<grep>|List git folders path space separated.")
+    rows+=("reset-git-folder|<path>|Abort rebase and reset git folder.")
+    rows+=("stage-git-folder|<path>|Stage all files in git folders in path.")
+    rows+=("switch-git-folder|<branch><path>|Switch branch for all git folders from the .gitmodules file.")
+    rows+=("sync-git-folder|<branch><path>|Switch, stash and pull all git folders.")
+    rows+=("run-pre-commit|<path>|Run pre-commit in path.")
     rows+=("===DOCKER===| | ")
     rows+=("archive-docker-tags||Archive Docker image tags on hub older than 1 year.")
     rows+=("build-odoo|[output]|Build Odoo Docker image.")
@@ -53,7 +53,7 @@ help-table() {
     rows+=("update-docker-hub-readme||Update Docker Hub repository READMEs from image folders.")
     rows+=("container-ps||List container processes.")
     rows+=("remove|[name]|Remove containers and volumes.")
-    rows+=("test-image-script|[folder]|Test scripts of target Docker image folder.")
+    rows+=("test-image-script|<folder>|Test scripts of target Docker image folder.")
     rows+=("test-odoo-version-regex||Test the Odoo module version regex filter.")
     rows+=("===VUEPRESS===| | ")
     rows+=("build-vuepress||Create Vuepress build.")
@@ -62,106 +62,106 @@ help-table() {
     rows+=("serve-vuepress||Serve Vuepress build.")
     rows+=("===DATABASE===| | ")
     rows+=("clear-assets|[db]|Clear all assets of Odoo database.")
-    rows+=("clear-filestore|[db]|Clear local filestore folder.")
+    rows+=("clear-filestore|<db>|Clear local filestore folder.")
     rows+=("clear-views|[db]|Clear all views of Odoo database.")
     rows+=("cloc-odoo|[db]|Count custom line of codes.")
     rows+=("drop-db|[db]|Drop target Odoo database.")
     rows+=("init-db|[db]|Initialize the Odoo database.")
-    rows+=("load-language|[db][lang]|Install language package in Odoo db.")
-    rows+=("patch-database|[db][path]|Apply sql file to database.")
-    rows+=("reset-views|[db][key]|Execute hard reset on views matching keys.")
+    rows+=("load-language|<db>[lang]|Install language package in Odoo db.")
+    rows+=("patch-database|<db>[path]|Apply sql file to database.")
+    rows+=("reset-views|<db>[key]|Execute hard reset on views matching keys.")
     rows+=("set-admin|[db]|Sets the password for the first user in database.")
-    rows+=("update-module|[db][name,path]|Update target Odoo module.")
-    rows+=("update-module-list|[db]|Update module list of Odoo database.")
+    rows+=("update-module|<db>[name,path]|Update target Odoo module.")
+    rows+=("update-module-list|<db>|Update module list of Odoo database.")
     rows+=("===REVISION===| | ")
     rows+=("checkout-latest-revision|[version]|Checkout the latest revision of the Odoo version.")
     rows+=("checkout-revision|[revision]|Load Odoo revision env var and checkout git folders.")
     rows+=("commit-and-push-revision|[revision]|Commit all changes and tag with current revision.")
-    rows+=("create-revision|[revision]|Create new Odoo revision.")
+    rows+=("create-revision|<revision>|Create new Odoo revision.")
     rows+=("list-revision||List available Odoo revisions.")
     rows+=("load-latest-revision|[version]|Load the latest revision of the Odoo version.")
     rows+=("load-revision|[revision]|Load env var from specified revision.")
     rows+=("show-revision|[revision]|Show references of Odoo revision.")
     rows+=("===LLM===| | ")
     rows+=("commit-with-llm||Commit with llm generated commit message.")
-    rows+=("update-with-llm|[glob][prompt]|Feed module files with prompt to LLM and apply file changes.")
+    rows+=("update-with-llm|<glob><prompt>|Feed module files with prompt to LLM and apply file changes.")
     rows+=("===SNIPPETS===| | ")
-    rows+=("create-snippet|[xml-id]|Create snippet from template.")
-    rows+=("install-snippet|[env][path]|Install snippet definition.")
-    rows+=("disable-snippet|[env][path]|Disable snippet by path or xml-id.")
-    rows+=("enable-snippet|[env][path]|Enable snippet by path or xml-id.")
+    rows+=("create-snippet|<xml-id>|Create snippet from template.")
+    rows+=("install-snippet|<env><path>|Install snippet definition.")
+    rows+=("disable-snippet|<env><path>|Disable snippet by path or xml-id.")
+    rows+=("enable-snippet|<env><path>|Enable snippet by path or xml-id.")
     rows+=("lint-snippets||Run checks for all snippets.")
-    rows+=("remove-snippet|[env][path]|Remove snippet by path or xml-id.")
-    rows+=("update-snippet|[env][path]|Update snippet definition.")
+    rows+=("remove-snippet|<env><path>|Remove snippet by path or xml-id.")
+    rows+=("update-snippet|<env><path>|Update snippet definition.")
     rows+=("===INSTALL===| | ")
     rows+=("activate-venv||Activate virtualenv.")
     rows+=("init-venv||Initialize python virtual env.")
     rows+=("install||Install Odoo requirements in source folder.")
-    rows+=("install-ansible-build-scripts|[role]|Install scripts of the specified Ansbile role.")
-    rows+=("install-requirements|[db][path]|Install python packages from requirements.txt.")
+    rows+=("install-ansible-build-scripts|<role>|Install scripts of the specified Ansbile role.")
+    rows+=("install-requirements|<db>[path]|Install python packages from requirements.txt.")
     rows+=("list-packages||List installed python packages.")
-    rows+=("init-module|[db][path,module]|Initialize Odoo module.")
+    rows+=("init-module|<db>[path,module]|Initialize Odoo module.")
     rows+=("set-addons-path||Set Odoo addons path env variable.")
     rows+=("===DATA===| | ")
     rows+=("export-website-data|[env]|Export website data from Odoo database.")
-    rows+=("import-csv|[db][path]|Import data from csv. Filename is PostgreSQL table name.")
+    rows+=("import-csv|<db>[path]|Import data from csv. Filename is PostgreSQL table name.")
     rows+=("import-website-data|[env]|Import website data to Odoo database.")
     rows+=("===DEVELOP===| | ")
-    rows+=("create-module|[path]|Create new Odoo module from template.")
-    rows+=("create-repo|[path]|Create a new Odoo module repo.")
-    rows+=("init-repo-branch|[path]|Create branch for current Odoo version in repo.")
-    rows+=("generate-module-docs|[path]|Generate readme file for module with OCA tools.")
-    rows+=("generate-module-model|[path][model]|Generate model in module folder.")
-    rows+=("generate-module-inherit-model|[path][model]|Generate inherited model in module folder.")
-    rows+=("generate-module-views|[path][model]|Generate model views in module folder.")
-    rows+=("generate-module-security|[path][model]|Generate model access file.")
-    rows+=("generate-module-migration|[path]|Generate migration script for currentmodule version.")
-    rows+=("generate-module-inherit-view|[path][ref][model]|Generate snippet for referefenced view.")
-    rows+=("generate-module-report|[path][model]|Generate report for a model in module folder.")
-    rows+=("generate-module-translation|[path]|Generate module translation and update with llm.")
-    rows+=("generate-module-wizard|[path][model]|Generate wizard for a model in module folder.")
-    rows+=("generate-repo-docs|[path]|Generate repo files from template.")
+    rows+=("create-module|<path>|Create new Odoo module from template.")
+    rows+=("create-repo|<path>|Create a new Odoo module repo.")
+    rows+=("init-repo-branch|<path>|Create branch for current Odoo version in repo.")
+    rows+=("generate-module-docs|<path>|Generate readme file for module with OCA tools.")
+    rows+=("generate-module-model|<path><model>|Generate model in module folder.")
+    rows+=("generate-module-inherit-model|<path><model>|Generate inherited model in module folder.")
+    rows+=("generate-module-views|<path><model>|Generate model views in module folder.")
+    rows+=("generate-module-security|<path><model>|Generate model access file.")
+    rows+=("generate-module-migration|<path>|Generate migration script for currentmodule version.")
+    rows+=("generate-module-inherit-view|<path><ref><model>|Generate snippet for referefenced view.")
+    rows+=("generate-module-report|<path><model>|Generate report for a model in module folder.")
+    rows+=("generate-module-translation|<path>|Generate module translation and update with llm.")
+    rows+=("generate-module-wizard|<path><model>|Generate wizard for a model in module folder.")
+    rows+=("generate-repo-docs|<path>|Generate repo files from template.")
     rows+=("===MODULE===| | ")
-    rows+=("list-modules|[path]|Get modules in path as bash array.")
-    rows+=("pytest-module|[path]|Run module tests with pytest.")
-    rows+=("release-module|[path]|Create GitHub release for a module.")
-    rows+=("register-module-repos|[version]|[path]|Register module repos on apps.odoo.com.")
-    rows+=("uninstall-module|[db][name]|Remove target Odoo module.")
-    rows+=("test-module|[path]|Test target Odoo module.")
-    rows+=("test-modules|[path]|Test target Odoo modules in repo folder.")
-    rows+=("translate-module|[path][lang][db]|Generate translation for Odoo module.")
-    rows+=("upload-module|[env][path]|Zip and upload Odoo module.")
-    rows+=("visualize-dependencies|[path]|Generate visualizations of module dependencies.")
-    rows+=("zip-module|[path]|Create zip file for module.")
+    rows+=("list-modules|<path>|Get modules in path as bash array.")
+    rows+=("pytest-module|<path>|Run module tests with pytest.")
+    rows+=("release-module|<path>|Create GitHub release for a module.")
+    rows+=("register-module-repos|[version][path]|Register module repos on apps.odoo.com.")
+    rows+=("uninstall-module|<db>[name]|Remove target Odoo module.")
+    rows+=("test-module|<path>|Test target Odoo module.")
+    rows+=("test-modules|<path>|Test target Odoo modules in repo folder.")
+    rows+=("translate-module|<path>[lang][db]|Generate translation for Odoo module.")
+    rows+=("upload-module|<env><path>|Zip and upload Odoo module.")
+    rows+=("visualize-dependencies|<path>|Generate visualizations of module dependencies.")
+    rows+=("zip-module|<path>|Create zip file for module.")
     rows+=("===HELPER===| | ")
-    rows+=("generate-admin-password|[pass]|Generate hash for Odoo master password.")
+    rows+=("generate-admin-password|<pass>|Generate hash for Odoo master password.")
     rows+=("generate-ssh-keys||Generate ssh key pair.")
     rows+=("generate-pg-ssl-keys||Generate PostgreSQL SSL key material.")
     rows+=("get-addons-path||Output addons path.")
-    rows+=("get-modules|[path][option]|Get list of modules in path. 'basename' or 'dirname'.")
-    rows+=("get-module-version|[path]|Get module version from manifest.")
-    rows+=("get-module-checksum|[path]|Get module checksum.")
+    rows+=("get-modules|<path>[option]|Get list of modules in path. 'basename' or 'dirname'.")
+    rows+=("get-module-version|<path>|Get module version from manifest.")
+    rows+=("get-module-checksum|<path>|Get module checksum.")
     rows+=("help|[grep]|Show help for commands.")
     rows+=("info||Show values of project env vars.")
     rows+=("load-ssh-key||Load SSH private key from env var.")
-    rows+=("update-module-license|[grep]|Update LICENSE file for each matching module.")
+    rows+=("update-module-license|<grep>|Update LICENSE file for each matching module.")
     rows+=("===RUN===| | ")
     rows+=("list-services||List available services.")
-    rows+=("debug|[name]|Debug application.")
-    rows+=("exec|[name][cmd]|Run command in container.")
+    rows+=("debug|<name>|Debug application.")
+    rows+=("exec|<name><cmd>|Run command in container.")
     rows+=("logs|[name]|Tail container logs. Default is '\''odoo'\''.")
     rows+=("manifestoo|[param]|Execute manifestoo cli.")
     rows+=("odoobin|[param]|Execute odoo binary.")
     rows+=("odoocli|[param]|Execute odoocli cli.")
     rows+=("psql|[db]|Start interactive psql shell.")
     rows+=("restart|[name]|Restart container.")
-    rows+=("run|[name][cmd]|Run container with command.")
+    rows+=("run|<name><cmd>|Run container with command.")
     rows+=("shell|[db][code]|Start interactive odoo shell or run code.")
     rows+=("source||Source the Python virtual env.")
     rows+=("start|[name][db]|Start service.")
     rows+=("stop|[name]|Stop containers.")
-    rows+=("test-xmlrpc|[env]|Test xml rpc connection.")
-    rows+=("test-json-2|[env]|Test JSON API connection.")
+    rows+=("test-xmlrpc|<env>|Test xml rpc connection.")
+    rows+=("test-json-2|<env>|Test JSON API connection.")
     rows+=("===PROJECT===| | ")
     rows+=("lint||Run precommit for this project.")
     rows+=("list-versions||List available Odoo versions.")
@@ -173,22 +173,22 @@ help-table() {
     rows+=("test-project|[cleanup]|Run tests for this project.")
     rows+=("version||Show version of required tools.")
     rows+=("===PERFORMANCE===| | ")
-    rows+=("record-with-memray|[name]|Record application memory usage with memray.")
-    rows+=("record-with-py-spy|[pid]|Record and create flamechart for a process.")
+    rows+=("record-with-memray|<name>|Record application memory usage with memray.")
+    rows+=("record-with-py-spy|<pid>|Record and create flamechart for a process.")
     rows+=("===DOC===| | ")
     rows+=("update-docs||Update all project docs.")
     rows+=("update-modules-doc||Update modules docs file.")
     rows+=("update-revisions-doc||Update revisions doc file.")
     rows+=("update-snippets-doc||Update snippets doc file.")
     rows+=("===UPGRADE===| | ")
-    rows+=("prepare-migration-brach|[path][module][version]|Create migration branch for a module.")
-    rows+=("migrate-module|[path]|Migrate module code to target Odoo version.")
-    rows+=("backport-module|[path]|Backport module code to target Odoo version.")
-    rows+=("run-openupgrade|[db]|Run Odoo OpenUpgrade scripts for target database.")
+    rows+=("prepare-migration-brach|<path><module><version>|Create migration branch for a module.")
+    rows+=("migrate-module|<path>|Migrate module code to target Odoo version.")
+    rows+=("backport-module|<path>|Backport module code to target Odoo version.")
+    rows+=("run-openupgrade|<db>|Run Odoo OpenUpgrade scripts for target database.")
     rows+=("===JUPYTER===| | ")
-    rows+=("init-odoo-jupyter|[path]|Init jypyter lab directory.")
-    rows+=("start-odoo-jupyter|[path][db]|Start juypter lab in directory.")
-    rows+=("exec-odoo-jupyter|[path][db]|Run juypter notebook with papermill.")
+    rows+=("init-odoo-jupyter|<path>|Init jypyter lab directory.")
+    rows+=("start-odoo-jupyter|<path>[db]|Start juypter lab in directory.")
+    rows+=("exec-odoo-jupyter|<path>[db]|Run juypter notebook with papermill.")
     
     for row in "${rows[@]}"; do
         IFS='|' read -r cmd opt desc <<< "$row"
@@ -372,7 +372,7 @@ version() {
 }
 
 generate-admin-password() {
-    if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
+    if [[ -z "$1" ]]; then echo '\$1/pass is empty.'; exit; fi
     export ODOO_PASSWORD="$1"
     bin/hash-password
 }
@@ -573,7 +573,7 @@ update-docs() {
 }
 
 update-module-license() {
-    if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
+    if [[ -z "$1" ]]; then echo '\$1/grep is empty.'; exit; fi
     local git_folders=$(list-module "$1")
 
     for git_folder in $git_folders; do
@@ -611,7 +611,7 @@ generate-repo-docs(){
 # Module commands
 
 get-modules() {
-    if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
+    if [[ -z "$1" ]]; then echo '\$1/path is empty.'; exit; fi
 
     local option="$2"
     if [[ -z "$option" ]]; then
@@ -630,7 +630,7 @@ get-modules() {
 
 get-module-version() {
     if [[ -z "$1" ]]; then
-        echo '\$1 is empty.'
+        echo '\$1/path is empty.'
     else
         # Get version of module
         local version=$(python -c "import ast; print(ast.literal_eval(open('$1/__manifest__.py').read())['version'])")
@@ -654,14 +654,14 @@ get-module-version() {
 
 get-module-checksum() {
     if [[ -z "$1" ]]; then
-        echo '\$1 is empty.'
+        echo '\$1/path is empty.'
     else
         bin/get-module-checksum "$1"
     fi
 }
 
 list-modules() {
-    if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
+    if [[ -z "$1" ]]; then echo '\$1/path is empty.'; exit; fi
     local modules=$(get-modules "$1" dirname)
     echo "$modules" | tr ',' '\n'
 }
@@ -1039,11 +1039,11 @@ EOF
 
 upload-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/env is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/path is empty.'
         exit
     fi
 
@@ -1245,7 +1245,8 @@ start() {
 
     if [[ "$1" =~ "mailpit" ]]; then
         echo 'Open http://localhost:8025 url in your browser.'
-        open-url-with-delay "http://localhost:8025" 2 & $COMPOSE_COMMAND up -d mailpit
+        open-url "http://localhost:8025"
+        $COMPOSE_COMMAND up -d mailpit
     fi
 
     if [[ "$1" =~ "source" ]]; then
@@ -1259,7 +1260,7 @@ start() {
         done
 
         echo "Open http://localhost:$port url in your browser."
-        open-url-with-delay "http://localhost:$port/web?debug=1&db=$database" 2 &
+        open-url"http://localhost:$port/web?debug=1&db=$database"
         odoo --database="$database" --config="$ODOO_RC" \
             --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
@@ -1267,19 +1268,21 @@ start() {
     if [[ "$1" =~ "odoo" ]]; then
         echo "Start Odoo container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
         echo 'Open http://localhost:8069 url in your browser.'
-        open-url-with-delay "http://localhost:8069" 2 & $COMPOSE_COMMAND up -d odoo
+        open-url "http://localhost:8069"
+        $COMPOSE_COMMAND up -d odoo
     fi
 
     if [[ "$1" =~ "odoo-nginx" ]]; then
         echo "Start Odoo container ${CONTAINER_REGISTRY}/${CONTAINER_TAG} with nginx proxy."
         echo 'Open http://localhost:8080 url in your browser.'
-        open-url-with-delay "http://localhost:8080" 2 & $COMPOSE_COMMAND up -d odoo
+        open-url "http://localhost:8080"
+        $COMPOSE_COMMAND up -d odoo
     fi
 }
 
 debug() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/name is empty.'
         exit
     fi
     local database="$2"
@@ -1368,7 +1371,7 @@ exec() {
 
 record-with-py-spy() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/pid is empty.'
         exit
     fi
 
@@ -1384,7 +1387,7 @@ record-with-py-spy() {
 
 record-with-memray() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/name is empty.'
         exit
     fi
     local database="$2"
@@ -1728,7 +1731,7 @@ init-db() {
 
 import-csv() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/db is empty.'
         exit
     fi
 
@@ -1759,7 +1762,7 @@ drop-db() {
 
 load-language() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/db is empty.'
         exit
     fi
 
@@ -1824,7 +1827,7 @@ clear-filestore() {
 
 update-module-list() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/db is empty.'
         exit
     fi
 
@@ -1834,7 +1837,7 @@ update-module-list() {
 
 patch-database() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/db is empty.'
         exit
     fi
 
@@ -1866,7 +1869,7 @@ cloc-odoo() {
 
 visualize-dependencies() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
 
@@ -1880,7 +1883,7 @@ visualize-dependencies() {
 
 install-requirements() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/db is empty.'
         exit
     fi
 
@@ -1917,7 +1920,7 @@ list-packages() {
 
 init-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/db is empty.'
         exit
     fi
 
@@ -1950,7 +1953,7 @@ init-module() {
 
 update-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/db is empty.'
         exit
     fi
 
@@ -1976,7 +1979,7 @@ update-module() {
 
 translate-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
 
@@ -2010,7 +2013,7 @@ translate-module() {
 
 test-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     local module=$(basename "$1")
@@ -2022,7 +2025,7 @@ test-module() {
 
 test-modules() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     local modules=$(get-modules "$1" basename)
@@ -2044,7 +2047,7 @@ test-modules() {
 
 pytest-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     local module_path="$1"
@@ -2064,7 +2067,7 @@ pytest-module() {
 
 uninstall-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/db is empty.'
         exit
     fi
 
@@ -2085,7 +2088,7 @@ uninstall-module() {
 
 create-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
 
@@ -2179,7 +2182,7 @@ create-module() {
 
 generate-module-docs() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     local module_path="$1"
@@ -2215,7 +2218,7 @@ generate-module-docs() {
 
 generate-module-migration() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     local module_path="$1"
@@ -2230,11 +2233,11 @@ generate-module-migration() {
 
 generate-module-security() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/model is empty.'
         exit
     fi
 
@@ -2373,7 +2376,7 @@ generate-module-wizard() {
 
 generate-module-translation() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     local module_path="$1"
@@ -2388,11 +2391,11 @@ generate-module-translation() {
 
 generate-module-inherit-model() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/model is empty.'
         exit
     fi
     local module_path="$1"
@@ -2407,11 +2410,11 @@ generate-module-inherit-model() {
 
 generate-module-views() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/model is empty.'
         exit
     fi
     local module_path="$1"
@@ -2470,7 +2473,7 @@ generate-module-report() {
 
 release-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
 
@@ -2488,7 +2491,7 @@ release-module() {
 
 zip-module() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
 
@@ -2623,7 +2626,7 @@ run-openupgrade() {
 
 reset-views() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/db is empty.'
         exit
     fi
 
@@ -2644,7 +2647,7 @@ reset-views() {
 
 create-snippet() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/xml-id is empty.'
         exit
     fi
 
@@ -2657,11 +2660,11 @@ create-snippet() {
 
 install-snippet() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/env is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/path is empty.'
         exit
     fi
 
@@ -2698,11 +2701,11 @@ install-snippet() {
 
 update-snippet() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/env is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/path is empty.'
         exit
     fi
 
@@ -2718,11 +2721,11 @@ update-snippet() {
 
 disable-snippet() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/env is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/path is empty.'
         exit
     fi
 
@@ -2742,11 +2745,11 @@ disable-snippet() {
 
 enable-snippet() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/env is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/path is empty.'
         exit
     fi
 
@@ -2764,11 +2767,11 @@ enable-snippet() {
 
 remove-snippet() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/env is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/path is empty.'
         exit
     fi
 
@@ -2802,7 +2805,7 @@ load-version() {
 }
 
 checkout() {
-    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
+    if [[ -z "$1" ]]; then echo "\$1/version is empty."; exit; fi
     ODOO_VERSION="$1"
 
     # Load .gitmodules and .python-version
@@ -2896,7 +2899,7 @@ checkout-revision() {
 }
 
 create-revision() {
-    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
+    if [[ -z "$1" ]]; then echo "\$1/revision is empty."; exit; fi
 
     local revision="$1"
     local odoo_date=$(echo "$revision" | cut -d'.' -f3-)
@@ -3059,8 +3062,8 @@ install-vuepress() {
 }
 
 dev-vuepress() {
-    open-url-with-delay http://localhost:8080 5 & \
-        pnpm run dev
+    open-url-with-delay http://localhost:8080
+    pnpm run dev
 }
 
 build-vuepress() {
@@ -3075,8 +3078,8 @@ build-vuepress() {
 
 serve-vuepress() {
     cd .vuepress/dist
-    open-url-with-delay http://localhost:3000 2 & \
-        pnpx serve
+    open-url http://localhost:3000
+    pnpx serve
 }
 
 if [[ "$1" == *","* ]]; then

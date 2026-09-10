@@ -1,7 +1,7 @@
 ---
 title: "Show optional and required params in task help"
-state: draft
-model: 
+state: completed
+model: moonshotai/Kimi-K2.6
 input_tokens: 
 ---
 
@@ -78,6 +78,4 @@ The name of the var can be derived from the help rows.
 
 ## Worklog
 
-@Clanker Add a summary here once the task has been completed.
-
-@Clanker Set frontmatter state to completed and update info about model and token usage.
+Analyzed all commands in the `task` file to determine whether each parameter is required or optional based on the function definitions. Updated the `help-table()` so required parameters are shown with angle brackets (`<param>`) and optional parameters with square brackets (`[param]`). Also updated all empty-check error messages to include the parameter name derived from the help rows (e.g., `$1/pid is empty.` instead of `$1 is empty.`). Verified the output with `task help` and `bash -n task`.
