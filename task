@@ -3062,7 +3062,7 @@ install-vuepress() {
 }
 
 dev-vuepress() {
-    open-url-with-delay http://localhost:8080
+    open-url http://localhost:8080
     pnpm run dev
 }
 
