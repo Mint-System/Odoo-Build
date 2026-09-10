@@ -48,7 +48,9 @@ task install
 
 ### Module Development
 
-To create module code use the `task generate-module-*` commands.
+Bootstrap a new module with the `task create-module` command.
+
+To generate module code use `task generate-module-*` commands.
 
 ```bash
 task generate-module-views addons/project/project_sprint project.sprint
