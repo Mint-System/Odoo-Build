@@ -15,18 +15,14 @@ export default defineUserConfig({
     head: [
         ['link', { rel: 'icon', href: '/icon.png' }]
     ],
-     pagePatterns: [
-      '**/*.md',
-      '!**/node_modules/**',
-      '!**/.vuepress/**',
-      '!**/venv*/**',
-      '!**/addons/**',
-      '!**/enterprise/**',
-      '!**/tmp/**',
-      '!**/oca/**',
-      '!**/thirdparty/**',
-      '!**/pycache/**',
-      '!**/prompts/**',
+    pagePatterns: [
+      'images/**/*.md',
+      'revisions/*.md',
+      'snippets/*.md',
+      'modules.md',
+      'README.md',
+      'revisions.md',
+      'snippets.md',
     ],
     theme: defaultTheme({
         logo: '/icon.png',

@@ -3082,6 +3082,22 @@ serve-vuepress() {
     pnpx serve
 }
 
+run-vuepress-container() {
+    container_name="odoo-build"
+    image_tag="mintsystem/taskfile.build:latest"
+
+    docker pull "$image_tag"
+    docker rm -f "$container_name"
+
+    echo "Open http://localhost:8888"
+    docker run -p 8888:80 -d \
+        --name "$container_name" \
+        -e GIT_URL="https://github.com/Mint-System/Odoo-Build" \
+        -e TASK_COMMANDS="install-vuepress,build-vuepress" \
+        -e CADDY_ROOT=".vuepress/dist" \
+        "$image_tag"
+}
+
 if [[ "$1" == *","* ]]; then
     # Split comma-separated commands
     IFS=',' read -ra COMMANDS <<< "$1"
