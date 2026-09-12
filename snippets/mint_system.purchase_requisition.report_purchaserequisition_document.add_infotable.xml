@@ -9,10 +9,10 @@
         border: transparent;
       }
         table#info tr {
-        line-height: 0.8;
+        line-height: 1.2;
         text-align: left;
       }
-      table#info tr span {
+        table#info span {
         line-height: 1.2;
       }
         .note {
