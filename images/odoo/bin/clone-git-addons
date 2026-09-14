@@ -47,7 +47,10 @@ if [[ -n "$ADDONS_GIT_REPOS" ]]; then
             git_branch="$ODOO_VERSION"
         fi
 
-        ssh-keyscan -t rsa,dsa "$git_hostname" > "$HOME/.ssh/known_hosts" 2>/dev/null
+        ssh_host_config=$(ssh -F "$HOME/.ssh/config" -G "$git_hostname" 2>/dev/null)
+        ssh_hostname=$(echo "$ssh_host_config" | sed -n 's/^hostname //p')
+        ssh_port=$(echo "$ssh_host_config" | sed -n 's/^port //p')
+        ssh-keyscan -t rsa,ed25519 -p "${ssh_port:-22}" "${ssh_hostname:-$git_hostname}" > "$HOME/.ssh/known_hosts" 2>/dev/null
 
         if [[ ! -d "$git_local_path/.git" ]]; then
 
