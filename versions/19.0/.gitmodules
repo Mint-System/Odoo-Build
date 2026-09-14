@@ -3,13 +3,13 @@
 	url = git@github.com:odoo/odoo.git
 	branch = 19.0
 	shallow = true
-	commit = 0d44f26d9b0fb1c1a5db463cf1f8dd0d3c72ba26
+	commit = f84eeb3ed1421e0cc07c906ff6444734dc01d35f
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
 	branch = 19.0
 	shallow = true
-	commit = 7b309f2e74f9fa37b109375de6387db3241c2bcb
+	commit = 918ff45eeb8c0281ac1a86733fff3447f1b1e71b
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
@@ -29,7 +29,7 @@
 	path = addons/management_system
 	url = git@github.com:Mint-System/Odoo-Apps-Management-System.git
 	branch = 19.0
-	commit = 0f06bc9497327f36bdd09fb0f17ef2677f269438
+	commit = 9c4a65720c65944767f1d2dcd12c708cc519f466
 [submodule "addons/sale_workflow"]
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
@@ -54,7 +54,7 @@
 	path = oca/sale-workflow
 	url = git@github.com:OCA/sale-workflow
 	branch = 19.0
-	commit = 4b904db81e5b6393c33e0f0ce40d5a7ee76c9551
+	commit = f7316aa6361077ee4d55bc70f8da94cb0221f512
 [submodule "oca/server-tools"]
 	path = oca/server-tools
 	url = git@github.com:OCA/server-tools.git
@@ -99,7 +99,7 @@
 	path = addons/tender
 	url = git@github.com:Mint-System/Odoo-Apps-Tender
 	branch = 19.0
-	commit = 57b2b95537d38dbdaaabebcceefac356019aa5cb
+	commit = 15c2d890b7ebe31fb56a340ccd12459fb1619226
 [submodule "addons/manufacture"]
 	path = addons/manufacture
 	url = git@github.com:Mint-System/manufacture.git
@@ -114,3 +114,24 @@
 	path = oca/reporting-print-send
 	url = git@github.com:OCA/report-print-send.git
 	branch = 19.0
+	commit = 77587409dcb852b702bdfb80e9ecc7d0b3d903f8
+[submodule "oca/storage"]
+	path = oca/storage
+	url = git@github.com:OCA/storage.git
+	branch = 19.0
+	commit = ae3846e28a02d8d3eb1bde2f99be7f154878b343
+[submodule "addons/contract"]
+	path = addons/contract
+	url = git@github.com:Mint-System/Odoo-Apps-contract
+	branch = 19.0
+	commit = HEAD
+[submodule "oca/server-ux"]
+	path = oca/server-ux
+	url = git@github.com:OCA/server-ux.git
+	branch = 19.0
+	commit = bc7bbaf9efbb973a83c415c90c68677ef53be109
+[submodule "oca/account-closing"]
+	path = oca/account-closing
+	url = git@github.com:webcircles/OCA-account-closing.git
+	branch = 19.0
+	commit = 8ce0077fd0762d49e928ea7520555341d7936a9e

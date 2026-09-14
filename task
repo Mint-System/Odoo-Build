@@ -2312,6 +2312,7 @@ init-repo-branch() {
 
     generate-repo-docs "$repo_path"
 
+    local git_url="git@github.com:${USER_ORG}/Odoo-Apps-$repo_name"
     echo -e "Use this command to register as git folder:\n"
     echo -e "\ttask add-git-folder $git_url $ODOO_VERSION $repo_path\n"
 }
