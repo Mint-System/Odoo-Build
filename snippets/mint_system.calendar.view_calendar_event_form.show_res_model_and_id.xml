@@ -1,6 +1,13 @@
 <data priority="50">
-    <xpath expr="//page[@name='page_misc']//field[@name='user_id']" position="after">
-        <field name="res_id"/>
-        <field name="res_model"/>
-    </xpath>
+
+  <xpath expr="//page[@name='page_invitations']" position="after">
+    
+    <page name="page_misc" string="Misc" groups="base.group_no_one">
+        <group>
+            <field name="res_id"/>
+            <field name="res_model"/>
+        </group>
+    </page>
+  </xpath>
+
 </data>

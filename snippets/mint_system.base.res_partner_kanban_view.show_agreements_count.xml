@@ -2,13 +2,13 @@
     <xpath expr="//kanban/field[@name='type']" position="after">
         <field name="agreements_count"/>
     </xpath>
-    <xpath expr="//div[hasclass('oe_kanban_details')]/ul" position="after">
+    <xpath expr="//div[hasclass('oe_kanban_details')]/div/ul" position="after">
         <a class="o_project_kanban_box" name="action_open_agreement" type="object">
             <div>
                 <span class="o_value">
                     <t t-esc="record.agreements_count.value"/>
                 </span>
-                <span class="o_label">Agreements</span>
+                <span class="o_label"> Agreements</span>
             </div>
         </a>
     </xpath>
