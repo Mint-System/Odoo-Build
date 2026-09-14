@@ -1260,7 +1260,7 @@ start() {
         done
 
         echo "Open http://localhost:$port url in your browser."
-        open-url"http://localhost:$port/web?debug=1&db=$database"
+        open-url "http://localhost:$port/web?debug=1&db=$database"
         odoo --database="$database" --config="$ODOO_RC" \
             --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
