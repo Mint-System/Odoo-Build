@@ -8,7 +8,14 @@ import sidebar from './sidebar'
 import { searchPlugin } from '@vuepress/plugin-search'
 
 export default defineUserConfig({
-    bundler: viteBundler(),
+    bundler: viteBundler({
+        viteOptions: {
+            build: {
+                sourcemap: false,
+                reportCompressedSize: false,
+            },
+        },
+    }),
     lang: 'en-US',
     title: 'Odoo Build',
     description: 'The Mint System Odoo development environment.',
