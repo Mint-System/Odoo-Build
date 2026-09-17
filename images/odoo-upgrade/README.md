@@ -15,6 +15,7 @@ Supported Postgres versions:
 - [`15`](https://hub.docker.com/layers/mintsystem/odoo-upgrade/15)
 - [`16`](https://hub.docker.com/layers/mintsystem/odoo-upgrade/16)
 - [`17`](https://hub.docker.com/layers/mintsystem/odoo-upgrade/17)
+- [`18`](https://hub.docker.com/layers/mintsystem/odoo-upgrade/18)
 
 Setup environment vaiables:
 
@@ -44,6 +45,7 @@ Show help of upgrade command and arguments:
 ```bash
 docker run mintsystem/odoo-upgrade --help
 docker run mintsystem/odoo-upgrade test --help
+docker run mintsystem/odoo-upgrade production --help
 ```
 
 ## Development

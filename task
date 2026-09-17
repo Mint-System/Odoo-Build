@@ -830,7 +830,7 @@ build-odoo-mailgate() {
 
 build-odoo-upgrade() {
     local manifest_file="images/odoo-upgrade/Dockerfile"
-    local postgres_versions="14 15 16 17"
+    local postgres_versions="14 15 16 17 18"
     local docker_output="--load"
 
     if [[ -n "$1" ]]; then
@@ -2020,7 +2020,7 @@ test-module() {
 
     set-addons-path
     echo "Testing module $module..."
-    odoo -d "$DB_NAME" -i "$module" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-enable
+    odoo -d "$DB_NAME" -u "$module" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-enable
 }
 
 test-modules() {
