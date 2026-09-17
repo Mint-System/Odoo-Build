@@ -119,6 +119,11 @@ services:
       GIT_SSH_PUBLIC_KEY: "ssh-ed25519 BBBBC3NzaC1lZDI1NTE5BBBBIDR9Ibi0mATjCyx1EYg594oFkY0rghtgo+pnFHOvAcym Mint-System-Project-MCC@github.com"
       GIT_SSH_PRIVATE_KEY: "LS0tLS1CRUdJTiBPUEVOU1NIIFBSSVZBVEUgS0VZLS0tLQpiM0JsYm5OemFDMXJaWGt0ZGpFQUFBQUFCRzV2Ym1VQUFBQUVibTl1WlFBQUFBQUFBQUFCQUFBQU13QUFBQXR6YzJndFpXClF5TlRVeE9RQUFBQ0EwZlNHNHRKZ0U0d3NzZFJHSU9mZUtCWkdOSzRJYllLUHFaeFJ6cndITXBnQUFBS2k1WkJhRnVXUVcKaFFBQUFBdHpjMmd0WldReU5UVXhPUUFBQUNBMGZTRzR0SmdFNHdzc2RSR0lPZmVLQlpTks0SWJZS1BxWnhSenJ3SE1wZwowQkFnTT0KLS0tLS1FTkQgT1BFTlNTSCBQUklWQVRFIEtFWS0tLS0tCg=="
       SSH_ID_ALGORITHM: id_ed25519
+      GIT_SSH_CONFIG: |
+        Host github.com
+          Hostname ssh.github.com
+          Port 443
+          User git
       GITHUB_USERNAME: bot-mintsys
       GITHUB_PAT: *****
       GITLAB_URL: https://gitlab.com
@@ -396,6 +401,7 @@ The image can clone git repositories.
 - `GIT_SSH_PUBLIC_KEY`: Public key for SSH connection.
 - `GIT_SSH_PRIVATE_KEY`: Base64 encoded private key for SSH connection: `cat ~/.ssh/id_ed2551 | base64 -w0`
 - `SSH_ID_ALGORITHM`: Filename and algorithm of the SSH key file. Default is `id_ed25519`
+- `GIT_SSH_CONFIG`: Content of the `~/.ssh/config` file. Use it when the default SSH port `22` is blocked on the network.
 - `GITHUB_USERNAME` GitHub username for https git clone and archive download.
 - `GITHUB_PAT`: GitHub access token for https git clone and archive download.
 - `GITLAB_URL`: Url of GitLab instance. Default is `https://gitlab.com`.
@@ -416,6 +422,24 @@ ADDONS_GIT_REPOS=https://github.com/OCA/server-tools#18.0,https://github.com/Min
 ```
 
 If you use a git url, make sure a valid SSH private/public key is defined. Branch name fallback is the Odoo version.
+
+Many networks block outgoing connections on port `22`. Set `GIT_SSH_CONFIG` to reach GitHub over port `443` instead:
+
+```yaml
+GIT_SSH_CONFIG: |
+  Host github.com
+    Hostname ssh.github.com
+    Port 443
+    User git
+```
+
+In an `.env` file, write the same config with escaped line breaks:
+
+```bash
+GIT_SSH_CONFIG="Host github.com\n  Hostname ssh.github.com\n  Port 443\n  User git"
+```
+
+The host key is scanned for the hostname and port the config resolves to, so `known_hosts` matches the rewritten host.
 
 ### Addons Path
 
