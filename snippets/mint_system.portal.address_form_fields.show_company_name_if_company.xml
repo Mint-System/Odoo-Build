@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//t[@name='b2b_fields']" position="attributes">
+        <attribute name="t-if">partner_sudo.is_company</attribute>
+    </xpath>
+</data>

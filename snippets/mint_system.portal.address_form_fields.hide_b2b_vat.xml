@@ -1,0 +1,3 @@
+<data priority="50">
+    <xpath expr="//div[@id='div_vat']" position="replace"/>
+</data>
