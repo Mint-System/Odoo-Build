@@ -42,7 +42,7 @@ export default defineUserConfig({
             { text: 'Snippets', link: '/snippets' },
             { text: 'Revisions', link: '/revisions' },
             { text: 'Modules', link: '/modules' },
-            { text: 'Chat', link: 'https://matrix.to/#/!gmucNdFKeaGvdzcGTP:mint-system.ch?via=mint-system.ch'}
+            { text: 'Chat', link: 'https://matrix.to/#/#odoo-build:mint-system.ch'}
         ],
         sidebar: {
             '/': [
