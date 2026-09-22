@@ -1,4 +1,3 @@
 <data priority="50">
-    <field name="in_group_154" position="replace"/>
-    <field name="in_group_153" position="replace"/>
+  <xpath expr="//field[@name='sel_groups_153_154']" position="replace"/>
 </data>
