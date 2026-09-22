@@ -15,6 +15,9 @@ All notable changes to this project will be documented in this file. The format 
 - Updated `install-vuepress` to use `pnpm runtime set node lts -g` instead of `pnpm env use --global lts`.
 - Removed `package-lock.json`.
 - Added `pnpm-workspace.yaml`.
+- Removed `ripgrep` from system dependencies installation across all supported operating systems.
+- Removed `base-devel` package installation on Arch Linux/SteamOS.
+- Removed `python-ldap` build dependencies installation on Arch Linux/SteamOS.
 
 ### Removed
 
