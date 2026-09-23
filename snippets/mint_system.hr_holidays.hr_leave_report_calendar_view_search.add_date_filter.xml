@@ -1,0 +1,5 @@
+<data priority="50">
+   <xpath expr="//field[@name='job_id']" position="after">
+     <filter name="Start Date" date="start_datetime"/>
+  </xpath>
+</data>
