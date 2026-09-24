@@ -276,6 +276,7 @@ WITHOUT_DEMO=${WITHOUT_DEMO:=False}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:=de_CH}
 ODOO_PORT=${ODOO_PORT:=8069}
 NGINX_PORT=${NGINX_PORT:=8080}
+ODOO_ADDONS_PATH=${ODOO_ADDONS_PATH:=/mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/}
 JPYTER_LAB_PORT=${JPYTER_LAB_PORT:=8888}
 WORKERS=${WORKERS:=0}
 POSTGRES_IMAGE=${POSTGRES_IMAGE:=postgres:16-alpine}
@@ -398,8 +399,37 @@ activate-venv() {
 }
 
 get-addons-path() {
-    set-addons-path
-    echo "$ADDONS_PATH"
+    # Read addons path from git module
+    local git_folders_path="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | sort | tr '\n' ',' | sed 's/,*$//')"
+
+    # Remove excluded addons
+    local excludes="addons/theme_mint_system addons/company addons/web"
+    for exclude in $excludes; do
+        git_folders_path=$(echo "$git_folders_path" | sed "s|${exclude},||g; s|^${exclude}$||")
+    done
+
+    # Filter valid directories
+    local valid_paths=""
+    while IFS= read -r addon; do
+        addon=$(echo "$addon" | xargs)
+        [[ -z "$addon" ]] && continue
+        if [[ -d "$addon" ]]; then
+            valid_paths="${valid_paths:+$valid_paths,}$addon"
+        else
+            echo "Set Addons Path: Path '$addon' does not exist." >&2
+        fi
+    done < <(echo "$git_folders_path" | tr ',' '\n')
+    git_folders_path="$valid_paths"
+
+    # Convert to source paths (add /addons where needed)
+    local addons_path="$(echo "$git_folders_path" | sed 's|,odoo|,odoo/addons|g')"
+
+    # Append paths from config env var
+    if [[ -n "$ODOO_ADDONS_PATH" ]]; then
+        addons_path="${ODOO_ADDONS_PATH},${addons_path}"
+    fi
+
+    echo "$addons_path"
 }
 
 template-odoo-rc() {
@@ -461,44 +491,7 @@ template-odoo-rc() {
 }
 
 set-addons-path() {
-    # Read addons path from git module
-    local git_folders_path="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | sort | tr '\n' ',' | sed 's/,*$//')"
-
-    # Remove excluded addons
-    local excludes="addons/theme_mint_system addons/company addons/web"
-    for exclude in $excludes; do
-        git_folders_path=$(echo "$git_folders_path" | sed "s|${exclude},||g; s|^${exclude}$||")
-    done
-
-    # Add included addons
-    # local includes="addons/thirdparty"
-    # for include in $includes; do
-    #     git_folders_path="$include,$git_folders_path"
-    # done
-
-    # Filter valid directories
-    local valid_paths=""
-    while IFS= read -r addon; do
-        addon=$(echo "$addon" | xargs)
-        [[ -z "$addon" ]] && continue
-        if [[ -d "$addon" ]]; then
-            valid_paths="${valid_paths:+$valid_paths,}$addon"
-        else
-            echo "Set Addons Path: Path '$addon' does not exist." >&2
-        fi
-    done < <(echo "$git_folders_path" | tr ',' '\n')
-    git_folders_path="$valid_paths"
-
-    # Convert to source paths (add /addons where needed)
-    local addons_path="$(echo "$git_folders_path" | sed 's|,odoo|,odoo/addons|g')"
-
-    # Append paths from config env var
-    if [[ -n "$ODOO_ADDONS_PATH" ]]; then
-        addons_path="${ODOO_ADDONS_PATH},${addons_path}"
-    fi
-
-    # Export the addons path
-    export ADDONS_PATH="$addons_path"
+    export ADDONS_PATH="$(get-addons-path)"
 }
 
 load-ssh-key() {
@@ -1203,30 +1196,33 @@ list-services() {
 }
 
 start() {
-    set-addons-path
-
+    # Generate key material if Postgres SSL is enabled
     if [[ "$POSTGRES_SSL" == "on" ]]; then
         generate-pg-ssl-keys
     fi
 
+    # Prepare Odoo start command
     ODOO_COMMAND="odoo --dev=all"
     if [[ "$1" =~ "odoo-nginx" ]]; then
         ODOO_COMMAND="odoo-nginx --dev=all"
     fi
     export ODOO_COMMAND
 
+    # Load custom env for Odoo container 
     if [[ "$1" =~ "odoo" && -a ".env.odoo" ]]; then
         echo "Source .env.odoo"
         source .env.odoo
     fi
-
-    template-compose
 
     # Use default database if second param is not given
     local database="$2"
     if [[ -z "$2" ]]; then
         database="$DB_NAME"
     fi
+
+    template-compose
+
+    # Start command cases
 
     if [[ -z "$1" ]]; then
         echo "Start all container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
@@ -1266,6 +1262,7 @@ start() {
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
+        set-addons-path
         echo "Start Odoo container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
         echo 'Open http://localhost:8069 url in your browser.'
         open-url "http://localhost:8069"
@@ -1273,6 +1270,7 @@ start() {
     fi
 
     if [[ "$1" =~ "odoo-nginx" ]]; then
+        set-addons-path
         echo "Start Odoo container ${CONTAINER_REGISTRY}/${CONTAINER_TAG} with nginx proxy."
         echo 'Open http://localhost:8080 url in your browser.'
         open-url "http://localhost:8080"

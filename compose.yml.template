@@ -77,7 +77,7 @@ services:
       TEST_EXCLUDE: ${TEST_EXCLUDE}
       AUTO_UPDATE_TRANSLATIONS: "${AUTO_UPDATE_TRANSLATIONS}"
       AUTO_UPDATE_MODULES_LIST: "${AUTO_UPDATE_MODULES_LIST}"
-    command: ${ODOO_COMMAND}
+    command: ${ODOO_COMMAND} --http-interface=0.0.0.0
     ports:
       - "${ODOO_PORT}:8069"
       - "${NGINX_PORT}:8080"

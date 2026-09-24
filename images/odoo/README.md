@@ -593,6 +593,7 @@ Under the hood the image uses several scripts to manage Odoo. Make yourself fami
 - [`config`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/config)
 - [`download-odoo-enterprise`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/download-odoo-enterprise)
 - [`download-odoo-openupgrade`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/download-odoo-openupgrade)
+- [`get-addons-path`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/get-addons-path)
 - [`init-db`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-db)
 - [`init-module`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-module)
 - [`install-python-packages`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/install-python-packages)
