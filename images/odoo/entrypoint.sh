@@ -61,12 +61,12 @@ else
 fi
 
 AUTO_UPDATE_MODULES_LIST="${AUTO_UPDATE_MODULES_LIST:=False}"
-if [[ "$AUTO_UPDATE_MODULES_LIST" = "True" ]]; then
+if [[ "${AUTO_UPDATE_MODULES_LIST,,}" = "true" ]]; then
     update-modules-list
 fi
 
 AUTO_UPDATE_TRANSLATIONS="${AUTO_UPDATE_TRANSLATIONS:=False}"
-if [[ "$AUTO_UPDATE_TRANSLATIONS" = "True" ]]; then
+if [[ "${AUTO_UPDATE_TRANSLATIONS,,}" = "true" ]]; then
     update-translations
 fi
 
