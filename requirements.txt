@@ -37,7 +37,6 @@ hatch-odoo
 git+https://github.com/OCA/oca-port
 git+https://github.com/OCA/odoo-module-migrator
 git+https://github.com/OCA/maintainer-tools
-odoo-addon-module-auto-update; python_version >= '3.10'
 
 # Odoo Compatibility
 python-ldap ; python_version <= '3.8'

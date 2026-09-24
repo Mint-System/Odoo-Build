@@ -1,0 +1,12 @@
+[submodule "odoo"]
+	path = odoo
+	url = git@github.com:odoo/odoo.git
+	branch = 20.0
+	shallow = true
+	commit = dd5defe77fe1dc3bb02eddaca6e90d7daf34ed3d
+[submodule "enterprise"]
+	path = enterprise
+	url = git@github.com:odoo/enterprise.git
+	branch = 20.0
+	shallow = true
+	commit = aef889f57dbe1b4f04ae5cc22b0cf6dd237339fa

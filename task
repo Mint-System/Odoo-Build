@@ -736,6 +736,9 @@ build-odoo() {
         "19.0")
             local python_version="3.12"
             ;;
+        "20.0")
+            local python_version="3.13"
+            ;;
     esac
 
     local docker_output="--load"
@@ -2832,7 +2835,7 @@ save-version() {
     cp ".gitmodules" "versions/$ODOO_VERSION/"
     cp ".python-version" "versions/$ODOO_VERSION/"
     
-    echo "Remove .gitmoduels.csv."
+    echo "Remove .gitmodules.csv."
     rm ".gitmodules.csv"
     rm "versions/$ODOO_VERSION/.gitmodules.csv"
 }
