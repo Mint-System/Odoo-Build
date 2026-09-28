@@ -154,7 +154,7 @@
                                     <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
                                 </td>
                             </tr>
-                            
+
                         </t>
                         <t t-if="o.state in ('sent', 'sale', 'cancel') and not is_pro_forma">
                             <tr>
@@ -237,7 +237,7 @@
                                 </td>
                             </tr>
                         </t>
-                        
+
                     </t>
 
                     <!-- Bestellung  -->
