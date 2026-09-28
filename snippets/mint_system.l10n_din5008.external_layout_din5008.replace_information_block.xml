@@ -154,6 +154,7 @@
                                     <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
                                 </td>
                             </tr>
+                            
                         </t>
                         <t t-if="o.state in ('sent', 'sale', 'cancel') and not is_pro_forma">
                             <tr>
@@ -196,7 +197,16 @@
                                 </td>
                             </tr>
                         </t>
-
+                        <t t-if="o.validity_date">
+                            <tr>
+                                <td>
+                                    <span>Offer validity</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.validity_date"/>
+                                </td>
+                            </tr>
+                        </t>
                         <t t-if="o.client_order_ref">
                             <tr>
                                 <td>
@@ -227,6 +237,7 @@
                                 </td>
                             </tr>
                         </t>
+                        
                     </t>
 
                     <!-- Bestellung  -->
