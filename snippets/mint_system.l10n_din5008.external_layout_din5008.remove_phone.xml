@@ -1,0 +1,9 @@
+<data priority="50">
+    <xpath expr="//address[@class='mb-0']" position="replace">
+        <!-- If the person in the invoice address shall be shown, comment the following line -->
+        <!-- <address class="mb-0" t-field="o.partner_id.commercial_partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/> -->
+
+        <!-- If the Company (=Commercial Partner) in the invoice address shall be shown, comment the following line -->
+        <address class="mb-0" t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;company&quot;, &quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+    </xpath>
+</data>
