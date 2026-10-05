@@ -276,7 +276,6 @@ WITHOUT_DEMO=${WITHOUT_DEMO:=False}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:=de_CH}
 ODOO_PORT=${ODOO_PORT:=8069}
 NGINX_PORT=${NGINX_PORT:=8080}
-ODOO_ADDONS_PATH=${ODOO_ADDONS_PATH:=/mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/}
 JPYTER_LAB_PORT=${JPYTER_LAB_PORT:=8888}
 WORKERS=${WORKERS:=0}
 POSTGRES_IMAGE=${POSTGRES_IMAGE:=postgres:16-alpine}
@@ -884,19 +883,6 @@ checkout-latest-revision() {
     check-version
 }
 
-container-login() {
-    if [[ -n "$1" ]]; then
-        CONTAINER_REGISTRY_USERNAME="$1"
-    fi
-    if [[ -n "$2" ]]; then
-        CONTAINER_REGISTRY_PASSWORD="$2"
-    fi
-
-    echo "Docker login with username $CONTAINER_REGISTRY_USERNAME."
-    echo "$CONTAINER_REGISTRY_PASSWORD" | docker --config "$CONTAINER_CONFIG" login --username "$CONTAINER_REGISTRY_USERNAME" --password-stdin
-    echo "$CONTAINER_REGISTRY_PASSWORD" | docker --config "$CONTAINER_CONFIG" login dhi.io --username "$CONTAINER_REGISTRY_USERNAME" --password-stdin
-}
-
 login-podman() {
     if [[ -n "$1" ]]; then
         CONTAINER_REGISTRY_USERNAME="$1"
@@ -1209,9 +1195,8 @@ start() {
     export ODOO_COMMAND
 
     # Load custom env for Odoo container 
-    if [[ "$1" =~ "odoo" && -a ".env.odoo" ]]; then
-        echo "Source .env.odoo"
-        source .env.odoo
+    if [[ "$1" =~ "odoo" ]]; then
+        export ODOO_ADDONS_PATH=${ODOO_ADDONS_PATH:=/mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/}
     fi
 
     # Use default database if second param is not given
@@ -2190,11 +2175,11 @@ generate-module-docs() {
     mkdir -p "$module_path/readme"
     cp -n -r "templates/module/readme" "$module_path"
 
-    echo 'Update DESCRIPTION.rst'
+    echo 'Update DESCRIPTION.md'
     export MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
     envsubst < templates/module/readme/DESCRIPTION.md > "$module_path/readme/DESCRIPTION.md"
 
-    echo 'Update CONTRIBUTORS.rst'
+    echo 'Update CONTRIBUTORS.md'
     export GIT_USER_NAME="$(git config user.name)"
     export GIT_USER_EMAIL="$(git config user.email)"
     envsubst < templates/module/readme/CONTRIBUTORS.md > "$module_path/readme/CONTRIBUTORS.md"
