@@ -1,5 +1,5 @@
 <data priority="50">
     <field name="expense_currency_exchange_account_id" position="attributes">
-        <attribute name="domain">[('internal_type', '=', 'other'), ('deprecated', '=', False)]</attribute>
+        <attribute name="domain">[('account_type', '=', 'other'), ('deprecated', '=', False)]</attribute>
     </field>
 </data>
