@@ -1233,6 +1233,7 @@ start() {
     fi
 
     if [[ "$1" =~ "source" ]]; then
+        set-addons-path
         template-odoo-rc
         local port=8069
         while [[ $port -le 8079 ]]; do
