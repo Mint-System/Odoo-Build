@@ -33,11 +33,12 @@ The Mint System Odoo image runs with a very basic configuration, but can also be
 
 Supported tags:
 
-- [`19.0.20260803`](https://hub.docker.com/layers/mintsystem/odoo/19.0.20260803), [`19.0`](https://hub.docker.com/layers/mintsystem/odoo/19.0)
-- [`18.0.20260803`](https://hub.docker.com/layers/mintsystem/odoo/18.0.20260803), [`18.0`](https://hub.docker.com/layers/mintsystem/odoo/18.0)
-- [`17.0.20260803`](https://hub.docker.com/layers/mintsystem/odoo/17.0.20260803), [`17.0`](https://hub.docker.com/layers/mintsystem/odoo/17.0)
-- [`16.0.20260803`](https://hub.docker.com/layers/mintsystem/odoo/16.0.20260803), [`16.0`](https://hub.docker.com/layers/mintsystem/odoo/16.0)
-- [`15.0.20260803`](https://hub.docker.com/layers/mintsystem/odoo/15.0.20260803), [`15.0`](https://hub.docker.com/layers/mintsystem/odoo/15.0)
+- [`20.0.20260926`](https://hub.docker.com/layers/mintsystem/odoo/19.0.20260926), [`20.0`](https://hub.docker.com/layers/mintsystem/odoo/20.0)
+- [`19.0.20260926`](https://hub.docker.com/layers/mintsystem/odoo/19.0.20260926), [`19.0`](https://hub.docker.com/layers/mintsystem/odoo/19.0)
+- [`18.0.20260926`](https://hub.docker.com/layers/mintsystem/odoo/18.0.20260926), [`18.0`](https://hub.docker.com/layers/mintsystem/odoo/18.0)
+- [`17.0.20260926`](https://hub.docker.com/layers/mintsystem/odoo/17.0.20260926), [`17.0`](https://hub.docker.com/layers/mintsystem/odoo/17.0)
+- [`16.0.20260926`](https://hub.docker.com/layers/mintsystem/odoo/16.0.20260926), [`16.0`](https://hub.docker.com/layers/mintsystem/odoo/16.0)
+- [`15.0.20260926`](https://hub.docker.com/layers/mintsystem/odoo/15.0.20260926), [`15.0`](https://hub.docker.com/layers/mintsystem/odoo/15.0)
 
 ### Minimal
 
