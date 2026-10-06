@@ -2932,7 +2932,7 @@ commit-and-push-revision() {
         ODOO_REVISION="$1"
     fi
 
-    echo 'Remove existing tag...'
+    # echo 'Remove existing tag...'
     # git tag -d "$ODOO_REVISION"
 
     echo "Commit with revision $ODOO_REVISION tag..."
