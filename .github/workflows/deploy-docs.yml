@@ -2,10 +2,12 @@ on:
   push:
     branches:
       - "main"
+    paths:
+      - "**.md"
 
 jobs:
   deploy:
-    name: Deploy to Kubernetes
+    name: Deploy Docs
     runs-on: ubuntu-latest
     steps:
       - name: Install kubectl

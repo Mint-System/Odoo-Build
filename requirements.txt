@@ -40,7 +40,7 @@ git+https://github.com/OCA/maintainer-tools
 
 # Odoo Compatibility
 python-ldap ; python_version <= '3.8'
-rl-renderPM
+rl-renderPM ; python_version <= '3.8'
 
 # Jupyter Notebook 
 jupyter
