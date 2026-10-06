@@ -1145,11 +1145,13 @@ install() {
     uv pip install -r requirements.txt
 
     # Odoo requirements
-    echo -e "\033[38;5;214mPython\033[0m: Install Odoo and dependencies."
-    cd odoo
-    uv pip install -e .
-    grep -v "python-ldap" requirements.txt | uv pip install -r -
-    cd ..
+    if [[ -d "odoo" ]]; then
+        echo -e "\033[38;5;214mPython\033[0m: Install Odoo and dependencies."
+        cd odoo
+        uv pip install -e .
+        grep -v "python-ldap" requirements.txt | uv pip install -r -
+        cd ..
+    fi
 
     # Install inotify
     echo -e "\033[38;5;214mPython\033[0m: Install $PYTHON_NOTIFY."
