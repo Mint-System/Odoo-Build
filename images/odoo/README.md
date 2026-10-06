@@ -93,6 +93,7 @@ services:
       PGPORT: 5432
       DB_NAME: odoo
       DB_MAXCONN: 128
+      DB_SYSTEM: postgres
       PGSSLMODE: verify-ca
       PGSSLROOTCERT: /mnt/postgres-secret/ca.crt
       SMTP_SERVER: mail.infomaniak.com
@@ -159,6 +160,8 @@ services:
       ADMIN_PASSWD: *****
       DB_FILTER: ^%d$
       WORKERS: 4
+      GEVENT_WORKERS: 1
+      ODOO_MAX_HTTP_THREADS: 5
       LIMIT_REQUEST: 16384
       LIMIT_TIME_CPU: 300
       LIMIT_TIME_REAL: 600
@@ -347,6 +350,7 @@ Odoo supports the PostgreSQL database only.
 - `PGPASSWORD` Database user password.
 - `PGPORT` Postgres server port. Default is `5432`.
 - `DB_NAME` Fixed database name. Default is `""`.
+- `DB_SYSTEM` PostgreSQL database used for shared system operations (bus, cron, database management). Default is `postgres`.
 - `DB_MAXCONN`: Maximum database connection. default is `64`.
 - `PGSSLMODE`: SSL mode for postgres connection. Default is `prefer`.
 - `PGSSLROOTCERT`: Path too ssl root cert. Required when using `verify-ca` mode.
@@ -492,6 +496,8 @@ Odoo is executed as a multi-threaded Python process.
 
 - `MAX_CRON_THREADS` Maximum count of cron threads. Default is `2`.
 - `WORKERS` Define how many workers should be spawned. Default is `0`.
+- `GEVENT_WORKERS` Define how many gevent workers should be spawned in prefork mode. Default is `1`.
+- `ODOO_MAX_HTTP_THREADS` Maximum number of HTTP threads. If not set, Odoo computes the default (`2 * cpu_count + 1`).
 - `LIMIT_REQUEST` Maximum number of requests per worker. Default is `65536`.
 - `LIMIT_TIME_CPU` Maximum cpu time per request. Default is `60`.
 - `LIMIT_TIME_REAL` Maximum real time per request. Default is `120`.

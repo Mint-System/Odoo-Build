@@ -1,6 +1,7 @@
 [options]
 data_dir = /var/lib/odoo
 db_name = $DB_NAME
+db_system = $DB_SYSTEM
 db_maxconn = $DB_MAXCONN
 smtp_server = $SMTP_SERVER
 smtp_port = $SMTP_PORT
@@ -22,6 +23,7 @@ logfile = $LOGFILE
 admin_passwd = $ADMIN_PASSWD
 dbfilter = $DB_FILTER
 workers = $WORKERS
+gevent_workers = $GEVENT_WORKERS
 limit_request = $LIMIT_REQUEST
 limit_time_cpu = $LIMIT_TIME_CPU
 limit_time_real = $LIMIT_TIME_REAL

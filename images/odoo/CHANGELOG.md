@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file. The format 
 
 - `GIT_SSH_CONFIG` env var to write a custom `~/.ssh/config`, so git hosts can be reached on a port other than `22`.
 - Added deprecation message to `download-git-archive`
+- Support for `DB_SYSTEM` environment variable to configure the PostgreSQL database used for shared system operations (bus, cron, database management), defaulting to `postgres`.
+- Support for `GEVENT_WORKERS` environment variable to define the number of gevent workers in prefork mode, defaulting to `1`.
+- Support for `ODOO_MAX_HTTP_THREADS` environment variable to set the maximum number of HTTP threads; if not set, Odoo computes the default (`2 * cpu_count + 1`).
 
 ### Changed
 
@@ -16,6 +19,7 @@ All notable changes to this project will be documented in this file. The format 
 - Modified `entrypoint.sh` to skip `wait-for-pg` if the database hostname cannot be resolved, logging a warning instead.
 - Removed explicit `wait-for-pg` calls from `odoo`, `odoo-nginx`, and default command paths in `entrypoint.sh` as the check is now handled conditionally.
 - Updated the entrypoint banner ASCII art in `entrypoint.sh`.
+- Updated `odoo.conf.template` and `bin/template-odoo-rc` to include new configuration options for `db_system`, `gevent_workers`, and conditional export of `ODOO_MAX_HTTP_THREADS`.
 
 ## 2026-05-20
 
