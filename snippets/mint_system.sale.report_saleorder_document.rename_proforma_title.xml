@@ -1,6 +1,7 @@
 <data priority="50">
-    <xpath expr="//h2/t[2]/span" position="replace">
-        <!-- <span>Auftragsbestätigung # </span> -->
-        <span>Order Confirmation # </span>
-    </xpath>
+
+  <xpath expr="//span[@t-if='is_proforma']" position="replace">
+    <span>Order Confirmation # </span>
+  </xpath>
+  
 </data>
