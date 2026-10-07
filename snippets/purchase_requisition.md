@@ -140,10 +140,10 @@ Inherit ID: `purchase_requisition.report_purchaserequisition_document`
         border: transparent;
       }
         table#info tr {
-        line-height: 0.8;
+        line-height: 1.2;
         text-align: left;
       }
-      table#info tr span {
+        table#info span {
         line-height: 1.2;
       }
         .note {
@@ -530,24 +530,12 @@ ID: `mint_system.purchase_requisition.report_purchaserequisition_document.hide_p
 Inherit ID: `purchase_requisition.report_purchaserequisition_document`
 
 ```xml
-<data priority="50">
-
-    <th t-if="o.type_id.quantity_copy == 'none'">Price Unit</th>
-
-    <xpath expr="//th[4]" position="replace">
-        <t t-if="o.state_blanket_order != 'draft'">
-            <th t-if="o.type_id.quantity_copy == 'none'" class="text-end">Price Unit</th>
-        </t>
-    </xpath>
-
-    <xpath expr="//tbody/tr/td[4]" position="replace">
-        <t t-if="o.state_blanket_order != 'draft'">
-            <td id="price_unit" t-if="o.type_id.quantity_copy == 'none'" class="text-end">
-                <span t-esc="'%g' % line_ids.price_unit if str(line_ids.price_unit)[::-1].find('.') &gt;= 3 else '%.2f' % line_ids.price_unit"/>
-            </td>
-        </t>
-    </xpath>
-
+<data priority="51">
+   
+    <xpath expr="//th[5]" position="replace"/>
+    <xpath expr="//tbody/tr/td[4]" position="replace"/>
+    <xpath expr="//tbody/tr/td[5]" position="replace"/>
+    
 </data>
 ```
 Edit: [snippets/mint_system.purchase_requisition.report_purchaserequisition_document.hide_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase_requisition.report_purchaserequisition_document.hide_price_unit.xml)\
@@ -764,7 +752,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisition_document.second
 Inherit ID: `purchase_requisition.report_purchaserequisition_document`
 
 ```xml
-<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="49">
 
   <xpath expr="//table[@id='main_table']/tbody[1]/tr[1]" position="attributes">
     <attribute name="t-att-class">"first"</attribute>
@@ -2057,6 +2045,9 @@ Inherit ID: `purchase_requisition.report_purchaserequisitions`
 				font-family: Arial;
 				font-size: 9pt;
 			}
+			.o_company_1_layout.o_report_layout_standard h2 {
+			    color: black;
+			}
 			.address {
        		    padding-bottom:33mm;
        		    font-size: 10pt;
@@ -2097,6 +2088,9 @@ Inherit ID: `purchase_requisition.report_purchaserequisitions`
 			  width: 27mm;
 			  text-align: left;
 			}
+			table.trimada thead th#price_subtotal {
+			  width: 10mm;
+			}
 			span#qty {
 			  font-weight: bold;
 			}
@@ -2106,13 +2100,38 @@ Inherit ID: `purchase_requisition.report_purchaserequisitions`
 	
 		</style>
 	</xpath>
-	
+
 	<xpath expr="//table[@id='main_table']" position="attributes">
 		<attribute name="class" separator=" " add="trimada table-borderless"/>
 	</xpath>
-	
+
 	<xpath expr="//th[2]" position="attributes">
 		<attribute name="class" separator=" " add="text-start"/>
+	</xpath>
+
+	<xpath expr="//th[3]" position="attributes">
+		<attribute name="class">text-end</attribute>
+	</xpath>
+
+	<xpath expr="//th[4]" position="attributes">
+		<attribute name="class">text-end</attribute>
+		<attribute name="style">width:5mm</attribute>
+	</xpath>
+
+	<xpath expr="//th[@id='price_subtotal']" position="attributes">
+		<attribute name="class">text-end</attribute>
+	</xpath>
+
+	<xpath expr="//td[@id='product_qty']" position="attributes">
+		<attribute name="class">text-end</attribute>
+	</xpath>
+
+	<xpath expr="//table[@id='main_table']/tbody/tr/td[4]" position="attributes">
+		<attribute name="class">text-end</attribute>
+	</xpath>
+
+	<xpath expr="//td[@id='price_subtotal']" position="attributes">
+		<attribute name="class">text-end</attribute>
 	</xpath>
 
 </data>

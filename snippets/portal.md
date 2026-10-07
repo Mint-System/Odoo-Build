@@ -17,7 +17,7 @@ Inherit ID: `portal.address_form_fields`
         <input type="hidden" name="street2" class="js_street2_hidden"/>
     </xpath>
     
-    <xpath expr="//t[@name='b2b_fields']/div" position="after">
+   <div id="div_name" position="before">
         <div id="company_type" class="col-lg-12 mb-2">
             <div>
                 <t t-foreach="['person', 'company']" t-as="ct">
@@ -31,7 +31,7 @@ Inherit ID: `portal.address_form_fields`
                 </t>
             </div>
         </div>
-    </xpath>
+    </div>
     
      <xpath expr="//input[@name='required_fields']" position="after">
        <script type="text/javascript">
@@ -67,6 +67,19 @@ Inherit ID: `portal.address_form_fields`
 Edit: [snippets/mint_system.portal.address_form_fields.add_company_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.add_company_type.xml)\
 Source: [snippets/mint_system.portal.address_form_fields.add_company_type.xml](https://odoo.build/snippets/mint_system.portal.address_form_fields.add_company_type.xml)
 
+### Hide B2b Vat
+
+ID: `mint_system.portal.address_form_fields.hide_b2b_vat`\
+Inherit ID: `portal.address_form_fields`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@id='div_vat']" position="replace"/>
+</data>
+```
+Edit: [snippets/mint_system.portal.address_form_fields.hide_b2b_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.hide_b2b_vat.xml)\
+Source: [snippets/mint_system.portal.address_form_fields.hide_b2b_vat.xml](https://odoo.build/snippets/mint_system.portal.address_form_fields.hide_b2b_vat.xml)
+
 ### Move B2b Fields
 
 ID: `mint_system.portal.address_form_fields.move_b2b_fields`\
@@ -83,6 +96,21 @@ Inherit ID: `portal.address_form_fields`
 ```
 Edit: [snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml)\
 Source: [snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml](https://odoo.build/snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml)
+
+### Show Company Name If Company
+
+ID: `mint_system.portal.address_form_fields.show_company_name_if_company`\
+Inherit ID: `portal.address_form_fields`
+
+```xml
+<data priority="50">
+    <xpath expr="//t[@name='b2b_fields']" position="attributes">
+        <attribute name="t-if">partner_sudo.is_company</attribute>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.portal.address_form_fields.show_company_name_if_company.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.show_company_name_if_company.xml)\
+Source: [snippets/mint_system.portal.address_form_fields.show_company_name_if_company.xml](https://odoo.build/snippets/mint_system.portal.address_form_fields.show_company_name_if_company.xml)
 
 ## Address List
 

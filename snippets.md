@@ -47,6 +47,8 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 
 ## [Crm Iap Lead Enrich](snippets/crm_iap_lead_enrich.md)
 
+## [Data Merge](snippets/data_merge.md)
+
 ## [Delivery](snippets/delivery.md)
 
 ## [Digest](snippets/digest.md)
@@ -136,6 +138,8 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 ## [Project](snippets/project.md)
 
 ## [Project Enterprise](snippets/project_enterprise.md)
+
+## [Project Phase Estimate](snippets/project_phase_estimate.md)
 
 ## [Purchase](snippets/purchase.md)
 

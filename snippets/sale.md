@@ -1256,12 +1256,12 @@ Inherit ID: `sale.report_saleorder_document`
 
 ```xml
 <data priority="50">
-    <xpath expr="//div/p[@name='order_note']/.." position="after">
+    <xpath expr="//div/span[@name='order_note']/.." position="after">
         <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
-        margin-top: 25px;
+        margin-top: -25px;
         border-color: white;
         line-height: 1.5;
       }
@@ -1902,6 +1902,21 @@ Inherit ID: `sale.report_saleorder_document`
 Edit: [snippets/mint_system.sale.report_saleorder_document.add_ref_external.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.add_ref_external.xml)\
 Source: [snippets/mint_system.sale.report_saleorder_document.add_ref_external.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.add_ref_external.xml)
 
+### Add Reference To Header
+
+ID: `mint_system.sale.report_saleorder_document.add_reference_to_header`\
+Inherit ID: `sale.report_saleorder_document`
+
+```xml
+<data priority="50">
+    <xpath expr="//span[@t-field='doc.name']" position="after">
+        <span t-field="doc.ref">ref 1</span>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.sale.report_saleorder_document.add_reference_to_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.add_reference_to_header.xml)\
+Source: [snippets/mint_system.sale.report_saleorder_document.add_reference_to_header.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.add_reference_to_header.xml)
+
 ### Add Section Subtotal Space
 
 ID: `mint_system.sale.report_saleorder_document.add_section_subtotal_space`\
@@ -2213,31 +2228,32 @@ ID: `mint_system.sale.report_saleorder_document.confirmation_qty_to_deliver`\
 Inherit ID: `sale.report_saleorder_document`
 
 ```xml
-<data priority="50">
-    <xpath expr="//td[@name='td_quantity']/span[1]" position="replace">
-        <t t-if="is_confirmation">
-            <span id="product_uom_qty_confirmed" t-esc="line.qty_to_deliver"/>
-        </t>
-        <t t-else="">
-            <span id="product_uom_qty" t-esc="line.product_uom_qty"/>
-        </t>
-    </xpath>
-    <xpath expr="//td[@name='td_subtotal']" position="replace">
-        <t t-if="is_confirmation">
-            <td name="td_subtotal" class="text-right o_price_total">
-                <span t-esc="'%.2f' % (line.price_unit * line.qty_to_deliver * ((line.discount or 100.0) / 100.0))" groups="account.group_show_line_subtotals_tax_excluded"/>
-                <span t-esc="'%.2f' % (line.price_unit * line.qty_to_deliver * ((line.discount or 100.0) / 100.0))" groups="account.group_show_line_subtotals_tax_included"/>
-            </td>
-        </t>
-        <t t-else="">
-            <td name="td_subtotal" class="text-right o_price_total">
-                <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
-                <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
-            </td>
-        </t>
-    </xpath>
-</data>
+<data inherit_id="sale.report_saleorder_document" priority="50">
 
+  <xpath expr="//td[@name='td_quantity']/span[1]" position="replace">
+    <t t-if="is_confirmation">
+      <span id="product_uom_qty_confirmed" t-esc="line.qty_to_deliver"/>
+    </t>
+    <t t-else="">
+      <span id="product_uom_qty" t-esc="line.product_uom_qty"/>
+    </t>
+  </xpath>
+
+  <xpath expr="//td[@name='td_subtotal']" position="replace">
+    <t t-if="is_confirmation">
+      <td name="td_subtotal" class="text-end o_price_total">
+        <span t-esc="'{:,.2f}'.format(line.price_unit * line.qty_to_deliver * (1 - (line.discount or 0.0) / 100.0)).replace(',', &quot;'&quot;)"/>
+      </td>
+    </t>
+    <t t-else="">
+      <td name="td_subtotal" class="text-end o_price_total">
+        <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+        <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+      </td>
+    </t>
+  </xpath>
+
+</data>
 ```
 Edit: [snippets/mint_system.sale.report_saleorder_document.confirmation_qty_to_deliver.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.confirmation_qty_to_deliver.xml)\
 Source: [snippets/mint_system.sale.report_saleorder_document.confirmation_qty_to_deliver.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.confirmation_qty_to_deliver.xml)
@@ -3781,11 +3797,11 @@ Inherit ID: `sale.report_saleorder_document`
                         <t t-foreach="doc.tax_totals['groups_by_subtotal'].values()" t-as="groups">
                             <t t-foreach="groups" t-as="tax_group">
                                 <tr>
-                                    <td name="td_amount_by_group_label">
+                                    <td style="width:11%; padding-right: 3px; text-align:left" name="td_amount_by_group_label">
                                         <span t-esc="tax_group['tax_group_name']"/>
                                     </td>
 
-                                    <td name="td_amount_by_group" class="text-end o_price_total">
+                                    <td style="width:18%; text-align:left !important" name="td_amount_by_group" class="text-end o_price_total">
                                         <span t-esc="tax_group['tax_group_amount']" t-options="{                                           'widget': 'monetary',                                           'display_currency': doc.currency_id                                       }"/>
                                     </td>
                                 </tr>
@@ -4755,8 +4771,8 @@ Inherit ID: `sale.report_saleorder_document`
 
 ```xml
 <data priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
 			.o_company_1_layout {
 				font-family: arial;
 			}
@@ -4822,19 +4838,23 @@ Inherit ID: `sale.report_saleorder_document`
 				font-family: arial;
 			}
 		</style>
-    </xpath>
-    <xpath expr="//h2" position="attributes">
-        <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
-    </xpath>
-    <xpath expr="//th[@name='th_description']/../../.." position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </xpath>
-    <xpath expr="//table/thead//tr[1]//th[3]" position="attributes">
-        <attribute name="class">text-start</attribute>
-    </xpath>
-    <xpath expr="//table/tbody//tr[1]//td[3]" position="attributes">
-        <attribute name="class">text-end</attribute>
-    </xpath>
+	</xpath>
+
+	<xpath expr="//th[@id='commitment_date']" position="attributes">
+		<attribute name="class">text-end</attribute>	</xpath>
+
+	<xpath expr="//h2" position="attributes">
+		<attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+	</xpath>
+	<xpath expr="//th[@name='th_description']/../../.." position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</xpath>
+	<xpath expr="//table/thead//tr[1]//th[3]" position="attributes">
+		<attribute name="class">text-start</attribute>
+	</xpath>
+	<xpath expr="//table/tbody//tr[1]//td[3]" position="attributes">
+		<attribute name="class">text-end</attribute>
+	</xpath>
 </data>
 ```
 Edit: [snippets/mint_system.sale.report_saleorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.style_trimada.xml)\
@@ -6048,7 +6068,9 @@ Inherit ID: `sale.view_order_form`
 ```xml
 <data priority="50">
     <xpath expr="//field[@name='date_order'][2]" position="attributes">
-        <attribute name="attrs">{"invisible": [["state","in",["draft","sent"]]], "readonly": [["state","not in",["draft","sent","sale"]]], "required": [["state","in",["sale","done"]]]}</attribute>
+        <attribute name="invisible">state in ['draft', 'sent']</attribute>
+        <attribute name="readonly">state not in ['draft', 'sent', 'sale']</attribute>
+        <attribute name="required">state in ['sale', 'done']</attribute>
     </xpath>
 </data>
 
@@ -6540,6 +6562,22 @@ Inherit ID: `sale.view_order_form`
 ```
 Edit: [snippets/mint_system.sale.view_order_form.x_client_project_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_order_form.x_client_project_ref.xml)\
 Source: [snippets/mint_system.sale.view_order_form.x_client_project_ref.xml](https://odoo.build/snippets/mint_system.sale.view_order_form.x_client_project_ref.xml)
+
+### X Cost Center
+
+ID: `mint_system.sale.view_order_form.x_cost_center`\
+Inherit ID: `sale.view_order_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//page[@name='other_information']//group[@name='sales_person']//field[@name='tag_ids']" position="after">
+        <field name="x_cost_center"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.sale.view_order_form.x_cost_center.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_order_form.x_cost_center.xml)\
+Source: [snippets/mint_system.sale.view_order_form.x_cost_center.xml](https://odoo.build/snippets/mint_system.sale.view_order_form.x_cost_center.xml)
 
 ### X Drawing File
 
@@ -7422,6 +7460,20 @@ Inherit ID: `sale.view_sales_order_filter`
 Edit: [snippets/mint_system.sale.view_sales_order_filter.add_invoice_status.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_sales_order_filter.add_invoice_status.xml)\
 Source: [snippets/mint_system.sale.view_sales_order_filter.add_invoice_status.xml](https://odoo.build/snippets/mint_system.sale.view_sales_order_filter.add_invoice_status.xml)
 
+### Add Search Field Reference
+
+ID: `mint_system.sale.view_sales_order_filter.add_search_field_reference`\
+Inherit ID: `sale.view_sales_order_filter`
+
+```xml
+    <field name="name" position="after">
+        <field name="ref" string="Referenz" filter_domain="[('ref', 'ilike', self)]"/>
+    </field>
+
+```
+Edit: [snippets/mint_system.sale.view_sales_order_filter.add_search_field_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_sales_order_filter.add_search_field_reference.xml)\
+Source: [snippets/mint_system.sale.view_sales_order_filter.add_search_field_reference.xml](https://odoo.build/snippets/mint_system.sale.view_sales_order_filter.add_search_field_reference.xml)
+
 ### Add State
 
 ID: `mint_system.sale.view_sales_order_filter.add_state`\
@@ -7469,6 +7521,22 @@ Inherit ID: `sale.view_sales_order_filter`
 ```
 Edit: [snippets/mint_system.sale.view_sales_order_filter.modify_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_sales_order_filter.modify_order_line.xml)\
 Source: [snippets/mint_system.sale.view_sales_order_filter.modify_order_line.xml](https://odoo.build/snippets/mint_system.sale.view_sales_order_filter.modify_order_line.xml)
+
+### Name Domain Additions Pureict
+
+ID: `mint_system.sale.view_sales_order_filter.name_domain_additions_pureict`\
+Inherit ID: `sale.view_sales_order_filter`
+
+```xml
+<data priority="50">
+  <field name="name" position="replace">
+    <field name="name" string="Order" filter_domain="['|', '|', '|', '|', ('name', 'ilike', self), ('client_order_ref', 'ilike', self), ('partner_id', 'child_of', self), ('analytic_account_id', 'ilike', self), ('ref', 'ilike', self)]"/>
+  </field>
+</data>
+
+```
+Edit: [snippets/mint_system.sale.view_sales_order_filter.name_domain_additions_pureict.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_sales_order_filter.name_domain_additions_pureict.xml)\
+Source: [snippets/mint_system.sale.view_sales_order_filter.name_domain_additions_pureict.xml](https://odoo.build/snippets/mint_system.sale.view_sales_order_filter.name_domain_additions_pureict.xml)
 
 ## View Sales Order Line Filter
 

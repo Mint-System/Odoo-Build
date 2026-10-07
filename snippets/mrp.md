@@ -1601,13 +1601,13 @@ Inherit ID: `mrp.report_mrporder`
             </div>
         </div>
         <div class="row table td">
-            <div class="col-6">
-                <strong>
-                    <span t-field="o.product_qty"/>
-                </strong>
-                <strong>
-                    <span t-field="o.product_uom_id.name" groups="uom.group_uom"/>
-                </strong>
+            <div class="col-6 text-start">
+                <td>
+                    <strong>
+                        <span style="padding: 0;" t-field="o.product_qty"/>
+                        <span t-field="o.product_uom_id" groups="uom.group_uom"/>
+                    </strong>
+                </td>
             </div>
             <div class="col-3">
         Start: <span t-field="o.date_start" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
@@ -1630,7 +1630,7 @@ Inherit ID: `mrp.report_mrporder`
 
 ```xml
 <data priority="50">
-    <xpath expr="//table[@t-if='o.move_raw_ids']" position="replace">
+    <xpath expr="//t[@t-call='mrp.report_mrp_production_components']" position="replace">
         <style>
     table#section_consumed_products {
       width: 98%;
@@ -1641,8 +1641,9 @@ Inherit ID: `mrp.report_mrporder`
       font-size: 10pt;
       font-weight: bold;
       vertical-align: middle;
+      padding-top: 10px;
       padding-left: 5px;
-      padding-bottom: 5px;
+      padding-bottom: 10px;
     }
     table#section_consumed_products td {
       vertical-align: top;
@@ -1656,14 +1657,23 @@ Inherit ID: `mrp.report_mrporder`
       font-size: 14pt;
       padding-left:10px;
     }
+    table#note th {
+      padding-bottom: 10px;
+    }
+    
     </style>
-        <table id="section_consumed_products" t-if="o.move_raw_ids">
+        <h3 style="border-bottom: 1px solid rgb(220,220,220); padding-bottom: 10px">
+           
+                <span>Components</span>
+           
+        </h3>
+        <table id="section_consumed_products">
             <t t-set="has_product_barcode" t-value="any(m.product_id.barcode for m in o.move_raw_ids)"/>
             <thead>
                 <tr style="border-bottom: 1px solid rgb(220,220,220);">
-                    <th width="10%">Art. Nr.</th>
-                    <th width="31%">Bezeichnung</th>
-                    <th width="29%">Typenbezeichnung</th>
+                    <th class="text-start" width="10%">Art. Nr.</th>
+                    <th class="text-start" width="31%">Bezeichnung</th>
+                    <th class="text-start" width="29%">Typenbezeichnung</th>
                     <th width="20%" style="text-align: right; padding-right: 20px" t-attf-class="{{ 'text-right' if not has_product_barcode else '' }}">Menge</th>
                     <th width="10%" t-if="has_product_barcode" class="text-center">Strichcode</th>
                 </tr>
@@ -1685,8 +1695,13 @@ Inherit ID: `mrp.report_mrporder`
                             <span t-field="raw_line.product_uom" groups="uom.group_uom"/>
                         </td>
                         <td t-if="has_product_barcode" width="15%" class="text-center">
+                            <!--
                             <t t-if="raw_line.product_id.barcode">
-                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', raw_line.product_id.barcode, 600, 100)" style="width:100px;height:35px; float:right;" alt="Barcode"/>
+                                <img t-att-src="'/report/barcode/?type=Code128&amp;value=%s&amp;width=600&amp;height=100&amp;quiet=0' % raw_line.product_id.barcode" style="width:100px; height:35px; float:right;" alt="Barcode"/>
+                            </t>
+                            -->
+                            <t t-if="raw_line.product_id.barcode">
+                            	<span t-field="raw_line.product_id.barcode" t-options="{'widget': 'barcode', 'width': 600, 'height': 100, 'quiet': 0, 'img_style': 'width:100px;height:35px;margin:5px'}">Package barcode</span>
                             </t>
                         </td>
                     </tr>
@@ -1696,7 +1711,7 @@ Inherit ID: `mrp.report_mrporder`
         <table id="note">
             <thead>
                 <tr style="border-bottom: 1px solid rgb(220,220,220);">
-                    <th>Notiz</th>
+                    <th class="text-start">Notiz</th>
                 </tr>
             </thead>
             <body>
@@ -1709,7 +1724,6 @@ Inherit ID: `mrp.report_mrporder`
         </table>
     </xpath>
 </data>
-
 ```
 Edit: [snippets/mint_system.mrp.report_mrporder.modify_section_to_consume_products.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp.report_mrporder.modify_section_to_consume_products.xml)\
 Source: [snippets/mint_system.mrp.report_mrporder.modify_section_to_consume_products.xml](https://odoo.build/snippets/mint_system.mrp.report_mrporder.modify_section_to_consume_products.xml)

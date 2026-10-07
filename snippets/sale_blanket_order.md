@@ -833,7 +833,7 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.round_price`\
 Inherit ID: `sale_blanket_order.report_blanketorder_document`
 
 ```xml
-<data priority="50">
+<data priority="61">
     <xpath expr="//span[@t-field='l.price_unit']" position="replace">
         <span t-esc="'%g' % l.price_unit if str(l.price_unit)[::-1].find('.') &gt;= 3 else '%.2f' % l.price_unit"/>
     </xpath>
@@ -1167,6 +1167,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 			h2 {
 				font-size: 13pt;
 				font-weight: bold;
+				color: black !important;
 			}
 			table.trimada thead tr {
 				border-top:solid 1px;
@@ -1220,7 +1221,7 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.title_margin`\
 Inherit ID: `sale_blanket_order.report_blanketorder_document`
 
 ```xml
-<data priority="50">&gt;
+<data priority="50">
 
   <xpath expr="//h2" position="attributes"><attribute name="style" separator=";" add="margin-top:10mm; margin-bottom:3mm;"/></xpath>
 
@@ -1313,6 +1314,54 @@ Inherit ID: `sale_blanket_order.view_blanket_order_form`
 ```
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_incoterm.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_incoterm.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_incoterm.xml)
+
+### Modify Attributes Partner Invoice Id Copy
+
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_partner_invoice_id copy`\
+Inherit ID: `sale_blanket_order.view_blanket_order_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='partner_invoice_id']" position="attributes">       
+        <attribute name="readonly">0</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_partner_invoice_id copy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_partner_invoice_id copy.xml)\
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_partner_invoice_id copy.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_partner_invoice_id copy.xml)
+
+### Modify Attributes Partner Shipping Id Copy
+
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_partner_shipping_id copy`\
+Inherit ID: `sale_blanket_order.view_blanket_order_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='partner_shipping_id']" position="attributes">       
+        <attribute name="readonly">0</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_partner_shipping_id copy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_partner_shipping_id copy.xml)\
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_partner_shipping_id copy.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_partner_shipping_id copy.xml)
+
+### Modify Attributes Picking Policy
+
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_picking_policy`\
+Inherit ID: `sale_blanket_order.view_blanket_order_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='picking_policy']" position="attributes">       
+        <attribute name="readonly">0</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_picking_policy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_picking_policy.xml)\
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_picking_policy.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_picking_policy.xml)
 
 ### Move Client Order Ref
 
