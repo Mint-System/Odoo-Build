@@ -1,0 +1,11 @@
+<data priority="50">
+    <xpath expr="//table[hasclass('o_table')]" position="before">
+        <style>
+            <!-- Force vertical alignment in tables to top -->
+            .o_table tbody td,
+            .o_subtable tbody td {
+            vertical-align: top !important;
+            }
+        </style>
+    </xpath>
+</data>
