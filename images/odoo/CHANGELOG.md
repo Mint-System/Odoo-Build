@@ -17,6 +17,10 @@ All notable changes to this project will be documented in this file. The format 
 - Removed explicit `wait-for-pg` calls from `odoo`, `odoo-nginx`, and default command paths in `entrypoint.sh` as the check is now handled conditionally.
 - Updated the entrypoint banner ASCII art in `entrypoint.sh`.
 
+### Fixed
+
+- `download-odoo-enterprise` no longer exits silently over SSH when `GIT_SSH_CONFIG` is not set.
+
 ## 2026-05-20
 
 ### Added
