@@ -653,6 +653,43 @@ get-module-checksum() {
     fi
 }
 
+update-manifest-data() {
+    if [[ -z "$1" ]]; then echo '\$1/path is empty.'; exit; fi
+    if [[ -z "$2" ]]; then echo '\$2/entry is empty.'; exit; fi
+    python -c "
+import re, sys
+manifest_path = sys.argv[1]
+entry = sys.argv[2]
+with open(manifest_path, 'r') as f:
+    content = f.read()
+if ('\"' + entry + '\"') in content:
+    print('Entry \"' + entry + '\" already in manifest.')
+    sys.exit(0)
+match = re.search(r'(\"data\"\s*:\s*\[)([^\]]*?)(\])', content, re.DOTALL)
+if not match:
+    print('No data list found in manifest.')
+    sys.exit(1)
+start, inner, end = match.groups()
+lines = inner.split('\n')
+indent = '        '
+for line in lines:
+    if line.strip().startswith('\"'):
+        indent = line[:len(line) - len(line.lstrip())]
+        break
+if inner.strip():
+    new_inner = inner.rstrip()
+    if not new_inner.endswith(','):
+        new_inner += ','
+    new_inner += '\n' + indent + '\"' + entry + '\"\n    '
+else:
+    new_inner = '\n' + indent + '\"' + entry + '\"\n    '
+new_content = content[:match.start()] + start + new_inner + end + content[match.end():]
+with open(manifest_path, 'w') as f:
+    f.write(new_content)
+print('Updated manifest ' + manifest_path + ' with \"' + entry + '\".')
+" "$1" "$2"
+}
+
 list-modules() {
     if [[ -z "$1" ]]; then echo '\$1/path is empty.'; exit; fi
     local modules=$(get-modules "$1" dirname)
@@ -2254,8 +2291,7 @@ generate-module-security() {
     echo "access_${model_name}_user,access.$model_dot_name.user,model_${model_name},base.group_user,1,0,0,0" >> "$access_file"
     echo "access_${model_name}_manager,access.$model_dot_name.manager,model_${model_name},base.group_erp_manager,1,1,1,1" >> "$access_file"
 
-    echo "Update file $module_name/__manifest__.py with:"
-    echo -e "\t\"security/ir.model.access.csv\","
+    update-manifest-data "$1/__manifest__.py" "security/ir.model.access.csv"
 }
 
 create-repo() {
@@ -2412,8 +2448,7 @@ generate-module-views() {
     mkdir -p "$module_path/views"
     export-module-vars "$1" "$2"
     envsubst < templates/view.xml > "$module_path/views/${MODEL_NAME}.xml"
-    echo "Update file $module_name/__manifest__.py with:"
-    echo -e "\t\"views/${MODEL_NAME}.xml\","
+    update-manifest-data "$module_path/__manifest__.py" "views/${MODEL_NAME}.xml"
 }
 
 generate-module-inherit-view() {
@@ -2435,8 +2470,7 @@ generate-module-inherit-view() {
     mkdir -p "$module_path/views"
     export-module-inherit-vars "$1" "$2" "$3" # addons/sale_workflow/sale_helm sale.view_order_form sale.order
     envsubst < templates/inherit.xml > "$module_path/views/${MODEL_NAME}.xml"
-    echo "Update file $MODULE_NAME/__manifest__.py with:"
-    echo -e "\t\"views/${MODEL_NAME}.xml\","
+    update-manifest-data "$module_path/__manifest__.py" "views/${MODEL_NAME}.xml"
 }
 
 generate-module-report() {
@@ -2455,8 +2489,7 @@ generate-module-report() {
     mkdir -p "$module_path/report"
     export-module-vars "$1" "$2"
     envsubst < templates/template.xml > "$module_path/report/${MODEL_NAME}.xml"
-    echo "Update file $module_name/__manifest__.py with:"
-    echo -e "\t\"report/${MODEL_NAME}.xml\","
+    update-manifest-data "$module_path/__manifest__.py" "report/${MODEL_NAME}.xml"
 }
 
 release-module() {
