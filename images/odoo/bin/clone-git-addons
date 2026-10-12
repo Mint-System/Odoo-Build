@@ -19,7 +19,7 @@ if [[ -n "$ADDONS_GIT_REPOS" ]]; then
 
     # Setup git SSH key
     add-ssh-key
-    export GIT_SSH_COMMAND="$(git-ssh-command)"
+    export GIT_SSH_COMMAND="$(exec-git-ssh-command)"
 
     # Make every git directory a safe directory
     git config --global --add safe.directory '*'
