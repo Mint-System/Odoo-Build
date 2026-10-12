@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Fixed
 
 - `download-odoo-enterprise` no longer exits silently over SSH when `GIT_SSH_CONFIG` is not set.
+- `clone-git-addons` and `download-odoo-enterprise` now pass the config, `known_hosts` and key from `$HOME/.ssh` to git, as `ssh` reads them from the passwd home instead, which ignored `GIT_SSH_CONFIG`.
 
 ## 2026-05-20
 
