@@ -1,12 +1,12 @@
 ---
 title: "Odoo 20.0 https interface param"
 author: "Janik von Rotz <login@janikvonrotz.ch>"
-state: draft
-date_completed: YYYY-MM-DD
-harness:
-model:
-input_tokens:
-output_tokens:
+state: completed
+date_completed: 2026-10-13
+harness: pi
+model: moonshotai/Kimi-K2.6
+input_tokens: 24524
+output_tokens: 4075
 ---
 
 # Odoo 20.0 https interface param
@@ -39,6 +39,7 @@ I will build and test the image.
 
 ## Worklog
 
-@Clanker Add a summary here once the task has been completed.
-
-@Clanker Set frontmatter state to completed and update date, harness and model. If you have access to session info also add token count.
+- Verified that `--http-interface` is a command-line only option in Odoo (not supported in `odoo.conf`).
+- Added `HTTP_INTERFACE=${HTTP_INTERFACE:='0.0.0.0'}` to `images/odoo/entrypoint.sh` and passed it as `--http-interface="${HTTP_INTERFACE}"` to all `exec odoo` invocations (except scaffold).
+- Documented `HTTP_INTERFACE` in `images/odoo/README.md` in both the compose example and the Server Environment section, placed before `PROXY_MODE`.
+- Removed `--http-interface=0.0.0.0` from `compose.yml.template` and added `HTTP_INTERFACE: ${HTTP_INTERFACE}` to the environment section before `PROXY_MODE`.
