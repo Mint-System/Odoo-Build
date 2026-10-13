@@ -54,7 +54,23 @@ task install
 
 Bootstrap a new module with the `task create-module` command.
 
-To generate module code use `task generate-module-*` commands.
+**Always use `task generate-module-*` commands when adding files to a module.**
+These commands use project templates and ensure file names, records, and structure
+are consistent with the codebase conventions.
+
+Available generators:
+
+- `generate-module-model` - add a new model
+- `generate-module-inherit-model` - inherit an existing model
+- `generate-module-views` - add model views
+- `generate-module-inherit-view` - inherit an existing view
+- `generate-module-security` - add security rules
+- `generate-module-wizard` - add a wizard
+- `generate-module-report` - add a report
+- `generate-module-docs` - generate/update module README
+- `generate-module-translation` - generate/update translations
+
+Example:
 
 ```bash
 task generate-module-views addons/project/project_sprint project.sprint
