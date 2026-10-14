@@ -1,5 +1,5 @@
 <data priority="50">
-    <xpath expr="//p[@t-field='o.invoice_origin']" position="attributes">
+    <xpath expr="//div[@t-field='o.invoice_origin']" position="attributes">
         <attribute name="t-field">o.x_picking_list</attribute>
     </xpath>
 </data>

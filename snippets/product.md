@@ -432,12 +432,14 @@ Inherit ID: `product.product_template_form_view`
                 <tr>
                     <td style="width:60%">
                         <h1>
-                            <field name="name" placeholder="Product Name"/>
-                            <field name="priority" widget="priority" class="me-3"/>
+                            <div class="d-flex">
+                                <field name="priority" widget="priority" class="me-3"/>
+                                <field class="text-break" name="name" options="{'line_breaks': False}" widget="text" placeholder="e.g. Cheese Burger"/>
+                            </div>
                         </h1>
                     </td>
-                    <td style="width:40%; text-valign: bottom">
-                        <label for="default_code"/>
+                    <td style="width:40%; vertical-align: bottom; white-space: nowrap;">
+                        <label for="default_code" style="margin-right:10px;"/>
                         <field name="default_code"/>
                     </td>
                 </tr>
@@ -464,8 +466,8 @@ Inherit ID: `product.product_template_form_view`
             </table>
         </div>
     </xpath>
+    <xpath expr="//div[@name='options']" position="replace"/>
 </data>
-
 ```
 Edit: [snippets/mint_system.product.product_template_form_view.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.product.product_template_form_view.replace_title.xml)\
 Source: [snippets/mint_system.product.product_template_form_view.replace_title.xml](https://odoo.build/snippets/mint_system.product.product_template_form_view.replace_title.xml)
@@ -1028,92 +1030,106 @@ ID: `mint_system.product.report_producttemplatelabel.trimada`\
 Inherit ID: `product.report_producttemplatelabel`
 
 ```xml
-<t t-name="product.report_producttemplatelabel.trimada">
+<t t-name="stock.label_transfer_template_view.trimada">
     <t t-call="web.basic_layout">
-        <t t-foreach="docs" t-as="template">
-            <t t-foreach="template.product_variant_ids" t-as="product">
+        <t t-foreach="docs" t-as="picking">
+            <t t-foreach="picking.move_line_ids" t-as="move">
                 <style>
-        .label {
-            font-family: arial;
-        }
-        .box1 {
-            margin: 9mm 0 2mm 0;
-        }
-        .box2 {
-            margin: 7mm 0 2mm 0;
-        }
-        .box3 {
-            margin: 2mm 0 2mm 0;
-        }
-        .title {
-            font-size: 11mm;
-            margin: 3mm 3mm 0 3mm;
-            font-weight: bold;
-            text-align: center;
-            border-bottom: solid 1px;
-            line-height: 1;
-        }
-        .frame {
-            border-bottom: solid 1px;
-            margin: 0 3mm 0 3mm;
-        }
-        .description {
-            font-size: 7mm;
-            height: 23mm;
-            width: 98%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-align: center;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .delivery {
-            font-size: 7mm;
-            margin: 3mm 3mm 0 3mm;
-            text-align: left;
-            border-bottom: solid 1px;
-            line-height: 1;
-            height: 34mm;
-        }
-        .comment {
-            font-size: 5mm;
-            text-align: center;
-            height: 8mm;
-            line-height: 10mm;
-        }
-        .col-6 {
-            padding-right: 0;
-            padding-left: 0;
-        }
-        </style>
+                    .label {
+                        font-family: arial;
+                    }
+                    .box {
+                        margin: 0mm 0 2mm 0;
+                    }
+                    .box1 {
+                        margin: 9mm 0 2mm 0;
+                    }
+                    .box2 {
+                        margin: 7mm 0 2mm 0;
+                    }
+                    .box3 {
+                        margin: 2mm 0 2mm 0;
+                    }
+                    .padding {
+                        padding-bottom: 3mm;
+                    }
+                    .title {
+                        font-size: 11mm;
+                        margin: 3mm 3mm 0 3mm;
+                        font-weight: bold;
+                        text-align: center;
+                        border-bottom: solid 1px;
+                        line-height: 1;
+                    }
+                    .frame {
+                        border-bottom: solid 1px;
+                        margin: 0 3mm 0 3mm;
+                    }
+                    .description {
+                        font-size: 7mm;
+                        height: 23mm;
+                        width: 98%;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        text-align: center;
+                        padding: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .delivery {
+                        font-size: 6mm;
+                        margin: 3mm 3mm 0 3mm;
+                        text-align: left;
+                        border-bottom: solid 1px;
+                        line-height: 1;
+                        height: 35mm;
+                    }
+                    .comment {
+                        font-size: 5mm;
+                        text-align: center;
+                        height: 8mm;
+                        line-height: 10mm;
+                    }
+                    .col-6 {
+                        padding-right: 0;
+                        padding-left: 0;
+                    }
+                </style>
                 <div class="page">
                     <div class="label">
                         <div class="row title">
                             <div class="col-6 box2">
-                                <span t-esc="product.default_code"/>
+                                <span t-esc="move.product_id.default_code"/>
                             </div>
-                            <div t-if="product.barcode" class="col-6 box2 text-right">
-                                <span t-field="product.barcode" t-options="{'widget': 'barcode', 'symbology': 'Code128', 'width': 250,'height': 85,'quiet': 0,'img_style': 'width:250px;height:85px;' }"/>
+                            <div t-if="move.product_id.barcode" class="col-6 box2 text-end">
+                                <img t-att-src="'/report/barcode/Code128/%s?width=250&amp;height=85&amp;quiet=0' % move.product_id.barcode" alt="Barcode"/>
                             </div>
                         </div>
                         <div class="frame">
                             <div class="description">
-                                <span class="sub1" t-esc="product.name"/>
+                                <span t-esc="move.product_id.name"/>
                             </div>
                             <div class="description">
-                                <span class="sub1" t-esc="product.type_description"/>
+                                <span t-esc="move.product_id.type_description"/>
                             </div>
                         </div>
                         <div class="row delivery">
-                            <div class="col-12 box3 text-center">
-                                <div t-if="product.feeder_id">
-                                    <span t-field="product.feeder_id" t-options="{'widget': 'barcode', 'symbology': 'Code128', 'width': 250,'height': 80,'quiet': 0,'img_style': 'width:250px;height:80px;' }"/>
+                            <div class="col-6 box">
+                                <div class="padding">
+                                    <span t-esc="move.date" t-options="{'widget': 'date'}"/>
+                                </div>
+                                <div class="padding">
+                                    <span t-esc="move.origin"/>
+                                </div>
+                            </div>
+                            <div class="col-6 box3">
+                                <div t-if="move.product_id.feeder_id" class="text-end">
+                                    <span t-field="move.product_id.feeder_id" t-options="{'widget': 'barcode', 'symbology': 'Code128', 'width': 250,'height': 80,'quiet': 0,'img_style': 'width:250px;height:80px;' }"/>
                                     <br/>
                                 </div>
                                 <div class="text-center">
-                                    <span class="text-center" t-esc="product.feeder_id"/>
+                                    <span class="text-center" t-esc="move.product_id.feeder_id"/>
                                 </div>
                             </div>
                         </div>
@@ -1121,8 +1137,8 @@ Inherit ID: `product.report_producttemplatelabel`
                             <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
                         </div>
                     </div>
-                    <p style="page-break-before:always;"/>
                 </div>
+                <p style="page-break-before:always;"/>
             </t>
         </t>
     </t>

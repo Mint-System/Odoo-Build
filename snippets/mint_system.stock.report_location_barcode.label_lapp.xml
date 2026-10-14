@@ -2,28 +2,33 @@
     <xpath expr="//t[@t-call='stock.report_generic_barcode']" position="replace">
 
         <style>
-        .container {
+            body, div, .container {
             padding-top: 0px !important;
             padding-right: 0px !important;
             padding-left: 0px !important;
             margin: 0px !important;
-        }
+            background-color: #fff !important;
+            }
         </style>
 
         <t t-foreach="docs" t-as="o">
             <t t-set="title">Locations</t>
             <t t-name="stock.report_generic_barcode">
                 <t t-call="web.basic_layout">
-                    <t t-call="web.html_container">
-                        <div>
-                            <table style="width: 100%;">
+                    <!-- <t t-call="web.html_container"> -->
+                    <div>
+                        <table style="width: 100%; background-color: #fff;">
+                            <tbody style="border: none; background-color: #fff;">
                                 <!-- Section 1: name (font-size in relation to text length) -->
                                 <style>
                                     div#textarea {
-                                        margin-top:10mm;
-                                        text-align:center;
-                                        border-collapse:collapse;
-                                        border: 1px solid white;
+                                    margin-top:10mm;
+                                    text-align:center;
+                                    border-collapse:collapse;
+                                    border: 0px solid transparent;
+                                    }
+                                    tr {
+                                    border: 0px solid transparent;
                                     }
                                 </style>
                                 <tr>
@@ -48,10 +53,10 @@
                                         </div>
                                     </td>
                                 </tr>
-
-                            </table>
-                        </div>
-                    </t>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- </t> -->
                 </t>
             </t>
         </t>

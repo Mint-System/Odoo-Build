@@ -77,18 +77,17 @@ Inherit ID: `hr.hr_employee_public_view_kanban`
 ```xml
 <data priority="50">
     <xpath expr="//templates" position="before">
-        <field name="current_leave_id"/>
+        <field name="is_absent"/>
         <field name="current_leave_state"/>
         <field name="leave_date_from"/>
         <field name="leave_date_to"/>
     </xpath>
     <xpath expr="//li[@id='last_login']" position="inside">
-        <span t-if="record.current_leave_id.raw_value" style="font-size: 100%" t-att-class="record.current_leave_state.raw_value=='validate'?'oe_kanban_button oe_kanban_color_3':'oe_kanban_button oe_kanban_color_2'" t-att-title="moment(record.leave_date_from.raw_value).format('ddd Do MMM') + ' - ' + moment(record.leave_date_to.raw_value).format('ddd Do MMM')">
-            <field name="current_leave_id"/>
+        <span t-if="record.is_absent.value" style="font-size: 100%" t-att-class="record.current_leave_state.raw_value=='validate'?'oe_kanban_button oe_kanban_color_3':'oe_kanban_button oe_kanban_color_2'" t-att-title="moment(record.leave_date_from.raw_value).format('ddd Do MMM') + ' - ' + moment(record.leave_date_to.raw_value).format('ddd Do MMM')">
+            <field name="is_absent"/>
         </span>
     </xpath>
 </data>
-
 ```
 Edit: [snippets/mint_system.hr.hr_employee_public_view_kanban.show_leave.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_kanban.show_leave.xml)\
 Source: [snippets/mint_system.hr.hr_employee_public_view_kanban.show_leave.xml](https://odoo.build/snippets/mint_system.hr.hr_employee_public_view_kanban.show_leave.xml)

@@ -25,6 +25,7 @@ PGPORT=${PGPORT:=5432}
 PGUSER=${PGUSER:='odoo'}
 PGPASSWORD=${PGPASSWORD:='odoo'}
 PGSSLMODE=${PGSSLMODE:="prefer"}
+HTTP_INTERFACE=${HTTP_INTERFACE:='0.0.0.0'}
 export PGSSLROOTCERT
 
 if [[ "$PGSSLMODE" = "verify-ca" ]] && [[ ! -f "$PGSSLROOTCERT" ]]; then
@@ -61,12 +62,12 @@ else
 fi
 
 AUTO_UPDATE_MODULES_LIST="${AUTO_UPDATE_MODULES_LIST:=False}"
-if [[ "$AUTO_UPDATE_MODULES_LIST" = "True" ]]; then
+if [[ "${AUTO_UPDATE_MODULES_LIST,,}" = "true" ]]; then
     update-modules-list
 fi
 
 AUTO_UPDATE_TRANSLATIONS="${AUTO_UPDATE_TRANSLATIONS:=False}"
-if [[ "$AUTO_UPDATE_TRANSLATIONS" = "True" ]]; then
+if [[ "${AUTO_UPDATE_TRANSLATIONS,,}" = "true" ]]; then
     update-translations
 fi
 
@@ -76,17 +77,17 @@ case "$1" in
         if [[ "$1" == "scaffold" ]] ; then
             exec odoo "$@"
         else
-            exec odoo "${DB_ARGS[@]}" "$@"
+            exec odoo --http-interface="${HTTP_INTERFACE}" "${DB_ARGS[@]}" "$@"
         fi
         ;;
     -- | odoo-nginx)
         shift
         log-entrypoint 'Start Odoo with nginx.'
         nginx -c /etc/nginx/nginx.conf &
-        exec odoo "${DB_ARGS[@]}" "$@"
+        exec odoo --http-interface="${HTTP_INTERFACE}" "${DB_ARGS[@]}" "$@"
         ;;
     -*)
-        exec odoo "${DB_ARGS[@]}" "$@"
+        exec odoo --http-interface="${HTTP_INTERFACE}" "${DB_ARGS[@]}" "$@"
         ;;
     *)
         exec "$@"

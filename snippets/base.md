@@ -164,6 +164,25 @@ Source: [snippets/mint_system.base.module_view_kanban.group_erp_system.xml](http
 
 ## Res Bank View Search
 
+### Add Zip Bic City
+
+ID: `mint_system.base.res_bank_view_search.add_zip_bic_city`\
+Inherit ID: `base.res_bank_view_search`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='name']" position="after">
+        <separator/>
+        <field string="PLZ" name="zip"/>
+        <field string="Bankleitzahl" name="bic"/>        
+        <field string="Stadt" name="city"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.base.res_bank_view_search.add_zip_bic_city.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.res_bank_view_search.add_zip_bic_city.xml)\
+Source: [snippets/mint_system.base.res_bank_view_search.add_zip_bic_city.xml](https://odoo.build/snippets/mint_system.base.res_bank_view_search.add_zip_bic_city.xml)
+
 ### Add Zip Bic Code City
 
 ID: `mint_system.base.res_bank_view_search.add_zip_bic_code_city`\
@@ -196,13 +215,13 @@ Inherit ID: `base.res_partner_kanban_view`
     <xpath expr="//kanban/field[@name='type']" position="after">
         <field name="agreements_count"/>
     </xpath>
-    <xpath expr="//div[hasclass('oe_kanban_details')]/ul" position="after">
+    <xpath expr="//div[hasclass('oe_kanban_details')]/div/ul" position="after">
         <a class="o_project_kanban_box" name="action_open_agreement" type="object">
             <div>
                 <span class="o_value">
                     <t t-esc="record.agreements_count.value"/>
                 </span>
-                <span class="o_label">Agreements</span>
+                <span class="o_label"> Agreements</span>
             </div>
         </a>
     </xpath>
@@ -347,8 +366,7 @@ Inherit ID: `base.user_groups_view`
 
 ```xml
 <data priority="50">
-    <field name="in_group_154" position="replace"/>
-    <field name="in_group_153" position="replace"/>
+  <xpath expr="//field[@name='sel_groups_153_154']" position="replace"/>
 </data>
 
 ```
@@ -664,6 +682,22 @@ Inherit ID: `base.view_partner_form`
 ```
 Edit: [snippets/mint_system.base.view_partner_form.move_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.move_company_registry.xml)\
 Source: [snippets/mint_system.base.view_partner_form.move_company_registry.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.move_company_registry.xml)
+
+### Move Internal Note
+
+ID: `mint_system.base.view_partner_form.move_internal_note`\
+Inherit ID: `base.view_partner_form`
+
+```xml
+<data priority="50">
+    <page name="contact_addresses" position="before">
+       <page name="internal_notes" position="move" />
+    </page>
+</data>
+
+```
+Edit: [snippets/mint_system.base.view_partner_form.move_internal_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.move_internal_note.xml)\
+Source: [snippets/mint_system.base.view_partner_form.move_internal_note.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.move_internal_note.xml)
 
 ### Move Property Product Pricelist
 

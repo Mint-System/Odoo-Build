@@ -1644,13 +1644,12 @@ Inherit ID: `web.internal_layout`
                 <div class="col-4 text-center">
                 </div>
                 <div class="col-4 text-end">
-                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="height:72px; margin-right:-5mm;"/>
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="height:60px; margin-right:-5mm;"/>
                 </div>
             </div>
         </div>
     </xpath>
 </data>
-
 ```
 Edit: [snippets/mint_system.web.internal_layout.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.internal_layout.replace_header.xml)\
 Source: [snippets/mint_system.web.internal_layout.replace_header.xml](https://odoo.build/snippets/mint_system.web.internal_layout.replace_header.xml)

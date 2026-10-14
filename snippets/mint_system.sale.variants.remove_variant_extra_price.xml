@@ -1,5 +1,5 @@
 <data priority="50">
-    <xpath expr="//span[hasclass('variant_price_extra')]" position="before">
+    <xpath expr="//li[@t-att-data-attribute_id='attribute.id']" position="before">
         <style>
             li.variant_attribute .badge {
                 display: none;

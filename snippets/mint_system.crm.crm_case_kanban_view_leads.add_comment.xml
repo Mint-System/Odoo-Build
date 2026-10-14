@@ -1,0 +1,7 @@
+<data priority="50">
+  <xpath expr="//t[@t-if='record.recurring_revenue and record.recurring_revenue.raw_value']/parent::div" position="after">
+    <div>
+    <span class="o_text_overflow" t-if="record.description" t-esc="record.description.value"/> 
+    </div>
+  </xpath> 
+</data>

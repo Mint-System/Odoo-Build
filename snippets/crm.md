@@ -96,6 +96,25 @@ Inherit ID: `crm.crm_case_calendar_view_leads`
 Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.x_date_stop.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.x_date_stop.xml)\
 Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.x_date_stop.xml](https://odoo.build/snippets/mint_system.crm.crm_case_calendar_view_leads.x_date_stop.xml)
 
+## Crm Case Kanban View Leads
+
+### Add Comment
+
+ID: `mint_system.crm.crm_case_kanban_view_leads.add_comment`\
+Inherit ID: `crm.crm_case_kanban_view_leads`
+
+```xml
+<data priority="50">
+  <xpath expr="//t[@t-if='record.recurring_revenue and record.recurring_revenue.raw_value']/parent::div" position="after">
+    <div>
+    <span class="o_text_overflow" t-if="record.description" t-esc="record.description.value"/> 
+    </div>
+  </xpath> 
+</data>
+```
+Edit: [snippets/mint_system.crm.crm_case_kanban_view_leads.add_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_kanban_view_leads.add_comment.xml)\
+Source: [snippets/mint_system.crm.crm_case_kanban_view_leads.add_comment.xml](https://odoo.build/snippets/mint_system.crm.crm_case_kanban_view_leads.add_comment.xml)
+
 ## Crm Lead View Form
 
 ### Date Deadline Required

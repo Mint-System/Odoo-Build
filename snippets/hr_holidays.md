@@ -40,6 +40,23 @@ Inherit ID: `hr_holidays.hr_leave_allocation_view_form`
 Edit: [snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml)\
 Source: [snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml)
 
+## Hr Leave Report Calendar View Search
+
+### Add Date Filter
+
+ID: `mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter`\
+Inherit ID: `hr_holidays.hr_leave_report_calendar_view_search`
+
+```xml
+<data priority="50">
+   <xpath expr="//field[@name='job_id']" position="after">
+     <filter name="Start Date" date="start_datetime"/>
+  </xpath>
+</data>
+```
+Edit: [snippets/mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter.xml)\
+Source: [snippets/mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter.xml)
+
 ## Hr Leave View Form
 
 ### Show Holiday Allocation

@@ -1,0 +1,7 @@
+<data priority="50">
+    <field name="balance_start" position="attributes">
+        <attribute name="readonly">False</attribute></field>
+
+    <field name="balance_end_real" position="attributes">
+        <attribute name="readonly">False</attribute></field>
+</data>

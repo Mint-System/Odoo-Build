@@ -3,7 +3,7 @@
 	url = git@github.com:odoo/odoo.git
 	branch = 19.0
 	shallow = true
-	commit = 6521d1527e7a5ebe4b71f283ee7a20a15ae853c5
+	commit = a78f5f25b07cf623b6a0fe7faf0c49c35d9166fc
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
@@ -34,7 +34,7 @@
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 19.0
-	commit = 6c6053e52d93b1c551c8f865eec3a2cc308da2ac
+	commit = 002e1f333c78e5487f74142c419737f91f474b8c
 [submodule "addons/account_invoicing"]
 	path = addons/account_invoicing
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Invoicing.git
@@ -99,7 +99,7 @@
 	path = addons/tender
 	url = git@github.com:Mint-System/Odoo-Apps-Tender
 	branch = 19.0
-	commit = 15c2d890b7ebe31fb56a340ccd12459fb1619226
+	commit = bd11b833e2a1d75f2aef076bb1039bdfb29b567b
 [submodule "addons/manufacture"]
 	path = addons/manufacture
 	url = git@github.com:Mint-System/manufacture.git
@@ -124,7 +124,7 @@
 	path = addons/contract
 	url = git@github.com:Mint-System/Odoo-Apps-contract
 	branch = 19.0
-	commit = eb2eb4b7f44f3e4ea641fab6ab8388d49d693c74
+	commit = 235ceb98fbc43e224702c9f1bbed43ca3f9bb417
 [submodule "oca/server-ux"]
 	path = oca/server-ux
 	url = git@github.com:OCA/server-ux.git
@@ -139,4 +139,13 @@
 	path = addons/project
 	url = git@github.com:Mint-System/Odoo-Apps-project
 	branch = 19.0
-	commit = HEAD
+	commit = 1cb4f8ab365dafbf6bea70d3ad7dc67084a7389d
+[submodule "oca/contract"]
+	path = oca/contract
+	url = git@github.com:OCA/contract.git
+	branch = 19.0
+	commit = 8cd0f4d29b520333c43848a140153c307bca757a
+[submodule "oca/agreement"]
+	path = oca/agreement
+	url = git@github.com:OCA/agreement.git
+	branch = 19.0

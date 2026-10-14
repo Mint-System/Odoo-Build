@@ -2,6 +2,7 @@
 set -e
 
 export DB_NAME=${DB_NAME:=""}
+export DB_SYSTEM=${DB_SYSTEM:=postgres}
 export DB_MAXCONN=${DB_MAXCONN:=64}
 export SMTP_SERVER=${SMTP_SERVER:=""}
 export SMTP_PORT=${SMTP_PORT:=0}
@@ -22,6 +23,7 @@ export LOGFILE=${LOGFILE:=None}
 export ADMIN_PASSWD=${ADMIN_PASSWD:=odoo}
 export DB_FILTER=${DB_FILTER:=""}
 export WORKERS=${WORKERS:=0}
+export GEVENT_WORKERS=${GEVENT_WORKERS:=1}
 export LIMIT_REQUEST=${LIMIT_REQUEST:=8192}
 export LIMIT_TIME_CPU=${LIMIT_TIME_CPU:=60}
 export LIMIT_TIME_REAL=${LIMIT_TIME_REAL:=120}
@@ -32,6 +34,12 @@ export LIMIT_MEMORY_SOFT_GEVENT=${LIMIT_MEMORY_SOFT_GEVENT:=False}
 export MODULE_AUTO_INSTALL_DISABLED=${MODULE_AUTO_INSTALL_DISABLED:=""}
 export ADDITIONAL_ODOO_RC=${ADDITIONAL_ODOO_RC:=""}
 export IR_CONFIG_PARAMETER=${IR_CONFIG_PARAMETER:=""}
+
+# ODOO_MAX_HTTP_THREADS is read directly from the environment by Odoo.
+# Only export it if explicitly set; otherwise Odoo computes its own default.
+if [[ -n "${ODOO_MAX_HTTP_THREADS:-}" ]]; then
+    export ODOO_MAX_HTTP_THREADS
+fi
 
 # Append SSH keys to ir config parameters
 if [[ -n "$GIT_SSH_PRIVATE_KEY" ]]; then

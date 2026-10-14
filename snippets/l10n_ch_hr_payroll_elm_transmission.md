@@ -46,6 +46,36 @@ Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
 Edit: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit.xml)\
 Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit.xml](https://odoo.build/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit.xml)
 
+### Add Title Page With Address
+
+ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address`\
+Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
+
+```xml
+<data>
+    <xpath expr="//div[@class='page'][h2[@id='payslip_name']]" position="before">
+        <div style="page-break-after: always;">
+            <div class="oe_structure"/>
+            <div class="row" style="margin-top: 100px;">
+                <div class="col-6">
+                    <address>
+                        <strong t-field="o.employee_id.name"/><br/>
+                        <span t-field="o.employee_id.private_street"/><br/>
+                        <t t-if="o.employee_id.private_street2">
+                            <span t-field="o.employee_id.private_street2"/><br/>
+                        </t>                        
+                        <span t-field="o.employee_id.private_zip"/> <span t-field="o.employee_id.private_city"/><br/>
+                        <span t-field="o.employee_id.private_country_id.name"/>
+                    </address>
+                </div>
+            </div>
+        </div>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address.xml)\
+Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address.xml](https://odoo.build/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address.xml)
+
 ### Address To Envelope Position
 
 ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.address_to_envelope_position`\

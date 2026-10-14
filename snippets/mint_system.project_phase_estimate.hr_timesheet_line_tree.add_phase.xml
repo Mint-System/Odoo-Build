@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//field[@name='task_id']" position="after">
+        <field name="phase_id" optional="show"/>
+    </xpath>
+</data>

@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//field[@name='payment_ref']" position="after">
+        <field name="move_id" optional="hide"/>
+    </xpath>
+</data>
