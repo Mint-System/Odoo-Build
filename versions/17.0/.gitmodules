@@ -3,18 +3,18 @@
 	url = git@github.com:odoo/enterprise.git
 	branch = 17.0
 	shallow = true
-	commit = 5c367815f362024cb338848bb558b9ee31595e48
+	commit = 5f996664bd79fd4d72ec3a83a91e7222334377e0
 [submodule "odoo"]
 	path = odoo
 	url = git@github.com:odoo/odoo.git
 	branch = 17.0
 	shallow = true
-	commit = fef1dc6ba2019f61d1ca148156e0b69a00e7752d
+	commit = 66d9bd648c0db151395c8ea98942cdac85a6fae6
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
 	branch = 17.0
-	commit = c2dac12ee1cba7ace9d444824aef0425e08a0836
+	commit = 0f218a00cdbec5040040f6d0618b614ce97f79a5
 [submodule "addons/server_tools"]
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
@@ -24,32 +24,32 @@
 	path = addons/project
 	url = git@github.com:Mint-System/Odoo-Apps-Project.git
 	branch = 17.0
-	commit = 16134a40feca4e342d02964113de027d5dda9ca1
+	commit = 4b8f244f9e023c777811bb2359598d8d14b88758
 [submodule "oca/sale-workflow"]
 	path = oca/sale-workflow
 	url = git@github.com:OCA/sale-workflow.git
 	branch = 17.0
-	commit = 37feee74ad40ce4bf38d492492e617d6eeab1ff7
+	commit = 195638141c2415eaca3c75453d8263cb56862ce6
 [submodule "addons/hr"]
 	path = addons/hr
 	url = git@github.com:Mint-System/Odoo-Apps-HR.git
 	branch = 17.0
-	commit = 12d558fb1386cd94dd050dc8b145140d346deca3
+	commit = 015a93c016178970e1458879590ea898a7e76b9d
 [submodule "addons/stock_logistics_workflow"]
 	path = addons/stock_logistics_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
 	branch = 17.0
-	commit = 0bb566e72690021b9a26205cb98732550f109c0d
+	commit = 20ae27720af4bf7cd34f27acc40bbe02d58fe7c8
 [submodule "addons/manufacture"]
 	path = addons/manufacture
 	url = git@github.com:Mint-System/Odoo-Apps-manufacture.git
 	branch = 17.0
-	commit = 1d6fe3e762f2b29feb457ec928d415a4b5582bcb
+	commit = d06f868002e84708f6f569789f489788760411d6
 [submodule "oca/stock-logistics-workflow"]
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
 	branch = 17.0
-	commit = cd625f518a8d8c85529ce53e4c86e391c15a5e50
+	commit = 7ce9d6230493154dc7273151e716f75ba4c97c05
 [submodule "oca/management-system"]
 	path = oca/management-system
 	url = git@github.com:OCA/management-system.git
@@ -64,7 +64,7 @@
 	path = oca/hr-holidays
 	url = git@github.com:OCA/hr-holidays.git
 	branch = 17.0
-	commit = a4949bf5adf57ece8e4851a8e00d9f6337504cc1
+	commit = 386e32d0efaa4c5821e0e25e287d25a1100422b9
 [submodule "addons/connector"]
 	path = addons/connector
 	url = git@github.com:Mint-System/Odoo-Apps-Connector.git
@@ -74,7 +74,7 @@
 	path = oca/manufacture
 	url = git@github.com:OCA/manufacture.git
 	branch = 17.0
-	commit = aea0772289a18369aee0f3c5112f01020d14bfbd
+	commit = 2ab34edffa435231a96f4f353da582b2e9d8dcee
 [submodule "oca/brand"]
 	path = oca/brand
 	url = git@github.com:OCA/brand.git
@@ -84,17 +84,17 @@
 	path = oca/server-tools
 	url = git@github.com:OCA/server-tools.git
 	branch = 17.0
-	commit = 027944a8937604eaa8f64e62d4a99815e2e184b9
+	commit = 317ae6884c83a3c47338447b4a6220d5b313cb8b
 [submodule "oca/partner-contact"]
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
 	branch = 17.0
-	commit = 2070fabf64300ab67c764d295b977a7427eebd70
+	commit = cd4ae141fe0217be7974ad0ec9eb4dde1fc8315a
 [submodule "addons/sale_workflow"]
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 17.0
-	commit = c619e069301466ecb366819a5855a9dc25925ee4
+	commit = b8ea908f9c0350df15db4663f00d5559bc1f2361
 [submodule "oca/bank-statement-import"]
 	path = oca/bank-statement-import
 	url = git@github.com:OCA/bank-statement-import.git
@@ -109,7 +109,7 @@
 	path = addons/account_invoicing
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Invoicing.git
 	branch = 17.0
-	commit = 9dcc85f70f64a5583ddc661c816dd5b2bf70e51e
+	commit = 35acb03bee60e1ad6bf73a1e6e2f4b9f686a80a5
 [submodule "addons/product_attribute"]
 	path = addons/product_attribute
 	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
@@ -119,12 +119,12 @@
 	path = addons/purchase_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
 	branch = 17.0
-	commit = 6eaea7da7a57ac9a975507d583b1d62ea5cdb73f
+	commit = 0ec4a4b0485836f5490de649a9f85698fdf0df7f
 [submodule "oca/contract"]
 	path = oca/contract
 	url = git@github.com:OCA/contract.git
 	branch = 17.0
-	commit = 6f8de96e68f399dbf3268759f48cbfaad8da6d26
+	commit = f48287dd986268c95efdc9f24406f9980e554e43
 [submodule "oca/product-attribute"]
 	path = oca/product-attribute
 	url = git@github.com:OCA/product-attribute.git
@@ -134,17 +134,17 @@
 	path = oca/purchase-workflow
 	url = git@github.com:OCA/purchase-workflow.git
 	branch = 17.0
-	commit = c01725b4d75132df0b0d33614628177392765a57
+	commit = 26c38f457fe57eee5ea821c9cfd4e7bf299ec54d
 [submodule "addons/account_financial_reporting"]
 	path = addons/account_financial_reporting
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
 	branch = 17.0
-	commit = 36ce0ea6cc07b353fe3bb862c763c90a3528de7e
+	commit = 60cfd429ef448222df5e207bcaf6d4e43dba401a
 [submodule "oca/maintenance"]
 	path = oca/maintenance
 	url = git@github.com:OCA/maintenance.git
 	branch = 17.0
-	commit = 6467c6bcab4bede973db198a18feaf3103e210cf
+	commit = 320455b27513d50f8a21418c2a852eeee51d3c65
 [submodule "addons/account_reconcile"]
 	path = addons/account_reconcile
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git
@@ -159,12 +159,12 @@
 	path = addons/contract
 	url = git@github.com:Mint-System/Odoo-Apps-Contract.git
 	branch = 17.0
-	commit = 2b257c58e7260a37978fc04bd3b24691923addd4
+	commit = 37130528cab0a98fec52c73a3b64082eb834cc58
 [submodule "oca/account-invoicing"]
 	path = oca/account-invoicing
 	url = git@github.com:OCA/account-invoicing.git
 	branch = 17.0
-	commit = 8ff5f6a7c7719986d513c11ced4f5ea0aa28d675
+	commit = 80983ce7a650bb5db26cc49b196bc12146d235c7
 [submodule "addons/management_system"]
 	path = addons/management_system
 	url = git@github.com:Mint-System/Odoo-Apps-Management-System.git
