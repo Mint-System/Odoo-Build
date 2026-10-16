@@ -119,7 +119,7 @@
 	path = addons/purchase_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
 	branch = 17.0
-	commit = 0ec4a4b0485836f5490de649a9f85698fdf0df7f
+	commit = 6654046685136fcb6e9c7ecfa3c429a4f9954556
 [submodule "oca/contract"]
 	path = oca/contract
 	url = git@github.com:OCA/contract.git
@@ -175,3 +175,8 @@
 	url = git@github.com:Mint-System/Odoo-Apps-Social.git
 	branch = 17.0
 	commit = f8becce18553a995f6013790227a0c52cd7eb12c
+[submodule "oca/social"]
+	path = oca/social
+	url = git@github.com:OCA/Social.git
+	branch = 17.0
+	commit = cb4ccfc2d9029026be39a5484d04c6ca5997e14c
