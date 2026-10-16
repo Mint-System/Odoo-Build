@@ -179,4 +179,9 @@
 	path = oca/social
 	url = git@github.com:OCA/Social.git
 	branch = 17.0
-	commit = cb4ccfc2d9029026be39a5484d04c6ca5997e14c
+	commit = 1d6fecd4d7455f2524d3b68a13d394abb3b9c632
+[submodule "oca/mail"]
+	path = oca/mail
+	url = git@github.com:OCA/Mail.git
+	branch = 17.0
+	commit = 0b73348605ae396033a111954dabcaea921250ff
