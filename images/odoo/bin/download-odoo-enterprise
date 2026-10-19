@@ -33,7 +33,8 @@ if [[ -z "$last_ref" ]] || [[ "$last_ref" != "$ODOO_ENTERPRISE_REF" ]]; then
     elif [[ "$git_proto" = "ssh://" ]]; then
 
         add-ssh-key
-        ssh_host_config=$(ssh -F "$HOME/.ssh/config" -G "$git_hostname" 2>/dev/null)
+        export GIT_SSH_COMMAND="$(exec-git-ssh-command)"
+        ssh_host_config=$(ssh -F "$HOME/.ssh/config" -G "$git_hostname" 2>/dev/null || true)
         ssh_hostname=$(echo "$ssh_host_config" | sed -n 's/^hostname //p')
         ssh_port=$(echo "$ssh_host_config" | sed -n 's/^port //p')
         ssh-keyscan -t rsa,ed25519 -p "${ssh_port:-22}" "${ssh_hostname:-$git_hostname}" >> "$HOME/.ssh/known_hosts" 2>/dev/null
