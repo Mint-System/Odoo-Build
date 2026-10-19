@@ -40,7 +40,6 @@ help-table() {
     rows+=("reset-git-folder|<path>|Abort rebase and reset git folder.")
     rows+=("stage-git-folder|<path>|Stage all files in git folders in path.")
     rows+=("switch-git-folder|<branch><path>|Switch branch for git folders in .gitmodules.")
-    rows+=("sync-git-folder|<branch><path>|Switch, stash and pull all git folders.")
     rows+=("run-pre-commit|<path>|Run pre-commit in path.")
     rows+=("===DOCKER===| | ")
     rows+=("archive-docker-tags||Archive Docker image tags older than 1 year.")
