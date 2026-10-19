@@ -2835,13 +2835,13 @@ checkout() {
     # Set .env
     load-revision "$ODOO_VERSION"
 
-    echo "Run clone-git-folder"
+    echo "Clone git folders"
     clone-git-folder .
 
-    echo "Run checkout-git-folder"
+    echo "Checkout selected commit in git folders"
     checkout-git-folder "$ODOO_VERSION" .
 
-    echo "Run switch-git-folder"
+    echo "Checkout Odoo version branch in git folders"
     switch-git-folder "$ODOO_VERSION" .
 
     # List git folders
