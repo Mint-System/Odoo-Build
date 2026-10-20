@@ -1,10 +1,9 @@
-#!/bin/bash
-cd "$(dirname "$0")" || exit
-# Commands such as git pull return exit code if there are no changes
-# set -e
+#!/usr/bin/env bash
+set -e
 
-if [[ -a ".env" ]]; then
-    source .env
+if [[ -f ".env" ]]; then
+    # shellcheck source=/dev/null
+    source ".env"
 fi
 
 help-table() {
@@ -244,15 +243,16 @@ help-table() {
         fi
     done
 }
-
 help() {
+    local grep_pattern
     echo
     if [[ -n "$1" ]]; then
-        help-table | grep -i "$1" | column -t -s'|'
+        grep_pattern="$1"
+        help-table | grep -i "$grep_pattern" | column -t -s'|'
     else
-        echo 'task <command> [options]'
+        echo "task <command> [options]"
         echo
-        echo 'commands:'
+        echo "commands:"
         echo
         help-table
     fi
@@ -3131,22 +3131,23 @@ if [[ "$1" == *","* ]]; then
         # Trim whitespace
         cmd=$(echo "$cmd" | xargs)
         if declare -f "$cmd" > /dev/null; then
-            activate-venv
             "$cmd"
         else
             echo "Unknown command: $cmd"
-            help
+            help "$@"
             exit 1
         fi
     done
 elif declare -f "$1" > /dev/null; then
-    activate-venv || true
-    "$1" "${@:2}"
+    if [[ "${2:-}" == "help" ]]; then
+        help "$1"
+    else
+        "$1" "${@:2}"
+    fi
 else
     case "$1" in
         *)
             echo "Unknown command: $1"
-            help
             exit 1
             ;;
     esac
