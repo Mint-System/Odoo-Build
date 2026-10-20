@@ -124,7 +124,7 @@
 	path = addons/contract
 	url = git@github.com:Mint-System/Odoo-Apps-contract
 	branch = 19.0
-	commit = 235ceb98fbc43e224702c9f1bbed43ca3f9bb417
+	commit = 3a6db1f7b188d6d4af2653a84acddd6fec12a1de
 [submodule "oca/server-ux"]
 	path = oca/server-ux
 	url = git@github.com:OCA/server-ux.git
@@ -149,3 +149,4 @@
 	path = oca/agreement
 	url = git@github.com:OCA/agreement.git
 	branch = 19.0
+	commit = 46ddb258c5961999b8cbf7217bcc5e9fdb997d48
