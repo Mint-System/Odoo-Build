@@ -3124,6 +3124,10 @@ run-vuepress-container() {
         "$image_tag"
 }
 
+# Activate the Odoo virtual environment so that commands calling a python
+# binary or script (odoo, python, manifestoo, ...) resolve `.venv$ODOO_VERSION/bin`.
+activate-venv
+
 if [[ "$1" == *","* ]]; then
     # Split comma-separated commands
     IFS=',' read -ra COMMANDS <<< "$1"
@@ -3139,7 +3143,7 @@ if [[ "$1" == *","* ]]; then
         fi
     done
 elif declare -f "$1" > /dev/null; then
-    if [[ "${2:-}" == "help" ]]; then
+    if [[ "${2:-}" == "tfhelp" ]]; then
         help "$1"
     else
         "$1" "${@:2}"
