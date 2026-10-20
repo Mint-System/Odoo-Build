@@ -1,7 +1,7 @@
 ---
 commit_ref: d6bf3d26a531762623e6b2af4b2b2b6f7ffaf2d3
 title: "FastAPI Papermill Docker image"
-state: draft
+state: canelled
 model: 
 input_tokens: 
 ---
