@@ -1630,13 +1630,15 @@ EOF
         exec odoo init-module partner_firstname
 
         echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials"
-        export ODOO_URL="http://localhost:8069"
-        export ODOO_DATABASE=test
-        export ODOO_USERNAME=test
-        export ODOO_PASSWORD=test
-        if ! show-dotenv test; then
-            create-dotenv test odoo
-        fi
+        # Write the test credentials into the test .env file so that
+        # subsequent load-dotenv calls source the correct values.
+        cat > test.env << EOF
+ODOO_URL=http://localhost:8069
+ODOO_DATABASE=test
+ODOO_USERNAME=test
+ODOO_PASSWORD=test
+ODOO_API_KEY=
+EOF
         show-dotenv test
         test-xmlrpc test
 

@@ -1,15 +1,16 @@
 ---
-title: "Odoo 20.0 https interface param"
+title: "Fix ci job"
 author: "Janik von Rotz <login@janikvonrotz.ch>"
-state: completed
-date_completed: 2026-10-13
-harness: pi
-model: moonshotai/Kimi-K2.6
-input_tokens: 24524
-output_tokens: 4075
+action: implement
+state: review
+date_completed: YYYY-MM-DD
+harness:
+model:
+input_tokens:
+output_tokens:
 ---
 
-# Odoo 20.0 https interface param
+# Fix ci job
 
 Note: @Clanker refers to the "ai agent" (you) who is working on this prompt file.
 
@@ -25,21 +26,40 @@ Note: @Clanker refers to the "ai agent" (you) who is working on this prompt file
 
 ## Task
 
-Currently I have `--http-interface=0.0.0.0` in my `compose.yml.template` to start Odoo 20.0.
+Currently the `test-project` action fails:
 
-Instead I would like to have this param as default in the image `images/odoo/entrypoint.sh`.
+```
 
-If I understand correctly this param cannot be configured in `odoo.conf` or as an enviroment var. Double-check.
+2026-10-20 11:22:28,060 1156 INFO test odoo.service.server: Initiating shutdown 
+2026-10-20 11:22:28,060 1156 INFO test odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2026-10-20 11:22:28,061 1156 INFO test odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections  
+TEST: Setup and check RPC credentials
+Environment 'test' not found.
+Init .env file: /home/runner/work/Odoo-Build/Odoo-Build/test.env
+Edit with: task edit-dotenv test
+ODOO_URL=
+ODOO_DATABASE=
+ODOO_USERNAME=
+ODOO_PASSWORD=
+ODOO_API_KEY=
+Source env file /home/runner/work/Odoo-Build/Odoo-Build/test.env
+ODOO_URL is not set.
+Error: Process completed with exit code 1.
 
-I want you to add a env var `HTTP_INTERACE` with `0.0.0.0` as default. Document this env var in `images/odoo/README.md`. Add before `PROXY_MODE`.
+```
 
-Then remove the param from the compose template.
+The `dotenv` commands have changed. Maybe this needs to be reflected in the test.
 
-I will build and test the image.
+@Clanker When task is completed set frontmatter state to review. Prompt the author to verify the results.
 
 ## Worklog
 
-- Verified that `--http-interface` is a command-line only option in Odoo (not supported in `odoo.conf`).
-- Added `HTTP_INTERFACE=${HTTP_INTERFACE:='0.0.0.0'}` to `images/odoo/entrypoint.sh` and passed it as `--http-interface="${HTTP_INTERFACE}"` to all `exec odoo` invocations (except scaffold).
-- Documented `HTTP_INTERFACE` in `images/odoo/README.md` in both the compose example and the Server Environment section, placed before `PROXY_MODE`.
-- Removed `--http-interface=0.0.0.0` from `compose.yml.template` and added `HTTP_INTERFACE: ${HTTP_INTERFACE}` to the environment section before `PROXY_MODE`.
+The `test-project` action failed at "Setup and check RPC credentials" with `ODOO_URL is not set.`.
+
+Root cause: the dotenv commands (sourced from `~/taskfile.build/bin/`) changed. The new `load-dotenv <env>` sources the `<env>.env` file (e.g. `test.env`). The old test exported the credentials (`ODOO_URL`, ...) and then created an **empty** `test.env` from the template via `create-dotenv`. When `test-xmlrpc` -> `load-dotenv test` sourced that empty file, it overwrote the exported vars with empty values, so `ODOO_URL is not set.` failed.
+
+Fix (in `task`, `test-project()`): replaced the export + `create-dotenv` dance by writing the test credentials directly into `test.env` before the RPC check. All subsequent steps (`snippet` install/update/disable/remove) also call `load-dotenv test`, so they now get the correct values too.
+
+Verified locally that `load-dotenv test` sources the written `test.env` and all required vars are set; `bash -n task` passes and `./task help` runs cleanly.
+
+@Clanker If author confirms results set frontmatter state to completed, otherwise to aborted. Update date, harness and model. If you have access to session info also add token count.
