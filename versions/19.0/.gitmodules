@@ -3,38 +3,38 @@
 	url = git@github.com:odoo/odoo.git
 	branch = 19.0
 	shallow = true
-	commit = a78f5f25b07cf623b6a0fe7faf0c49c35d9166fc
+	commit = 0d44f26d9b0fb1c1a5db463cf1f8dd0d3c72ba26
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
 	branch = 19.0
 	shallow = true
-	commit = 6a9f466693dd7f4194fb8e11acc5f152d52f8ff9
+	commit = 7b309f2e74f9fa37b109375de6387db3241c2bcb
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
 	branch = 19.0
-	commit = 38a08ae4d18e0e5e0c536ad905693bfd678680a7
+	commit = 7b23e8e51870e17e9de80bebdf44e93975ad3080
 [submodule "addons/server_tools"]
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
 	branch = 19.0
-	commit = 644420b084c5b083ea5fe9b71dbe8b1c1dd56997
+	commit = c64827f762abed625c690fdfe6d092936b9f4175
 [submodule "oca/partner-contact"]
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
 	branch = 19.0
-	commit = 71bb506d3e1f342e0b3b5c60349fe546c042f44c
+	commit = 93a44797079c463264defa1fbfbd817f4296628b
 [submodule "addons/management_system"]
 	path = addons/management_system
 	url = git@github.com:Mint-System/Odoo-Apps-Management-System.git
 	branch = 19.0
-	commit = 9d74a6fc50b88dadef9a97bd08d1b7ee8d97eead
+	commit = 8cc061e3651f59c54c05dd3c8f974990fcfa1a12
 [submodule "addons/sale_workflow"]
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 19.0
-	commit = 002e1f333c78e5487f74142c419737f91f474b8c
+	commit = 0d3040603da233d3fe0efa6c207836fe19890194
 [submodule "addons/account_invoicing"]
 	path = addons/account_invoicing
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Invoicing.git
@@ -54,42 +54,42 @@
 	path = oca/sale-workflow
 	url = git@github.com:OCA/sale-workflow
 	branch = 19.0
-	commit = 3583b54e4c647f57f2f317caa5aede2670a79f1c
+	commit = b365b4e812c06bdce6f64f9b63e50d17576317f8
 [submodule "oca/server-tools"]
 	path = oca/server-tools
 	url = git@github.com:OCA/server-tools.git
 	branch = 19.0
-	commit = 8e9ae3a408802c70813d49385af90931787c9d6e
+	commit = 793dd13b1fc60a43b091b7e156aea95c8bc2011d
 [submodule "addons/spreadsheet"]
 	path = addons/spreadsheet
 	url = git@github.com:Mint-System/Odoo-Apps-Spreadsheet.git
 	branch = 19.0
-	commit = fcf0e481f0ddfb4483b5d5cd3fce9d95ff9ddf18
+	commit = c1c52c10cd5dad8fdbdb2fa2659b29fd24d299aa
 [submodule "addons/product_attribute"]
 	path = addons/product_attribute
 	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
 	branch = 19.0
-	commit = 225d3bdffe175a969fa61dbcf4652a0f7c32cfc8
+	commit = f92267021b39e55f7512626b90b61e98f8c0bd8e
 [submodule "oca/mass-mailing"]
 	path = oca/mass-mailing
 	url = git@github.com:OCA/mass-mailing.git
 	branch = 19.0
-	commit = fa86ca6d1fe57fc4f46661bbc7f46461075c5724
+	commit = 4baf365254fd80be51e99dd446de2d27e601b981
 [submodule "oca/account-analytic"]
 	path = oca/account-analytic
 	url = git@github.com:OCA/account-analytic.git
 	branch = 19.0
-	commit = a8b2b3400b114cfdb1e21950d662b53a32b416e9
+	commit = 0a2b2760291eaf5dfa9490b887b16fda9865d5c3
 [submodule "addons/website"]
 	path = addons/website
 	url = git@github.com:Mint-System/Odoo-Apps-Website
 	branch = 19.0
-	commit = 23dfeee60286c38d5034ecc43fda947a4dfcfa5f
+	commit = 9864c94c64c8d9bdce5cd6488f1328c7f71d5ba5
 [submodule "oca/hr-attendance"]
 	path = oca/hr-attendance
 	url = git@github.com:OCA/hr-attendance.git
 	branch = 19.0
-	commit = 6440cb14bef46b7c8290aa7aeaa4d6453ffd5409
+	commit = 4107d53b3dc1492ba157b346fe971d49b6d62288
 [submodule "addons/partner_contact"]
 	path = addons/partner_contact
 	url = git@github.com:Mint-System/Odoo-Apps-Partner-Contact.git
@@ -99,7 +99,7 @@
 	path = addons/tender
 	url = git@github.com:Mint-System/Odoo-Apps-Tender
 	branch = 19.0
-	commit = bd11b833e2a1d75f2aef076bb1039bdfb29b567b
+	commit = a34e87f3c3143e857183b88d1ae4b14b369ab6f8
 [submodule "addons/manufacture"]
 	path = addons/manufacture
 	url = git@github.com:Mint-System/manufacture.git
@@ -109,7 +109,7 @@
 	path = oca/openupgrade
 	url = git@github.com:OCA/OpenUpgrade.git
 	branch = 19.0
-	commit = c402d59cd518dadbabd7d6410d488ee3e81e795c
+	commit = 6081b0a47f6a698c7c44719af01b4316555c4a1a
 [submodule "oca/reporting-print-send"]
 	path = oca/reporting-print-send
 	url = git@github.com:OCA/report-print-send.git
@@ -129,12 +129,12 @@
 	path = oca/server-ux
 	url = git@github.com:OCA/server-ux.git
 	branch = 19.0
-	commit = bc7bbaf9efbb973a83c415c90c68677ef53be109
+	commit = be7090c80288a12d8e35fd648241d20ccca670a3
 [submodule "oca/account-closing"]
 	path = oca/account-closing
 	url = git@github.com:webcircles/OCA-account-closing.git
 	branch = 19.0
-	commit = 8ce0077fd0762d49e928ea7520555341d7936a9e
+	commit = 02a63a9a105a272cd9491182baadea34df28ac59
 [submodule "addons/project"]
 	path = addons/project
 	url = git@github.com:Mint-System/Odoo-Apps-project
@@ -144,9 +144,12 @@
 	path = oca/contract
 	url = git@github.com:OCA/contract.git
 	branch = 19.0
-	commit = 8cd0f4d29b520333c43848a140153c307bca757a
+	commit = 2d673175bff101caac841f9ca5db51fe60857140
 [submodule "oca/agreement"]
 	path = oca/agreement
 	url = git@github.com:OCA/agreement.git
 	branch = 19.0
 	commit = 46ddb258c5961999b8cbf7217bcc5e9fdb997d48
+
+
+
