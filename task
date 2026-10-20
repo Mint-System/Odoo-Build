@@ -2855,8 +2855,8 @@ save-version() {
     cp ".python-version" "versions/$ODOO_VERSION/"
     
     echo "Remove .gitmodules.csv."
-    rm ".gitmodules.csv"
-    rm "versions/$ODOO_VERSION/.gitmodules.csv"
+    rm -f ".gitmodules.csv"
+    rm -f "versions/$ODOO_VERSION/.gitmodules.csv"
 }
 
 
