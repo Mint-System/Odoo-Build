@@ -1,0 +1,9 @@
+<data priority="50">
+    <xpath expr="//div[@id='div_name']" position="before">
+        <t t-set="optional_fields" t-value="website._get_address_optional_field_names()"/>
+    </xpath>
+
+    <xpath expr="//label[@for='o_phone']" position="attributes">
+        <attribute name="t-attf-class">col-form-label {{ 'label-optional' if 'phone' in optional_fields else '' }}</attribute>
+    </xpath>
+</data>
