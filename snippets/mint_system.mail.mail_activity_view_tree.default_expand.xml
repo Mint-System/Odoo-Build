@@ -1,0 +1,5 @@
+<data inherit_id="mail.mail_activity_view_tree" priority="50">
+    <tree position="attributes">
+        <attribute name="expand">1</attribute>
+    </tree>
+</data>
