@@ -9,6 +9,7 @@ import sys
 import requests
 
 DOCKER_HUB_API = "https://hub.docker.com/v2"
+MAX_BYTES = 25000
 
 REPOSITORIES = [
     ("images/odoo/README.md", "mintsystem", "odoo"),
@@ -53,6 +54,29 @@ def login_docker_hub(username, password):
     return response.json()["token"]
 
 
+def truncate_to_bytes(text, repo_name):
+    """Truncate text to fit within Docker Hub's full_description byte limit."""
+    encoded = text.encode("utf-8")
+    if len(encoded) <= MAX_BYTES:
+        return text
+
+    notice = (
+        f"\n\n_... (truncated, full README at "
+        f"https://github.com/Mint-System/Odoo-Build/tree/main/images/{repo_name}/)_"
+    )
+    notice_bytes = notice.encode("utf-8")
+    available = MAX_BYTES - len(notice_bytes)
+
+    truncated = encoded[:available]
+    while truncated:
+        try:
+            return truncated.decode("utf-8") + notice
+        except UnicodeDecodeError:
+            truncated = truncated[:-1]
+
+    return notice
+
+
 def update_repository(token, namespace, repo, description):
     """Update the full_description field of a Docker Hub repository."""
     response = requests.patch(
@@ -61,7 +85,13 @@ def update_repository(token, namespace, repo, description):
         json={"full_description": description},
         timeout=30,
     )
-    response.raise_for_status()
+    if not response.ok:
+        print(f"Error updating {namespace}/{repo}: HTTP {response.status_code}")
+        try:
+            print(json.dumps(response.json(), indent=2))
+        except Exception:
+            print(response.text[:500])
+        response.raise_for_status()
     return response
 
 
@@ -84,6 +114,7 @@ def main():
         with open(readme_path) as f:
             content = f.read()
 
+        content = truncate_to_bytes(content, repo)
         print(f"Updating {namespace}/{repo}...")
         update_repository(token, namespace, repo, content)
         print(f"Updated {namespace}/{repo} successfully.")
