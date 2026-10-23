@@ -2977,7 +2977,7 @@ commit-and-push-revision() {
     git commit --all --message "feat(revision): release $ODOO_REVISION"
 
     echo "Tag commit with $ODOO_REVISION"
-    git tag -f "$ODOO_REVISION"
+    git tag -f "$ODOO_REVISION" -m "$ODOO_REVISION"
 
     echo 'Push tags...'
     git push
