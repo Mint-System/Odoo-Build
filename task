@@ -2974,11 +2974,7 @@ commit-and-push-revision() {
     git tag -d "$ODOO_REVISION" 2>/dev/null || true
 
     echo "Commit with revision $ODOO_REVISION tag"
-    if ! git diff --quiet HEAD; then
-        git commit --all --message "feat(revision): release $ODOO_REVISION"
-    else
-        echo 'Nothing to commit, continuing...'
-    fi
+    git commit --all --message "feat(revision): release $ODOO_REVISION"
 
     echo "Tag commit with $ODOO_REVISION"
     git tag -f "$ODOO_REVISION"
