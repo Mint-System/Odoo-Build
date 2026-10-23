@@ -2903,7 +2903,7 @@ show-revision() {
 
 load-revision() {
     if [[ -n "$1" ]]; then
-        ODOO_REVISION="$1"
+        ODOO_REVISION=$(basename "$1")
     fi
 
     echo 'Update revision var in .env file.'
@@ -2919,7 +2919,7 @@ load-revision() {
 
 checkout-revision() {
     if [[ -n "$1" ]]; then
-        ODOO_REVISION="$1"
+        ODOO_REVISION=$(basename "$1")
     fi
 
     load-revision "$ODOO_REVISION"
@@ -2977,7 +2977,7 @@ create-revision() {
 
 commit-and-push-revision() {
     if [[ -n "$1" ]]; then
-        ODOO_REVISION="$1"
+        ODOO_REVISION=$(basename "$1")
     fi
 
     echo "Remove existing tag $ODOO_REVISION"
