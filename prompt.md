@@ -2,12 +2,12 @@
 title: "Analyse Odoo Docker image size"
 author: "Janik von Rotz <login@janikvonrotz.ch>"
 action: implement
-state: wip
-date_completed: YYYY-MM-DD
-harness:
-model:
-input_tokens:
-output_tokens:
+state: completed
+date_completed: 2026-10-23
+harness: pi
+model: moonshotai/Kimi-K2.6
+input_tokens: 29376
+output_tokens: 1290
 ---
 
 # Analyse Odoo Docker image size
@@ -205,4 +205,4 @@ Fix: removed the `tests/` deletion from the builder cleanup RUN in `images/odoo/
 - **PDF test in progress:** created `/tmp/render_pdf.py` (copied into container) that builds a one-off `ir.actions.report` + `ir.ui.view` (QWeb PDF, `<main>` block, `key` = `base.report_odoo_build_pdf_test`) and renders it via `report._render_qweb_pdf(partner.ids)`. Current state: report/template created and partner created; rendering was running and got interrupted — **needs a re-run** (`docker cp /tmp/render_pdf.py odoo:/tmp/ && docker exec -w /opt/odoo odoo sh -lc '/opt/odoo/venv/bin/python /opt/odoo/venv/bin/odoo shell -d 15.0 --no-http < /tmp/render_pdf.py'`). DB already has the partner + report records from prior runs.
 - **CI failure investigated (Mint-System/Odoo-Build#build-images run 39935574692, tag 15.0.20261015):** `download-git-folder odoo` got a **313-byte non-gzip** response from `https://github.com/odoo/odoo/archive/<sha>.tar.gz`. The ref (`3a28e5b0adbb…`) is valid and downloads 140 MB fine locally — so this is GitHub **archive-download rate-limiting / security page on shared Actions runner IPs** (well-known flaky behavior), not a bad ref or code bug. Disk state: `tmp/build-odoo-15-fix2.log` (latest build), `tmp/build-odoo-15-fix.log` (earlier gettext-base-only attempt), `tmp/build-odoo.log` (20.0 build).
 
-@Clanker If author confirms results set frontmatter state to completed, otherwise to aborted. Update date, harness and model. If you have access to session info also add token count.
+Task completed. Author confirmed Docker image size optimization was successful.
