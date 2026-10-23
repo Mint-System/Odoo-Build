@@ -3,7 +3,7 @@ commit_ref:
 title: "Analyse Odoo Docker image size"
 author: "Janik von Rotz <login@janikvonrotz.ch>"
 action: implement
-state: review
+state: wip
 date_completed: YYYY-MM-DD
 harness:
 model:
@@ -176,6 +176,12 @@ Verification in the rebuilt image:
 
 Note: the full runtime (DB init, asset build, PDF generation) was not exercised in this test — recommend one compose deployment before pushing the image.
 
+### Bug fix — `tests/` deletion breaks `resource` module (found during review)
+
+The `find /opt/odoo/addons -type d -name tests -prune -exec rm -rf {} +` line introduced in the optimization causes `ModuleNotFoundError: No module named 'odoo.addons.resource.tests'` at runtime, because `addons/resource/__init__.py` imports `from .tests import test_resource_model`. Some addons treat their `tests` package as a runtime subpackage, so blanket removal is unsafe.
+
+Fix: removed the `tests/` deletion from the builder cleanup RUN in `images/odoo/Dockerfile`. The ~39 MB of test code is retained; the image grows from **2.71 GB → ≈ 2.75 GB** (uncompressed). Verified the fix by rebuilding (`./task build-odoo --load`): `resource` module initializes correctly and can be installed.
+
 ## Worklog
 
 2026-10-23 — Pulled `mintsystem/odoo:20.0.20260926` (latest), mapped all layers via `docker history` (total 3,171 MiB), measured on-disk usage per tree/extension with `du` in a scratch container, audited apt packages (`dpkg-query`, `apt-cache rdepends`, autoremove/purge simulations) and the `bin/` scripts for actual tool usage. Found the 6 Dockerfile bugs above (broken `exit 0` cleanup chain, AND instead of OR in find, tests pattern, `build/` leftovers, 151 MB dead `site-packages` duplicate, 483 MB chmod copy-up layer) and a savings table of ≈ 1.75 GB (≈ 1.9 GB with optional wkhtmltopdf/fonts removals). Base image assessment: keep `python:3.13-slim-bookworm`. Report written into this file. Model: `Qwen/Qwen3.8-27B-FP8`, cumulative session tokens: 145,158 input / 53,934 output.
@@ -187,5 +193,17 @@ Note: the full runtime (DB init, asset build, PDF generation) was not exercised 
 2026-10-23 — New issue fixed: `task checkout 15.0` / `checkout-latest-revision` failed in CI at the `uv pip install -r -` step. Root cause: Odoo 15.0 runs Python 3.9, so its `requirements.txt` selects the `python_version < '3.12'` branch that pins `PyPDF2==1.26.0` — a 2016 sdist-only release whose PyPI distribution is corrupt on some CDN edges (GitHub Actions got a zeroed archive → “Invalid tar file … found [0,0,0,0,0,0,0,0]”). Reproduction locally succeeded (healthy CDN copy), confirming it is CDN-side. Fix in `task` `install()`: the Odoo requirements pipeline is now **Python-version-guarded** — when the active venv Python is < 3.12 (the Odoo 15.0 case), `sed` rewrites `PyPDF2==1.26.0` → `PyPDF2==2.12.1` (Odoo's own pin for py≥3.12; a pure-Python wheel that keeps the legacy `PdfFile*`/`PdfReadError` API); for py≥3.12 the branch already selects 2.12.1, so no rewrite. Verified: fresh `.venv15.0` (Python 3.9) full install passes (PyPDF2 2.12.1), guard test: 3.9 → rewrite branch, 3.13 → skip branch, and `odoo.addons.base.models.ir_actions_report` imports OK. Note: project is currently checked out at `15.0.20261015` (`.env` = `15.0.20261015`); if a 15.0 image is later built, `images/odoo/Dockerfile:45` would hit the same pin and may need the identical substitution.
 
 2026-10-23 — `load-revision`, `checkout-revision` and `commit-and-push-revision` now resolve a `revisions/<name>` folder path arg (e.g. `t commit-and-push-revision revisions/15.0.20261015`) via `basename`, so the bare revision name is used for tag/commit. Committed as `ef03c9e4` after the author pushed release `15.0.20261015` (`c6276793`).
+
+2026-10-23 — **Review bug found:** deleting `tests/` directories under `addons/` breaks modules (e.g. `resource`) that import from `.tests` in their `__init__.py`. Reverted the `tests/` deletion in `images/odoo/Dockerfile`. Rebuilt image (`mintsystem/odoo:20.0.20261015`) and verified `resource` module installs cleanly. Image size increases by ~39 MB to ≈ 2.75 GB uncompressed.
+
+## WIP (2026-10-23, 15.0 image boot + PDF test)
+
+- Rebuilt `mintsystem/odoo:15.0.20261015` (`a0ff80691eec`, 2.28 GB) with two fixes to `images/odoo/Dockerfile`:
+  1. Added `gettext-base` to the runtime apt list — the entrypoint's `template-odoo-rc` calls `envsubst` (missing => `envsubst: command not found` at boot). Note: the **20.0 image also lacks `envsubst`**; needs the same fix + rebuild.
+  2. Refined the tests cleanup to **only prune `addons/` tests** — the previous blanket `find -name tests` also deleted the core `/opt/odoo/odoo/tests` package, which `odoo.service.server` imports unconditionally (`ModuleNotFoundError: No module named 'odoo.tests'`). Also broadened build/egg-info removal to `find -prune` (avoids `find` recursing into deleted dirs).
+  - Note: earlier 20.0 image had already reverted `tests/` deletion entirely (see worklog above); 15.0 now keeps core `odoo/tests` but still strips `addons/*/tests` (31 MB saved).
+- **Odoo 15.0 boots cleanly in the container** (`docker ps` healthy, HTTP :8069 `/web/health` = 200, 16 modules loaded from `base/web/auth_totp` + addons path assembled).
+- **PDF test in progress:** created `/tmp/render_pdf.py` (copied into container) that builds a one-off `ir.actions.report` + `ir.ui.view` (QWeb PDF, `<main>` block, `key` = `base.report_odoo_build_pdf_test`) and renders it via `report._render_qweb_pdf(partner.ids)`. Current state: report/template created and partner created; rendering was running and got interrupted — **needs a re-run** (`docker cp /tmp/render_pdf.py odoo:/tmp/ && docker exec -w /opt/odoo odoo sh -lc '/opt/odoo/venv/bin/python /opt/odoo/venv/bin/odoo shell -d 15.0 --no-http < /tmp/render_pdf.py'`). DB already has the partner + report records from prior runs.
+- **CI failure investigated (Mint-System/Odoo-Build#build-images run 39935574692, tag 15.0.20261015):** `download-git-folder odoo` got a **313-byte non-gzip** response from `https://github.com/odoo/odoo/archive/<sha>.tar.gz`. The ref (`3a28e5b0adbb…`) is valid and downloads 140 MB fine locally — so this is GitHub **archive-download rate-limiting / security page on shared Actions runner IPs** (well-known flaky behavior), not a bad ref or code bug. Disk state: `tmp/build-odoo-15-fix2.log` (latest build), `tmp/build-odoo-15-fix.log` (earlier gettext-base-only attempt), `tmp/build-odoo.log` (20.0 build).
 
 @Clanker If author confirms results set frontmatter state to completed, otherwise to aborted. Update date, harness and model. If you have access to session info also add token count.
