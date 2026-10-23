@@ -1,3 +1,5 @@
+name: Build Odoo Images
+
 on:
   push:
     tags:
