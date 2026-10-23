@@ -75,6 +75,7 @@ help-table() {
     rows+=("checkout-latest-revision|[version]|Checkout latest revision of Odoo version.")
     rows+=("checkout-revision|[revision]|Load revision env var and checkout folders.")
     rows+=("commit-and-push-revision|[revision]|Commit changes and tag with revision.")
+
     rows+=("create-revision|<revision>|Create new Odoo revision.")
     rows+=("list-revision||List available Odoo revisions.")
     rows+=("load-latest-revision|[version]|Load the latest revision of the Odoo version.")
@@ -2970,11 +2971,11 @@ commit-and-push-revision() {
         ODOO_REVISION="$1"
     fi
 
-    echo 'Remove existing tag'
+    echo "Remove existing tag $ODOO_REVISION"
     git tag -d "$ODOO_REVISION" 2>/dev/null || true
 
-    echo "Commit with revision $ODOO_REVISION tag"
-    git commit --all --message "feat(revision): release $ODOO_REVISION"
+    echo "Commit changes for revision $ODOO_REVISION"
+    git commit --all --allow-empty --message "feat(revision): release $ODOO_REVISION"
 
     echo "Tag commit with $ODOO_REVISION"
     git tag -f "$ODOO_REVISION" -m "$ODOO_REVISION"
