@@ -1187,7 +1187,16 @@ install() {
         echo -e "\033[38;5;214mPython\033[0m: Install Odoo and dependencies."
         cd odoo
         uv pip install -e .
-        grep -v "python-ldap" requirements.txt | uv pip install -r -
+        # Odoo 15.0 runs Python 3.9, so requirements.txt selects the
+        # `python_version < '3.12'` branch which pins PyPDF2==1.26.0. That
+        # release's PyPI sdist is corrupt ("Invalid tar file" on some CDN
+        # edges); rewrite it to Odoo's own 2.12.1 pin, which keeps the legacy
+        # PdfFile API. Newer Pythons already get 2.12.1 via the >= 3.12 branch.
+        if python3 -c 'import sys; sys.exit(0 if sys.version_info < (3, 12) else 1)'; then
+            grep -v "python-ldap" requirements.txt | sed 's/PyPDF2==1\.26\.0/PyPDF2==2.12.1/' | uv pip install -r -
+        else
+            grep -v "python-ldap" requirements.txt | uv pip install -r -
+        fi
         cd ..
     fi
 
