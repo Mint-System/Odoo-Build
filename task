@@ -2974,8 +2974,11 @@ commit-and-push-revision() {
     echo "Remove existing tag $ODOO_REVISION"
     git tag -d "$ODOO_REVISION" 2>/dev/null || true
 
-    echo "Commit changes for revision $ODOO_REVISION"
-    git commit --all --allow-empty --message "feat(revision): release $ODOO_REVISION"
+    # Only commit if there are tracked changes
+    if ! git diff --quiet HEAD || ! git diff --cached --quiet; then
+        echo "Commit changes for revision $ODOO_REVISION"
+        git commit --all --message "feat(revision): release $ODOO_REVISION"
+    fi
 
     echo "Tag commit with $ODOO_REVISION"
     git tag -f "$ODOO_REVISION" -m "$ODOO_REVISION"
