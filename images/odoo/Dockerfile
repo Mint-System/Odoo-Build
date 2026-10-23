@@ -47,16 +47,12 @@ RUN uv pip install --no-cache-dir /opt/odoo -r /opt/odoo/requirements.txt
 # Clean up unnecessary files to reduce image size
 # - build/ + egg-info: leftovers of the wheel build
 # - .pot/.md/.rst: not needed at runtime
-# - tests/: unit test code, not needed at runtime
 # - site-packages/{odoo,addons}: duplicate of /opt/odoo, shadowed by PYTHONPATH
 # - venv permissions: applied here so the final stage does not copy up the venv
 RUN set -eux; \
     rm -rf /opt/odoo/build /opt/odoo/odoo.egg-info; \
     find /opt/odoo -type d \( -name build -o -name egg-info \) -prune -exec rm -rf {} +; \
     find /opt/odoo -type f \( -name "*.pot" -o -name "*.md" -o -name "*.rst" \) -delete; \
-    # Only prune tests inside addons/ - the core odoo/tests package is imported
-    # by odoo.service.server at startup (from ..tests import loader, runner)
-    find /opt/odoo/addons -type d -name tests -prune -exec rm -rf {} +; \
     site_packages="$(/opt/odoo/venv/bin/python -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')"; \
     rm -rf "$site_packages/odoo" "$site_packages/addons"; \
     chgrp -R 0 /opt/odoo/venv; \
