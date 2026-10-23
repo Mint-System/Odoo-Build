@@ -83,6 +83,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         ca-certificates \
         curl \
+        gettext-base \
         fonts-noto-cjk \
         git \
         openssh-client \
