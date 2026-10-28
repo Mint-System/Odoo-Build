@@ -216,6 +216,8 @@ When developing Odoom modules refer to the [Odoo Coding Guidelines](https://www.
 
 **Style baseline:** Follow PEP8 (4-space indents, grouped/ordered imports: stdlib, third-party, local).
 
+**Avoid `@api.onchange`:** Prefer `compute` fields (with `readonly=False` if the value should be editable) over `@api.onchange`. Computed fields are more robust in form views, work server-side, and are easier to test.
+
 **Odoo idioms:** Avoid creating your own generators and decorators — use only the ones the Odoo API provides — and prefer `filtered`, `mapped`, `sorted`, etc. over manual loops for readability and performance. Remember the context is a frozendict and cannot be mutated.
 
 **Documentation:** Document code with docstrings on methods and comments on tricky parts.
