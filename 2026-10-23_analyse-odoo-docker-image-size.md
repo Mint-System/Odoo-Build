@@ -1,5 +1,5 @@
 ---
-commit_ref: 5b77479ae475ed342f1962ca62809fc9204be4c7
+commit_ref: 975a924ad1b752b8f5ab2e70ceddd639f9c1a4ed
 title: "Analyse Odoo Docker image size"
 author: "Janik von Rotz <login@janikvonrotz.ch>"
 action: implement
