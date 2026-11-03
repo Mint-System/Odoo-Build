@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//field[@name='user_ids']" position="after">
+        <field name="personal_stage_type_id" domain="[('user_id','=', uid)]" readonly="0" string="Personal Stage"/>
+    </xpath>
+</data>
