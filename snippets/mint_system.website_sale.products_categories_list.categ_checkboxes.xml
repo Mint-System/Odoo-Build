@@ -1,0 +1,8 @@
+<data priority="50">
+    <xpath expr="//div[@name='wsale_products_categories_list']/ul/li[1]/a" position="replace">
+        <div class="form-check position-relative mb-0">
+            <input type="radio" class="form-check-input pe-none" tabindex="-1" id="wsale_categ_all" t-att-checked="'checked' if not category else None"/>
+            <a t-att-href="keep('/shop', category=0)" class="form-check-label stretched-link text-reset">All Products</a>
+        </div>
+    </xpath>
+</data>

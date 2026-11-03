@@ -1,0 +1,8 @@
+<data priority="50">
+    <xpath expr="//a" position="replace">
+        <div class="form-check position-relative mb-0">
+            <input type="radio" class="form-check-input pe-none" tabindex="-1" t-att-id="'wsale_categ_%s' % c.id" t-att-checked="'checked' if c.id == category.id else None"/>
+            <a t-att-href="keep('/shop/category/' + slug(c), category=0)" class="form-check-label stretched-link text-reset" t-field="c.name"/>
+        </div>
+    </xpath>
+</data>
