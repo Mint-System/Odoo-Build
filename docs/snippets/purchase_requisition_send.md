@@ -1,0 +1,21 @@
+# Purchase Requisition Send
+
+## View Purchase Requisition Form
+
+### Relocate Send Button
+
+ID: `mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button`\
+Inherit ID: `purchase_requisition_send.view_purchase_requisition_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//button[@name='action_order_send']" position="replace"/>
+    <xpath expr="//button[@name='493']" position="after">
+        <button name="action_order_send" states="draft,sent,ongoing,open" string="Send by Email" type="object" class="btn-primary"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml)\
+Source: [snippets/mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml](https://odoo.build/snippets/mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml)
+

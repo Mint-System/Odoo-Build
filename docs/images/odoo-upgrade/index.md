@@ -1,0 +1,1 @@
+../../../images/odoo-upgrade/README.md

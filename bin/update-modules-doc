@@ -21,7 +21,7 @@ def read_gitmodules(file_path):
 
 # Settings
 versions = ["13.0", "14.0", "15.0", "16.0", "17.0", "18.0", "19.0"]
-output_file = "modules.md"
+output_file = "docs/modules.md"
 
 # Define dictionary for module data
 module_info = {}

@@ -1,0 +1,20 @@
+# Project Enterprise
+
+## Project Task View Form
+
+### Attributes Planned Date
+
+ID: `mint_system.project_enterprise.project_task_view_form.attributes_planned_date`\
+Inherit ID: `project_enterprise.project_task_view_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@class='w-100'][1]]" position="attributes">
+        <attributes name="invisible">False</attributes>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.project_enterprise.project_task_view_form.attributes_planned_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project_enterprise.project_task_view_form.attributes_planned_date.xml)\
+Source: [snippets/mint_system.project_enterprise.project_task_view_form.attributes_planned_date.xml](https://odoo.build/snippets/mint_system.project_enterprise.project_task_view_form.attributes_planned_date.xml)
+

@@ -53,11 +53,6 @@ help-table() {
     rows+=("remove|[name]|Remove containers and volumes.")
     rows+=("test-image-script|<folder>|Test scripts of target Docker image folder.")
     rows+=("test-odoo-version-regex||Test the Odoo module version regex filter.")
-    rows+=("===VUEPRESS===| | ")
-    rows+=("build-vuepress||Create Vuepress build.")
-    rows+=("install-vuepress||Install Node build dependencies.")
-    rows+=("dev-vuepress||Start Vuepress development server.")
-    rows+=("serve-vuepress||Serve Vuepress build.")
     rows+=("===DATABASE===| | ")
     rows+=("clear-assets|[db]|Clear all assets of Odoo database.")
     rows+=("clear-filestore|<db>|Clear local filestore folder.")
@@ -175,6 +170,12 @@ help-table() {
     rows+=("record-with-memray|<name>|Record application memory usage with memray.")
     rows+=("record-with-py-spy|<pid>|Record and create flamechart for a process.")
     rows+=("===DOC===| | ")
+    rows+=("build-zensical-docs||Build the Zensical docs site.")
+    rows+=("dev-zensical-docs||Run Zensical documentation dev server.")
+    rows+=("init-zensical-docs||Initialize Zensical documentation build deps.")
+    rows+=("link-docs-files||Link markdown files into the docs folder.")
+    rows+=("prepare-docs||Prepare docs files for the Zensical build.")
+    rows+=("serve-zensical-docs||Serve the Zensical documentation build.")
     rows+=("update-docs||Update all project docs.")
     rows+=("update-modules-doc||Update modules docs file.")
     rows+=("update-revisions-doc||Update revisions doc file.")
@@ -522,14 +523,59 @@ update-snippets-doc() {
     ./bin/update-snippets-doc
 }
 
+link-docs-files() {
+    echo 'Link markdown files into docs folder.'
+    create-symlink ../README.md docs/index.md
+
+    create-symlink ../../images/README.md docs/images/index.md
+
+    local file image
+    for file in images/*/README.md; do
+        image=$(basename "$(dirname "$file")")
+        create-symlink "../../../$file" "docs/images/$image/index.md"
+    done
+
+    echo 'Link changelog files into docs folder.'
+    for file in images/*/CHANGELOG.md; do
+        image=$(basename "$(dirname "$file")")
+        create-symlink "../../../$file" "docs/images/$image/changelog.md"
+    done
+
+    if [[ ! -f docs/Development.md ]]; then
+        echo 'Create development doc placeholder.'
+        printf '# Development\n\nSee the [README](../README.md) for details.\n' > docs/Development.md
+    fi
+
+    if [[ ! -f docs/modules.md ]]; then
+        echo 'Create modules doc placeholder.'
+        printf '# Modules\n\nThis page shows all the modules managed with Odoo Build grouped by organization and repository.\n\nRun `./task update-modules-doc` to generate the module list.\n' > docs/modules.md
+    fi
+
+    echo 'Copy Zensical assets.'
+    ensure-directory docs/assets
+    cp images/icon.png images/icon.svg docs/assets/
+    ensure-directory docs/stylesheets
+    cp images/style.css docs/stylesheets/style.css
+    ensure-directory docs/javascripts
+    cp images/extra.js docs/javascripts/extra.js
+}
+
+prepare-docs() {
+    echo 'Prepare docs folder.'
+    ensure-directory docs
+    update-revisions-doc
+    update-snippets-doc
+    link-docs-files
+}
+
 update-revisions-doc() {
 
     echo 'Update revisions doc file.'
 
-    rm -f "revisions.md"
+    rm -f "docs/revisions.md"
     echo -e "# Odoo Revisions \n\
 A Odoo revision is a snapshot of git references of the Odoo source and modules at a specific date.\n\
-For each major release there are multiple revisions.\n" > "revisions.md"
+For each major release there are multiple revisions.\n" > "docs/revisions.md"
 
     declare -A revisions
     local path_url="https://github.com/${USER_ORG}/Odoo-Build/tree/main"
@@ -550,7 +596,7 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     done
 
     for revision in $(echo "${!revisions[@]}" | tr ' ' '\n' | sort -rV); do
-        echo -e "${revisions[$revision]}\n" >> "revisions.md"
+        echo -e "${revisions[$revision]}\n" >> "docs/revisions.md"
     done
 }
 
@@ -3090,49 +3136,6 @@ import-website-data() {
     local exit_code=$?
     echo -e "---\n"
     echo -e "Exit code: $exit_code\n"
-}
-
-# Vuepress commands
-
-install-vuepress() {
-    pnpm install
-}
-
-dev-vuepress() {
-    open-url http://localhost:8080
-    pnpm run dev
-}
-
-build-vuepress() {
-    pnpm run build
-
-    echo "Create vuepress snippets folders."
-    mkdir -p .vuepress/dist/snippets
-
-    echo "Copy snippet files to snippets folder."
-    cp snippets/*.xml .vuepress/dist/snippets
-}
-
-serve-vuepress() {
-    cd .vuepress/dist
-    open-url http://localhost:3000
-    pnpx serve
-}
-
-run-vuepress-container() {
-    container_name="odoo-build"
-    image_tag="mintsystem/taskfile.build:latest"
-
-    docker pull "$image_tag"
-    docker rm -f "$container_name"
-
-    echo "Open http://localhost:8888"
-    docker run -p 8888:80 -d \
-        --name "$container_name" \
-        -e GIT_URL="https://github.com/Mint-System/Odoo-Build" \
-        -e TASK_COMMANDS="install-vuepress,build-vuepress" \
-        -e CADDY_ROOT=".vuepress/dist" \
-        "$image_tag"
 }
 
 # Activate the Odoo virtual environment so that commands calling a python

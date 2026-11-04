@@ -4,6 +4,7 @@ __pycache__
 *.pyc
 .venv*
 node_modules
+site
 .vercel
 .temp
 .cache

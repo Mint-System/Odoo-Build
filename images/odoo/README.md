@@ -8,7 +8,7 @@ A better Odoo image.
 This container image is an improvement of the official Odoo image:
 
 - 📦 Package management is handled with [uv](https://docs.astral.sh/uv/).
-- 🔄 The Odoo source is based on a specific [revision](https://odoo.build/revisions.html).
+- 🔄 The Odoo source is based on a specific [revision](https://odoo.build/revisions/).
 - 💎 The image build process ensures reproducibility.
 - ⚙️ Configuration of `odoo.conf` is done through environment variables.
 - 🌱 Addons are cloned from git repositories.
@@ -25,7 +25,7 @@ This container image is an improvement of the official Odoo image:
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
 
-Changelog: <https://odoo.build/images/odoo/CHANGELOG.html>
+Changelog: <https://odoo.build/images/odoo/changelog/>
 
 ## Compose
 
@@ -310,7 +310,7 @@ There is also the option to update all modules:
 docker compose exec odoo update-modules
 ```
 
-The `update-modules` command uses[click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update all Odoo modules. On the first run each installed module is updated and a checksum is computed and stored in the database. On subsequent executions the update is only performed for modules with a different checksum.
+The `update-modules` command uses [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update all Odoo modules. On the first run each installed module is updated and a checksum is computed and stored in the database. On subsequent executions the update is only performed for modules with a different checksum.
 
 ### Use manifestoo
 
@@ -572,7 +572,7 @@ Make sure to set `WORKERS` to `1` or more, otherwise the real-time connection of
 
 ## Develop
 
-See [Odoo Build > Build and publish container image](https://odoo.build/#build-and-publish-container-image) for details.
+See [Odoo Build > Development > Build and publish container image](https://odoo.build/Development/#build-and-publish-container-image) for details.
 
 ### Internal paths
 

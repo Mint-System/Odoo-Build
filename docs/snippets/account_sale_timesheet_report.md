@@ -1,0 +1,335 @@
+# Account Sale Timesheet Report
+
+## Report Invoice Document
+
+### Add Linebreak
+
+ID: `mint_system.account_sale_timesheet_report.report_invoice_document.add_linebreak`\
+Inherit ID: `account_sale_timesheet_report.report_invoice_document`
+
+```xml
+<data priority="50">
+    <xpath expr="//h3[1]" position="before">
+        <p style="page-break-before:always;">&#xA0;</p>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_linebreak.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_linebreak.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_linebreak.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_linebreak.xml)
+
+### Add Pagebreak
+
+ID: `mint_system.account_sale_timesheet_report.report_invoice_document.add_pagebreak`\
+Inherit ID: `account_sale_timesheet_report.report_invoice_document`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@id='qrcode']" position="after">
+        <t t-if="print_with_timesheets">
+            <p style="page-break-before:always;"/>
+        </t>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml)
+
+## Report Invoice With Timesheets
+
+### Print With Payments
+
+ID: `mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments`\
+Inherit ID: `account_sale_timesheet_report.report_invoice_with_timesheets`
+
+```xml
+<data priority="50">
+    <xpath expr="/t[1]/t[1]/t[1]/t[1]" position="after">
+        <t t-set="print_with_payments" t-value="True"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml)
+
+## Report Sale
+
+### Set Page Font Size
+
+ID: `mint_system.account_sale_timesheet_report.report_sale.set_page_font_size`\
+Inherit ID: `account_sale_timesheet_report.report_sale`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            body {
+                font-size: 0.9rem;
+            }
+        </style>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.report_sale.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.report_sale.set_page_font_size.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.report_sale.set_page_font_size.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.report_sale.set_page_font_size.xml)
+
+### Set Title Font Size
+
+ID: `mint_system.account_sale_timesheet_report.report_sale.set_title_font_size`\
+Inherit ID: `account_sale_timesheet_report.report_sale`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            h2 {
+                font-size: 1.5rem;
+            }
+        </style>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.report_sale.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.report_sale.set_title_font_size.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.report_sale.set_title_font_size.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.report_sale.set_title_font_size.xml)
+
+## Timesheet Report
+
+### Add Title Space
+
+ID: `mint_system.account_sale_timesheet_report.timesheet_report.add_title_space`\
+Inherit ID: `account_sale_timesheet_report.timesheet_report`
+
+```xml
+<data priority="50">
+    <h2 position="attributes">
+        <attribute name="style">padding-bottom: 25px</attribute>
+    </h2>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.add_title_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_report.add_title_space.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.add_title_space.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_report.add_title_space.xml)
+
+### Set Page Font Size
+
+ID: `mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size`\
+Inherit ID: `account_sale_timesheet_report.timesheet_report`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            body {
+                font-size: 0.9rem;
+            }
+        </style>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size.xml)
+
+### Set Title Font Size
+
+ID: `mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size`\
+Inherit ID: `account_sale_timesheet_report.timesheet_report`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            h2 {
+                font-size: 1.5rem;
+            }
+        </style>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size.xml)
+
+## Timesheet Table
+
+### Add Start And End Hour
+
+ID: `mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour`\
+Inherit ID: `account_sale_timesheet_report.timesheet_table`
+
+```xml
+<data priority="50">
+    <xpath expr="//th[@id='date']" position="replace">
+        <th id="date" class="align-middle">
+            <span>Datum und Uhrzeit</span>
+        </th>
+    </xpath>
+    <xpath expr="//td[@id='line_date']" position="replace">
+        <td id="line_date">
+            <span t-field="line.date"/>
+            <br/>
+            <span t-field="line.from_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+            <span> - </span>
+            <span t-field="line.until_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+        </td>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml)
+
+### Format Table Border
+
+ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_border`\
+Inherit ID: `account_sale_timesheet_report.timesheet_table`
+
+```xml
+<data priority="50">
+
+    <xpath
+        expr="//table[hasclass('table-timesheet-entries')]"
+        position="before"
+    >
+        <style>
+        /* remove all borders first */
+        .table-timesheet-entries > :not(caption) > * > * {
+            border: 0 !important;
+        }
+        .table-timesheet-entries > :not(:first-child) {
+            border-top: 0 !important;
+        }
+
+        /* 1px line between all body rows */
+        .table-timesheet-entries tbody tr > td {
+            border-top: 1px solid #dee2e6 !important;
+        }
+
+        /* 1px top border above the header */
+        .table-timesheet-entries thead tr > th {
+            border-top: 1px solid black !important;
+            color: #5c516e;
+            text-align: left;
+        }
+
+        /* tr.border-black must have black top border */
+        .table-timesheet-entries tr.border-black > th,
+        .table-timesheet-entries tr.border-black > td {
+            border-top: 1px solid #000 !important;
+        }
+
+        .table-timesheet-entries tr.border-black > th {
+          border-bottom: 1px solid #dee2e6 !important;
+        }
+
+        /* no border below last body row */
+        .table-timesheet-entries tbody tr:last-child > td {
+            border-bottom: 0 !important;
+        }
+
+        /* summary table */
+
+        .table-order-summary > :not(:first-child) {
+            border-top: 0 !important;
+        }
+
+        .table-order-summary thead tr > th {
+            border-top: 1px solid #dee2e6 !important;
+            border-bottom: 1px solid #dee2e6 !important;
+            color: #5c516e;
+        }
+
+
+        </style>
+    </xpath>
+
+    <!-- <xpath expr="//thead[1]/tr[1]" position="attributes">
+        <attribute name="class" separator=" " add="border-black" />
+    </xpath> -->
+
+    <xpath expr="//td[@id='line_sum_amount']/.." position="attributes">
+        <attribute name="class" separator=" " add="border-black" />
+    </xpath>
+
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml)
+
+### Set Table Font Size
+
+ID: `mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size`\
+Inherit ID: `account_sale_timesheet_report.timesheet_table`
+
+```xml
+<data priority="50">
+    <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
+        <style>
+            table.table-timesheet-entries {
+                font-size: 0.8rem;
+            }
+        </style>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size.xml)
+
+### Show From Until Times
+
+ID: `mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times`\
+Inherit ID: `account_sale_timesheet_report.timesheet_table`
+
+```xml
+<data priority="50">
+    <xpath expr="//th[@id='date']" position="after">
+        <th id="from_until"><span>Zeit</span></th>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times.xml)
+
+## Timesheet Table Lines
+
+### Show From Until Times
+
+ID: `mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_until_times`\
+Inherit ID: `account_sale_timesheet_report.timesheet_table_lines`
+
+```xml
+<data priority="50">
+    <xpath expr="//td[@id='line_date']" position="after">
+        <td id="line_from_until" style="white-space: nowrap;"><span t-field="line.from_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/> <span>-</span> <span t-field="line.until_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+    </td>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml)
+
+### Sort Lines By Time
+
+ID: `mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time`\
+Inherit ID: `account_sale_timesheet_report.timesheet_table_lines`
+
+```xml
+<data priority="50">
+    <xpath expr="//tr[1]" position="before">
+        <t t-set="lines" t-value="lines.sorted(lambda l: l.from_time)"/>
+        <t t-set="lines" t-value="lines.sorted(lambda l: l.date)"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml)\
+Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml)
+

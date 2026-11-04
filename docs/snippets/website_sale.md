@@ -1,0 +1,493 @@
+# Website Sale
+
+## Address
+
+### Countries Filter
+
+ID: `mint_system.website_sale.address.countries_filter`\
+Inherit ID: `website_sale.address`
+
+```xml
+<data priority="50">
+    <t t-foreach="countries" position="attributes">
+        <attribute name="t-foreach">countries.filtered(lambda c: c.code in ['CH', 'LI'])</attribute>
+    </t>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.address.countries_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.countries_filter.xml)\
+Source: [snippets/mint_system.website_sale.address.countries_filter.xml](https://odoo.build/snippets/mint_system.website_sale.address.countries_filter.xml)
+
+### Hide Shipping Use Same
+
+ID: `mint_system.website_sale.address.hide_shipping_use_same`\
+Inherit ID: `website_sale.address`
+
+```xml
+<data priority="50">
+    <xpath expr="//input[@id='shipping_use_same']/.." position="attributes">
+        <attribute name="style">display: none;</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.address.hide_shipping_use_same.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_shipping_use_same.xml)\
+Source: [snippets/mint_system.website_sale.address.hide_shipping_use_same.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_shipping_use_same.xml)
+
+### Hide State
+
+ID: `mint_system.website_sale.address.hide_state`\
+Inherit ID: `website_sale.address`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@id='div_state']" position="replace">    
+    </xpath>    
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.address.hide_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_state.xml)\
+Source: [snippets/mint_system.website_sale.address.hide_state.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_state.xml)
+
+### Hide Street
+
+ID: `mint_system.website_sale.address.hide_street`\
+Inherit ID: `website_sale.address`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@id='div_street2']" position="replace">    
+    </xpath>    
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.address.hide_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_street.xml)\
+Source: [snippets/mint_system.website_sale.address.hide_street.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_street.xml)
+
+### Overwrite Required
+
+ID: `mint_system.website_sale.address.overwrite_required`\
+Inherit ID: `website_sale.address`
+
+```xml
+<data priority="50">
+    <xpath expr="//input[@name='field_required']" position="replace">
+        <input type="hidden" name="field_required" t-att-value="'name,email'"/>
+    </xpath>
+    <xpath expr="//label[@for='city']" position="attributes">
+        <attribute name="class">font-weight-normal</attribute>
+    </xpath>
+    <xpath expr="//label[@for='zip']" position="attributes">
+        <attribute name="class">font-weight-normal</attribute>
+    </xpath>
+    <xpath expr="//label[@for='country_id']" position="attributes">
+        <attribute name="class">font-weight-normal</attribute>
+    </xpath>
+    <xpath expr="//label[@for='phone']" position="attributes">
+        <attribute name="class">font-weight-normal</attribute>
+    </xpath>
+    <xpath expr="//label[@for='street']" position="attributes">
+        <attribute name="class">font-weight-normal</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.address.overwrite_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.overwrite_required.xml)\
+Source: [snippets/mint_system.website_sale.address.overwrite_required.xml](https://odoo.build/snippets/mint_system.website_sale.address.overwrite_required.xml)
+
+### Show Firstname Lastname
+
+ID: `mint_system.website_sale.address.show_firstname_lastname`\
+Inherit ID: `website_sale.address`
+
+```xml
+<data priority="50">
+    <xpath expr="//input[@name='name']/.." position="after">
+        <div t-attf-class="mb-3 #{error.get('firstname') and 'o_has_error' or ''} col-lg-12 div_firstname">
+            <label class="col-form-label" for="firstname">Firstname</label>
+            <input type="text" name="firstname" t-attf-class="form-control #{error.get('firstname') and 'is-invalid' or ''}" t-att-value="'firstname' in checkout and checkout['firstname']"/>
+        </div>
+        <div t-attf-class="mb-3 #{error.get('lastname') and 'o_has_error' or ''} col-lg-12 div_lastname">
+            <label class="col-form-label" for="lastname">Lastname</label>
+            <input type="text" name="lastname" t-attf-class="form-control #{error.get('lastname') and 'is-invalid' or ''}" t-att-value="'lastname' in checkout and checkout['lastname']"/>
+        </div>
+    </xpath>
+    <xpath expr="//input[@name='name']/.." position="attributes">
+        <attribute name="style">display: none</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.address.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.show_firstname_lastname.xml)\
+Source: [snippets/mint_system.website_sale.address.show_firstname_lastname.xml](https://odoo.build/snippets/mint_system.website_sale.address.show_firstname_lastname.xml)
+
+## Address List
+
+### No Edit For Business
+
+ID: `mint_system.website_sale.address_list.no_edit_for_business`\
+Inherit ID: `website_sale.address_list`
+
+```xml
+<data priority="50">
+    <xpath expr="//t[@t-set='can_be_edited']" position="replace">
+        <t t-set="can_be_edited" t-value="contact._can_be_edited_by_current_customer(order_sudo=order) and contact.type != 'invoice'"/>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.website_sale.address_list.no_edit_for_business.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address_list.no_edit_for_business.xml)\
+Source: [snippets/mint_system.website_sale.address_list.no_edit_for_business.xml](https://odoo.build/snippets/mint_system.website_sale.address_list.no_edit_for_business.xml)
+
+## Billing Address List
+
+### Hide New Address Link
+
+ID: `mint_system.website_sale.billing_address_list.hide_new_address_link`\
+Inherit ID: `website_sale.billing_address_list`
+
+```xml
+<data priority="50">
+    <xpath expr="//a[@role='button']" position="replace" />
+</data>
+```
+Edit: [snippets/mint_system.website_sale.billing_address_list.hide_new_address_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.billing_address_list.hide_new_address_link.xml)\
+Source: [snippets/mint_system.website_sale.billing_address_list.hide_new_address_link.xml](https://odoo.build/snippets/mint_system.website_sale.billing_address_list.hide_new_address_link.xml)
+
+### Hide Use Delivery As Billing
+
+ID: `mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing`\
+Inherit ID: `website_sale.billing_address_list`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@t-if='has_delivery']" position="attributes">
+        <attribute name="class">d-none</attribute>
+        <!--<attribute name="t-if">use_delivery_as_billing and has_delivery</attribute>-->
+    </xpath>
+    
+    <div id="billing_address_list" position="before">
+        <style t-if="use_delivery_as_billing and has_delivery">
+            #billing_address_list {
+                display: none;
+            }
+        </style>
+    </div>
+</data>
+```
+Edit: [snippets/mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing.xml)\
+Source: [snippets/mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing.xml](https://odoo.build/snippets/mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing.xml)
+
+## Cart
+
+### Cart Cleared Alert
+
+ID: `mint_system.website_sale.cart.cart_cleared_alert`\
+Inherit ID: `website_sale.cart`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[hasclass('col')]" position="before">
+        <t t-if="request.session.pop('cart_cleared_notice', False)">
+            <div class="alert alert-info alert-dismissible fade show  mt-3" role="alert">
+                Ihr Warenkorb wurde geleert, weil die Preisliste geändert wurde.<br/>
+                Bitte legen Sie das gewünschte Patent erneut in den Warenkorb.
+            </div>
+        </t>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.website_sale.cart.cart_cleared_alert.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.cart.cart_cleared_alert.xml)\
+Source: [snippets/mint_system.website_sale.cart.cart_cleared_alert.xml](https://odoo.build/snippets/mint_system.website_sale.cart.cart_cleared_alert.xml)
+
+## Categorie Link
+
+### Categ Checkboxes
+
+ID: `mint_system.website_sale.categorie_link.categ_checkboxes`\
+Inherit ID: `website_sale.categorie_link`
+
+```xml
+<data priority="50">
+    <xpath expr="//a" position="replace">
+        <div class="form-check position-relative mb-0">
+            <input type="radio" class="form-check-input pe-none" tabindex="-1" t-att-id="'wsale_categ_%s' % c.id" t-att-checked="'checked' if c.id == category.id else None"/>
+            <a t-att-href="keep('/shop/category/' + slug(c), category=0)" class="form-check-label stretched-link text-reset" t-field="c.name"/>
+        </div>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.website_sale.categorie_link.categ_checkboxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.categorie_link.categ_checkboxes.xml)\
+Source: [snippets/mint_system.website_sale.categorie_link.categ_checkboxes.xml](https://odoo.build/snippets/mint_system.website_sale.categorie_link.categ_checkboxes.xml)
+
+## Checkout
+
+### Hide Billing Address
+
+ID: `mint_system.website_sale.checkout.hide_billing_address`\
+Inherit ID: `website_sale.checkout`
+
+```xml
+<data priority="50">
+    <xpath expr="//t[@t-call='website_sale.billing_address_list']" position="replace">
+        <div style="display:none !important;">
+            <t t-call="website_sale.billing_address_list">
+                <t t-set="addresses" t-value="billing_addresses"/>
+            </t>
+        </div>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.website_sale.checkout.hide_billing_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.checkout.hide_billing_address.xml)\
+Source: [snippets/mint_system.website_sale.checkout.hide_billing_address.xml](https://odoo.build/snippets/mint_system.website_sale.checkout.hide_billing_address.xml)
+
+## Confirmation
+
+### Show Shipping Name
+
+ID: `mint_system.website_sale.confirmation.show_shipping_name`\
+Inherit ID: `website_sale.confirmation`
+
+```xml
+<data priority="50">
+    <span t-esc="order.partner_invoice_id" position="before"><span t-esc="order.partner_invoice_id.name" class="address-inline"/>,
+  </span>
+    <span t-esc="order.partner_shipping_id" position="before"><span t-esc="order.partner_shipping_id.name" class="address-inline"/>,
+  </span>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.confirmation.show_shipping_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.confirmation.show_shipping_name.xml)\
+Source: [snippets/mint_system.website_sale.confirmation.show_shipping_name.xml](https://odoo.build/snippets/mint_system.website_sale.confirmation.show_shipping_name.xml)
+
+## Header Cart Link
+
+### Hide Cart
+
+ID: `mint_system.website_sale.header_cart_link.hide_cart`\
+Inherit ID: `website_sale.header_cart_link`
+
+```xml
+<data priority="50">
+    <xpath expr="//t[@t-attf='o_wsale_my_cart']" position="attributes">
+        <attribute name="t-if">request.session.uid</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.header_cart_link.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.header_cart_link.hide_cart.xml)\
+Source: [snippets/mint_system.website_sale.header_cart_link.hide_cart.xml](https://odoo.build/snippets/mint_system.website_sale.header_cart_link.hide_cart.xml)
+
+## Payment
+
+### Hide Address
+
+ID: `mint_system.website_sale.payment.hide_address`\
+Inherit ID: `website_sale.payment`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@id='address_on_payment']" position="replace"/>
+</data>
+```
+Edit: [snippets/mint_system.website_sale.payment.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.payment.hide_address.xml)\
+Source: [snippets/mint_system.website_sale.payment.hide_address.xml](https://odoo.build/snippets/mint_system.website_sale.payment.hide_address.xml)
+
+## Payment Confirmation Status
+
+### Remove Communication
+
+ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`\
+Inherit ID: `website_sale.payment_confirmation_status`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@t-if='order.reference']" position="replace"/>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml)\
+Source: [snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml](https://odoo.build/snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml)
+
+## Pricelist List
+
+### Group Admin Only
+
+ID: `mint_system.website_sale.pricelist_list.group_admin_only`\
+Inherit ID: `website_sale.pricelist_list`
+
+```xml
+<data priority="50">
+    <t t-set="pricelist" position="before">
+        <t t-set="hasPricelistDropdown" t-value="hasPricelistDropdown and env.user.has_group('sales_team.group_sale_manager')"/>
+    </t>    
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml)\
+Source: [snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml](https://odoo.build/snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml)
+
+## Product
+
+### Hide Cart
+
+ID: `mint_system.website_sale.product.hide_cart`\
+Inherit ID: `website_sale.product`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@id='add_to_cart_wrap']" position="attributes">
+        <attribute name="t-if">request.session.uid</attribute>
+    </xpath>
+    <xpath expr="//div[@id='add_to_cart_wrap']" position="before">
+        <style t-if="not request.session.uid">
+        .css_quantity{display: none !important;}
+    </style>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.product.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.hide_cart.xml)\
+Source: [snippets/mint_system.website_sale.product.hide_cart.xml](https://odoo.build/snippets/mint_system.website_sale.product.hide_cart.xml)
+
+### Hide Price
+
+ID: `mint_system.website_sale.product.hide_price`\
+Inherit ID: `website_sale.product`
+
+```xml
+<data priority="50">
+    <xpath expr="//t[@t-call='website_sale.product_price']" position="attributes">
+        <attribute name="t-if">request.session.uid</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.product.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.hide_price.xml)\
+Source: [snippets/mint_system.website_sale.product.hide_price.xml](https://odoo.build/snippets/mint_system.website_sale.product.hide_price.xml)
+
+### Show Default Code
+
+ID: `mint_system.website_sale.product.show_default_code`\
+Inherit ID: `website_sale.product`
+
+```xml
+<data priority="50">
+    <p t-field="product.description_sale" position="after">
+        <p t-if="product_variant.default_code">
+            <strong>Artikelnummer:</strong>
+            <span t-field="product_variant.default_code"/>
+        </p>
+    </p>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.product.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.show_default_code.xml)\
+Source: [snippets/mint_system.website_sale.product.show_default_code.xml](https://odoo.build/snippets/mint_system.website_sale.product.show_default_code.xml)
+
+### Show Product Dimension
+
+ID: `mint_system.website_sale.product.show_product_dimension`\
+Inherit ID: `website_sale.product`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@id='product_details']" position="inside">
+        <div t-if="product_variant.material_ids" name="material_ids"><strong>Dimensions</strong>: <br/><ul class="un-styled"><t t-foreach="product_variant.dimension_ids" t-as="dimension"><li><span t-field="dimension.name"/><t t-if="dimension.value"><span t-field="dimension.value"/></t></li></t></ul></div>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.product.show_product_dimension.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.show_product_dimension.xml)\
+Source: [snippets/mint_system.website_sale.product.show_product_dimension.xml](https://odoo.build/snippets/mint_system.website_sale.product.show_product_dimension.xml)
+
+### Show Product Material
+
+ID: `mint_system.website_sale.product.show_product_material`\
+Inherit ID: `website_sale.product`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@id='product_details']" position="inside">
+        <div t-if="product_variant.material_ids" name="material_ids"><strong>Materials</strong>: <br/><ul class="un-styled"><t t-foreach="product_variant.material_ids" t-as="material"><li><span t-field="material.name"/><t t-if="material.percent"><span t-field="material.percent"/></t></li></t></ul></div>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.show_product_material.xml)\
+Source: [snippets/mint_system.website_sale.product.show_product_material.xml](https://odoo.build/snippets/mint_system.website_sale.product.show_product_material.xml)
+
+## Products Categories
+
+### Bigger Categories Button
+
+ID: `mint_system.website_sale.products_categories.bigger_categories_button`\
+Inherit ID: `website_sale.products_categories`
+
+```xml
+<!-- Add class to categories button -->
+<data priority="50">
+    <xpath expr="//button" position="replace">
+        <button type="button" class="btn btn-secondary d-lg-none mb-2" data-target="#wsale_products_categories_collapse" data-toggle="collapse">
+          Show categories
+      </button>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_categories.bigger_categories_button.xml)\
+Source: [snippets/mint_system.website_sale.products_categories.bigger_categories_button.xml](https://odoo.build/snippets/mint_system.website_sale.products_categories.bigger_categories_button.xml)
+
+## Products Categories List
+
+### Categ Checkboxes
+
+ID: `mint_system.website_sale.products_categories_list.categ_checkboxes`\
+Inherit ID: `website_sale.products_categories_list`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@name='wsale_products_categories_list']/ul/li[1]/a" position="replace">
+        <div class="form-check position-relative mb-0">
+            <input type="radio" class="form-check-input pe-none" tabindex="-1" id="wsale_categ_all" t-att-checked="'checked' if not category else None"/>
+            <a t-att-href="keep('/shop', category=0)" class="form-check-label stretched-link text-reset">All Products</a>
+        </div>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.website_sale.products_categories_list.categ_checkboxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_categories_list.categ_checkboxes.xml)\
+Source: [snippets/mint_system.website_sale.products_categories_list.categ_checkboxes.xml](https://odoo.build/snippets/mint_system.website_sale.products_categories_list.categ_checkboxes.xml)
+
+## Products Item
+
+### Hide Price
+
+ID: `mint_system.website_sale.products_item.hide_price`\
+Inherit ID: `website_sale.products_item`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[hasclass('o_wsale_product_sub')]" position="attributes">
+        <attribute name="t-if">request.session.uid</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.products_item.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_item.hide_price.xml)\
+Source: [snippets/mint_system.website_sale.products_item.hide_price.xml](https://odoo.build/snippets/mint_system.website_sale.products_item.hide_price.xml)
+
+### Prefix Price
+
+ID: `mint_system.website_sale.products_item.prefix_price`\
+Inherit ID: `website_sale.products_item`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@class='product_price'][1]/t[1]" position="before">
+        <span>From</span>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.products_item.prefix_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_item.prefix_price.xml)\
+Source: [snippets/mint_system.website_sale.products_item.prefix_price.xml](https://odoo.build/snippets/mint_system.website_sale.products_item.prefix_price.xml)
+

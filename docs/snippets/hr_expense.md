@@ -1,0 +1,101 @@
+# Hr Expense
+
+## Hr Expense View Form
+
+### Hide Payment Mode
+
+ID: `mint_system.hr_expense.hr_expense_view_form.hide_payment_mode`\
+Inherit ID: `hr_expense.hr_expense_view_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//label[@for='payment_mode']" position="attributes">
+        <attribute name="invisible">True</attribute>
+    </xpath>
+    <xpath expr="//div[@id='payment_mode']" position="attributes">
+        <attribute name="invisible">True</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_expense.hr_expense_view_form.hide_payment_mode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_expense.hr_expense_view_form.hide_payment_mode.xml)\
+Source: [snippets/mint_system.hr_expense.hr_expense_view_form.hide_payment_mode.xml](https://odoo.build/snippets/mint_system.hr_expense.hr_expense_view_form.hide_payment_mode.xml)
+
+### Set Group Tax Ids
+
+ID: `mint_system.hr_expense.hr_expense_view_form.set_group_tax_ids`\
+Inherit ID: `hr_expense.hr_expense_view_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='tax_ids']" position="attributes">
+        <attribute name="groups"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_expense.hr_expense_view_form.set_group_tax_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_expense.hr_expense_view_form.set_group_tax_ids.xml)\
+Source: [snippets/mint_system.hr_expense.hr_expense_view_form.set_group_tax_ids.xml](https://odoo.build/snippets/mint_system.hr_expense.hr_expense_view_form.set_group_tax_ids.xml)
+
+### Show Payment Mode
+
+ID: `mint_system.hr_expense.hr_expense_view_form.show_payment_mode`\
+Inherit ID: `hr_expense.hr_expense_view_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//label[@for='payment_mode']" position="attributes">
+        <attribute name="attrs">{}</attribute>
+    </xpath>
+    <xpath expr="//div[@id='payment_mode']" position="attributes">
+        <attribute name="attrs">{}</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_expense.hr_expense_view_form.show_payment_mode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_expense.hr_expense_view_form.show_payment_mode.xml)\
+Source: [snippets/mint_system.hr_expense.hr_expense_view_form.show_payment_mode.xml](https://odoo.build/snippets/mint_system.hr_expense.hr_expense_view_form.show_payment_mode.xml)
+
+### X Partner Id
+
+ID: `mint_system.hr_expense.hr_expense_view_form.x_partner_id`\
+Inherit ID: `hr_expense.hr_expense_view_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='sale_order_id']" position="before">
+        <field name="x_partner_id" attrs="{'invisible': [('can_be_reinvoiced', '=', False)], 'readonly': [('sheet_is_editable', '=', False)]}" options="{'no_open': True, 'no_create': True, 'no_edit': True}" domain="[('is_company', '=', True)]"/>
+    </xpath>
+    <xpath expr="//field[@name='sale_order_id']" position="attributes">
+        <attribute name="domain">[('partner_id', '=', x_partner_id)]</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_expense.hr_expense_view_form.x_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_expense.hr_expense_view_form.x_partner_id.xml)\
+Source: [snippets/mint_system.hr_expense.hr_expense_view_form.x_partner_id.xml](https://odoo.build/snippets/mint_system.hr_expense.hr_expense_view_form.x_partner_id.xml)
+
+## Report Expense Sheet
+
+### Table Align Top
+
+ID: `mint_system.hr_expense.report_expense_sheet.table_align_top`\
+Inherit ID: `hr_expense.report_expense_sheet`
+
+```xml
+<data priority="50">
+    <xpath expr="//table[hasclass('o_table')]" position="before">
+        <style>
+            <!-- Force vertical alignment in tables to top -->
+            .o_table tbody td,
+            .o_subtable tbody td {
+            vertical-align: top !important;
+            }
+        </style>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_expense.report_expense_sheet.table_align_top.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_expense.report_expense_sheet.table_align_top.xml)\
+Source: [snippets/mint_system.hr_expense.report_expense_sheet.table_align_top.xml](https://odoo.build/snippets/mint_system.hr_expense.report_expense_sheet.table_align_top.xml)
+

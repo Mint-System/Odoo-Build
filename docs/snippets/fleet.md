@@ -1,0 +1,27 @@
+# Fleet
+
+## Fleet Vehicle View Form
+
+### Show Reservation
+
+ID: `mint_system.fleet.fleet_vehicle_view_form.show_reservation`\
+Inherit ID: `fleet.fleet_vehicle_view_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//group/group[5]" position="after">
+        <group string="Reservation">
+            <field name="reserved_ids">
+                <tree>
+                    <field name="date_from"/>
+                    <field name="date_to"/>
+                </tree>
+            </field>
+        </group>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml)\
+Source: [snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml](https://odoo.build/snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml)
+

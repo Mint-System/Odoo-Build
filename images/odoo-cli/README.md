@@ -1,4 +1,4 @@
-[Mint System Odoo CLI](https://odoo.build/images/odooo-ctl/)
+[Mint System Odoo CLI](https://odoo.build/images/odoo-cli/)
 ===
 
 [![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo-cli)](https://hub.docker.com/r/mintsystem/odoo-cli/)

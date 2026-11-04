@@ -1,0 +1,55 @@
+# Mrp Workorder
+
+## Mrp Workorder View Form Tablet
+
+### Modify Readonly
+
+ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly`\
+Inherit ID: `mrp_workorder.mrp_workorder_view_form_tablet`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='finished_lot_id']" position="attributes">
+        <attribute name="attrs">{'readonly': True}</attribute>
+    </xpath>
+    <xpath expr="//div/field[@name='lot_id']" position="attributes">
+        <attribute name="attrs">{'readonly': True,'invisible': [('component_tracking', '=', 'none')]}</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly.xml)\
+Source: [snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly.xml](https://odoo.build/snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly.xml)
+
+### Remove Button Action Continue
+
+ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue`\
+Inherit ID: `mrp_workorder.mrp_workorder_view_form_tablet`
+
+```xml
+<data priority="50">
+    <xpath expr="//button[@name='action_continue'][3]" position="replace">    
+  </xpath>
+    <xpath expr="//button[@name='action_continue'][3]" position="replace">    
+  </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue.xml)\
+Source: [snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue.xml](https://odoo.build/snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue.xml)
+
+### Remove Button Do Finish
+
+ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish`\
+Inherit ID: `mrp_workorder.mrp_workorder_view_form_tablet`
+
+```xml
+<data priority="50">
+    <xpath expr="//button[@name='do_finish']" position="replace">    
+  </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish.xml)\
+Source: [snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish.xml](https://odoo.build/snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish.xml)
+

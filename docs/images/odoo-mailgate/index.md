@@ -1,0 +1,1 @@
+../../../images/odoo-mailgate/README.md

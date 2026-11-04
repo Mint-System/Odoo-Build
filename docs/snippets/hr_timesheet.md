@@ -1,0 +1,823 @@
+# Hr Timesheet
+
+## Hr Timesheet Line Search
+
+### Filter Project Code
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_code`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_search`
+
+```xml
+<data priority="50">
+    <field name="project_id" position="replace">
+        <field name="project_id" filter_domain="['|', ('project_id', 'ilike', self), ('project_id.code', 'ilike', self)]"/>
+    </field>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_code.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_code.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_code.xml)
+
+### Filter Project Id
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_search`
+
+```xml
+<data priority="50">
+    <field name="date" position="before">
+        <field name="project_id" position="move"/>
+    </field>
+    <field name="project_id" position="replace">
+        <field name="project_id" filter_domain="['|', ('project_id', 'ilike', self), ('account_id', 'ilike', self)]"/>
+    </field>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id.xml)
+
+### Filter Validated
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_validated`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_search`
+
+```xml
+<data priority="50">
+    <filter name="non_billable" position="after">
+        <filter string="Validiert" name="validated"/>
+    </filter>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_validated.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_validated.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_validated.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_validated.xml)
+
+## Hr Timesheet Line Tree
+
+### Always Show So Line
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='so_line']" position="attributes">
+        <attribute name="optional">show</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line.xml)
+
+### Disable Editable
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//tree" position="attributes">
+        <attribute name="editable"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable.xml)
+
+### Editable Top
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//tree" position="attributes">
+        <attribute name="editable">top</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top.xml)
+
+### Filter Partner Is Company
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='partner_id']" position="attributes">
+        <attribute name="domain">[('is_company', '=', True)]</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml)
+
+### Invoice Details
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='unit_amount']" position="after">
+        <field name="timesheet_invoice_type" string="Verrechnungstyp"/>
+        <field name="timesheet_invoice_id" string="Rechnung"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)
+
+### Options Enable Open
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='task_id']" position="attributes">
+        <attribute name="options">{'no_create_edit': True}</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml)
+
+### Project Id Domain
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.project_id_domain`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='project_id']" position="attributes">
+        <attribute name="domain">[('allow_timesheets', '=', True), ('partner_id', '=', partner_id)]</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.project_id_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.project_id_domain.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.project_id_domain.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.project_id_domain.xml)
+
+### Show Helpdesk Ticket Id
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='task_id']" position="after">
+        <field name="helpdesk_ticket_id" optional="hide"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id.xml)
+
+### Show Partner Id
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='project_id']" position="before">
+        <field name="partner_id"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml)
+
+### So Line Domain
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='so_line']" position="attributes">
+        <attribute name="domain">[('order_id', '=', x_sale_order_id), ('is_service', '=', True), ('is_expense', '=', False)]</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml)
+
+### So Line Readonly
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_readonly`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='so_line']" position="attributes">
+        <attribute name="readonly">True</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_readonly.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_readonly.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_readonly.xml)
+
+### Task Id Required
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='task_id']" position="attributes">
+        <attribute name="required">1</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required.xml)
+
+### X Not Billable
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='task_id']" position="attributes">
+        <attribute name="domain">[
+      '&amp;',
+      '|',
+        ('x_not_billable', '=', True),
+        '&amp;',
+          ('x_not_billable', '=', False),
+          ('sale_line_id', '!=', False),
+      ('project_id', '=', project_id)
+    ]</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml)
+
+### X Parent Id Display Name
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_parent_id_display_name`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='task_id']" position="before">
+        <field name="x_parent_id_display_name" optional="hide"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_parent_id_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_parent_id_display_name.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_parent_id_display_name.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_parent_id_display_name.xml)
+
+### X Phase Id Name
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_phase_id_name`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='task_id']" position="before">
+        <field name="x_phase_id_name" optional="hide"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_phase_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_phase_id_name.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_phase_id_name.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_phase_id_name.xml)
+
+### X Sale Order Id
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='so_line']" position="after">
+        <field name="x_sale_order_id" optional="hide"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml)
+
+### X Vehicle Id
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_vehicle_id`\
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//tree/field[@name='category_id']" position="after">
+        <field name="x_vehicle_id" optional="hide"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_vehicle_id.xml)\
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_vehicle_id.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_vehicle_id.xml)
+
+## Portal My Timesheets
+
+### Show Billable
+
+ID: `mint_system.hr_timesheet.portal_my_timesheets.show_billable`\
+Inherit ID: `hr_timesheet.portal_my_timesheets`
+
+```xml
+<!-- Show billable field for timesheet entries -->
+<data priority="50">
+    <xpath expr="//thead/tr/th[4]" position="after">
+        <th>Invoice Type</th>
+    </xpath>
+    <xpath expr="//tbody/t/tr/td[3]" position="after">
+        <td>
+            <span t-field="timesheet.timesheet_invoice_type"/>
+        </td>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.portal_my_timesheets.show_billable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.portal_my_timesheets.show_billable.xml)\
+Source: [snippets/mint_system.hr_timesheet.portal_my_timesheets.show_billable.xml](https://odoo.build/snippets/mint_system.hr_timesheet.portal_my_timesheets.show_billable.xml)
+
+## Report Timesheet
+
+### Group By Invoice Type
+
+ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`\
+Inherit ID: `hr_timesheet.report_timesheet`
+
+```xml
+<data priority="50">
+
+    <xpath expr="//table/tbody/tr[1]" position="replace">
+
+        <!-- Create list of all invoice types -->
+        <t t-set="timesheet_invoice_type" t-value="[]"/>
+        <t t-foreach="docs" t-as="doc">
+            <t t-set="timesheet_invoice_type" t-value="timesheet_invoice_type+[doc.timesheet_invoice_type]"/>
+        </t>
+        <t t-set="unique_types" t-value="sorted(set(timesheet_invoice_type))"/>
+        
+        <style>
+          td#date {
+            white-space: nowrap;
+          }
+        </style>
+
+        <!-- Foreach timesheet type list entries -->
+        <t t-foreach="unique_types" t-as="type">
+            <tr>
+                <td colspan="5">
+                    <br/>
+                    <p class="lead"><span t-esc="{False: False, 'non_billable': 'Nicht abrechenbare Aufwände', 'billable_time': 'Abrechenbare Aufwände'}[type]"/>:</p>
+                </td>
+            </tr>
+            <tr t-foreach="docs" t-as="l">
+                <t t-if="type==l.timesheet_invoice_type">
+
+                    <td id="date">
+                        <span t-field="l.date"/><br/><span t-field="l.employee_id.name"/>
+                    </td>
+                    <td>
+                        <span t-field="l.name" t-options="{'widget': 'text'}"/>
+                    </td>
+                    <td t-if="show_project">
+                        <span t-field="l.project_id.name"/>
+                    </td>
+                    <td t-if="show_task">
+                        <t t-if="l.task_id">
+                            <span t-field="l.task_id.name"/>
+                        </t>
+                    </td>
+                    <td class="text-end">
+                        <span t-field="l.unit_amount" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+                    </td>
+
+                </t>
+            </tr>
+            
+            <tr>
+              <td/>
+              <td t-if="show_project"/>
+              <td t-if="show_task"/>
+              <td class="text-end"><strong>Zwischensumme</strong></td>
+              <td class="text-end"><strong t-esc="sum(docs.filtered(lambda l: type==l.timesheet_invoice_type).mapped('unit_amount'))" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/></td>
+            </tr>
+        </t>
+    </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.hr_timesheet.report_timesheet.group_by_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.report_timesheet.group_by_invoice_type.xml)\
+Source: [snippets/mint_system.hr_timesheet.report_timesheet.group_by_invoice_type.xml](https://odoo.build/snippets/mint_system.hr_timesheet.report_timesheet.group_by_invoice_type.xml)
+
+### Group By X Timesheet Invoice Type
+
+ID: `mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type`\
+Inherit ID: `hr_timesheet.report_timesheet`
+
+```xml
+<data priority="50">
+    <xpath expr="//table/tbody/tr[1]" position="replace">
+        <!-- Get all invoice types -->
+        <t t-set="x_timesheet_invoice_type" t-value="[]"/>
+        <t t-foreach="docs" t-as="doc">
+            <t t-set="x_timesheet_invoice_type" t-value="x_timesheet_invoice_type+[doc.x_timesheet_invoice_type]"/>
+        </t>
+        <style>
+          td#date {
+            white-space: nowrap;
+          }
+        </style>
+        <!-- Foreach timesheet type list entries -->
+        <t t-foreach="set(x_timesheet_invoice_type)" t-as="type">
+            <tr>
+                <td colspan="5">
+                    <br/>
+                    <p class="lead"><span t-esc="{False: False, 'non_billable': 'Nicht abrechenbare Aufw&#xE4;nde', 'billable_time': 'Abrechenbare Aufw&#xE4;nde'}[type]"/>:</p>
+                </td>
+            </tr>
+            <tr t-foreach="docs" t-as="l">
+                <t t-if="type==l.x_timesheet_invoice_type">
+                    <td id="date">
+                        <span t-field="l.date"/>
+                        <br/>
+                        <span t-field="l.employee_id.name"/>
+                    </td>
+                    <td>
+                        <span t-field="l.name" t-options="{'widget': 'text'}"/>
+                    </td>
+                    <td t-if="show_project">
+                        <span t-field="l.project_id.name"/>
+                    </td>
+                    <td t-if="show_task">
+                        <t t-if="l.task_id">
+                            <span t-field="l.task_id.name"/>
+                        </t>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="l.unit_amount" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <td/>
+                <td t-if="show_project"/>
+                <td t-if="show_task"/>
+                <td class="text-right">
+                    <strong>Zwischensumme</strong>
+                </td>
+                <td class="text-right">
+                    <strong t-esc="sum(docs.filtered(lambda l: type==l.timesheet_invoice_type).mapped('unit_amount'))" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+                </td>
+            </tr>
+        </t>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml)\
+Source: [snippets/mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml](https://odoo.build/snippets/mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml)
+
+### User Report
+
+ID: `mint_system.hr_timesheet.report_timesheet.user_report`\
+Inherit ID: `hr_timesheet.report_timesheet`
+
+```xml
+<data priority="50">
+    <!-- New title -->
+    <xpath expr="/t/t/t/div/div[2]" position="after">
+        <t t-set="min_date" t-value="min(docs.mapped('date'))"/>
+        <t t-set="max_date" t-value="max(docs.mapped('date'))"/>
+        <t t-set="default_project" t-value="docs.filtered(lambda d: d.project_id.partner_id)[:1].project_id"/>
+        <h3>Arbeitsrapport f&#xFC;r das Projekt "<t t-esc="default_project.name"/>"</h3>
+        <p>Zeitraum: <t t-esc="min_date" t-options="{'widget': 'date'}"/> bis <t t-esc="max_date" t-options="{'widget': 'date'}"/>
+    </p>
+        <p>Kunde: <t t-esc="default_project.partner_id.name"/><br/> Erstellt von: <span t-field="user.name"/>
+    </p>
+        <br/>
+    </xpath>
+    <!-- Remove responsible -->
+    <xpath expr="//table[1]/tbody[1]/tr[1]/td[2]" position="replace"/>
+    <xpath expr="//table[1]/thead[1]/tr[1]/th[2]" position="replace"/>
+    <xpath expr="//table[1]/tbody[1]/tr[2]/td[2]" position="replace"/>
+    <xpath expr="/t[1]/t[1]/t[1]/div[1]/div[2]/div[1]" position="replace"/>
+    <!--Combine
+  Responsible and Date-->
+    <xpath expr="//table[1]/thead[1]/tr[1]/th[1]" position="replace">
+        <th>
+            <span>Datum</span>
+            <br/>
+            <span>Author</span>
+        </th>
+    </xpath>
+    <xpath expr="//table[1]/tbody[1]/tr[1]/td[1]" position="replace">
+        <td>
+            <span t-field="l.date"/>
+            <br/>
+            <span t-field="l.employee_id.name"/>
+        </td>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.report_timesheet.user_report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.report_timesheet.user_report.xml)\
+Source: [snippets/mint_system.hr_timesheet.report_timesheet.user_report.xml](https://odoo.build/snippets/mint_system.hr_timesheet.report_timesheet.user_report.xml)
+
+## Timesheet Table
+
+### Add Sale Price Unit
+
+ID: `mint_system.hr_timesheet.timesheet_table.add_sale_price_unit`\
+Inherit ID: `hr_timesheet.timesheet_table`
+
+```xml
+<data priority="50">
+
+   <xpath expr="//thead//tr/th[3]" position="replace">
+      <th class="text-start align-middle">
+         <span>Hourly Rate</span>
+      </th>
+   </xpath>
+
+   <xpath expr="//tbody//tr/td[3]" position="replace">
+      <td class="align-middle">
+         <span t-esc="line.task_id.sale_line_id.price_unit"/>
+      </td>
+   </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml)
+
+### Group By Service
+
+ID: `mint_system.hr_timesheet.timesheet_table.group_by_service`\
+Inherit ID: `hr_timesheet.timesheet_table`
+
+```xml
+<data priority="50">
+    <xpath expr="//div/div[1]" position="replace">
+        <!-- Get all invoice types -->
+        <t t-set="timesheet_task" t-value="[]"/>
+        <t t-foreach="lines" t-as="line">
+            <t t-set="timesheet_task" t-value="timesheet_task+[line.task_id.sudo().sale_line_id.product_id]"/>
+        </t>
+        <style>
+            td#titleline {
+                font-weight:bold;
+                line-height:2;
+                vertical-align:baseline;
+            }
+            span#sum {
+                margin-right: 15px;
+            }
+        </style>
+
+            <div class="col-12">
+                <table class="table table-sm">
+                    <thead style="display: table-row-group">
+                        <tr>
+                            <t t-set="timesheet_record_label" t-value="False"/>
+                            <t t-if="show_task">
+                                <t t-set="timesheet_record_label">Task</t>
+                            </t>
+                            <t t-elif="show_project">
+                                <t t-set="timesheet_record_label">Project</t>
+                            </t>
+                            <th class="text-start align-middle"><span>Date</span></th>
+                            <!-- Employee removed here -->
+                            <th class="text-start align-middle" t-if="timesheet_record_label"><span t-out="timesheet_record_label"/></th>
+                            <th class="text-start align-middle"><span>Description</span></th>
+                            <th class="text-end">
+                                <span t-if="not is_uom_day">Hours</span>
+                                <span t-else="">Days</span>
+                            </th>
+                        </tr>
+                   </thead>
+                   <tbody>
+                       <!-- Foreach service product list entries -->
+                        <t t-foreach="set(timesheet_task)" t-as="task">
+                            <tr>
+                                <td t-esc="task.name" id="titleline" colspan="100" valign="bottom">No task assigned</td>
+                            </tr>
+                            <t t-set="bg_highlight" t-value="True"/>
+                            <tr t-foreach="lines" t-as="line" t-att-style="'background-color: #F1F1F1;' if bg_highlight else ''">
+                                <!-- Only show lines with the correct service product -->
+                                <t t-if="task==line.task_id.sudo().sale_line_id.product_id">
+                                <t t-set="bg_highlight" t-value="not bg_highlight"/>
+                                <td class="align-middle">
+                                   <span t-field="line.date">2021-09-01</span>
+                                </td>
+                                <!-- Employee removed here -->
+                                <t t-set="timesheet_record_info" t-value="False"/>
+                                <t t-if="show_project">
+                                    <t t-set="timesheet_record_info" t-value="line.project_id.sudo().name"/>
+                                    <t t-if="show_task and line.task_id" t-set="timesheet_record_info" t-value="line.task_id.sudo().name"/>
+                                </t>
+                                <t t-elif="show_task" t-set="timesheet_record_info" t-value="line.task_id.sudo().name"/>
+                                <td t-if="show_task or show_project" class="align-middle">
+                                    <span t-if="timesheet_record_info" t-out="timesheet_record_info">Research and Development</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span t-field="line.name" t-options="{'widget': 'text'}">Call client and discuss project</span>
+                                </td>
+                                <td class="text-end align-middle">
+                                    <span t-if="not is_uom_day" t-field="line.unit_amount" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}">2 hours</span>
+                                    <span t-else="" t-esc="line._get_timesheet_time_day()" t-options="{'widget': 'timesheet_uom'}">1 day</span>
+                                </td>
+                                </t>
+                            </tr>
+                            <tr>
+                                <td class="text-end" colspan="100">
+                                    <strong t-if="not is_uom_day">
+                                        <span id="sum">Total (Hours)</span>
+                                        <t t-esc="sum(lines.filtered(lambda line: task == line.task_id.sudo().sale_line_id.product_id).mapped('unit_amount'))" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}">2 hours</t>
+                                    </strong>
+                                    <strong t-else="">
+                                        <span id="sum">Total (Days)</span>
+                                        <t t-esc="lines._convert_hours_to_days(sum(lines.filtered(lambda line: task == line.task_id.sudo().sale_line_id.product_id).mapped('unit_amount')))" t-options="{'widget': 'timesheet_uom'}">1 day</t>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+            <br/>
+
+
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_table.group_by_service.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_table.group_by_service.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_table.group_by_service.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_table.group_by_service.xml)
+
+### Hide Employee
+
+ID: `mint_system.hr_timesheet.timesheet_table.hide_employee`\
+Inherit ID: `hr_timesheet.timesheet_table`
+
+```xml
+<data priority="50">
+
+   <xpath expr="//thead//tr/th[2]" position="replace" />
+
+
+   <xpath expr="//tbody//tr/td[2]" position="replace" />
+
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_table.hide_employee.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_table.hide_employee.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_table.hide_employee.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_table.hide_employee.xml)
+
+### Style Lapp
+
+ID: `mint_system.hr_timesheet.timesheet_table.style_lapp`\
+Inherit ID: `hr_timesheet.timesheet_table`
+
+```xml
+<data priority="60">
+
+    <xpath expr="//div[1]" position="before">
+        <style> 
+            h2 {
+                
+                font-size: 16px;
+            }            
+            table {
+                
+                font-size: 12px;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_table.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_table.style_lapp.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_table.style_lapp.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_table.style_lapp.xml)
+
+## Timesheet View Tree User
+
+### Editable Top
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.editable_top`\
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
+```xml
+<data priority="50">
+    <tree position="attributes">
+        <attribute name="editable">top</attribute>
+    </tree>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.editable_top.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.editable_top.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.editable_top.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.editable_top.xml)
+
+### Show Billable Type
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`\
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='unit_amount']" position="after">
+        <field name="timesheet_invoice_type" string="Verrechnungstyp"/>
+        <field name="timesheet_invoice_id" string="Rechnung"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
+
+### Show Helpdesk Ticket
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket`\
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='task_id']" position="after">
+        <field name="helpdesk_ticket_id" optional="show"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket.xml)
+
+### Show Product Uom Id
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id`\
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='unit_amount']" position="after">
+        <field name="product_uom_category_id" invisible="1"/>
+        <field name="product_uom_id" optional="show"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml)
+
+### X Phase Id Name
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_name`\
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
+```xml
+<data priority="50">
+     <xpath expr="//field[@name='task_id']" position="after">
+        <field name="x_phase_id_name" optional="show"/>       
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_name.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_name.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_name.xml)
+
+### X Timesheet Invoice Type
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type`\
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='timesheet_invoice_type']" position="replace">
+        <field name="x_timesheet_invoice_type"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml)
+
