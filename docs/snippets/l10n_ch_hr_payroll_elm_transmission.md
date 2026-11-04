@@ -4,7 +4,8 @@
 
 ### Always Show Hourly Settings
 
-ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.hr_contract_view_form.always_show_hourly_settings`\
+ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.hr_contract_view_form.always_show_hourly_settings`
+
 Inherit ID: `l10n_ch_hr_payroll_elm_transmission.hr_contract_view_form`
 
 ```xml
@@ -26,14 +27,14 @@ Inherit ID: `l10n_ch_hr_payroll_elm_transmission.hr_contract_view_form`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.hr_contract_view_form.always_show_hourly_settings.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.hr_contract_view_form.always_show_hourly_settings.xml)\
-Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.hr_contract_view_form.always_show_hourly_settings.xml](https://odoo.build/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.hr_contract_view_form.always_show_hourly_settings.xml)
+Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.hr_contract_view_form.always_show_hourly_settings.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.hr_contract_view_form.always_show_hourly_settings.xml)
 
 ## L10n Ch Elm Report Payslip
 
 ### Activity One Digit
 
-ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit`\
+ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit`
+
 Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
 
 ```xml
@@ -43,12 +44,12 @@ Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit.xml)\
-Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit.xml](https://odoo.build/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit.xml)
+Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.activity_one_digit.xml)
 
 ### Add Title Page With Address
 
-ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address`\
+ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address`
+
 Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
 
 ```xml
@@ -73,12 +74,12 @@ Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address.xml)\
-Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address.xml](https://odoo.build/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address.xml)
+Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.add_title_page_with_address.xml)
 
 ### Address To Envelope Position
 
-ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.address_to_envelope_position`\
+ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.address_to_envelope_position`
+
 Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
 
 ```xml
@@ -115,12 +116,12 @@ Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.address_to_envelope_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.address_to_envelope_position.xml)\
-Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.address_to_envelope_position.xml](https://odoo.build/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.address_to_envelope_position.xml)
+Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.address_to_envelope_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.address_to_envelope_position.xml)
 
 ### Removed Border
 
-ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.removed_border`\
+ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.removed_border`
+
 Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
 
 ```xml
@@ -131,12 +132,12 @@ Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
 </data>
 
 ```
-Edit: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.removed_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.removed_border.xml)\
-Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.removed_border.xml](https://odoo.build/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.removed_border.xml)
+Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.removed_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.removed_border.xml)
 
 ### Smaller Header
 
-ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.smaller_header`\
+ID: `mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.smaller_header`
+
 Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
 
 ```xml
@@ -147,6 +148,5 @@ Inherit ID: `l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip`
 </data>
 
 ```
-Edit: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.smaller_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.smaller_header.xml)\
-Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.smaller_header.xml](https://odoo.build/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.smaller_header.xml)
+Source: [snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.smaller_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_hr_payroll_elm_transmission.l10n_ch_elm_report_payslip.smaller_header.xml)
 

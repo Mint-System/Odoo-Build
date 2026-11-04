@@ -4,7 +4,8 @@
 
 ### Add Phone Number
 
-ID: `mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number`\
+ID: `mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number`
+
 Inherit ID: `l10n_din5008_stock.report_delivery_document`
 
 ```xml
@@ -17,12 +18,12 @@ Inherit ID: `l10n_din5008_stock.report_delivery_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number.xml)\
-Source: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number.xml](https://odoo.build/snippets/mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number.xml)
+Source: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number.xml)
 
 ### Hide Phone
 
-ID: `mint_system.l10n_din5008_stock.report_delivery_document.hide_phone`\
+ID: `mint_system.l10n_din5008_stock.report_delivery_document.hide_phone`
+
 Inherit ID: `l10n_din5008_stock.report_delivery_document`
 
 ```xml
@@ -35,12 +36,12 @@ Inherit ID: `l10n_din5008_stock.report_delivery_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.hide_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_din5008_stock.report_delivery_document.hide_phone.xml)\
-Source: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.hide_phone.xml](https://odoo.build/snippets/mint_system.l10n_din5008_stock.report_delivery_document.hide_phone.xml)
+Source: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.hide_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_din5008_stock.report_delivery_document.hide_phone.xml)
 
 ### Show Partner Reference
 
-ID: `mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference`\
+ID: `mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference`
+
 Inherit ID: `l10n_din5008_stock.report_delivery_document`
 
 ```xml
@@ -54,6 +55,5 @@ Inherit ID: `l10n_din5008_stock.report_delivery_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference.xml)\
-Source: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference.xml](https://odoo.build/snippets/mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference.xml)
+Source: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference.xml)
 

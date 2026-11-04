@@ -4,7 +4,8 @@
 
 ### Add Phase
 
-ID: `mint_system.project_phase_estimate.hr_timesheet_line_tree.add_phase`\
+ID: `mint_system.project_phase_estimate.hr_timesheet_line_tree.add_phase`
+
 Inherit ID: `project_phase_estimate.hr_timesheet_line_tree`
 
 ```xml
@@ -14,6 +15,5 @@ Inherit ID: `project_phase_estimate.hr_timesheet_line_tree`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.project_phase_estimate.hr_timesheet_line_tree.add_phase.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project_phase_estimate.hr_timesheet_line_tree.add_phase.xml)\
-Source: [snippets/mint_system.project_phase_estimate.hr_timesheet_line_tree.add_phase.xml](https://odoo.build/snippets/mint_system.project_phase_estimate.hr_timesheet_line_tree.add_phase.xml)
+Source: [snippets/mint_system.project_phase_estimate.hr_timesheet_line_tree.add_phase.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project_phase_estimate.hr_timesheet_line_tree.add_phase.xml)
 

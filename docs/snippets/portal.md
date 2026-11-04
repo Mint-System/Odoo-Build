@@ -4,7 +4,8 @@
 
 ### Add Company Type
 
-ID: `mint_system.portal.address_form_fields.add_company_type`\
+ID: `mint_system.portal.address_form_fields.add_company_type`
+
 Inherit ID: `portal.address_form_fields`
 
 ```xml
@@ -64,12 +65,12 @@ Inherit ID: `portal.address_form_fields`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.portal.address_form_fields.add_company_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.add_company_type.xml)\
-Source: [snippets/mint_system.portal.address_form_fields.add_company_type.xml](https://odoo.build/snippets/mint_system.portal.address_form_fields.add_company_type.xml)
+Source: [snippets/mint_system.portal.address_form_fields.add_company_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.add_company_type.xml)
 
 ### Hide B2b Vat
 
-ID: `mint_system.portal.address_form_fields.hide_b2b_vat`\
+ID: `mint_system.portal.address_form_fields.hide_b2b_vat`
+
 Inherit ID: `portal.address_form_fields`
 
 ```xml
@@ -77,12 +78,12 @@ Inherit ID: `portal.address_form_fields`
     <xpath expr="//div[@id='div_vat']" position="replace"/>
 </data>
 ```
-Edit: [snippets/mint_system.portal.address_form_fields.hide_b2b_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.hide_b2b_vat.xml)\
-Source: [snippets/mint_system.portal.address_form_fields.hide_b2b_vat.xml](https://odoo.build/snippets/mint_system.portal.address_form_fields.hide_b2b_vat.xml)
+Source: [snippets/mint_system.portal.address_form_fields.hide_b2b_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.hide_b2b_vat.xml)
 
 ### Move B2b Fields
 
-ID: `mint_system.portal.address_form_fields.move_b2b_fields`\
+ID: `mint_system.portal.address_form_fields.move_b2b_fields`
+
 Inherit ID: `portal.address_form_fields`
 
 ```xml
@@ -94,12 +95,12 @@ Inherit ID: `portal.address_form_fields`
 
 </data>
 ```
-Edit: [snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml)\
-Source: [snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml](https://odoo.build/snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml)
+Source: [snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml)
 
 ### Remove Star From Optional Fields
 
-ID: `mint_system.portal.address_form_fields.remove_star_from_optional_fields`\
+ID: `mint_system.portal.address_form_fields.remove_star_from_optional_fields`
+
 Inherit ID: `portal.address_form_fields`
 
 ```xml
@@ -113,12 +114,12 @@ Inherit ID: `portal.address_form_fields`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.portal.address_form_fields.remove_star_from_optional_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.remove_star_from_optional_fields.xml)\
-Source: [snippets/mint_system.portal.address_form_fields.remove_star_from_optional_fields.xml](https://odoo.build/snippets/mint_system.portal.address_form_fields.remove_star_from_optional_fields.xml)
+Source: [snippets/mint_system.portal.address_form_fields.remove_star_from_optional_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.remove_star_from_optional_fields.xml)
 
 ### Show Company Name If Company
 
-ID: `mint_system.portal.address_form_fields.show_company_name_if_company`\
+ID: `mint_system.portal.address_form_fields.show_company_name_if_company`
+
 Inherit ID: `portal.address_form_fields`
 
 ```xml
@@ -128,14 +129,14 @@ Inherit ID: `portal.address_form_fields`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.portal.address_form_fields.show_company_name_if_company.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.show_company_name_if_company.xml)\
-Source: [snippets/mint_system.portal.address_form_fields.show_company_name_if_company.xml](https://odoo.build/snippets/mint_system.portal.address_form_fields.show_company_name_if_company.xml)
+Source: [snippets/mint_system.portal.address_form_fields.show_company_name_if_company.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.show_company_name_if_company.xml)
 
 ## Address List
 
 ### Hide Edit Business Address
 
-ID: `mint_system.portal.address_list.hide_edit_business_address`\
+ID: `mint_system.portal.address_list.hide_edit_business_address`
+
 Inherit ID: `portal.address_list`
 
 ```xml
@@ -145,14 +146,14 @@ Inherit ID: `portal.address_list`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.portal.address_list.hide_edit_business_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_list.hide_edit_business_address.xml)\
-Source: [snippets/mint_system.portal.address_list.hide_edit_business_address.xml](https://odoo.build/snippets/mint_system.portal.address_list.hide_edit_business_address.xml)
+Source: [snippets/mint_system.portal.address_list.hide_edit_business_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_list.hide_edit_business_address.xml)
 
 ## My Addresses
 
 ### Hide Billing Address
 
-ID: `mint_system.portal.my_addresses.hide_billing_address`\
+ID: `mint_system.portal.my_addresses.hide_billing_address`
+
 Inherit ID: `portal.my_addresses`
 
 ```xml
@@ -162,12 +163,12 @@ Inherit ID: `portal.my_addresses`
     <xpath expr="//div[@class='form-check form-switch mt-2']" position="replace"/>
 </data>
 ```
-Edit: [snippets/mint_system.portal.my_addresses.hide_billing_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.my_addresses.hide_billing_address.xml)\
-Source: [snippets/mint_system.portal.my_addresses.hide_billing_address.xml](https://odoo.build/snippets/mint_system.portal.my_addresses.hide_billing_address.xml)
+Source: [snippets/mint_system.portal.my_addresses.hide_billing_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.my_addresses.hide_billing_address.xml)
 
 ### Hide New Address Link
 
-ID: `mint_system.portal.my_addresses.hide_new_address_link`\
+ID: `mint_system.portal.my_addresses.hide_new_address_link`
+
 Inherit ID: `portal.my_addresses`
 
 ```xml
@@ -176,12 +177,12 @@ Inherit ID: `portal.my_addresses`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.portal.my_addresses.hide_new_address_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.my_addresses.hide_new_address_link.xml)\
-Source: [snippets/mint_system.portal.my_addresses.hide_new_address_link.xml](https://odoo.build/snippets/mint_system.portal.my_addresses.hide_new_address_link.xml)
+Source: [snippets/mint_system.portal.my_addresses.hide_new_address_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.my_addresses.hide_new_address_link.xml)
 
 ### Hide Use Delivery As Billing
 
-ID: `mint_system.portal.my_addresses.hide_use_delivery_as_billing`\
+ID: `mint_system.portal.my_addresses.hide_use_delivery_as_billing`
+
 Inherit ID: `portal.my_addresses`
 
 ```xml
@@ -191,14 +192,14 @@ Inherit ID: `portal.my_addresses`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.portal.my_addresses.hide_use_delivery_as_billing.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.my_addresses.hide_use_delivery_as_billing.xml)\
-Source: [snippets/mint_system.portal.my_addresses.hide_use_delivery_as_billing.xml](https://odoo.build/snippets/mint_system.portal.my_addresses.hide_use_delivery_as_billing.xml)
+Source: [snippets/mint_system.portal.my_addresses.hide_use_delivery_as_billing.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.my_addresses.hide_use_delivery_as_billing.xml)
 
 ## Portal My Details Fields
 
 ### Show Firstname Lastname
 
-ID: `mint_system.portal.portal_my_details_fields.show_firstname_lastname`\
+ID: `mint_system.portal.portal_my_details_fields.show_firstname_lastname`
+
 Inherit ID: `portal.portal_my_details_fields`
 
 ```xml
@@ -216,12 +217,12 @@ Inherit ID: `portal.portal_my_details_fields`
 </data>
 
 ```
-Edit: [snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml)\
-Source: [snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml](https://odoo.build/snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml)
+Source: [snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml)
 
 ### Show Street
 
-ID: `mint_system.portal.portal_my_details_fields.show_street`\
+ID: `mint_system.portal.portal_my_details_fields.show_street`
+
 Inherit ID: `portal.portal_my_details_fields`
 
 ```xml
@@ -235,6 +236,5 @@ Inherit ID: `portal.portal_my_details_fields`
 </data>
 
 ```
-Edit: [snippets/mint_system.portal.portal_my_details_fields.show_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.portal_my_details_fields.show_street.xml)\
-Source: [snippets/mint_system.portal.portal_my_details_fields.show_street.xml](https://odoo.build/snippets/mint_system.portal.portal_my_details_fields.show_street.xml)
+Source: [snippets/mint_system.portal.portal_my_details_fields.show_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.portal_my_details_fields.show_street.xml)
 

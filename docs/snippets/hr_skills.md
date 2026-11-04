@@ -4,7 +4,8 @@
 
 ### Show Skill Type Id
 
-ID: `mint_system.hr_skills.employee_skill_level_view_tree.show_skill_type_id`\
+ID: `mint_system.hr_skills.employee_skill_level_view_tree.show_skill_type_id`
+
 Inherit ID: `hr_skills.employee_skill_level_view_tree`
 
 ```xml
@@ -14,6 +15,5 @@ Inherit ID: `hr_skills.employee_skill_level_view_tree`
   </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.hr_skills.employee_skill_level_view_tree.show_skill_type_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_skills.employee_skill_level_view_tree.show_skill_type_id.xml)\
-Source: [snippets/mint_system.hr_skills.employee_skill_level_view_tree.show_skill_type_id.xml](https://odoo.build/snippets/mint_system.hr_skills.employee_skill_level_view_tree.show_skill_type_id.xml)
+Source: [snippets/mint_system.hr_skills.employee_skill_level_view_tree.show_skill_type_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_skills.employee_skill_level_view_tree.show_skill_type_id.xml)
 

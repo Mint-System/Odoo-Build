@@ -4,7 +4,8 @@
 
 ### Show Name
 
-ID: `mint_system.timesheet_grid.timesheet_view_form.show_name`\
+ID: `mint_system.timesheet_grid.timesheet_view_form.show_name`
+
 Inherit ID: `timesheet_grid.timesheet_view_form`
 
 ```xml
@@ -15,6 +16,5 @@ Inherit ID: `timesheet_grid.timesheet_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.timesheet_grid.timesheet_view_form.show_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.timesheet_grid.timesheet_view_form.show_name.xml)\
-Source: [snippets/mint_system.timesheet_grid.timesheet_view_form.show_name.xml](https://odoo.build/snippets/mint_system.timesheet_grid.timesheet_view_form.show_name.xml)
+Source: [snippets/mint_system.timesheet_grid.timesheet_view_form.show_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.timesheet_grid.timesheet_view_form.show_name.xml)
 

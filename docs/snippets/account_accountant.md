@@ -4,7 +4,8 @@
 
 ### Hide Payment Ref
 
-ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref`\
+ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref`
+
 Inherit ID: `account_accountant.view_bank_statement_line_kanban_bank_rec_widget`
 
 ```xml
@@ -14,12 +15,12 @@ Inherit ID: `account_accountant.view_bank_statement_line_kanban_bank_rec_widget`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref.xml)\
-Source: [snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref.xml](https://odoo.build/snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref.xml)
+Source: [snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref.xml)
 
 ### Hide Statement Id
 
-ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id`\
+ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id`
+
 Inherit ID: `account_accountant.view_bank_statement_line_kanban_bank_rec_widget`
 
 ```xml
@@ -29,12 +30,12 @@ Inherit ID: `account_accountant.view_bank_statement_line_kanban_bank_rec_widget`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id.xml)\
-Source: [snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id.xml](https://odoo.build/snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id.xml)
+Source: [snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id.xml)
 
 ### Show Narration
 
-ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration`\
+ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration`
+
 Inherit ID: `account_accountant.view_bank_statement_line_kanban_bank_rec_widget`
 
 ```xml
@@ -50,14 +51,14 @@ Inherit ID: `account_accountant.view_bank_statement_line_kanban_bank_rec_widget`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml)\
-Source: [snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml](https://odoo.build/snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml)
+Source: [snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml)
 
 ## View Bank Statement Line Tree Bank Rec Widget
 
 ### Show Partner Name
 
-ID: `mint_system.account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name`\
+ID: `mint_system.account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name`
+
 Inherit ID: `account_accountant.view_bank_statement_line_tree_bank_rec_widget`
 
 ```xml
@@ -68,6 +69,5 @@ Inherit ID: `account_accountant.view_bank_statement_line_tree_bank_rec_widget`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml)\
-Source: [snippets/mint_system.account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml](https://odoo.build/snippets/mint_system.account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml)
+Source: [snippets/mint_system.account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml)
 

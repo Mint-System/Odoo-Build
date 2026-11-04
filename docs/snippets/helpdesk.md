@@ -4,7 +4,8 @@
 
 ### Domain So Line
 
-ID: `mint_system.helpdesk.helpdesk_ticket_view_form.domain_so_line`\
+ID: `mint_system.helpdesk.helpdesk_ticket_view_form.domain_so_line`
+
 Inherit ID: `helpdesk.helpdesk_ticket_view_form`
 
 ```xml
@@ -15,12 +16,12 @@ Inherit ID: `helpdesk.helpdesk_ticket_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.domain_so_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.domain_so_line.xml)\
-Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.domain_so_line.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.domain_so_line.xml)
+Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.domain_so_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.domain_so_line.xml)
 
 ### Remove Properties
 
-ID: `mint_system.helpdesk.helpdesk_ticket_view_form.remove_properties`\
+ID: `mint_system.helpdesk.helpdesk_ticket_view_form.remove_properties`
+
 Inherit ID: `helpdesk.helpdesk_ticket_view_form`
 
 ```xml
@@ -29,12 +30,12 @@ Inherit ID: `helpdesk.helpdesk_ticket_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.remove_properties.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.remove_properties.xml)\
-Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.remove_properties.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.remove_properties.xml)
+Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.remove_properties.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.remove_properties.xml)
 
 ### Show Partner Email
 
-ID: `mint_system.helpdesk.helpdesk_ticket_view_form.show_partner_email`\
+ID: `mint_system.helpdesk.helpdesk_ticket_view_form.show_partner_email`
+
 Inherit ID: `helpdesk.helpdesk_ticket_view_form`
 
 ```xml
@@ -45,12 +46,12 @@ Inherit ID: `helpdesk.helpdesk_ticket_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.show_partner_email.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.show_partner_email.xml)\
-Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.show_partner_email.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.show_partner_email.xml)
+Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.show_partner_email.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.show_partner_email.xml)
 
 ### X Date Deadline
 
-ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline`\
+ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline`
+
 Inherit ID: `helpdesk.helpdesk_ticket_view_form`
 
 ```xml
@@ -61,12 +62,12 @@ Inherit ID: `helpdesk.helpdesk_ticket_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline.xml)\
-Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline.xml)
+Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline.xml)
 
 ### X Link With Ids
 
-ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids`\
+ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids`
+
 Inherit ID: `helpdesk.helpdesk_ticket_view_form`
 
 ```xml
@@ -91,14 +92,14 @@ Inherit ID: `helpdesk.helpdesk_ticket_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids.xml)\
-Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids.xml)
+Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids.xml)
 
 ## Helpdesk Ticket View Kanban
 
 ### Sort Create Date
 
-ID: `mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date`\
+ID: `mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date`
+
 Inherit ID: `helpdesk.helpdesk_ticket_view_kanban`
 
 ```xml
@@ -109,12 +110,12 @@ Inherit ID: `helpdesk.helpdesk_ticket_view_kanban`
 </data>
 
 ```
-Edit: [snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date.xml)\
-Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date.xml)
+Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date.xml)
 
 ### X Date Deadline
 
-ID: `mint_system.helpdesk.helpdesk_ticket_view_kanban.x_date_deadline`\
+ID: `mint_system.helpdesk.helpdesk_ticket_view_kanban.x_date_deadline`
+
 Inherit ID: `helpdesk.helpdesk_ticket_view_kanban`
 
 ```xml
@@ -127,14 +128,14 @@ Inherit ID: `helpdesk.helpdesk_ticket_view_kanban`
 </data>
 
 ```
-Edit: [snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.x_date_deadline.xml)\
-Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.x_date_deadline.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.x_date_deadline.xml)
+Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.x_date_deadline.xml)
 
 ## Helpdesk Tickets View Search
 
 ### Advanced Search
 
-ID: `mint_system.helpdesk.helpdesk_tickets_view_search.advanced_search`\
+ID: `mint_system.helpdesk.helpdesk_tickets_view_search.advanced_search`
+
 Inherit ID: `helpdesk.helpdesk_tickets_view_search`
 
 ```xml
@@ -144,14 +145,14 @@ Inherit ID: `helpdesk.helpdesk_tickets_view_search`
     </field>
 </data>
 ```
-Edit: [snippets/mint_system.helpdesk.helpdesk_tickets_view_search.advanced_search.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_tickets_view_search.advanced_search.xml)\
-Source: [snippets/mint_system.helpdesk.helpdesk_tickets_view_search.advanced_search.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_tickets_view_search.advanced_search.xml)
+Source: [snippets/mint_system.helpdesk.helpdesk_tickets_view_search.advanced_search.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_tickets_view_search.advanced_search.xml)
 
 ## Helpdesk Tickets View Search Base
 
 ### Advanced Search
 
-ID: `mint_system.helpdesk.helpdesk_tickets_view_search_base.advanced_search`\
+ID: `mint_system.helpdesk.helpdesk_tickets_view_search_base.advanced_search`
+
 Inherit ID: `helpdesk.helpdesk_tickets_view_search_base`
 
 ```xml
@@ -161,14 +162,14 @@ Inherit ID: `helpdesk.helpdesk_tickets_view_search_base`
     </field>
 </data>
 ```
-Edit: [snippets/mint_system.helpdesk.helpdesk_tickets_view_search_base.advanced_search.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_tickets_view_search_base.advanced_search.xml)\
-Source: [snippets/mint_system.helpdesk.helpdesk_tickets_view_search_base.advanced_search.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_tickets_view_search_base.advanced_search.xml)
+Source: [snippets/mint_system.helpdesk.helpdesk_tickets_view_search_base.advanced_search.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_tickets_view_search_base.advanced_search.xml)
 
 ## Helpdesk Tickets View Tree
 
 ### Sort Create Date
 
-ID: `mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date`\
+ID: `mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date`
+
 Inherit ID: `helpdesk.helpdesk_tickets_view_tree`
 
 ```xml
@@ -179,12 +180,12 @@ Inherit ID: `helpdesk.helpdesk_tickets_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date.xml)\
-Source: [snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date.xml)
+Source: [snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date.xml)
 
 ### X Date Deadline
 
-ID: `mint_system.helpdesk.helpdesk_tickets_view_tree.x_date_deadline`\
+ID: `mint_system.helpdesk.helpdesk_tickets_view_tree.x_date_deadline`
+
 Inherit ID: `helpdesk.helpdesk_tickets_view_tree`
 
 ```xml
@@ -195,6 +196,5 @@ Inherit ID: `helpdesk.helpdesk_tickets_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.x_date_deadline.xml)\
-Source: [snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.x_date_deadline.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.x_date_deadline.xml)
+Source: [snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.x_date_deadline.xml)
 

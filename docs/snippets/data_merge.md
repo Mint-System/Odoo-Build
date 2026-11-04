@@ -4,7 +4,8 @@
 
 ### Add Differences
 
-ID: `mint_system.data_merge.view_data_merge_record_list.add_differences`\
+ID: `mint_system.data_merge.view_data_merge_record_list.add_differences`
+
 Inherit ID: `data_merge.view_data_merge_record_list`
 
 ```xml
@@ -15,6 +16,5 @@ Inherit ID: `data_merge.view_data_merge_record_list`
 </data>
 
 ```
-Edit: [snippets/mint_system.data_merge.view_data_merge_record_list.add_differences.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.data_merge.view_data_merge_record_list.add_differences.xml)\
-Source: [snippets/mint_system.data_merge.view_data_merge_record_list.add_differences.xml](https://odoo.build/snippets/mint_system.data_merge.view_data_merge_record_list.add_differences.xml)
+Source: [snippets/mint_system.data_merge.view_data_merge_record_list.add_differences.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.data_merge.view_data_merge_record_list.add_differences.xml)
 

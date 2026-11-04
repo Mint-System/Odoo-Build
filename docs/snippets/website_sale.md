@@ -4,7 +4,8 @@
 
 ### Countries Filter
 
-ID: `mint_system.website_sale.address.countries_filter`\
+ID: `mint_system.website_sale.address.countries_filter`
+
 Inherit ID: `website_sale.address`
 
 ```xml
@@ -15,12 +16,12 @@ Inherit ID: `website_sale.address`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.address.countries_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.countries_filter.xml)\
-Source: [snippets/mint_system.website_sale.address.countries_filter.xml](https://odoo.build/snippets/mint_system.website_sale.address.countries_filter.xml)
+Source: [snippets/mint_system.website_sale.address.countries_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.countries_filter.xml)
 
 ### Hide Shipping Use Same
 
-ID: `mint_system.website_sale.address.hide_shipping_use_same`\
+ID: `mint_system.website_sale.address.hide_shipping_use_same`
+
 Inherit ID: `website_sale.address`
 
 ```xml
@@ -31,12 +32,12 @@ Inherit ID: `website_sale.address`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.address.hide_shipping_use_same.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_shipping_use_same.xml)\
-Source: [snippets/mint_system.website_sale.address.hide_shipping_use_same.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_shipping_use_same.xml)
+Source: [snippets/mint_system.website_sale.address.hide_shipping_use_same.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_shipping_use_same.xml)
 
 ### Hide State
 
-ID: `mint_system.website_sale.address.hide_state`\
+ID: `mint_system.website_sale.address.hide_state`
+
 Inherit ID: `website_sale.address`
 
 ```xml
@@ -46,12 +47,12 @@ Inherit ID: `website_sale.address`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.address.hide_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_state.xml)\
-Source: [snippets/mint_system.website_sale.address.hide_state.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_state.xml)
+Source: [snippets/mint_system.website_sale.address.hide_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_state.xml)
 
 ### Hide Street
 
-ID: `mint_system.website_sale.address.hide_street`\
+ID: `mint_system.website_sale.address.hide_street`
+
 Inherit ID: `website_sale.address`
 
 ```xml
@@ -61,12 +62,12 @@ Inherit ID: `website_sale.address`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.address.hide_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_street.xml)\
-Source: [snippets/mint_system.website_sale.address.hide_street.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_street.xml)
+Source: [snippets/mint_system.website_sale.address.hide_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_street.xml)
 
 ### Overwrite Required
 
-ID: `mint_system.website_sale.address.overwrite_required`\
+ID: `mint_system.website_sale.address.overwrite_required`
+
 Inherit ID: `website_sale.address`
 
 ```xml
@@ -92,12 +93,12 @@ Inherit ID: `website_sale.address`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.address.overwrite_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.overwrite_required.xml)\
-Source: [snippets/mint_system.website_sale.address.overwrite_required.xml](https://odoo.build/snippets/mint_system.website_sale.address.overwrite_required.xml)
+Source: [snippets/mint_system.website_sale.address.overwrite_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.overwrite_required.xml)
 
 ### Show Firstname Lastname
 
-ID: `mint_system.website_sale.address.show_firstname_lastname`\
+ID: `mint_system.website_sale.address.show_firstname_lastname`
+
 Inherit ID: `website_sale.address`
 
 ```xml
@@ -118,14 +119,14 @@ Inherit ID: `website_sale.address`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.address.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.show_firstname_lastname.xml)\
-Source: [snippets/mint_system.website_sale.address.show_firstname_lastname.xml](https://odoo.build/snippets/mint_system.website_sale.address.show_firstname_lastname.xml)
+Source: [snippets/mint_system.website_sale.address.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.show_firstname_lastname.xml)
 
 ## Address List
 
 ### No Edit For Business
 
-ID: `mint_system.website_sale.address_list.no_edit_for_business`\
+ID: `mint_system.website_sale.address_list.no_edit_for_business`
+
 Inherit ID: `website_sale.address_list`
 
 ```xml
@@ -135,14 +136,14 @@ Inherit ID: `website_sale.address_list`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.website_sale.address_list.no_edit_for_business.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address_list.no_edit_for_business.xml)\
-Source: [snippets/mint_system.website_sale.address_list.no_edit_for_business.xml](https://odoo.build/snippets/mint_system.website_sale.address_list.no_edit_for_business.xml)
+Source: [snippets/mint_system.website_sale.address_list.no_edit_for_business.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address_list.no_edit_for_business.xml)
 
 ## Billing Address List
 
 ### Hide New Address Link
 
-ID: `mint_system.website_sale.billing_address_list.hide_new_address_link`\
+ID: `mint_system.website_sale.billing_address_list.hide_new_address_link`
+
 Inherit ID: `website_sale.billing_address_list`
 
 ```xml
@@ -150,12 +151,12 @@ Inherit ID: `website_sale.billing_address_list`
     <xpath expr="//a[@role='button']" position="replace" />
 </data>
 ```
-Edit: [snippets/mint_system.website_sale.billing_address_list.hide_new_address_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.billing_address_list.hide_new_address_link.xml)\
-Source: [snippets/mint_system.website_sale.billing_address_list.hide_new_address_link.xml](https://odoo.build/snippets/mint_system.website_sale.billing_address_list.hide_new_address_link.xml)
+Source: [snippets/mint_system.website_sale.billing_address_list.hide_new_address_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.billing_address_list.hide_new_address_link.xml)
 
 ### Hide Use Delivery As Billing
 
-ID: `mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing`\
+ID: `mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing`
+
 Inherit ID: `website_sale.billing_address_list`
 
 ```xml
@@ -174,14 +175,14 @@ Inherit ID: `website_sale.billing_address_list`
     </div>
 </data>
 ```
-Edit: [snippets/mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing.xml)\
-Source: [snippets/mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing.xml](https://odoo.build/snippets/mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing.xml)
+Source: [snippets/mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.billing_address_list.hide_use_delivery_as_billing.xml)
 
 ## Cart
 
 ### Cart Cleared Alert
 
-ID: `mint_system.website_sale.cart.cart_cleared_alert`\
+ID: `mint_system.website_sale.cart.cart_cleared_alert`
+
 Inherit ID: `website_sale.cart`
 
 ```xml
@@ -196,14 +197,14 @@ Inherit ID: `website_sale.cart`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.website_sale.cart.cart_cleared_alert.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.cart.cart_cleared_alert.xml)\
-Source: [snippets/mint_system.website_sale.cart.cart_cleared_alert.xml](https://odoo.build/snippets/mint_system.website_sale.cart.cart_cleared_alert.xml)
+Source: [snippets/mint_system.website_sale.cart.cart_cleared_alert.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.cart.cart_cleared_alert.xml)
 
 ## Categorie Link
 
 ### Categ Checkboxes
 
-ID: `mint_system.website_sale.categorie_link.categ_checkboxes`\
+ID: `mint_system.website_sale.categorie_link.categ_checkboxes`
+
 Inherit ID: `website_sale.categorie_link`
 
 ```xml
@@ -216,14 +217,14 @@ Inherit ID: `website_sale.categorie_link`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.website_sale.categorie_link.categ_checkboxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.categorie_link.categ_checkboxes.xml)\
-Source: [snippets/mint_system.website_sale.categorie_link.categ_checkboxes.xml](https://odoo.build/snippets/mint_system.website_sale.categorie_link.categ_checkboxes.xml)
+Source: [snippets/mint_system.website_sale.categorie_link.categ_checkboxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.categorie_link.categ_checkboxes.xml)
 
 ## Checkout
 
 ### Hide Billing Address
 
-ID: `mint_system.website_sale.checkout.hide_billing_address`\
+ID: `mint_system.website_sale.checkout.hide_billing_address`
+
 Inherit ID: `website_sale.checkout`
 
 ```xml
@@ -237,14 +238,14 @@ Inherit ID: `website_sale.checkout`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.website_sale.checkout.hide_billing_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.checkout.hide_billing_address.xml)\
-Source: [snippets/mint_system.website_sale.checkout.hide_billing_address.xml](https://odoo.build/snippets/mint_system.website_sale.checkout.hide_billing_address.xml)
+Source: [snippets/mint_system.website_sale.checkout.hide_billing_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.checkout.hide_billing_address.xml)
 
 ## Confirmation
 
 ### Show Shipping Name
 
-ID: `mint_system.website_sale.confirmation.show_shipping_name`\
+ID: `mint_system.website_sale.confirmation.show_shipping_name`
+
 Inherit ID: `website_sale.confirmation`
 
 ```xml
@@ -256,14 +257,14 @@ Inherit ID: `website_sale.confirmation`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.confirmation.show_shipping_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.confirmation.show_shipping_name.xml)\
-Source: [snippets/mint_system.website_sale.confirmation.show_shipping_name.xml](https://odoo.build/snippets/mint_system.website_sale.confirmation.show_shipping_name.xml)
+Source: [snippets/mint_system.website_sale.confirmation.show_shipping_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.confirmation.show_shipping_name.xml)
 
 ## Header Cart Link
 
 ### Hide Cart
 
-ID: `mint_system.website_sale.header_cart_link.hide_cart`\
+ID: `mint_system.website_sale.header_cart_link.hide_cart`
+
 Inherit ID: `website_sale.header_cart_link`
 
 ```xml
@@ -274,14 +275,14 @@ Inherit ID: `website_sale.header_cart_link`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.header_cart_link.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.header_cart_link.hide_cart.xml)\
-Source: [snippets/mint_system.website_sale.header_cart_link.hide_cart.xml](https://odoo.build/snippets/mint_system.website_sale.header_cart_link.hide_cart.xml)
+Source: [snippets/mint_system.website_sale.header_cart_link.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.header_cart_link.hide_cart.xml)
 
 ## Payment
 
 ### Hide Address
 
-ID: `mint_system.website_sale.payment.hide_address`\
+ID: `mint_system.website_sale.payment.hide_address`
+
 Inherit ID: `website_sale.payment`
 
 ```xml
@@ -289,14 +290,14 @@ Inherit ID: `website_sale.payment`
     <xpath expr="//div[@id='address_on_payment']" position="replace"/>
 </data>
 ```
-Edit: [snippets/mint_system.website_sale.payment.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.payment.hide_address.xml)\
-Source: [snippets/mint_system.website_sale.payment.hide_address.xml](https://odoo.build/snippets/mint_system.website_sale.payment.hide_address.xml)
+Source: [snippets/mint_system.website_sale.payment.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.payment.hide_address.xml)
 
 ## Payment Confirmation Status
 
 ### Remove Communication
 
-ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`\
+ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`
+
 Inherit ID: `website_sale.payment_confirmation_status`
 
 ```xml
@@ -305,14 +306,14 @@ Inherit ID: `website_sale.payment_confirmation_status`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml)\
-Source: [snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml](https://odoo.build/snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml)
+Source: [snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml)
 
 ## Pricelist List
 
 ### Group Admin Only
 
-ID: `mint_system.website_sale.pricelist_list.group_admin_only`\
+ID: `mint_system.website_sale.pricelist_list.group_admin_only`
+
 Inherit ID: `website_sale.pricelist_list`
 
 ```xml
@@ -323,14 +324,14 @@ Inherit ID: `website_sale.pricelist_list`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml)\
-Source: [snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml](https://odoo.build/snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml)
+Source: [snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml)
 
 ## Product
 
 ### Hide Cart
 
-ID: `mint_system.website_sale.product.hide_cart`\
+ID: `mint_system.website_sale.product.hide_cart`
+
 Inherit ID: `website_sale.product`
 
 ```xml
@@ -346,12 +347,12 @@ Inherit ID: `website_sale.product`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.product.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.hide_cart.xml)\
-Source: [snippets/mint_system.website_sale.product.hide_cart.xml](https://odoo.build/snippets/mint_system.website_sale.product.hide_cart.xml)
+Source: [snippets/mint_system.website_sale.product.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.hide_cart.xml)
 
 ### Hide Price
 
-ID: `mint_system.website_sale.product.hide_price`\
+ID: `mint_system.website_sale.product.hide_price`
+
 Inherit ID: `website_sale.product`
 
 ```xml
@@ -362,12 +363,12 @@ Inherit ID: `website_sale.product`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.product.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.hide_price.xml)\
-Source: [snippets/mint_system.website_sale.product.hide_price.xml](https://odoo.build/snippets/mint_system.website_sale.product.hide_price.xml)
+Source: [snippets/mint_system.website_sale.product.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.hide_price.xml)
 
 ### Show Default Code
 
-ID: `mint_system.website_sale.product.show_default_code`\
+ID: `mint_system.website_sale.product.show_default_code`
+
 Inherit ID: `website_sale.product`
 
 ```xml
@@ -381,12 +382,12 @@ Inherit ID: `website_sale.product`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.product.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.show_default_code.xml)\
-Source: [snippets/mint_system.website_sale.product.show_default_code.xml](https://odoo.build/snippets/mint_system.website_sale.product.show_default_code.xml)
+Source: [snippets/mint_system.website_sale.product.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.show_default_code.xml)
 
 ### Show Product Dimension
 
-ID: `mint_system.website_sale.product.show_product_dimension`\
+ID: `mint_system.website_sale.product.show_product_dimension`
+
 Inherit ID: `website_sale.product`
 
 ```xml
@@ -397,12 +398,12 @@ Inherit ID: `website_sale.product`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.product.show_product_dimension.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.show_product_dimension.xml)\
-Source: [snippets/mint_system.website_sale.product.show_product_dimension.xml](https://odoo.build/snippets/mint_system.website_sale.product.show_product_dimension.xml)
+Source: [snippets/mint_system.website_sale.product.show_product_dimension.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.show_product_dimension.xml)
 
 ### Show Product Material
 
-ID: `mint_system.website_sale.product.show_product_material`\
+ID: `mint_system.website_sale.product.show_product_material`
+
 Inherit ID: `website_sale.product`
 
 ```xml
@@ -413,14 +414,14 @@ Inherit ID: `website_sale.product`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.show_product_material.xml)\
-Source: [snippets/mint_system.website_sale.product.show_product_material.xml](https://odoo.build/snippets/mint_system.website_sale.product.show_product_material.xml)
+Source: [snippets/mint_system.website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.product.show_product_material.xml)
 
 ## Products Categories
 
 ### Bigger Categories Button
 
-ID: `mint_system.website_sale.products_categories.bigger_categories_button`\
+ID: `mint_system.website_sale.products_categories.bigger_categories_button`
+
 Inherit ID: `website_sale.products_categories`
 
 ```xml
@@ -434,14 +435,14 @@ Inherit ID: `website_sale.products_categories`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_categories.bigger_categories_button.xml)\
-Source: [snippets/mint_system.website_sale.products_categories.bigger_categories_button.xml](https://odoo.build/snippets/mint_system.website_sale.products_categories.bigger_categories_button.xml)
+Source: [snippets/mint_system.website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_categories.bigger_categories_button.xml)
 
 ## Products Categories List
 
 ### Categ Checkboxes
 
-ID: `mint_system.website_sale.products_categories_list.categ_checkboxes`\
+ID: `mint_system.website_sale.products_categories_list.categ_checkboxes`
+
 Inherit ID: `website_sale.products_categories_list`
 
 ```xml
@@ -454,14 +455,14 @@ Inherit ID: `website_sale.products_categories_list`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.website_sale.products_categories_list.categ_checkboxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_categories_list.categ_checkboxes.xml)\
-Source: [snippets/mint_system.website_sale.products_categories_list.categ_checkboxes.xml](https://odoo.build/snippets/mint_system.website_sale.products_categories_list.categ_checkboxes.xml)
+Source: [snippets/mint_system.website_sale.products_categories_list.categ_checkboxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_categories_list.categ_checkboxes.xml)
 
 ## Products Item
 
 ### Hide Price
 
-ID: `mint_system.website_sale.products_item.hide_price`\
+ID: `mint_system.website_sale.products_item.hide_price`
+
 Inherit ID: `website_sale.products_item`
 
 ```xml
@@ -472,12 +473,12 @@ Inherit ID: `website_sale.products_item`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.products_item.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_item.hide_price.xml)\
-Source: [snippets/mint_system.website_sale.products_item.hide_price.xml](https://odoo.build/snippets/mint_system.website_sale.products_item.hide_price.xml)
+Source: [snippets/mint_system.website_sale.products_item.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_item.hide_price.xml)
 
 ### Prefix Price
 
-ID: `mint_system.website_sale.products_item.prefix_price`\
+ID: `mint_system.website_sale.products_item.prefix_price`
+
 Inherit ID: `website_sale.products_item`
 
 ```xml
@@ -488,6 +489,5 @@ Inherit ID: `website_sale.products_item`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.products_item.prefix_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_item.prefix_price.xml)\
-Source: [snippets/mint_system.website_sale.products_item.prefix_price.xml](https://odoo.build/snippets/mint_system.website_sale.products_item.prefix_price.xml)
+Source: [snippets/mint_system.website_sale.products_item.prefix_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.products_item.prefix_price.xml)
 

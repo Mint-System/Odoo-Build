@@ -4,7 +4,8 @@
 
 ### Enable Created And Edit
 
-ID: `mint_system.auth_api_key.auth_api_key_form_view.enable_created_and_edit`\
+ID: `mint_system.auth_api_key.auth_api_key_form_view.enable_created_and_edit`
+
 Inherit ID: `auth_api_key.auth_api_key_form_view`
 
 ```xml
@@ -16,6 +17,5 @@ Inherit ID: `auth_api_key.auth_api_key_form_view`
 </data>
 
 ```
-Edit: [snippets/mint_system.auth_api_key.auth_api_key_form_view.enable_created_and_edit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.auth_api_key.auth_api_key_form_view.enable_created_and_edit.xml)\
-Source: [snippets/mint_system.auth_api_key.auth_api_key_form_view.enable_created_and_edit.xml](https://odoo.build/snippets/mint_system.auth_api_key.auth_api_key_form_view.enable_created_and_edit.xml)
+Source: [snippets/mint_system.auth_api_key.auth_api_key_form_view.enable_created_and_edit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.auth_api_key.auth_api_key_form_view.enable_created_and_edit.xml)
 

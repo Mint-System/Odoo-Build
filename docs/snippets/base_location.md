@@ -4,7 +4,8 @@
 
 ### Remove Zip Id
 
-ID: `mint_system.base_location.view_partner_form.remove_zip_id`\
+ID: `mint_system.base_location.view_partner_form.remove_zip_id`
+
 Inherit ID: `base_location.view_partner_form`
 
 ```xml
@@ -13,6 +14,5 @@ Inherit ID: `base_location.view_partner_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.base_location.view_partner_form.remove_zip_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base_location.view_partner_form.remove_zip_id.xml)\
-Source: [snippets/mint_system.base_location.view_partner_form.remove_zip_id.xml](https://odoo.build/snippets/mint_system.base_location.view_partner_form.remove_zip_id.xml)
+Source: [snippets/mint_system.base_location.view_partner_form.remove_zip_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base_location.view_partner_form.remove_zip_id.xml)
 

@@ -4,7 +4,8 @@
 
 ### Enable Delete
 
-ID: `mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete`\
+ID: `mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete`
+
 Inherit ID: `mail_tracking.view_mail_tracking_email_tree`
 
 ```xml
@@ -15,6 +16,5 @@ Inherit ID: `mail_tracking.view_mail_tracking_email_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete.xml)\
-Source: [snippets/mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete.xml](https://odoo.build/snippets/mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete.xml)
+Source: [snippets/mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete.xml)
 

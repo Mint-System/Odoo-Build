@@ -4,7 +4,8 @@
 
 ### Move Delivery Note
 
-ID: `mint_system.stock_delivery_note.report_delivery_document.move_delivery_note`\
+ID: `mint_system.stock_delivery_note.report_delivery_document.move_delivery_note`
+
 Inherit ID: `stock_delivery_note.report_delivery_document`
 
 ```xml
@@ -20,14 +21,14 @@ Inherit ID: `stock_delivery_note.report_delivery_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.stock_delivery_note.report_delivery_document.move_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_delivery_note.report_delivery_document.move_delivery_note.xml)\
-Source: [snippets/mint_system.stock_delivery_note.report_delivery_document.move_delivery_note.xml](https://odoo.build/snippets/mint_system.stock_delivery_note.report_delivery_document.move_delivery_note.xml)
+Source: [snippets/mint_system.stock_delivery_note.report_delivery_document.move_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_delivery_note.report_delivery_document.move_delivery_note.xml)
 
 ## Stock Picking Form View
 
 ### Move Delivery Note
 
-ID: `mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note`\
+ID: `mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note`
+
 Inherit ID: `stock_delivery_note.stock_picking_form_view`
 
 ```xml
@@ -40,6 +41,5 @@ Inherit ID: `stock_delivery_note.stock_picking_form_view`
 </data>
 
 ```
-Edit: [snippets/mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note.xml)\
-Source: [snippets/mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note.xml](https://odoo.build/snippets/mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note.xml)
+Source: [snippets/mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note.xml)
 

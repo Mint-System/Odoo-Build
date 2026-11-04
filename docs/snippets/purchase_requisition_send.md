@@ -4,7 +4,8 @@
 
 ### Relocate Send Button
 
-ID: `mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button`\
+ID: `mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button`
+
 Inherit ID: `purchase_requisition_send.view_purchase_requisition_form`
 
 ```xml
@@ -16,6 +17,5 @@ Inherit ID: `purchase_requisition_send.view_purchase_requisition_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml)\
-Source: [snippets/mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml](https://odoo.build/snippets/mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml)
+Source: [snippets/mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml)
 

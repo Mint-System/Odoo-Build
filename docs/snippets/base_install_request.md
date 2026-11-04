@@ -4,7 +4,8 @@
 
 ### Group Erp System
 
-ID: `mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system`\
+ID: `mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system`
+
 Inherit ID: `base_install_request.ir_module_module_view_kanban`
 
 ```xml
@@ -15,6 +16,5 @@ Inherit ID: `base_install_request.ir_module_module_view_kanban`
 </data>
 
 ```
-Edit: [snippets/mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system.xml)\
-Source: [snippets/mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system.xml](https://odoo.build/snippets/mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system.xml)
+Source: [snippets/mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system.xml)
 

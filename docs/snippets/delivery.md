@@ -4,7 +4,8 @@
 
 ### Remove Hs Code
 
-ID: `mint_system.delivery.report_delivery_document2.remove_hs_code`\
+ID: `mint_system.delivery.report_delivery_document2.remove_hs_code`
+
 Inherit ID: `delivery.report_delivery_document2`
 
 ```xml
@@ -14,14 +15,14 @@ Inherit ID: `delivery.report_delivery_document2`
 </data>
 
 ```
-Edit: [snippets/mint_system.delivery.report_delivery_document2.remove_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.delivery.report_delivery_document2.remove_hs_code.xml)\
-Source: [snippets/mint_system.delivery.report_delivery_document2.remove_hs_code.xml](https://odoo.build/snippets/mint_system.delivery.report_delivery_document2.remove_hs_code.xml)
+Source: [snippets/mint_system.delivery.report_delivery_document2.remove_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.delivery.report_delivery_document2.remove_hs_code.xml)
 
 ## View Picking Withcarrier Out Form
 
 ### Modify Readonly Carrier Id
 
-ID: `mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id`\
+ID: `mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id`
+
 Inherit ID: `delivery.view_picking_withcarrier_out_form`
 
 ```xml
@@ -32,6 +33,5 @@ Inherit ID: `delivery.view_picking_withcarrier_out_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml)\
-Source: [snippets/mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml](https://odoo.build/snippets/mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml)
+Source: [snippets/mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml)
 

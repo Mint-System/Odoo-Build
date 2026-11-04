@@ -4,7 +4,8 @@
 
 ### Change Report Title
 
-ID: `mint_system.account_reports.pdf_export_main_customer_report.change_report_title`\
+ID: `mint_system.account_reports.pdf_export_main_customer_report.change_report_title`
+
 Inherit ID: `account_reports.pdf_export_main_customer_report`
 
 ```xml
@@ -20,12 +21,12 @@ Inherit ID: `account_reports.pdf_export_main_customer_report`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_reports.pdf_export_main_customer_report.change_report_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_reports.pdf_export_main_customer_report.change_report_title.xml)\
-Source: [snippets/mint_system.account_reports.pdf_export_main_customer_report.change_report_title.xml](https://odoo.build/snippets/mint_system.account_reports.pdf_export_main_customer_report.change_report_title.xml)
+Source: [snippets/mint_system.account_reports.pdf_export_main_customer_report.change_report_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_reports.pdf_export_main_customer_report.change_report_title.xml)
 
 ### Resize Grid
 
-ID: `mint_system.account_reports.pdf_export_main_customer_report.resize_grid`\
+ID: `mint_system.account_reports.pdf_export_main_customer_report.resize_grid`
+
 Inherit ID: `account_reports.pdf_export_main_customer_report`
 
 ```xml
@@ -42,14 +43,14 @@ Inherit ID: `account_reports.pdf_export_main_customer_report`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_reports.pdf_export_main_customer_report.resize_grid.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_reports.pdf_export_main_customer_report.resize_grid.xml)\
-Source: [snippets/mint_system.account_reports.pdf_export_main_customer_report.resize_grid.xml](https://odoo.build/snippets/mint_system.account_reports.pdf_export_main_customer_report.resize_grid.xml)
+Source: [snippets/mint_system.account_reports.pdf_export_main_customer_report.resize_grid.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_reports.pdf_export_main_customer_report.resize_grid.xml)
 
 ## View Archived Tag Move Tree
 
 ### Vat
 
-ID: `mint_system.account_reports.view_archived_tag_move_tree.vat`\
+ID: `mint_system.account_reports.view_archived_tag_move_tree.vat`
+
 Inherit ID: `account_reports.view_archived_tag_move_tree`
 
 ```xml
@@ -60,6 +61,5 @@ Inherit ID: `account_reports.view_archived_tag_move_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_reports.view_archived_tag_move_tree.vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_reports.view_archived_tag_move_tree.vat.xml)\
-Source: [snippets/mint_system.account_reports.view_archived_tag_move_tree.vat.xml](https://odoo.build/snippets/mint_system.account_reports.view_archived_tag_move_tree.vat.xml)
+Source: [snippets/mint_system.account_reports.view_archived_tag_move_tree.vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_reports.view_archived_tag_move_tree.vat.xml)
 

@@ -4,7 +4,8 @@
 
 ### Show Hours And Days Display
 
-ID: `mint_system.hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display`\
+ID: `mint_system.hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display`
+
 Inherit ID: `hr_holidays.hr_leave_allocation_view_form`
 
 ```xml
@@ -21,12 +22,12 @@ Inherit ID: `hr_holidays.hr_leave_allocation_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display.xml)\
-Source: [snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display.xml)
+Source: [snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display.xml)
 
 ### Show Parent Id
 
-ID: `mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id`\
+ID: `mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id`
+
 Inherit ID: `hr_holidays.hr_leave_allocation_view_form`
 
 ```xml
@@ -37,14 +38,14 @@ Inherit ID: `hr_holidays.hr_leave_allocation_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml)\
-Source: [snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml)
+Source: [snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml)
 
 ## Hr Leave Report Calendar View Search
 
 ### Add Date Filter
 
-ID: `mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter`\
+ID: `mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter`
+
 Inherit ID: `hr_holidays.hr_leave_report_calendar_view_search`
 
 ```xml
@@ -54,14 +55,14 @@ Inherit ID: `hr_holidays.hr_leave_report_calendar_view_search`
   </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter.xml)\
-Source: [snippets/mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter.xml)
+Source: [snippets/mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_report_calendar_view_search.add_date_filter.xml)
 
 ## Hr Leave View Form
 
 ### Show Holiday Allocation
 
-ID: `mint_system.hr_holidays.hr_leave_view_form.show_holiday_allocation`\
+ID: `mint_system.hr_holidays.hr_leave_view_form.show_holiday_allocation`
+
 Inherit ID: `hr_holidays.hr_leave_view_form`
 
 ```xml
@@ -73,12 +74,12 @@ Inherit ID: `hr_holidays.hr_leave_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.hr_leave_view_form.show_holiday_allocation.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_form.show_holiday_allocation.xml)\
-Source: [snippets/mint_system.hr_holidays.hr_leave_view_form.show_holiday_allocation.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_view_form.show_holiday_allocation.xml)
+Source: [snippets/mint_system.hr_holidays.hr_leave_view_form.show_holiday_allocation.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_form.show_holiday_allocation.xml)
 
 ### Show Number Of Hours Always
 
-ID: `mint_system.hr_holidays.hr_leave_view_form.show_number_of_hours_always`\
+ID: `mint_system.hr_holidays.hr_leave_view_form.show_number_of_hours_always`
+
 Inherit ID: `hr_holidays.hr_leave_view_form`
 
 ```xml
@@ -89,14 +90,14 @@ Inherit ID: `hr_holidays.hr_leave_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.hr_leave_view_form.show_number_of_hours_always.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_form.show_number_of_hours_always.xml)\
-Source: [snippets/mint_system.hr_holidays.hr_leave_view_form.show_number_of_hours_always.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_view_form.show_number_of_hours_always.xml)
+Source: [snippets/mint_system.hr_holidays.hr_leave_view_form.show_number_of_hours_always.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_form.show_number_of_hours_always.xml)
 
 ## Hr Leave View Form Manager Approve
 
 ### Add Meeting Id
 
-ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id`\
+ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id`
+
 Inherit ID: `hr_holidays.hr_leave_view_form_manager_approve`
 
 ```xml
@@ -107,12 +108,12 @@ Inherit ID: `hr_holidays.hr_leave_view_form_manager_approve`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id.xml)\
-Source: [snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id.xml)
+Source: [snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id.xml)
 
 ### Report Note Group
 
-ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_group`\
+ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_group`
+
 Inherit ID: `hr_holidays.hr_leave_view_form_manager_approve`
 
 ```xml
@@ -126,14 +127,14 @@ Inherit ID: `hr_holidays.hr_leave_view_form_manager_approve`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml)\
-Source: [snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml)
+Source: [snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml)
 
 ## Hr Leave View Timeline
 
 ### View
 
-ID: `mint_system.hr_holidays.hr_leave_view_timeline.view`\
+ID: `mint_system.hr_holidays.hr_leave_view_timeline.view`
+
 Inherit ID: `hr_holidays.hr_leave_view_timeline`
 
 ```xml
@@ -150,14 +151,14 @@ Inherit ID: `hr_holidays.hr_leave_view_timeline`
 </odoo>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.hr_leave_view_timeline.view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_timeline.view.xml)\
-Source: [snippets/mint_system.hr_holidays.hr_leave_view_timeline.view.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_view_timeline.view.xml)
+Source: [snippets/mint_system.hr_holidays.hr_leave_view_timeline.view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_timeline.view.xml)
 
 ## Hr Leave View Tree
 
 ### Remove Payslip
 
-ID: `mint_system.hr_holidays.hr_leave_view_tree.remove_payslip`\
+ID: `mint_system.hr_holidays.hr_leave_view_tree.remove_payslip`
+
 Inherit ID: `hr_holidays.hr_leave_view_tree`
 
 ```xml
@@ -167,12 +168,12 @@ Inherit ID: `hr_holidays.hr_leave_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.hr_leave_view_tree.remove_payslip.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_tree.remove_payslip.xml)\
-Source: [snippets/mint_system.hr_holidays.hr_leave_view_tree.remove_payslip.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_view_tree.remove_payslip.xml)
+Source: [snippets/mint_system.hr_holidays.hr_leave_view_tree.remove_payslip.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_tree.remove_payslip.xml)
 
 ### Show Days
 
-ID: `mint_system.hr_holidays.hr_leave_view_tree.show_days`\
+ID: `mint_system.hr_holidays.hr_leave_view_tree.show_days`
+
 Inherit ID: `hr_holidays.hr_leave_view_tree`
 
 ```xml
@@ -183,12 +184,12 @@ Inherit ID: `hr_holidays.hr_leave_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.hr_leave_view_tree.show_days.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_tree.show_days.xml)\
-Source: [snippets/mint_system.hr_holidays.hr_leave_view_tree.show_days.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_view_tree.show_days.xml)
+Source: [snippets/mint_system.hr_holidays.hr_leave_view_tree.show_days.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_tree.show_days.xml)
 
 ### X Synced
 
-ID: `mint_system.hr_holidays.hr_leave_view_tree.x_synced`\
+ID: `mint_system.hr_holidays.hr_leave_view_tree.x_synced`
+
 Inherit ID: `hr_holidays.hr_leave_view_tree`
 
 ```xml
@@ -199,14 +200,14 @@ Inherit ID: `hr_holidays.hr_leave_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.hr_leave_view_tree.x_synced.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_tree.x_synced.xml)\
-Source: [snippets/mint_system.hr_holidays.hr_leave_view_tree.x_synced.xml](https://odoo.build/snippets/mint_system.hr_holidays.hr_leave_view_tree.x_synced.xml)
+Source: [snippets/mint_system.hr_holidays.hr_leave_view_tree.x_synced.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.hr_leave_view_tree.x_synced.xml)
 
 ## View Holiday Pivot
 
 ### X Number Of Hours
 
-ID: `mint_system.hr_holidays.view_holiday_pivot.x_number_of_hours`\
+ID: `mint_system.hr_holidays.view_holiday_pivot.x_number_of_hours`
+
 Inherit ID: `hr_holidays.view_holiday_pivot`
 
 ```xml
@@ -217,14 +218,14 @@ Inherit ID: `hr_holidays.view_holiday_pivot`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.view_holiday_pivot.x_number_of_hours.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.view_holiday_pivot.x_number_of_hours.xml)\
-Source: [snippets/mint_system.hr_holidays.view_holiday_pivot.x_number_of_hours.xml](https://odoo.build/snippets/mint_system.hr_holidays.view_holiday_pivot.x_number_of_hours.xml)
+Source: [snippets/mint_system.hr_holidays.view_holiday_pivot.x_number_of_hours.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.view_holiday_pivot.x_number_of_hours.xml)
 
 ## View Hr Holidays Filter
 
 ### Disable My Team
 
-ID: `mint_system.hr_holidays.view_hr_holidays_filter.disable_my_team`\
+ID: `mint_system.hr_holidays.view_hr_holidays_filter.disable_my_team`
+
 Inherit ID: `hr_holidays.view_hr_holidays_filter`
 
 ```xml
@@ -235,6 +236,5 @@ Inherit ID: `hr_holidays.view_hr_holidays_filter`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_holidays.view_hr_holidays_filter.disable_my_team.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.view_hr_holidays_filter.disable_my_team.xml)\
-Source: [snippets/mint_system.hr_holidays.view_hr_holidays_filter.disable_my_team.xml](https://odoo.build/snippets/mint_system.hr_holidays.view_hr_holidays_filter.disable_my_team.xml)
+Source: [snippets/mint_system.hr_holidays.view_hr_holidays_filter.disable_my_team.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays.view_hr_holidays_filter.disable_my_team.xml)
 
