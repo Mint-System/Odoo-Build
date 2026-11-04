@@ -3,10 +3,15 @@
 	url = git@github.com:odoo/odoo.git
 	branch = 20.0
 	shallow = true
-	commit = dd5defe77fe1dc3bb02eddaca6e90d7daf34ed3d
+	commit = 12cad5c5fbdeb22d499cf5389c194d6902a9ef76
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
 	branch = 20.0
 	shallow = true
-	commit = aef889f57dbe1b4f04ae5cc22b0cf6dd237339fa
+	commit = 87db7caa9a77df624a016b88b94df1740be5b697
+[submodule "addons/server_tools"]
+	path = addons/server_tools
+	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools
+	branch = 20.0
+	commit = 07781f883cf4d53ed8a042f6c0d6aa2b10579637
