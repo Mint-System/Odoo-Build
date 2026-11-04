@@ -1,0 +1,3 @@
+creation_rules:
+  - path_regex: ".github/secrets/.*\\.yml$"
+    age: "age17qpuxrr2w2vf7nk9wfcj0ss6tzttck7zcacapxzuwkpyxr5vgeasxvrqff"
