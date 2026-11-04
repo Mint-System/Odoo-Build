@@ -1,5 +1,5 @@
 ---
-commit_ref: 5eb578cd698df2c6973c48894fdb266e543f5bb7
+commit_ref: e8a618ef3cf01f185da940ec74ba5934a2191717
 title: "Migrate from Vuepress to Zensical"
 author: "Janik von Rotz <login@janikvonrotz.ch>"
 action: implement
