@@ -26,4 +26,4 @@ jobs:
             - name: Verify kubectl version
               run: kubectl version --client
             - name: Deploy to Kubernetes
-              run: kubectl delete pods -l app=taskfile-build -n wiki
+              run: kubectl delete pods -l app=taskfile-build -n odoo-build
