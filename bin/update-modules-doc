@@ -1,131 +1,258 @@
 #!/usr/bin/env python3
+"""Write the list of modules managed by Odoo Build to docs/modules.md and docs/modules.csv.
 
+The submodules are read from the version files `versions/<version>/.gitmodules`, so no
+checkout of a version is needed. The modules of a submodule are the directories at the
+root of the repository ref. They are read with `git ls-tree` from the local git folder or
+from a bare mirror cached in `tmp/modules-doc-cache`.
+"""
+
+import argparse
 import configparser
+import csv
 import subprocess
+from collections import defaultdict
 from itertools import groupby
 from operator import itemgetter
+from pathlib import Path
+
+# Settings
+root_path = Path(__file__).resolve().parent.parent
+versions_path = root_path / "versions"
+cache_path = root_path / "tmp" / "modules-doc-cache"
+markdown_file = root_path / "docs/modules.md"
+csv_file = root_path / "docs/modules.csv"
+
+# Submodules that are not module repositories
+ignored_paths = ["odoo", "enterprise", "themes"]
+# Directories that are never modules
+ignored_directories = ["setup", ".github"]
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description="Update the modules doc and csv file.")
+    parser.add_argument(
+        "--offline",
+        action="store_true",
+        help="Do not fetch the git folders, use the local refs only.",
+    )
+    parser.add_argument(
+        "--no-fetch",
+        action="store_true",
+        help="Do not update the cached mirrors.",
+    )
+    return parser.parse_args()
 
 
 def read_gitmodules(file_path):
+    """Return the submodule path, url, branch and commit of a .gitmodules file."""
     config = configparser.ConfigParser(allow_no_value=True, delimiters=("=", ":"))
     config.read(file_path)
-    modules = []
+    submodules = []
     for section in config.sections():
-        path = config[section].get("path", "Not found")
-        url = config[section].get("url", "Not found")
-        submodule_info = {"path": path, "url": url}
-        if path not in ["odoo", "enterprise", "themes"]:
-            modules.append(submodule_info)
+        path = config[section].get("path")
+        url = config[section].get("url")
+        if path and url and path not in ignored_paths:
+            submodules.append(
+                {
+                    "path": path,
+                    "url": url,
+                    "branch": config[section].get("branch"),
+                    "commit": config[section].get("commit"),
+                }
+            )
+    return submodules
+
+
+def list_versions():
+    """Return the versions sorted by version number."""
+    versions = [path.name for path in versions_path.glob("*") if path.is_dir()]
+    return sorted(versions, key=lambda version: [int(part) for part in version.split(".")])
+
+
+def parse_repo(url):
+    """Return the forge, organisation and repository name of a git url."""
+    if url.startswith("git@"):
+        host, path = url.split(":", 1)
+        forge = host.replace("git@", "")
+    else:
+        host, path = url.split("/", 3)[1], url.split("/", 3)[3]
+        forge = host
+    organisation, repo = path.split("/")[:2]
+    repo = repo.removesuffix(".git").lower()
+    if organisation.lower() == "mint-system":
+        organisation = "Mint-System"
+        repo = repo.removeprefix("odoo-apps-")
+    return forge, organisation, repo
+
+
+def repo_url(forge, organisation, repo):
+    if organisation == "Mint-System":
+        return f"https://{forge}/{organisation}/odoo-apps-{repo}"
+    return f"https://{forge}/{organisation}/{repo}"
+
+
+def run_git(git_path, *args):
+    """Run a git command and return the stdout lines, an empty list on error."""
+    result = subprocess.run(
+        ["git", "-C", str(git_path), *args],
+        capture_output=True,
+        text=True,
+    )
+    if result.returncode != 0:
+        return []
+    return [line for line in result.stdout.splitlines() if line]
+
+
+def local_git_path(submodule_path):
+    """Return the git folder of the submodule, if it is a git repository."""
+    git_path = root_path / submodule_path
+    if (git_path / ".git").exists():
+        return git_path
+    return None
+
+
+def mirror_git_path(forge, organisation, repo):
+    """Return the path of the cached bare mirror for a repository."""
+    return cache_path / forge / organisation / f"{repo}.git"
+
+
+def update_mirror(git_path, url):
+    """Clone or fetch the bare mirror of a repository."""
+    git_path.parent.mkdir(parents=True, exist_ok=True)
+    if git_path.exists():
+        print(f"Fetch {url}")
+        run_git(git_path, "fetch", "--prune", "origin", "+refs/heads/*:refs/heads/*")
+    else:
+        print(f"Clone {url}")
+        subprocess.run(
+            ["git", "clone", "--bare", "--quiet", url, str(git_path)],
+            capture_output=True,
+            text=True,
+        )
+
+
+def has_commit(git_path, commit):
+    """Return True if the commit exists in the repository."""
+    return bool(
+        run_git(git_path, "rev-parse", "--verify", "--quiet", f"{commit}^{{commit}}")
+    )
+
+
+def list_modules(git_path, ref):
+    """Return the module names, the directories at the root of a git ref."""
+    directories = run_git(git_path, "ls-tree", "--name-only", "-d", ref)
+    return [
+        directory
+        for directory in directories
+        if directory not in ignored_directories and not directory.startswith(".")
+    ]
+
+
+def resolve_modules(git_path, version, submodule):
+    """Return the module names of a submodule for a version.
+
+    The modules are read from the commit pinned in the .gitmodules file. If that
+    commit is not available in the git folder, the branch of the version is used.
+    """
+    commit = submodule["commit"]
+    if commit and has_commit(git_path, commit):
+        return list_modules(git_path, commit)
+    branch = submodule["branch"] or version
+    for ref in (f"refs/remotes/origin/{branch}", branch):
+        if has_commit(git_path, ref):
+            return list_modules(git_path, ref)
+    return []
+
+
+def collect_modules(args):
+    """Return the versions per forge, organisation, repository and module."""
+    modules = defaultdict(set)
+    fetched = set()
+    for version in list_versions():
+        print(f"Read version {version}")
+        for submodule in read_gitmodules(versions_path / version / ".gitmodules"):
+            forge, organisation, repo = parse_repo(submodule["url"])
+            git_path = local_git_path(submodule["path"])
+            if not git_path:
+                git_path = mirror_git_path(forge, organisation, repo)
+                if not args.offline and not args.no_fetch:
+                    update_mirror(git_path, repo_url(forge, organisation, repo))
+            elif not args.offline and git_path not in fetched:
+                run_git(git_path, "fetch", "--quiet", "origin")
+                fetched.add(git_path)
+            module_names = resolve_modules(git_path, version, submodule)
+            if not module_names:
+                print(f"Warning: no modules found for {organisation}/{repo} {version}")
+            for module in module_names:
+                modules[(forge, organisation, repo, module)].add(version)
     return modules
 
 
-# Settings
-versions = ["13.0", "14.0", "15.0", "16.0", "17.0", "18.0", "19.0"]
-output_file = "docs/modules.md"
+def sort_versions(versions):
+    return sorted(versions, key=lambda version: [int(part) for part in version.split(".")])
 
-# Define dictionary for module data
-module_info = {}
 
-# Iterate over each branch
-for version in versions:
+def write_markdown(modules):
+    """Write the module list grouped by organisation and repository."""
+    rows = []
+    for (forge, organisation, repo, module), versions in sorted(modules.items()):
+        url = repo_url(forge, organisation, repo)
+        links = " ".join(
+            f"[{version}]({url}/tree/{version}/{module})"
+            for version in sort_versions(versions)
+        )
+        rows.append(
+            {
+                "organisation": organisation,
+                "repo": repo,
+                "module": module,
+                "links": links,
+            }
+        )
 
-    # Switch to the version
-    subprocess.run(["./task", "checkout", version])
+    lines = [
+        "# Modules",
+        "",
+        "This page shows all the modules managed with Odoo Build grouped by organization and repository.",
+        "",
+    ]
+    current_organisation = None
+    for (organisation, repo), repo_rows in groupby(
+        rows, key=itemgetter("organisation", "repo")
+    ):
+        if organisation != current_organisation:
+            current_organisation = organisation
+            lines += [f"## {organisation}", ""]
+        lines += [f"### {repo}", "", " | name | links |", "|---|---|"]
+        for row in repo_rows:
+            lines.append(f"| {row['module']} |{row['links']} |")
+        lines.append("")
 
-    # Pull all submodules
-    subprocess.run(["./task", "sync-git-folder"])
+    markdown_file.parent.mkdir(parents=True, exist_ok=True)
+    markdown_file.write_text("\n".join(lines) + "\n")
+    print(f"Markdown table created in {markdown_file}")
 
-    # Get all submodules
-    submodules = read_gitmodules(".gitmodules")
 
-    # Iterate over each submodule
-    for submodule in submodules:
-
-        if submodule["url"].startswith("git@"):
-            org = submodule["url"].split(":")[1].split("/")[0]
-            repo = (
-                submodule["url"].split(":")[1].split("/")[1].replace(".git", "").lower()
+def write_csv(modules):
+    """Write the module list as csv file."""
+    csv_file.parent.mkdir(parents=True, exist_ok=True)
+    with open(csv_file, "w", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow(["forge", "organisation", "repo", "module", "versions"])
+        for (forge, organisation, repo, module), versions in sorted(modules.items()):
+            writer.writerow(
+                [forge, organisation, repo, module, ";".join(sort_versions(versions))]
             )
-        elif submodule["url"].startswith("https://"):
-            org = submodule["url"].replace("https://github.com/", "").split("/")[0]
-            repo = (
-                submodule["url"]
-                .replace("https://github.com/", "")
-                .split("/")[1]
-                .replace(".git", "")
-                .lower()
-            )
-
-        if org == "mint-system":
-            org = "Mint-System"
-        if repo.startswith("odoo-apps-"):
-            repo = repo.replace("odoo-apps-", "")
-
-        path = submodule["path"]
-
-        if not org:
-            raise ValueError(f"Org not found in {submodule['url']}")
-
-        # Get list of modules
-        try:
-            result = subprocess.run(
-                ["git", "-C", path, "ls-tree", "--name-only", "-d", version],
-                capture_output=True,
-                text=True,
-                check=True,
-            )
-            modules = result.stdout.split("\n")
-        except subprocess.CalledProcessError as e:
-            print(f"Error executing command: {e}")
-            print(f"Return code: {e.returncode}")
-            print(f"stderr: {e.stderr}")
-            modules = []
-
-        # Cleanup list
-        modules = list(filter(None, modules))
-        modules = list(filter(lambda x: x not in ["setup", ".github"], modules))
-
-        # Add module data to the dictionary
-        for module in modules:
-            module_key = f"{org}|{repo}|{module}"
-
-            if org == "Mint-System":
-                url = f"https://github.com/{org}/odoo-apps-{repo}"
-            else:
-                url = f"https://github.com/{org}/{repo}"
-            branch_link = f" [{version}]({url}/tree/{version}/{module})"
-
-            if module_key in module_info:
-                module_info[module_key] += branch_link
-            else:
-                module_info[module_key] = branch_link
+    print(f"CSV file created in {csv_file}")
 
 
-# Sort module data by key
-module_info = dict(sorted(module_info.items()))
+def main():
+    args = parse_args()
+    modules = collect_modules(args)
+    write_markdown(modules)
+    write_csv(modules)
 
-# Process module data
-module_data = []
-for key, value in module_info.items():
-    org, repo, name = key.split("|")
-    module_data.append({"org": org, "repo": repo, "name": name, "link": value})
 
-with open(output_file, "w") as f:
-    f.write("# Modules\n\n")
-    f.write(
-        "This page shows all the modules managed with Odoo Build grouped by organization and repository.\n\n"
-    )
-
-    for org, repos in groupby(module_data, key=itemgetter("org")):
-        f.write(f"## {org}\n\n")
-
-        for repo, modules in groupby(repos, key=itemgetter("repo")):
-            f.write(f"### {repo}\n\n")
-            f.write(" | name | links |\n")
-            f.write("|---|---|\n")
-
-            for module in modules:
-                f.write(f"| {module['name']} |{module['link']} |\n")
-            f.write("\n")
-
-print(f"Markdown table created in {output_file}")
+if __name__ == "__main__":
+    main()
