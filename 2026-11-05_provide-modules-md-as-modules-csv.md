@@ -1,5 +1,5 @@
 ---
-commit_ref: 6c5e6678e012c1ee21b53c1f8b5319023526f0cf
+commit_ref: 486b26433ed9bbdaacf70728626bf8a7c67182f4
 title: "Provide modules.md as modules.csv"
 author: "Janik von Rotz <login@janikvonrotz.ch>"
 action: implement
