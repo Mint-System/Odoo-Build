@@ -51,7 +51,7 @@ RUN uv pip install --no-cache-dir /opt/odoo -r /opt/odoo/requirements.txt
 # - venv permissions: applied here so the final stage does not copy up the venv
 RUN set -eux; \
     rm -rf /opt/odoo/build /opt/odoo/odoo.egg-info; \
-    find /opt/odoo -type d \( -name build -o -name egg-info \) -prune -exec rm -rf {} +; \
+    find /opt/odoo -type d -name egg-info -prune -exec rm -rf {} +; \
     find /opt/odoo -type f \( -name "*.pot" -o -name "*.md" -o -name "*.rst" \) -delete; \
     site_packages="$(/opt/odoo/venv/bin/python -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')"; \
     rm -rf "$site_packages/odoo" "$site_packages/addons"; \
