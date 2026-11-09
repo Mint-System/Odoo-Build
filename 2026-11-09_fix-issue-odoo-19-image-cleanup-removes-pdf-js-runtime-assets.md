@@ -3,7 +3,7 @@ commit_ref:
 title: "Fix Issue: Odoo 19 image cleanup removes PDF.js runtime assets"
 author: "Janik von Rotz <login@janikvonrotz.ch>"
 action: implement
-state: draft
+state: cancelled
 date_completed: YYYY-MM-DD
 harness:
 provider:
