@@ -1,0 +1,6 @@
+<data priority="50">
+    <!-- Replaces mint_system.base.view_partner_tree.x_eori.xml -->
+    <field name="display_name" position="after">
+        <field name="x_eori"/>
+    </field>
+</data>
