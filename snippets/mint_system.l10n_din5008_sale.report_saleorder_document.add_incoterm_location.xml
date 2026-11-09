@@ -1,0 +1,9 @@
+<data priority="50">
+    <xpath expr="//div[@t-field='doc.incoterm.code']" position="replace">
+        <div t-if="doc.incoterm_location">
+            <span t-field="doc.incoterm.code"/>
+            <span t-field="doc.incoterm_location"/>
+        </div>
+        <div t-else="" t-field="doc.incoterm.code"/>
+    </xpath>
+</data>
