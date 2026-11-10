@@ -70,7 +70,6 @@ help-table() {
     rows+=("checkout-latest-revision|[version]|Checkout latest revision of Odoo version.")
     rows+=("checkout-revision|[revision]|Load revision env var and checkout folders.")
     rows+=("commit-and-push-revision|[revision]|Commit changes and tag with revision.")
-
     rows+=("create-revision|<revision>|Create new Odoo revision.")
     rows+=("list-revision||List available Odoo revisions.")
     rows+=("load-latest-revision|[version]|Load the latest revision of the Odoo version.")
