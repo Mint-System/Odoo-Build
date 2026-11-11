@@ -1,57 +1,31 @@
-# Build
-
-__pycache__
-*.pyc
-.venv*
-node_modules
-site
-.vercel
-.temp
-.cache
-dist
-
-# File management
-
-.DS_Store
-
-# IDEs
-
-default.vim
-.vscode
-.idea
-*.swp
-
-# Odoo
-
-*.log
-upgrade-report.html
-origin.dump
-upgraded.dump
-.env*
-!.env.template
+# Taskfile
 tmp
-odoo.conf
+prompt.md
+.env
 
-# Container
+# Python
+.venv
+__pycache__
 
-compose.yml
+# pnpm
+node_modules
+pnpm-workspace.yaml
 
 # Obsidian
-
-.obsidian/appearance.json
-.obsidian/graph.json
 .obsidian/workspace.json
 
-# taskfile
+# Jupyter
+.ipynb_checkpoints
 
+# Zensical
+.venv
+site
+
+# Project
 .gitmodules
 .gitmodules.csv
 .python-version
 !versions
-vault
-
-# Submodules
-
 addons
 odoo
 !images/odoo
@@ -61,8 +35,9 @@ thirdparty/*
 !thirdparty/.gitkeep
 themes
 upgrade-util
-odoo-build-vault
-
-# Jupyter Notebooks
-
-.ipynb_checkpoints
+*.log
+upgrade-report.html
+origin.dump
+upgraded.dump
+odoo.conf
+compose.yml
