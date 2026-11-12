@@ -25,6 +25,7 @@ All notable changes to this project will be documented in this file. The format 
 
 - `download-odoo-enterprise` no longer exits silently over SSH when `GIT_SSH_CONFIG` is not set.
 - `clone-git-addons` and `download-odoo-enterprise` now pass the config, `known_hosts` and key from `$HOME/.ssh` to git, as `ssh` reads them from the passwd home instead, which ignored `GIT_SSH_CONFIG`.
+- `install-python-packages` no longer aborts the entrypoint when the PyPI reachability check fails (e.g. on a timeout); the warning is logged and the script continues.
 
 ## 2026-05-20
 
