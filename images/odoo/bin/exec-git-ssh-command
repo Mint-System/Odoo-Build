@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -e
+
+key_filename="${SSH_ID_ALGORITHM:=id_ed25519}"
+git_ssh_command="${GIT_SSH_COMMAND:=ssh} -o UserKnownHostsFile=$HOME/.ssh/known_hosts"
+
+if [[ -f "$HOME/.ssh/config" ]]; then
+    git_ssh_command="$git_ssh_command -F $HOME/.ssh/config"
+fi
+
+if [[ -f "$HOME/.ssh/$key_filename" ]]; then
+    git_ssh_command="$git_ssh_command -i $HOME/.ssh/$key_filename"
+fi
+
+echo "$git_ssh_command"

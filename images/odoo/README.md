@@ -33,12 +33,12 @@ The Mint System Odoo image runs with a very basic configuration, but can also be
 
 Supported tags:
 
-- [`20.0.20261015`](https://hub.docker.com/layers/mintsystem/odoo/19.0.20261015), [`20.0`](https://hub.docker.com/layers/mintsystem/odoo/20.0)
-- [`19.0.20261015`](https://hub.docker.com/layers/mintsystem/odoo/19.0.20261015), [`19.0`](https://hub.docker.com/layers/mintsystem/odoo/19.0)
-- [`18.0.20261015`](https://hub.docker.com/layers/mintsystem/odoo/18.0.20261015), [`18.0`](https://hub.docker.com/layers/mintsystem/odoo/18.0)
-- [`17.0.20261015`](https://hub.docker.com/layers/mintsystem/odoo/17.0.20261015), [`17.0`](https://hub.docker.com/layers/mintsystem/odoo/17.0)
-- [`16.0.20261015`](https://hub.docker.com/layers/mintsystem/odoo/16.0.20261015), [`16.0`](https://hub.docker.com/layers/mintsystem/odoo/16.0)
-- [`15.0.20261015`](https://hub.docker.com/layers/mintsystem/odoo/15.0.20261015), [`15.0`](https://hub.docker.com/layers/mintsystem/odoo/15.0)
+- [`20.0.20261102`](https://hub.docker.com/layers/mintsystem/odoo/19.0.20261102), [`20.0`](https://hub.docker.com/layers/mintsystem/odoo/20.0)
+- [`19.0.20261102`](https://hub.docker.com/layers/mintsystem/odoo/19.0.20261102), [`19.0`](https://hub.docker.com/layers/mintsystem/odoo/19.0)
+- [`18.0.20261102`](https://hub.docker.com/layers/mintsystem/odoo/18.0.20261102), [`18.0`](https://hub.docker.com/layers/mintsystem/odoo/18.0)
+- [`17.0.20261102`](https://hub.docker.com/layers/mintsystem/odoo/17.0.20261102), [`17.0`](https://hub.docker.com/layers/mintsystem/odoo/17.0)
+- [`16.0.20261102`](https://hub.docker.com/layers/mintsystem/odoo/16.0.20261102), [`16.0`](https://hub.docker.com/layers/mintsystem/odoo/16.0)
+- [`15.0.20261102`](https://hub.docker.com/layers/mintsystem/odoo/15.0.20261102), [`15.0`](https://hub.docker.com/layers/mintsystem/odoo/15.0)
 
 ### Minimal
 
@@ -602,6 +602,7 @@ Under the hood the image uses several scripts to manage Odoo. Make yourself fami
 - [`config`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/config)
 - [`download-odoo-enterprise`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/download-odoo-enterprise)
 - [`download-odoo-openupgrade`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/download-odoo-openupgrade)
+- [`exec-git-ssh-command`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/exec-git-ssh-command)
 - [`get-addons-path`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/get-addons-path)
 - [`init-db`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-db)
 - [`init-module`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-module)

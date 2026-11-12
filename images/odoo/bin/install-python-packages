@@ -2,7 +2,7 @@
 set -e
 
 log-entrypoint 'Check status of PyPi.'
-http_pypi_ok=$(curl -s --head --request GET https://pypi.org/simple/ --connect-timeout 5 --max-time 10 | grep 'HTTP/2 200')
+http_pypi_ok=$(curl -s --head --request GET https://pypi.org/simple/ --connect-timeout 5 --max-time 10 | grep 'HTTP/2 200') || true
 
 if [[ -z "$http_pypi_ok" ]]; then
     log-entrypoint 'PyPI is unreachable. Installing from local cache or private repos may still work.'

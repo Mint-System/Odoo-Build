@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Usage: https://taskfile.build/usage/
 set -e
 
 if [[ -f ".env" ]]; then
@@ -43,6 +44,7 @@ help-table() {
             "$max_desc" "$desc"
     done
 }
+
 help() {
     local grep_pattern
     echo
@@ -167,7 +169,7 @@ docs() {
         local module_dir=$(dirname "$manifest_file")
         local module_name=$(basename "$module_dir")
         echo "Add summary of $module_name to readme file."
-        local summary=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_file').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
+        local summary=$(grep 'summary' "$manifest_file" -A 1 | tail -1)
         echo "| [$module_name]($module_name) | $summary |" >> 'README.md'
     done
 }

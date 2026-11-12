@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Usage: https://taskfile.build/usage/
 set -e
 
 if [[ -f ".env" ]]; then
@@ -70,7 +71,6 @@ help-table() {
     rows+=("checkout-latest-revision|[version]|Checkout latest revision of Odoo version.")
     rows+=("checkout-revision|[revision]|Load revision env var and checkout folders.")
     rows+=("commit-and-push-revision|[revision]|Commit changes and tag with revision.")
-
     rows+=("create-revision|<revision>|Create new Odoo revision.")
     rows+=("list-revision||List available Odoo revisions.")
     rows+=("load-latest-revision|[version]|Load the latest revision of the Odoo version.")
@@ -392,11 +392,25 @@ init-venv() {
 }
 
 activate-venv() {
-    if [[ -f  ".venv$ODOO_VERSION/bin/activate" ]]; then
-        source ".venv$ODOO_VERSION/bin/activate"
-    else
-        echo "Could not find .venv$ODOO_VERSION/bin/active. Use init-venv to initalize."
+    local uv_venv=".venv$ODOO_VERSION"
+    # `-e` follows the interpreter symlink, so a dangling link recreates the venv.
+    if [[ -f "$uv_venv/bin/activate" && -e "$uv_venv/bin/python" ]]; then
+        # shellcheck source=/dev/null
+        source "$uv_venv/bin/activate"
+        return 0
     fi
+
+    if ! command -v uv &> /dev/null; then
+        # uv not available (e.g. early CI step before setup-uv), skip silently
+        return 0
+    fi
+
+    echo "Could not find valid $uv_venv"
+    echo "Init venv with $(uv --version)"
+    rm -rf "$uv_venv"
+    uv venv "$uv_venv"
+    # shellcheck source=/dev/null
+    source "$uv_venv/bin/activate"
 }
 
 get-addons-path() {
