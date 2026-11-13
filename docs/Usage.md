@@ -1,4 +1,4 @@
-# Development
+# Usage
 
 ## Create a new module from source
 

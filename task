@@ -555,9 +555,9 @@ link-docs-files() {
         create-symlink "../../../$file" "docs/images/$image/changelog.md"
     done
 
-    if [[ ! -f docs/Development.md ]]; then
-        echo 'Create development doc placeholder.'
-        printf '# Development\n\nSee the [README](../README.md) for details.\n' > docs/Development.md
+    if [[ ! -f docs/Usage.md ]]; then
+        echo 'Create usage doc placeholder.'
+        printf '# Usage\n\nSee the [README](../README.md) for details.\n' > docs/Usage.md
     fi
 
     if [[ ! -f docs/modules.md ]]; then

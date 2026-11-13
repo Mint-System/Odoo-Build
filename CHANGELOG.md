@@ -4,8 +4,13 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Unreleased
 
+### Added
+
+- Added `Guides` docs section with guides for developing and migrating Mint System and OCA modules.
+
 ### Changed
 
+- Renamed `docs/Development.md` to `docs/Usage.md` and moved the nav entry after `Home`.
 - Replaced `pgadmin4` container with `mailgate` in Docker Compose setup.
 - Removed `pgadmin4` service and related configuration from `compose.yml.template`.
 - Removed `servers.json` configuration file.

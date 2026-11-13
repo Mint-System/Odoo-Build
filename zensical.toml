@@ -15,6 +15,14 @@ site_dir = "site"
 
 nav = [
   { "Home" = "index.md" },
+  { "Usage" = "Usage.md" },
+  { "Guides" = [
+    { "Guides" = "Guides.md" },
+    { "Develop a Mint System module" = "develop-mint-system-module.md" },
+    { "Migrate a Mint System module" = "migrate-mint-system-module.md" },
+    { "Develop an OCA module" = "develop-oca-module.md" },
+    { "Migrate an OCA module" = "migrate-oca-module.md" },
+  ]},
   { "Images" = "images/" },
   { "Snippets" = "snippets.md",
     children = [
@@ -120,7 +128,6 @@ nav = [
   },
   { "Revisions" = "revisions.md" },
   { "Modules" = "modules/" },
-  { "Development" = "Development/" },
   { "Mint System GmbH" = "https://www.mint-system.ch/" },
 ]
 
