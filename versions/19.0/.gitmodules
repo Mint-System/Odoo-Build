@@ -154,4 +154,9 @@
 	path = addons/account_financial_reporting
 	url = git@github.com:Mint-System/Odoo-Apps-account_financial_reporting
 	branch = 19.0
+	commit = 076bab3af21f95107da53dbece3ce39e1412ad2c
+[submodule "addons/hr/"]
+	path = addons/hr/
+	url = git@github.com:Mint-System/Odoo-Apps-hr
+	branch = 19.0
 	commit = HEAD
