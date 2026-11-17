@@ -1,0 +1,5 @@
+<data priority="50">
+    <t t-set="subtype_internal" position="after">
+        <t t-set="has_button_access" t-value="False"/>
+    </t>
+</data>
