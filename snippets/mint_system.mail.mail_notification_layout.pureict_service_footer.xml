@@ -1,0 +1,17 @@
+<data>
+    <xpath expr="//p[@style='color: #999999; margin-top:2px; font-size:11px;' and t[@t-out='company.phone']]" position="replace">
+        <p t-if="not (message.model or '').startswith('helpdesk.')" style="color: #999999; margin-top:2px; font-size:11px;">
+            <t t-out="company.phone"/>
+            <t t-if="company.email and company.phone"> |</t>
+            <a t-if="company.email" t-att-href="'mailto:%s' % company.email" style="text-decoration:none; color: #999999;" t-out="company.email"/>
+            <t t-if="company.website and (company.phone or company.email)"> |</t>
+            <a t-if="company.website" t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;" t-out="company.website"/>
+        </p>
+        <p t-else="" style="color: #999999; margin-top:2px; font-size:11px;">
+            Supportnummer +41 41 556 67 89 |
+            <a t-if="record.team_id.alias_email" t-att-href="'mailto:%s' % record.team_id.alias_email" style="text-decoration:none; color: #999999;" t-out="record.team_id.alias_email"/>
+            <t t-if="record.team_id.alias_email and company.website"> |</t>
+            <a t-if="company.website" t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;" t-out="company.website"/>
+        </p>
+    </xpath>
+</data>

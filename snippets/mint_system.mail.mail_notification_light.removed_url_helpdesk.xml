@@ -1,0 +1,5 @@
+<xpath expr="//td[@valign='middle']/t[@t-if='has_button_access']" position="attributes">
+    <attribute name="t-if">
+        has_button_access and not (message.model or '').startswith('helpdesk.')
+    </attribute>
+</xpath>
