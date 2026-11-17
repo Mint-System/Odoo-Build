@@ -202,7 +202,24 @@ When developing Odoom modules refer to the [Odoo Coding Guidelines](https://www.
 
 **XML ID naming:** Views use `<model_name>_view_<view_type>` (kanban, form, list, search…). The main action for a model is `<model_name>_action`; secondary actions get a `_<detail>` suffix. Groups use `<module_name>_group_<group_name>`, and rules use `<model_name>_rule_<concerned_group>`.
 
-**Inherited views:** Suffix the `name` field with `.inherit.<details>` so the override's purpose is clear at a glance; new primary views don't need this suffix.
+**View `name` field:** Always set the `name` field to `<module_name>.<xml_id>` of the view record. Do not use the dot naming pattern of the model (`hr.attendance.form.inherit.<details>`, `hr.attendance.overtime.line.list.<details>`).
+
+Inherited view:
+
+```xml
+<record id="hr_attendance_view_form" model="ir.ui.view">
+    <field name="name">hr_holidays_attendance_overtime.hr_attendance_view_form</field>
+    <field name="model">hr.attendance</field>
+    <field name="inherit_id" ref="hr_attendance.hr_attendance_view_form" />
+```
+
+Primary view:
+
+```xml
+<record id="hr_attendance_overtime_line_view_list" model="ir.ui.view">
+    <field name="name">hr_holidays_attendance_overtime.hr_attendance_overtime_line_view_list</field>
+    <field name="model">hr.attendance.overtime.line</field>
+```
 
 #### Python
 
