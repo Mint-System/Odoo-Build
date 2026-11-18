@@ -39,6 +39,7 @@ All notable changes to this project will be documented in this file. The format 
 - Replaced PostgreSQL connection URI strings in `images/odoo/bin/` scripts with environment variable-based connections to avoid parsing issues with special characters.
 - Updated `docker exec` command in `images/odoo/README.md` from `conf` to `config`.
 - Removed `2>/dev/null` suppression from `init-db` script to surface connection errors in logs.
+- Kept `*.pot` files in the `odoo` image, so `PoFileReader` can repair outdated translation comments and stale `.po` entries no longer crash the registry on `click-odoo-update` and `/web/webclient/translations`.
 
 ### Removed
 

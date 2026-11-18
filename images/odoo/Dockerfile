@@ -46,13 +46,15 @@ RUN uv pip install --no-cache-dir /opt/odoo -r /opt/odoo/requirements.txt
 
 # Clean up unnecessary files to reduce image size
 # - build/ + egg-info: leftovers of the wheel build
-# - .pot/.md/.rst: not needed at runtime
+# - .md/.rst: not needed at runtime
+# - .pot: kept, PoFileReader merges them into the .po files to repair outdated
+#   translation comments; without them stale entries crash the registry
 # - site-packages/{odoo,addons}: duplicate of /opt/odoo, shadowed by PYTHONPATH
 # - venv permissions: applied here so the final stage does not copy up the venv
 RUN set -eux; \
     rm -rf /opt/odoo/build /opt/odoo/odoo.egg-info; \
     find /opt/odoo -type d -name egg-info -prune -exec rm -rf {} +; \
-    find /opt/odoo -type f \( -name "*.pot" -o -name "*.md" -o -name "*.rst" \) -delete; \
+    find /opt/odoo -type f \( -name "*.md" -o -name "*.rst" \) -delete; \
     site_packages="$(/opt/odoo/venv/bin/python -c 'import sysconfig; print(sysconfig.get_paths()["purelib"])')"; \
     rm -rf "$site_packages/odoo" "$site_packages/addons"; \
     chgrp -R 0 /opt/odoo/venv; \
