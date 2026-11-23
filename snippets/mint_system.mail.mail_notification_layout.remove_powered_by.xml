@@ -1,0 +1,3 @@
+<data>
+    <xpath expr="//div[span[@id='mail_unfollow']]" position="replace"/>
+</data>
