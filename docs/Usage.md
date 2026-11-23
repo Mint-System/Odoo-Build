@@ -1,4 +1,7 @@
-# Usage
+Usage
+===
+
+How to use the Odoo Build project.
 
 ## Create a new module from source
 
@@ -44,7 +47,7 @@ In your `.env` file set this env var:
 WITHOUT_DEMO=True
 ```
 
-## Set Odoo database name
+## Pint Odoo database name
 
 The default database name is the checked out Odoo version.
 
@@ -78,16 +81,6 @@ To change the log level of Odoo set this env var in your `.env` file:
 LOG_LEVEL=debug
 ```
 
-## Manage database with container
-
-Start pgadmin.
-
-```bash
-task pgadmin
-```
-
-Open pgadmin [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
-
 ## Stop all containers
 
 Without service name the stop commands stops all containers.
@@ -112,28 +105,12 @@ To drop the default database run:
 task drop-db
 ```
 
-## Define Postgres image version
+## Pin Postgres image version
 
 Define the Postgres image in your `.env` file:
 
 ```bash
 POSTGRES_IMAGE=postgres:16-alpine
-```
-
-## Build and publish container image
-
-Ensure the host machine can build [multi-platform images](https://docs.docker.com/desktop/features/containerd/#build-multi-platform-images).
-
-Checkout latest revision of the Odoo version.
-
-```bash
-task checkout-latest-revision
-```
-
-Build and publish the Odoo image.
-
-```bash
-task build images/odoo --push
 ```
 
 ## Setup mail catcher
@@ -145,14 +122,6 @@ task start mailpit
 ```
 
 When you send mails in Odoo they will be catched and shown on <http://localhost:8025/>.
-
-## Source env file
-
-Assuming the name of the environment is `test`, you source env vars like this:
-
-```bash
-eval "$(task show-env test)"
-```
 
 ## Forward mails with Odoo Mailgate
 
@@ -196,83 +165,6 @@ swaks --to info@yourcompany.com --from sender@example.com \
   --body "This is a test email for the Odoo mailgate system." \
   --header "Subject: Test Email for Odoo"
 ```
-
-## Create Odoo revision
-
-Check the latest official Odoo image tag on <https://hub.docker.com/_/odoo/tags>.
-
-Replace the `-` with a `.` in the tag name and create a revision:
-
-```bash
-task create-revision "$VERSION.YYYYDDMM"
-```
-
-Replace all image references in the docs.
-
-Commit and push revision with tag:
-
-```bash
-task commit-and-push-revision
-```
-
-## Update repo template from oca-addons-repo-template
-
-Run copier to copy the OCA template fiels
-
-```bash
-source task source
-copier copy --UNSAFE https://github.com/OCA/oca-addons-repo-template.git "templates/$VERSION"
-```
-
-Answer with:
-
-- `$VERSION`
-- `Mint-System`
-- `Mint System GmbH`
-- `server-tools`
-- `Enter` for all remaining questions.
-
-Remove unnecessary linter files.
-
-```bash
-cd "templates/$VERSION"
-rm .copier-answers.yml
-rm .pylintrc-mandatory
-rm README.md
-```
-
-Restore the folder `templates/$VERSION/.github` and update `templates/$VERSION/.gitignore` with:
-
-```txt
-# Odoo Build
-tmp
-```
-
-In `.pre-commit-config.yaml` remove mandatory pylint odoo:
-
-```yaml
-  - id: pylint_odoo
-    args:
-      - --rcfile=.pylintrc-mandatory
-```
-
-And set `https://www.mint-system.ch/` as args for the mainainter-tools.
-
-In the `.ruff.toml` set this option at the top:
-
-```toml
-line-length = 120
-```
-
-Template the server tools repo and run the linter:
-
-```bash
-task template-repo addons/server_tools
-cd addons/server_tools
-task all
-```
-
-Refine the templates based on the linter results.
 
 ## Debug Odoo with VSCode
 

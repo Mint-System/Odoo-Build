@@ -54,7 +54,7 @@ repos:
           - --addons-dir=.
           - --branch=18.0
           - --org-name=Mint-system
-          - --repo-name=
+          - --repo-name=template
           - --if-source-changed
           - --keep-source-digest
           - --convert-fragments-to-markdown

@@ -1386,6 +1386,7 @@ generate-repo-docs(){
     rm -f "$repo_path/.flake8"
     rm -f "$repo_path/.isort.cfg"
     rm -f "$repo_path/.pylintrc-mandatory"
+    rm -f "$repo_path/checklog-odoo.cfg"
 }
 
 update-manifest-data() {

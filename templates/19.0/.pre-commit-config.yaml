@@ -54,7 +54,7 @@ repos:
           - --addons-dir=.
           - --branch=19.0
           - --org-name=Mint-System
-          - --repo-name=server-tools
+          - --repo-name=template
           - --if-source-changed
           - --keep-source-digest
           - --convert-fragments-to-markdown
