@@ -55,11 +55,11 @@ copier copy --UNSAFE https://github.com/OCA/oca-addons-repo-template.git "templa
 
 Answer with:
 
-- `$VERSION`
-- `Mint-System`
-- `Mint System GmbH`
-- `server-tools`
-- `Enter` for all remaining questions.
+- Version: `$VERSION`
+- Organisation slug: `Mint-System`
+- Organisation name: `Mint System GmbH`
+- Repo slug: `template`
+- Accepts default for all remaining questions.
 
 Remove unnecessary linter files.
 
@@ -87,18 +87,12 @@ tmp
 prompt.md
 ```
 
-In `.pre-commit-config.yaml` remove `pylint_odoo` rule:
+In `.pre-commit-config.yaml` remove the mandatory `pylint_odoo` rule:
 
 ```yaml
   - id: pylint_odoo
     args:
       - --rcfile=.pylintrc-mandatory
-```
-
-And for `oca-gen-addon-readme` set this arg:
-
-```yaml
-- --repo-name=template
 ```
 
 Then set `https://www.mint-system.ch/` as arg for `oca-fix-manifest-website`.
