@@ -36,6 +36,11 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Fixed
 
+- Fixed `versions/19.0/.gitmodules` pointing `addons/account_financial_reporting` at the non-existent repo `Mint-System/Odoo-Apps-account_financial_reporting`; it now uses `Mint-System/Odoo-Apps-Account-Financial-Reporting.git` like the other versions.
+- Renamed the `addons/hr/` submodule key and path to `addons/hr` (trailing slash prevented `git config --get` lookups) and replaced its `commit = HEAD` placeholder with the actual hash.
+- Fixed `checkout` command leaving git folders on a branch tip instead of the pinned revision: the version branch is now switched before the commit checkout, and `checkout-git-folder` moves the local branch onto the checked out commit instead of detaching `HEAD`.
+- Fixed `switch-git-folder` failing for all non-shallow git folders: a missing local branch is now fetched and created as a tracking branch, and single-branch shallow clone refspecs are normalized.
+- `switch-git-folder` now logs the git command it runs per folder, so failures name the failing step.
 - Replaced PostgreSQL connection URI strings in `images/odoo/bin/` scripts with environment variable-based connections to avoid parsing issues with special characters.
 - Updated `docker exec` command in `images/odoo/README.md` from `conf` to `config`.
 - Removed `2>/dev/null` suppression from `init-db` script to surface connection errors in logs.

@@ -152,11 +152,11 @@
 	commit = 46ddb258c5961999b8cbf7217bcc5e9fdb997d48
 [submodule "addons/account_financial_reporting"]
 	path = addons/account_financial_reporting
-	url = git@github.com:Mint-System/Odoo-Apps-account_financial_reporting
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
 	branch = 19.0
 	commit = 076bab3af21f95107da53dbece3ce39e1412ad2c
-[submodule "addons/hr/"]
-	path = addons/hr/
-	url = git@github.com:Mint-System/Odoo-Apps-hr
+[submodule "addons/hr"]
+	path = addons/hr
+	url = git@github.com:Mint-System/Odoo-Apps-HR.git
 	branch = 19.0
-	commit = HEAD
+	commit = e511b204b3fd5f74ea3a5d9be575232aee01acae
