@@ -356,11 +356,11 @@ checkout() {
     echo "Clone git folders"
     clone-git-folder .
 
-    echo "Checkout selected commit in git folders"
-    checkout-git-folder "$ODOO_VERSION" .
+    # Attach the version branch first, so the pinned commit below is placed on that branch.
+    switch-git-folder "$ODOO_VERSION" . || log-warning 'Some git folders could not be switched.'
 
-    echo "Checkout Odoo version branch in git folders"
-    switch-git-folder "$ODOO_VERSION" .
+    echo "Checkout selected commit in git folders"
+    checkout-git-folder "$ODOO_VERSION" . || log-warning 'Some git folders could not be checked out.'
 
     # List git folders
     list-git-folder .
