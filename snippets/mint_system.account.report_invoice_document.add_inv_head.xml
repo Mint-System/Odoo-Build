@@ -1,0 +1,7 @@
+<data priority="50">
+    <xpath expr="//h2" position="after">
+        <h4 t-if="o.inv_head_add">
+            <span t-field="o.inv_head_add"/>
+        </h4>
+    </xpath>
+</data>
