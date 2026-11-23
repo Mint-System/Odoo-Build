@@ -560,6 +560,7 @@ test-odoo-version-regex() {
         # 1.1 Match
         # 2.5 Match
         # 2.0.0 Match
+        # 20.0.1.0 No match
         # 13.0.1.0.0 No match
         # 14.0.2.1.1 No match
         # 13.0.1.0.0 No match
@@ -576,7 +577,7 @@ test-odoo-version-regex() {
           sed -E 's/.+[\"'\'']version[\"'\'']:.[\"'\'']([0-9].+)[\"'\''].+/\1/g' |
           sort -u)
 
-        ODOO_VERSION="19.0"
+        ODOO_VERSION="20.0"
         for version in $versions; do
             echo -n "Check version $version: "
             # 1. regex: version.[0-9]\.[0-9]$
