@@ -2,15 +2,15 @@
 commit_ref:
 title: "Update repo templates for addons git folders"
 author: "Janik von Rotz <login@janikvonrotz.ch>"
-session_id:
+session_id: 01a20f72-b054-774e-a741-28aa9d6108af
 action: execute
-state: draft
+state: wip
 date_completed: YYYY-MM-DD
-harness:
-provider:
-model:
-input_tokens:
-output_tokens:
+harness: pi
+provider: deepseek
+model: deepseek-v4-1-flash-1017
+input_tokens: 50561
+output_tokens: 19567
 ---
 
 # Update repo templates for addons git folders
@@ -217,6 +217,43 @@ Ask for review for the first execution. Then when confirmed proceed with the rem
 Then ask for confirmation again and it looks good. Proceed with all repos of the next version.
 
 ## Worklog
+
+### 15.0 (done)
+
+All 16 addons repos processed and pushed.
+
+- `server_tools` skipped: identical change already on origin as `1e75292` (author had done it). Staged changes were verified byte-identical against `git diff HEAD origin/15.0`.
+- `vertical_forestry`, `website`, `account_financial_reporting`: no `.editorconfig` staged because the existing file was already identical to `templates/15.0/.editorconfig`.
+- Repos pulled afterwards with `task pull-git-folder 15.0 addons` (16/16 fast-forward), then `save-version` pinned the new refs in `versions/15.0/.gitmodules` (commit `11c854bc`).
+
+Pushed commits (`feat(docs): update repo templates`):
+
+| repo | old → new |
+|---|---|
+| manufacture | `399d52c..34fd8f7` |
+| vertical_forestry | `7a0b609..14172c1` |
+| hr | `e128f99..5cf9757` |
+| stock_logistics_workflow | `09af233..db2a12c` |
+| purchase_workflow | `4ef4b9e..f4fe00f` |
+| server_tools | `0b6dbdc..1e75292` (pre-existing) |
+| project | `169d621..fe13a93` |
+| sale_workflow | `4cc280d..780be71` |
+| account_invoicing | `f5e0f89..cc30bf3` |
+| social | `352c838..a2f1243` |
+| website | `860e4d4..1227e26` |
+| partner_contact | `d990564..f468858` |
+| contract | `94de22a..b23419a` |
+| vertical_saas | `19cb19d..a08487a` |
+| product_attribute | `c5b87ad..fb71003` |
+| account_financial_reporting | `cdc1fb8..06003bf` |
+
+### 16.0 – 20.0 (open)
+
+Not started. `task checkout X` replaces `.gitmodules` but does **not** switch the existing repo folders off their current branch, so `task docs` would regenerate the previous version's docs. Open questions for the author:
+
+1. Which command moves the repos to the next version (`switch-git-folder`)?
+2. `versions/16.0/.gitmodules` points `addons/vertical_saas` at `Odoo-Apps-Vertical-SaaS`, the 15.0 list showed `Odoo-Apps-SaaS` – confirm which is correct.
+3. Repo sets differ per version (`connector`, `account_reconcile`, `spreadsheet`, `management_system`, `tender`, `kubernetes`, `data_analytic` appear only in later versions) – should the set be derived from `versions/X.0/.gitmodules` each time?
 
 @Clanker Add a summary here once the task has been completed.
 
