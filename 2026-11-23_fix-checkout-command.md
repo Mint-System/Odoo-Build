@@ -1,5 +1,5 @@
 ---
-commit_ref: a5b725c81a648713e8060f0086e3cb8dde43a86a
+commit_ref: fe10bbe0bea259584827d9adf2f9c24c76f46b82
 title: "Fix checkout command"
 author: "Janik von Rotz <login@janikvonrotz.ch>"
 session_id: 01a2081f-3010-7195-87ec-85db205bd95c
