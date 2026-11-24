@@ -210,9 +210,11 @@ The GitHub action will most likely fail. That is not your concern.
 
 ### Execute
 
-Do not try to shortcut this process. Really walkt throught every repo and version.
+Do not try to shortcut this process. Really walk through every repo and version.
 
-Ask for review for the first execution. Then when confirmed proceed with the remaining.
+Ask for review for the first execution. Then when confirmed proceed with the remaining repos for 15.0 version.
+
+Then ask for confirmation again and it looks good. Proceed with all repos of the next version.
 
 ## Worklog
 
