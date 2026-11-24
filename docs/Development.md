@@ -85,6 +85,7 @@ Extend the `templates/$VERSION/.gitignore` with:
 # Odoo Build
 tmp
 prompt.md
+
 ```
 
 In `.pre-commit-config.yaml` remove the mandatory `pylint_odoo` rule:
