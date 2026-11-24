@@ -318,6 +318,33 @@ Inherit ID: `mail.mail_notification_layout`
 ```
 Source: [snippets/mint_system.mail.mail_notification_layout.force_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.force_footer.xml)
 
+### Pureict Service Footer
+
+ID: `mint_system.mail.mail_notification_layout.pureict_service_footer`
+
+Inherit ID: `mail.mail_notification_layout`
+
+```xml
+<data>
+    <xpath expr="//p[@style='color: #999999; margin-top:2px; font-size:11px;' and t[@t-out='company.phone']]" position="replace">
+        <p t-if="not (message.model or '').startswith('helpdesk.')" style="color: #999999; margin-top:2px; font-size:11px;">
+            <t t-out="company.phone"/>
+            <t t-if="company.email and company.phone"> |</t>
+            <a t-if="company.email" t-att-href="'mailto:%s' % company.email" style="text-decoration:none; color: #999999;" t-out="company.email"/>
+            <t t-if="company.website and (company.phone or company.email)"> |</t>
+            <a t-if="company.website" t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;" t-out="company.website"/>
+        </p>
+        <p t-else="" style="color: #999999; margin-top:2px; font-size:11px;">
+            Supportnummer +41 41 556 67 89 |
+            <a t-if="record.team_id.alias_email" t-att-href="'mailto:%s' % record.team_id.alias_email" style="text-decoration:none; color: #999999;" t-out="record.team_id.alias_email"/>
+            <t t-if="record.team_id.alias_email and company.website"> |</t>
+            <a t-if="company.website" t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;" t-out="company.website"/>
+        </p>
+    </xpath>
+</data>
+```
+Source: [snippets/mint_system.mail.mail_notification_layout.pureict_service_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.pureict_service_footer.xml)
+
 ### Remove Access Link
 
 ID: `mint_system.mail.mail_notification_layout.remove_access_link`
@@ -366,6 +393,21 @@ Inherit ID: `mail.mail_notification_layout`
 
 ```
 Source: [snippets/mint_system.mail.mail_notification_layout.remove_unfollow_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.remove_unfollow_link.xml)
+
+### Removed Header Button
+
+ID: `mint_system.mail.mail_notification_layout.removed_header_button`
+
+Inherit ID: `mail.mail_notification_layout`
+
+```xml
+<data priority="50">
+    <t t-set="subtype_internal" position="after">
+        <t t-set="has_button_access" t-value="False"/>
+    </t>
+</data>
+```
+Source: [snippets/mint_system.mail.mail_notification_layout.removed_header_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.removed_header_button.xml)
 
 ## Mail Notification Light
 
@@ -418,6 +460,33 @@ Inherit ID: `mail.mail_notification_light`
 
 ```
 Source: [snippets/mint_system.mail.mail_notification_light.embed_logo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.embed_logo.xml)
+
+### Pureict Service Footer
+
+ID: `mint_system.mail.mail_notification_light.pureict_service_footer`
+
+Inherit ID: `mail.mail_notification_light`
+
+```xml
+<data>
+    <xpath expr="//td[@align='center' and contains(@style, 'font-size:11px;')]/div[@style='color: #999999;']" position="replace">
+        <div t-if="not (message.model or '').startswith('helpdesk.')" style="color: #999999;">
+            <t t-out="company.phone"/>
+            <t t-if="company.email and company.phone"> |</t>
+            <a t-if="company.email" t-att-href="'mailto:%s' % company.email" style="text-decoration:none; color: #999999;" t-out="company.email"/>
+            <t t-if="company.website and (company.phone or company.email)"> |</t>
+            <a t-if="company.website" t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;" t-out="company.website"/>
+        </div>
+        <div t-else="" style="color: #999999;">
+            Supportnummer +41 41 556 67 89 |
+            <a t-if="record.team_id.alias_email" t-att-href="'mailto:%s' % record.team_id.alias_email" style="text-decoration:none; color: #999999;" t-out="record.team_id.alias_email"/>
+            <t t-if="record.team_id.alias_email and company.website"> |</t>
+            <a t-if="company.website" t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;" t-out="company.website"/>
+        </div>
+    </xpath>
+</data>
+```
+Source: [snippets/mint_system.mail.mail_notification_light.pureict_service_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.pureict_service_footer.xml)
 
 ### Reduce To Content
 
@@ -508,6 +577,21 @@ Inherit ID: `mail.mail_notification_light`
 
 ```
 Source: [snippets/mint_system.mail.mail_notification_light.remove_model_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.remove_model_name.xml)
+
+### Removed Url Helpdesk
+
+ID: `mint_system.mail.mail_notification_light.removed_url_helpdesk`
+
+Inherit ID: `mail.mail_notification_light`
+
+```xml
+<xpath expr="//td[@valign='middle']/t[@t-if='has_button_access']" position="attributes">
+    <attribute name="t-if">
+        has_button_access and not (message.model or '').startswith('helpdesk.')
+    </attribute>
+</xpath>
+```
+Source: [snippets/mint_system.mail.mail_notification_light.removed_url_helpdesk.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.removed_url_helpdesk.xml)
 
 ### Replace Footer
 

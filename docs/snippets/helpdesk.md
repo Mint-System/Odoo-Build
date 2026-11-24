@@ -48,6 +48,17 @@ Inherit ID: `helpdesk.helpdesk_ticket_view_form`
 ```
 Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.show_partner_email.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.show_partner_email.xml)
 
+### Show Ticket Ref
+
+ID: `mint_system.helpdesk.helpdesk_ticket_view_form.show_ticket_ref`
+
+Inherit ID: `helpdesk.helpdesk_ticket_view_form`
+
+```xml
+
+```
+Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.show_ticket_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_form.show_ticket_ref.xml)
+
 ### X Date Deadline
 
 ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline`

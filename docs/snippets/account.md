@@ -751,6 +751,23 @@ Inherit ID: `account.report_invoice_document`
 ```
 Source: [snippets/mint_system.account.report_invoice_document.add_information_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_information_space.xml)
 
+### Add Inv Head
+
+ID: `mint_system.account.report_invoice_document.add_inv_head`
+
+Inherit ID: `account.report_invoice_document`
+
+```xml
+<data priority="50">
+    <xpath expr="//h2" position="after">
+        <h4 t-if="o.inv_head_add">
+            <span t-field="o.inv_head_add"/>
+        </h4>
+    </xpath>
+</data>
+```
+Source: [snippets/mint_system.account.report_invoice_document.add_inv_head.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_inv_head.xml)
+
 ### Add Invoice Address Header
 
 ID: `mint_system.account.report_invoice_document.add_invoice_address_header`
