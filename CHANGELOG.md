@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Changed
 
+- Updated repo templates and generated module docs for all `addons` submodules across Odoo 15.0 to 20.0 (`.pre-commit-config.yaml`, `.pylintrc`, `.ruff.toml`, `.gitignore`, `task`, `README.md` and `*/static/description/index.html`).
 - Renamed `docs/Development.md` to `docs/Usage.md` and moved the nav entry after `Home`.
 - Replaced `pgadmin4` container with `mailgate` in Docker Compose setup.
 - Removed `pgadmin4` service and related configuration from `compose.yml.template`.
