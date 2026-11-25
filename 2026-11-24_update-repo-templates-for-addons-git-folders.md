@@ -1,16 +1,16 @@
 ---
-commit_ref:
+commit_ref: b9bc1348b09486b6b7d6625296860adf15b0a966
 title: "Update repo templates for addons git folders"
 author: "Janik von Rotz <login@janikvonrotz.ch>"
 session_id: 01a20f72-b054-774e-a741-28aa9d6108af
 action: execute
-state: wip
-date_completed: YYYY-MM-DD
+state: completed
+date_completed: 2026-11-25
 harness: pi
 provider: deepseek
 model: deepseek-v4-1-flash-1017
-input_tokens: 50561
-output_tokens: 19567
+input_tokens: 408083
+output_tokens: 52775
 ---
 
 # Update repo templates for addons git folders
@@ -171,6 +171,14 @@ To github.com:Mint-System/Odoo-Apps-Server-Tools.git
    0b6dbdc..1e75292  15.0 -> 15.0
 ```
 
+When all repos are processed store the versions.
+
+```bash
+[main][~/Odoo-Build]$ task save-version
+[main][~/Odoo-Build]$ git add versions
+[main][~/Odoo-Build]$ git commit -m "chore(15.0): update submodules"
+```
+
 ### Warnings
 
 Make sure that `tmp` is not committed. Here is an example where `tmp` is not in `.gitgnore`:
@@ -247,14 +255,40 @@ Pushed commits (`feat(docs): update repo templates`):
 | product_attribute | `c5b87ad..fb71003` |
 | account_financial_reporting | `cdc1fb8..06003bf` |
 
-### 16.0 – 20.0 (open)
+### 16.0 – 20.0 (done)
 
-Not started. `task checkout X` replaces `.gitmodules` but does **not** switch the existing repo folders off their current branch, so `task docs` would regenerate the previous version's docs. Open questions for the author:
+All repos of all versions processed, committed and pushed. Version pins stored per version.
 
-1. Which command moves the repos to the next version (`switch-git-folder`)?
-2. `versions/16.0/.gitmodules` points `addons/vertical_saas` at `Odoo-Apps-Vertical-SaaS`, the 15.0 list showed `Odoo-Apps-SaaS` – confirm which is correct.
-3. Repo sets differ per version (`connector`, `account_reconcile`, `spreadsheet`, `management_system`, `tender`, `kubernetes`, `data_analytic` appear only in later versions) – should the set be derived from `versions/X.0/.gitmodules` each time?
+Main repo commits:
 
-@Clanker Add a summary here once the task has been completed.
+| version | commit | repos |
+|---|---|---|
+| 16.0 | `df5dbbae` | 17 |
+| 17.0 | `c58e7e70` | 16 |
+| 18.0 | `953a7f35` | 21 |
+| 19.0 | `e6215a22` | 16 |
+| 20.0 | `214e975f` | 1 |
+
+#### Recurring problem: stale local branches
+
+`task checkout X` switches `.gitmodules` and the repo folders, but the local branch was often based on an **older** commit than `origin/X`, so `push-git-folder` was rejected (non-fast-forward). Two situations occurred:
+
+1. **Branch was stale but from the correct version** — fixed with `git -C <repo> rebase origin/X`, then push. Conflicts only in generated files (`task`, `.gitignore`, `README.md`, `*/static/description/index.html`); resolved by taking the regenerated content.
+2. **Branch pointed at the previous version** (e.g. `19.0` checked out when working 18.0). Rebase would have replayed unrelated commits, so instead: reset the branch to its last commit (`git reset --soft HEAD~1`, discarding the docs commit), `git reset --hard origin/X`, and rerun the whole pipeline for that repo. Detected with `git branch -r --contains HEAD~1` (only older branches listed = wrong base).
+
+Affected by (1): project, hr, sale_workflow, manufacture, website, vertical_saas, stock_logistics_workflow, purchase_workflow, partner_contact, server_tools.
+Affected by (2): product_attribute (18.0), sale_workflow, account_invoicing, purchase_workflow, stock_logistics_workflow, product_attribute, partner_contact, manufacture, contract, project (19.0).
+
+#### Other notes
+
+- `addons/sale_workflow` had a tracked `prompt.md`. Removed on author request as a separate commit `chore: remove prompt file` (`1510a27..a1f58fc`) in 16.0, followed by `save-version` + `chore(16.0): update submodules` (`df5dbbae`).
+- `task docs` prints `./task: line 147: .venv/bin/activate: No such file or directory` when the repo-local `.venv` is created for the first time. Harmless, docs generation succeeds.
+- No `tmp/`, `dist/`, `egg-info` or `.venv` was staged in any repo (checked with `git status --untracked-files=all` per repo).
+- Pre-existing stashes in hr, project, sale_workflow (3), contract, vertical_saas, account_financial_reporting were left untouched.
+- `vertical_saas` URL is `Odoo-Apps-Vertical-SaaS` in all versions from 16.0 on.
+
+### Note on `versions/18.0/.gitmodules`
+
+The `18.0` pin of `addons/product_attribute` carried `branch = 19.0`, left over from the mis-based local branch described above (`save-git-folder` records the *commit*, the branch line came from a previous file). Corrected to `18.0` in `b9bc1348`. The commit pin `ce226bf2` is the verified 18.0 tip.
 
 @Clanker If author confirms results set frontmatter state to completed, otherwise to aborted. Update date, harness, provider and model. If you have access to session info update token count. Finally, update the changelog with the most important changes.
