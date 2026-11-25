@@ -12,12 +12,12 @@
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
 	branch = 16.0
-	commit = 28b8de48dd52fa5d575ff89036909f6209138030
+	commit = 854534eb5197f8d4bb4b54a8dbf90f9e552468ec
 [submodule "addons/project"]
 	path = addons/project
 	url = git@github.com:Mint-System/Odoo-Apps-Project.git
 	branch = 16.0
-	commit = afd0df4b8ebeb388807e91965cf496df3db676ec
+	commit = 851a2650d35f80409a4f2fa41d3b9d70d3b294b4
 [submodule "oca/project"]
 	path = oca/project
 	url = git@github.com:OCA/project.git
@@ -187,7 +187,7 @@
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 16.0
-	commit = 0438d36def2dfccf9044f7a22d391cbdc744e3de
+	commit = 1510a2766d85749ffb6fc515bf50830018fe0e13
 [submodule "oca/credit-control"]
 	path = oca/credit-control
 	url = git@github.com:OCA/credit-control.git
@@ -197,17 +197,17 @@
 	path = addons/hr
 	url = git@github.com:Mint-System/Odoo-Apps-HR.git
 	branch = 16.0
-	commit = b6971ae65ca255be280cab767e2044d3fe7858b5
+	commit = a6e37ed127a4151567db2def9fa803f9a875e879
 [submodule "addons/manufacture"]
 	path = addons/manufacture
 	url = git@github.com:Mint-System/Odoo-Apps-Manufacture.git
 	branch = 16.0
-	commit = 370ea425a14709d1b1e493101a30c92c1a4fc39f
+	commit = bc29f9df1e299ba40772fb673e0ba902b2d18daa
 [submodule "addons/stock_logistics_workflow"]
 	path = addons/stock_logistics_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
 	branch = 16.0
-	commit = 0010c89bb0547da16e981f96ac90682e4a69129b
+	commit = 6f274fa7249d051fd4f5209ef07d226e33dcd61f
 [submodule "oca/stock-logistics-workflow"]
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
@@ -217,27 +217,27 @@
 	path = addons/website
 	url = git@github.com:Mint-System/Odoo-Apps-Website.git
 	branch = 16.0
-	commit = 0c57553bb574f1760804d5d124b01d765ae7642d
+	commit = 30daf5f8ed0260a4c9b046be75f1ab9faa5e47dd
 [submodule "addons/product_attribute"]
 	path = addons/product_attribute
 	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
 	branch = 16.0
-	commit = 6c2be04bc706de7b01c8ba775aff356cae0674ae
+	commit = 97286d759748a6a400580533f83dc00ac69fdbe6
 [submodule "addons/partner_contact"]
 	path = addons/partner_contact
 	url = git@github.com:mint-system/odoo-apps-partner-contact.git
 	branch = 16.0
-	commit = ae5079d99681f08d9d13b366bfa1352ea2642a40
+	commit = 3ee01c06fb71c1312a3ee0079317b09b74fd18e5
 [submodule "addons/vertical_saas"]
 	path = addons/vertical_saas
 	url = git@github.com:Mint-System/Odoo-Apps-Vertical-SaaS.git
 	branch = 16.0
-	commit = 31b5b2bc43b9d9e39ea2b9ba6f666f7e10628a4f
+	commit = 1e787a9a34f2262d1607ad1cdd60cc9fbd16ed1a
 [submodule "addons/social"]
 	path = addons/social
 	url = git@github.com:Mint-System/Odoo-Apps-Social.git
 	branch = 16.0
-	commit = 3bff72b13015ca66b8c33c0f61b6fb61459e66e4
+	commit = 527360f1b44a01fed56230662e740b4f4e9158c4
 [submodule "oca/management-system"]
 	path = oca/management-system
 	url = git@github.com:OCA/management-system.git
@@ -262,17 +262,17 @@
 	path = addons/account_financial_reporting
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
 	branch = 16.0
-	commit = bb83dac7c9644917613cad1a9de5a9efa507b89b
+	commit = d95c2ecfe634b01c27ba57377295f53582c019d0
 [submodule "addons/purchase_workflow"]
 	path = addons/purchase_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
 	branch = 16.0
-	commit = 9d1a028aa18ac5e1c693675d5e22da7204b158db
+	commit = cac7c9859931a4e4157687fc73bf2d30b76ccf16
 [submodule "addons/account_invoicing"]
 	path = addons/account_invoicing
 	url = git@github.com:mint-system/odoo-apps-account-invoicing.git
 	branch = 16.0
-	commit = 1f50074675461ed346122a527f3828ceb5e6469d
+	commit = 718092f8603a7586cf2e1c6f5bbc82f9ac5522e1
 [submodule "oca/e-commerce"]
 	path = oca/e-commerce
 	url = git@github.com:OCA/e-commerce.git
@@ -302,12 +302,12 @@
 	path = addons/connector
 	url = git@github.com:Mint-System/Odoo-Apps-Connector.git
 	branch = 16.0
-	commit = 923b287194d24c8850717c9e697ce802dd56c1da
+	commit = e7178acf541ce897962ff78921961d95c405207f
 [submodule "addons/account_reconcile"]
 	path = addons/account_reconcile
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git
 	branch = 16.0
-	commit = a24c21e9dbcfc793221d0461126bc96370d8a189
+	commit = 69ab96a13c131c770544269f5762266fbc90290f
 [submodule "oca/l10n-switzerland"]
 	path = oca/l10n-switzerland
 	url = git@github.com:OCA/l10n-switzerland.git
@@ -327,7 +327,7 @@
 	path = addons/spreadsheet
 	url = git@github.com:Mint-System/Odoo-Apps-Spreadsheet.git
 	branch = 16.0
-	commit = 0289506467a5f95893d2009f71f72005c0aa19ea
+	commit = 4e3ac0ab19f2498bd8a55ea8d2cc2e51ed8d45bb
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
