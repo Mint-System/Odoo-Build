@@ -187,7 +187,7 @@
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 16.0
-	commit = 1510a2766d85749ffb6fc515bf50830018fe0e13
+	commit = a1f58fc4ea2ee39451cf0f7e97ccb2deddb2d7e8
 [submodule "oca/credit-control"]
 	path = oca/credit-control
 	url = git@github.com:OCA/credit-control.git
