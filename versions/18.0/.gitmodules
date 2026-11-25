@@ -208,7 +208,7 @@
 [submodule "addons/product_attribute"]
 	path = addons/product_attribute
 	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
-	branch = 19.0
+	branch = 18.0
 	commit = ce226bf2af3141d1597baa727e0d2e4fe8e67a61
 [submodule "oca/website"]
 	path = oca/website
