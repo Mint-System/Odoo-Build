@@ -14,4 +14,4 @@
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools
 	branch = 20.0
-	commit = 37bcf3c65be61bd449972f1e67f68dcdafedb115
+	commit = 08b74818cfb7600f0e0577d9545bdff9f9ff6740
