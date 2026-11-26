@@ -1,5 +1,5 @@
 <data priority="50">
-  <xpath expr="//div[@class='o_footer_content d-flex border-top pt-2']/.." position="replace">
+  <xpath expr="//t[@t-call='web.external_layout_footer_content']/.." position="replace">
 
     <t t-if="report_type == 'pdf'">
       <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">

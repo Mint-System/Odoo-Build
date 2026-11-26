@@ -1,24 +1,16 @@
-<data priority="50">
-    <xpath expr="//span[@t-field='o.name']/../.." position="after">
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+    <xpath expr="//div[@id='informations']" position="replace">
         <style>
       table#info {
         width: 100%;
         margin-bottom: 25px;
         font-size: 9pt;
-        font-family: arial;
-        border-color: white;
-      }
-        table#info tr {
-        line-height: 1.2;
-        text-align: left;
-      }
-      table#info span {
-        line-height: 1.2;
+        line-height: 1.0;
       }
         .note {
         font-size: 9pt;
       }
-    </style>
+        </style>
         <table id="info">
             <tr>
                 <td width="17%">Order Deadline</td>
@@ -41,36 +33,11 @@
                 </td>
             </tr>
             <tr>
-                <td/>
+                <td>Reference</td>
                 <td>
                     <span t-field="o.partner_ref"/>
                 </td>
-                <!--
-                <t t-if="o.requisition_id">
-                    <td>Purchase Contract</td>
-                    <td>
-                        <span t-field="o.requisition_id"/>
-                        <t t-if="o.requisition_id.partner_ref"> /              <span t-field="o.requisition_id.partner_ref"/>
-            </t>
-                    </td>
-                </t>
-                -->
-            </tr>
-            <tr>
-                <td>Reference</td>
-                <!--
-                <td>
-                    <span t-field="o.comment"/>
-                </td>
-                -->
-                <td/>
-                <td/>
             </tr>
         </table>
-        <!--
-        <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-            <span class="note" t-field="o.note_header"/>
-        </t>
-        -->
     </xpath>
 </data>
